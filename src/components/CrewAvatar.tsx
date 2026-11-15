@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-/** "LK" from "Lina Khalil" (a leading "Astronaut" title is ignored). */
+/** "KK" from "Karam Khasawneh" (a leading "Astronaut" title is ignored). */
 export function crewInitials(name: string): string {
   const words = name.replace(/^Astronaut\s+/i, '').split(/[\s.]+/).filter(Boolean);
   return ((words[0]?.[0] ?? '') + (words.length > 1 ? words[words.length - 1][0] : '')).toUpperCase() || '?';

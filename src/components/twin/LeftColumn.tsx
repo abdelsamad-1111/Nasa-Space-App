@@ -29,7 +29,7 @@ export const LeftColumn = memo(function LeftColumn({ selected, onSelect }: Props
             {LOCATION_LABEL[settings.location]}
           </div>
           <div className="muted num">{fmtDate(dayDate)}</div>
-          <div className="mission-mode">{data.mode === 'demo' ? 'Fictional crew member · demo data' : data.measurements.some((m) => m.id.startsWith('demo-')) ? 'Personal mission · includes sample data' : 'Personal mission'}</div>
+          <div className="mission-mode">{data.mode === 'demo' ? 'Demo data · simulated readings' : data.measurements.some((m) => m.id.startsWith('demo-')) ? 'Personal mission · includes sample data' : 'Personal mission'}</div>
         </div>
       </div>
 

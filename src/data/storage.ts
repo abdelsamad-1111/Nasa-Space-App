@@ -94,7 +94,7 @@ function restoreState(saved: SavedState): PersistedState {
 }
 
 /** Saved demo missions from before the crew profile used a different fictional name: switch to the current demo crew member. */
-const OLD_DEMO_NAMES = ['Astronaut A. Rahman'];
+const OLD_DEMO_NAMES = ['Astronaut A. Rahman', 'Lina Khalil'];
 function updateDemoCrew(s: PersistedState): PersistedState {
   if (s.mode !== 'demo' || !OLD_DEMO_NAMES.includes(s.settings.name)) return s;
   return { ...s, settings: { ...s.settings, name: DEMO_SETTINGS.name, sex: DEMO_SETTINGS.sex, photo: DEMO_SETTINGS.photo } };

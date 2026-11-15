@@ -167,7 +167,7 @@ export function SettingsScreen() {
         <div className="data-actions">
           <div>
             <button className="btn" onClick={() => setConfirm('demo')}>Load demo data</button>
-            <p className="hint">30-day ISS mission for the fictional crew member Lina Khalil. Replaces all current data.</p>
+            <p className="hint">30-day ISS mission for the demo crew member Karam Khasawneh. Replaces all current data.</p>
           </div>
           <div>
             <button className="btn" onClick={() => setConfirm('reset')}>Reset all data</button>

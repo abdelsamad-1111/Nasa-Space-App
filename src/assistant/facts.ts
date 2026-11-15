@@ -132,7 +132,7 @@ const statusWord = (s: Status | null | undefined): string => (s ? STATUS_WORD[s]
 const isIndicator = (id: MetricId): id is IndicatorId => id !== 'exercise';
 const ALL_METRICS: MetricId[] = [...INDICATOR_ORDER, 'exercise'];
 
-/** Display name: "Lina Khalil" (a leading "Astronaut " title is dropped). */
+/** Display name: "Karam Khasawneh" (a leading "Astronaut " title is dropped). */
 export function crewName(settings: Settings): string {
   return settings.name.replace(/^astronaut\s+/i, '').trim() || 'crew';
 }

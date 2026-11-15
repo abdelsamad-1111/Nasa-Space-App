@@ -1,5 +1,5 @@
 // Astro Health AI — demo mission generator (section 7).
-// 30-day ISS mission for the fictional crew member "Lina Khalil". Hand-tuned daily values so the
+// 30-day ISS mission for the demo crew member "Karam Khasawneh" (team leader; readings are simulated). Hand-tuned daily values so the
 // story (adaptation → sleep debt → infection pattern → solar event → recovery)
 // is deterministic.
 import { metricDef, type MetricId } from '../brain/indicators';
@@ -9,7 +9,7 @@ export const MISSION_LENGTH = 30;
 export const DEMO_FIRST_DAY = 18;
 
 export const DEMO_SETTINGS: Settings = {
-  name: 'Lina Khalil',
+  name: 'Karam Khasawneh',
   sex: 'female',
   photo: '/assets/crew-photo.png',
   location: 'ISS',
