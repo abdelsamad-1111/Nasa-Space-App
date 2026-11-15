@@ -202,7 +202,7 @@
 
 /* Callout card — identical size and layout for every zone */
 .card {
-  width: var(--card-w); height: var(--card-h); background: #fff;
+  width: var(--card-w); min-height: var(--card-h); background: #fff;
   border: 1px solid var(--rule-light); border-radius: 2px; padding: 8px 10px;
   display: flex; flex-direction: column; cursor: pointer;
 }
@@ -211,11 +211,12 @@
 .card-ACT, .card-CRITICAL { border-color: var(--act); }
 .card.is-selected { outline: 1px solid var(--text); outline-offset: 3px; }
 .card.is-hover { outline: 2px solid var(--text); outline-offset: 3px; }
-.card-head { display: flex; justify-content: space-between; align-items: center; gap: 6px; height: 18px; }
-.card-name { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-head { display: flex; justify-content: space-between; align-items: first baseline; gap: 6px; min-height: 18px; }
+/* Long names wrap onto a second line instead of being cut; the card grows to fit. */
+.card-name { min-width: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; overflow-wrap: anywhere; }
 .card-quiet .card-name { color: var(--text-2); }
-.card-head .status { font-size: 11px; }
-.card-nodata { font-size: 11px; }
+.card-head .status { font-size: 11px; flex: none; }
+.card-nodata { font-size: 11px; flex: none; }
 .card-values { flex: 1; display: grid; grid-template-columns: 1fr; column-gap: 10px; margin-top: 3px; }
 .card-values.is-dual { grid-template-columns: 1fr 1fr; }
 .card-value {
