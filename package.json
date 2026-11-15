@@ -1,0 +1,36 @@
+{
+  "name": "vitals-orbit",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "body:extract": "python -I scripts/extract-body.py",
+    "body:check": "vite-node scripts/render-body-check.tsx",
+    "anatomy:extract": "python -I scripts/extract-bp3d.py",
+    "anatomy:build": "node --max-old-space-size=4096 scripts/build-anatomy.mjs"
+  },
+  "dependencies": {
+    "@google/model-viewer": "^4.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.15.4"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.1.1",
+    "@gltf-transform/extensions": "^4.1.1",
+    "@gltf-transform/functions": "^4.1.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "draco3dgltf": "^1.5.7",
+    "meshoptimizer": "^0.22.0",
+    "sharp": "^0.33.5",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.21",
+    "vitest": "^2.1.9"
+  }
+}

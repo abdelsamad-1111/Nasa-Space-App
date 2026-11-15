@@ -1,0 +1,9 @@
+.settings-grid { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--gutter); }
+.settings-col { grid-column: span 4; }
+.settings-col-wide { grid-column: 6 / span 7; }
+.baseline-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px var(--gutter); }
+.settings-actions { display: flex; gap: 16px; align-items: center; }
+.data-actions { display: flex; gap: 48px; }
+.data-actions .hint { margin-top: 6px; max-width: 320px; }
+.confirm { margin-top: 20px; padding: 16px; border: 1px solid var(--rule); background: var(--surface); max-width: 560px; }
+.confirm-buttons { display: flex; gap: 8px; margin-top: 12px; }

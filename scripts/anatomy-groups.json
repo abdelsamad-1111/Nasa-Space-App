@@ -1,0 +1,18 @@
+{
+  "source": "BodyParts3D (DBCLS): v4 IS-A elements, with complete lung lobe surfaces from v3. See anatomy-sources.md.",
+  "groups": {
+    "skin": { "material": "skin", "concepts": ["FMA7163"] },
+    "brain": { "material": "brain", "concepts": ["FMA50801"] },
+    "heart": { "material": "heart", "concepts": ["FMA7088"] },
+    "lung_right": { "material": "lungs", "source": "v3", "elements": ["FMA7333", "FMA7337", "FMA7383"] },
+    "lung_left": { "material": "lungs", "source": "v3", "elements": ["FMA7370", "FMA7371"] },
+    "lung_airways": { "material": "lung_airways", "concepts": ["FMA7394", "FMA7396", "FMA68418"] },
+    "liver": { "material": "liver", "elements": ["FJ1858", "FJ2409", "FJ2816", "FJ2818", "FJ2819", "FJ2820", "FJ2821", "FJ2822", "FJ2823", "FJ2824"] },
+    "stomach": { "material": "stomach", "concepts": ["FMA7148"] },
+    "leg_bones": {
+      "material": "legs_bone",
+      "concepts": ["FMA24474", "FMA24475", "FMA24477", "FMA24478", "FMA24480", "FMA24481", "FMA24486", "FMA24487"]
+    },
+    "leg_muscles": { "material": "legs_muscle", "concepts": ["FMA22470", "FMA22471"] }
+  }
+}

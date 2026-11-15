@@ -1,0 +1,11 @@
+.filters { display: flex; gap: var(--gutter); align-items: flex-end; }
+.filters .field { width: 220px; }
+.report-btn { margin-left: auto; }
+.report-actions { display: flex; gap: 8px; align-items: center; }
+.report-text {
+  width: 100%; border: 1px solid var(--rule); border-radius: 2px; padding: 16px; background: var(--surface);
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; font-size: 12.5px; line-height: 1.55; resize: vertical;
+}
+.alerts table.data td:first-child { white-space: nowrap; }
+.td-action { text-align: right; white-space: nowrap; }
+.alerts .section-head h2 { display: flex; align-items: center; gap: 8px; }
