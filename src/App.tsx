@@ -7,6 +7,7 @@ import { CheckIn } from './components/CheckIn';
 import { ExerciseLog } from './components/ExerciseLog';
 import { AlertsScreen } from './components/AlertsScreen';
 import { SourcesScreen } from './components/SourcesScreen';
+import { AssistantPanel } from './components/assistant/AssistantPanel';
 
 function Screens() {
   const { screen } = useApp();
@@ -44,6 +45,8 @@ export function App() {
   return (
     <AppProvider>
       <Shell />
+      {/* Mounted once so the comms log survives screen changes. */}
+      <AssistantPanel />
     </AppProvider>
   );
 }

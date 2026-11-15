@@ -82,6 +82,12 @@ interface Ctx {
   openAlerts: Alert[];
   loadDemo: () => void;
   resetAll: () => void;
+  /** CAPCOM Assistant side panel. */
+  assistantOpen: boolean;
+  /** Open the Assistant; `focusInput` moves focus to the question box. */
+  openAssistant: (focusInput?: boolean) => void;
+  closeAssistant: () => void;
+  assistantFocusToken: number;
 }
 
 const AppContext = createContext<Ctx | null>(null);
@@ -100,6 +106,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [screen, setScreen] = useState<Screen>('twin');
   const [selectedMetric, setSelectedMetric] = useState<MetricId | null>(null);
   const [checkInStep, setCheckInStep] = useState(0);
+  const [assistantOpen, setAssistantOpen] = useState(false);
+  const [assistantFocusToken, setAssistantFocusToken] = useState(0);
+  const openAssistant = useCallback((focusInput = false) => {
+    setAssistantOpen(true);
+    if (focusInput) setAssistantFocusToken((n) => n + 1);
+  }, []);
+  const closeAssistant = useCallback(() => setAssistantOpen(false), []);
   const [now, setNow] = useState(() => new Date());
   useEffect(() => {
     const t = window.setInterval(() => setNow(new Date()), 60_000);
@@ -183,6 +196,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
     openAlerts,
     loadDemo,
     resetAll,
+    assistantOpen,
+    openAssistant,
+    closeAssistant,
+    assistantFocusToken,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }

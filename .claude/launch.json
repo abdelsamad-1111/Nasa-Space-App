@@ -2,6 +2,7 @@
   "version": "0.0.1",
   "configurations": [
     { "name": "vitals-orbit", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 5173 },
-    { "name": "vitals-orbit-build", "runtimeExecutable": "npm", "runtimeArgs": ["run", "preview", "--", "--port", "4173", "--strictPort"], "port": 4173 }
+    { "name": "vitals-orbit-build", "runtimeExecutable": "npm", "runtimeArgs": ["run", "preview", "--", "--port", "4173", "--strictPort"], "port": 4173 },
+    { "name": "vitals-orbit-server", "runtimeExecutable": "powershell", "runtimeArgs": ["-NoProfile", "-Command", "$env:GROQ_API_KEY = [Environment]::GetEnvironmentVariable('GROQ_API_KEY','User'); $env:PORT = '3000'; node server/index.mjs"], "port": 3000 }
   ]
 }

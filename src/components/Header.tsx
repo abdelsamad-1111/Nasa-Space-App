@@ -11,7 +11,7 @@ const NAV: { id: Screen; label: string }[] = [
 const LOCATIONS: Location[] = ['ISS', 'MOON', 'MARS'];
 
 export function Header() {
-  const { screen, setScreen, startCheckIn, openAlerts, data, dispatch } = useApp();
+  const { screen, setScreen, startCheckIn, openAlerts, data, dispatch, assistantOpen, openAssistant, closeAssistant } = useApp();
   const setLocation = (location: Location) => dispatch({ type: 'settings', settings: { ...data.settings, location } });
 
   return (
@@ -31,6 +31,13 @@ export function Header() {
             )}
           </button>
         ))}
+        <button
+          aria-expanded={assistantOpen}
+          aria-controls="capcom-panel"
+          onClick={() => (assistantOpen ? closeAssistant() : openAssistant())}
+        >
+          Assistant
+        </button>
       </nav>
       <div className="header-right">
         <div className="segmented" role="group" aria-label="Location">

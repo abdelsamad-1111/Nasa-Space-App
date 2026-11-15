@@ -48,6 +48,11 @@ export const SidePanel = memo(function SidePanel({ selected, tab, onTab }: Props
   const [explore, setExplore] = useState(false);
   const closeExplore = useCallback(() => setExplore(false), []);
   const selectedZone = ZONES.find((zone) => zone.indicators.includes(selected))?.id ?? null;
+  const { setSelectedMetric, openAssistant } = useApp();
+  const askAboutThis = () => {
+    setSelectedMetric(selected);
+    openAssistant(true);
+  };
 
   const onKey = (e: KeyboardEvent, i: number) => {
     if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
@@ -63,9 +68,14 @@ export const SidePanel = memo(function SidePanel({ selected, tab, onTab }: Props
           <span className="eyebrow">Selected indicator</span>
           <h2 className="panel-title">{ind.name}</h2>
         </div>
-        <button className="btn explore-btn" onClick={() => setExplore(true)}>
-          Explore 3D
-        </button>
+        <div className="panel-head-actions">
+          <button className="btn explore-btn" onClick={askAboutThis} aria-controls="capcom-panel">
+            Ask about this
+          </button>
+          <button className="btn explore-btn" onClick={() => setExplore(true)}>
+            Explore 3D
+          </button>
+        </div>
       </div>
       {explore && <Explore3D initialZone={selectedZone} onClose={closeExplore} />}
       <div className="tabs" role="tablist" aria-label="Detail views" data-region="compare interpret">

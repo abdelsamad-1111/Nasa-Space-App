@@ -492,6 +492,20 @@ export function overallStatus(evals: Partial<Record<IndicatorId, Evaluation>>, p
   return s;
 }
 
+/** Indicator with the worst status (default selection when none is chosen). */
+export function worstIndicator(evals: Partial<Record<IndicatorId, Evaluation>>): IndicatorId {
+  let best: IndicatorId = 'bp';
+  let r = -1;
+  for (const id of INDICATOR_ORDER) {
+    const e = evals[id];
+    if (e && rank(e.status) > r) {
+      r = rank(e.status);
+      best = id;
+    }
+  }
+  return best;
+}
+
 export function attentionCount(evals: Partial<Record<IndicatorId, Evaluation>>): number {
   return Object.values(evals).filter((e) => e && e.status !== 'OK').length;
 }

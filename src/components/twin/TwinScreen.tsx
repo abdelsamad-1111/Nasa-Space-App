@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { INDICATOR_ORDER, ZONES, type IndicatorId, type MetricId, type PatternId, type Status, type StoryStepId, type ZoneId } from '../../brain/indicators';
-import { detectPatterns, evaluateDay, summarizeAssessment, rank } from '../../brain/evaluate';
+import { ZONES, type MetricId, type PatternId, type Status, type StoryStepId, type ZoneId } from '../../brain/indicators';
+import { detectPatterns, evaluateDay, summarizeAssessment, worstIndicator } from '../../brain/evaluate';
 import { useApp } from '../../state/AppState';
 import { fmtDate, fmtNumber } from '../../lib/format';
 import { LeftColumn } from './LeftColumn';
@@ -10,19 +10,6 @@ import { PatternBanner, patternZones } from './PatternCard';
 import { Timeline } from './Timeline';
 import { StoryBar } from './StoryBar';
 import './twin.css';
-
-function worstIndicator(evals: ReturnType<typeof evaluateDay>): IndicatorId {
-  let best: IndicatorId = 'bp';
-  let r = -1;
-  for (const id of INDICATOR_ORDER) {
-    const e = evals[id];
-    if (e && rank(e.status) > r) {
-      r = rank(e.status);
-      best = id;
-    }
-  }
-  return best;
-}
 
 export function TwinScreen() {
   const { data, view, maxDay, selectedMetric, setSelectedMetric } = useApp();
