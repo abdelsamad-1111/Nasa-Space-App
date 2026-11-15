@@ -1,0 +1,24 @@
+/* "How the forecast works" — same design system; dashed = model (forecast), solid = rules (now). */
+.forecast-page > * { grid-column: 1 / span 9; } /* the generic .screen is a 12-column grid */
+.forecast-page > .screen-title { grid-column: 1 / -1; }
+.fc-lead { max-width: 720px; margin-top: 8px; color: var(--text-2); }
+.fc-steps { list-style: none; margin: 22px 0 6px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gutter); }
+.fc-steps li { display: flex; gap: 12px; padding-top: 12px; border-top: 1px solid var(--rule); }
+.fc-step-n { flex: none; width: 26px; height: 26px; border: 1px solid var(--rule); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
+.fc-steps h2 { font-size: 14px; margin-bottom: 4px; }
+.fc-steps p { font-size: 13px; color: var(--text-2); }
+
+.fc-compare { margin-top: 14px; }
+.fc-compare h3 { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+.fc-bar-row { display: grid; grid-template-columns: 170px 1fr 56px; align-items: center; gap: 12px; margin-top: 5px; font-size: 12.5px; }
+.fc-bar-who { color: var(--text-2); }
+.fc-bar { height: 14px; border-radius: 2px; padding: 1px; background: #fff; }
+.fc-bar > span { display: block; height: 100%; }
+.fc-model .fc-bar { border: 1.5px dashed #b07612; }
+.fc-model .fc-bar > span { background: var(--watch); }
+.fc-rules .fc-bar { border: 1px solid var(--rule); }
+.fc-rules .fc-bar > span { background: #555; }
+.fc-bar-n { text-align: right; font-weight: 600; }
+.fc-false { margin-top: 16px; font-size: 14px; }
+.fc-legend { margin-top: 8px; }
+.fc-honest { margin-top: 18px; padding: 12px 14px; border: 1px solid var(--rule-light); background: var(--surface); font-size: 13px; }

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ZONES, type MetricId, type PatternId, type Status, type StoryStepId, type ZoneId } from '../../brain/indicators';
 import { detectPatterns, evaluateDay, summarizeAssessment, worstIndicator } from '../../brain/evaluate';
-import { forecastDay } from '../../brain/forecast';
+import { warningDays } from '../../lib/forecastPresentation';
 import { useApp } from '../../state/AppState';
 import { fmtDate, fmtNumber } from '../../lib/format';
 import { LeftColumn } from './LeftColumn';
@@ -10,6 +10,7 @@ import { SidePanel, type PanelTab } from './SidePanel';
 import { PatternBanner, patternZones } from './PatternCard';
 import { Timeline } from './Timeline';
 import { StoryBar } from './StoryBar';
+import { NowNextStrip } from './NowNextStrip';
 import './twin.css';
 
 export function TwinScreen() {
@@ -26,17 +27,17 @@ export function TwinScreen() {
   const storyTimer = useRef<number>();
 
   // Overall status for every day (timeline ticks).
-  const { dayStatus, warningDays } = useMemo(() => {
+  const dayStatus = useMemo(() => {
     const out: (Status | null)[] = [];
-    const warnings: number[] = [];
     for (let d = 1; d <= maxDay; d++) {
       const evals = evaluateDay(data.measurements, d, data.settings);
       const summary = summarizeAssessment(evals, detectPatterns(data.measurements, d));
       out.push(summary.complete || summary.status !== 'OK' ? summary.status : null);
-      if (forecastDay(data.measurements, d)?.warn) warnings.push(d);
     }
-    return { dayStatus: out, warningDays: warnings };
+    return out;
   }, [data.measurements, data.settings, maxDay]);
+  // Early warnings (forecast, dashed) for every day, separate from the rule-based status.
+  const warnings = useMemo(() => warningDays(data.measurements, maxDay), [data.measurements, maxDay]);
 
   const open = useCallback((id: MetricId) => {
     setSelectedMetric(id);
@@ -69,6 +70,7 @@ export function TwinScreen() {
 
   return (
     <main className="twin">
+      <NowNextStrip />
       <StoryBar active={story} onStep={onStep} />
       <div className="twin-grid">
         <LeftColumn selected={selected} onSelect={open} />
@@ -83,10 +85,14 @@ export function TwinScreen() {
           </div>
           <PatternBanner patterns={view.patterns} active={shownPattern} onToggle={togglePattern} />
           <BodyStage selected={selected} highlight={highlight} hoverZone={hoverZone} onHover={setHoverZone} onOpen={open} />
+          <p className="body-legend" aria-label="Legend: solid means now, dashed means next 48 hours">
+            <span><i aria-hidden="true" /> solid = now</span>
+            <span><i className="is-dashed" aria-hidden="true" /> dashed = next 48 h</span>
+          </p>
         </section>
         <SidePanel selected={selected} tab={tab} onTab={setTab} />
       </div>
-      <Timeline dayStatus={dayStatus} warningDays={warningDays} />
+      <Timeline dayStatus={dayStatus} warnings={warnings} />
     </main>
   );
 }

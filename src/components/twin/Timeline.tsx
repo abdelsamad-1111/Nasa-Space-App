@@ -3,16 +3,20 @@ import { STATUS_COLOR, type Status } from '../../brain/indicators';
 import { MISSION_EVENTS } from '../../data/demo';
 import { useApp } from '../../state/AppState';
 import { fmtNumber } from '../../lib/format';
+import { PROBLEM_NAME, type WarningDay } from '../../lib/forecastPresentation';
 
 interface Props {
   dayStatus: (Status | null)[]; // index 0 = day 1
-  warningDays?: readonly number[];
+  /** Early warnings (forecast) — drawn as hollow dashed diamonds, unlike the solid event markers. */
+  warnings?: readonly WarningDay[];
 }
 
-export const Timeline = memo(function Timeline({ dayStatus, warningDays = [] }: Props) {
+export const Timeline = memo(function Timeline({ dayStatus, warnings: warningList = [] }: Props) {
   const { day, setDay, maxDay, data } = useApp();
   const events = data.mode === 'demo' ? MISSION_EVENTS.filter((ev) => ev.day <= maxDay) : [];
-  const warnings = [...new Set(warningDays)].filter((d) => Number.isInteger(d) && d >= 1 && d <= maxDay).sort((a, b) => a - b);
+  const warnings = [...new Map(warningList.map((w) => [w.day, w])).values()]
+    .filter((w) => Number.isInteger(w.day) && w.day >= 1 && w.day <= maxDay)
+    .sort((a, b) => a.day - b.day);
   const [playing, setPlaying] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -114,8 +118,9 @@ export const Timeline = memo(function Timeline({ dayStatus, warningDays = [] }: 
 
         {warnings.length > 0 && (
           <div className="tl-warnings" role="group" aria-label="Early warnings from the synthetic-trained model">
-            {warnings.map((d) => {
-              const label = `Early warning on Day ${fmtNumber(d)} — trained on synthetic data, not a diagnosis`;
+            {warnings.map((w) => {
+              const d = w.day;
+              const label = `Early warning: ${PROBLEM_NAME[w.problem]} · ${fmtNumber(w.riskPercent)}% (Day ${fmtNumber(d)}) — trained on synthetic data, not a diagnosis`;
               return (
                 <button
                   key={d}
@@ -173,7 +178,7 @@ export const Timeline = memo(function Timeline({ dayStatus, warningDays = [] }: 
         {warnings.length > 0 && (
           <p className="tl-warning-legend">
             <span className="tl-warning-diamond" aria-hidden="true" />
-            Early warning · synthetic model · not a diagnosis
+            Early warning (next 48 h) · synthetic model · not a diagnosis
           </p>
         )}
       </div>

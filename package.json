@@ -12,7 +12,8 @@
     "body:extract": "python -I scripts/extract-body.py",
     "body:check": "vite-node scripts/render-body-check.tsx",
     "anatomy:extract": "python -I scripts/extract-bp3d.py",
-    "anatomy:build": "node --max-old-space-size=4096 scripts/build-anatomy.mjs"
+    "anatomy:build": "node --max-old-space-size=4096 scripts/build-anatomy.mjs",
+    "forecast:results": "node scripts/export-forecast-results.mjs"
   },
   "dependencies": {
     "@google/model-viewer": "^4.1.0",

@@ -11,9 +11,11 @@ import {
   THRESHOLDS,
 } from '../brain/indicators';
 import { fmtNumber } from '../lib/format';
+import { useApp } from '../state/AppState';
 import { METRIC_EVIDENCE, SOURCE_REVIEWED_ON, sourcesForMetric } from '../data/healthSources';
 
 export function SourcesScreen() {
+  const { setScreen } = useApp();
   return (
     <main className="screen sources">
       <div className="screen-title">
@@ -94,6 +96,14 @@ export function SourcesScreen() {
           <li>{GLUCOSE_NOTE}</li>
           <li>Default radiation reference: {fmtNumber(THRESHOLDS.radiation.careerLimitDefault)} mSv. {RADIATION_LIMIT_NOTE} Editing Settings does not change the NASA requirement.</li>
         </ul>
+      </section>
+
+      <section className="section">
+        <div className="section-head"><h2>Early-warning model (next 48 h)</h2></div>
+        <p>
+          A separate statistical model trained on synthetic data gives the dashed “Next 48 h” warning. It does not change any status above.{' '}
+          <button className="btn btn-ghost" onClick={() => setScreen('forecast')}>How the forecast works →</button>
+        </p>
       </section>
 
       <section className="section">

@@ -7,6 +7,7 @@ import { CheckIn } from './components/CheckIn';
 import { ExerciseLog } from './components/ExerciseLog';
 import { AlertsScreen } from './components/AlertsScreen';
 import { SourcesScreen } from './components/SourcesScreen';
+import { ForecastScreen } from './components/ForecastScreen';
 import { AssistantPanel } from './components/assistant/AssistantPanel';
 import { ReportView } from './components/report/ReportView';
 
@@ -19,6 +20,8 @@ function Screens() {
       return <AlertsScreen />;
     case 'sources':
       return <SourcesScreen />;
+    case 'forecast':
+      return <ForecastScreen />;
     default:
       return <TwinScreen />;
   }

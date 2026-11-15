@@ -6,15 +6,14 @@
 .story ol { list-style: none; margin: 0; padding: 0; display: flex; align-items: stretch; }
 .story li { display: flex; align-items: center; flex: 1; }
 .story-step {
-  flex: 1; display: grid; grid-template-columns: auto 1fr; column-gap: 10px; align-items: baseline;
-  border: none; background: none; text-align: left; padding: 10px 8px; border-top: 3px solid transparent; margin-top: -1px;
+  flex: 1; display: flex; gap: 8px; align-items: baseline; white-space: nowrap;
+  border: none; background: none; text-align: left; padding: 5px 8px; border-top: 2px solid transparent; margin-top: -1px;
 }
 .story-step:hover { background: var(--surface); }
 .story-step.is-active { border-top-color: var(--text); background: var(--surface); }
 .story-num { font-size: 11px; font-weight: 600; color: var(--text-2); }
-.story-label { font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px; }
-.story-help { grid-column: 2; font-size: 11px; color: var(--text-2); line-height: 1.3; }
-.story-arrow { color: var(--text-2); padding: 0 4px; font-size: 14px; }
+.story-label { font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 11px; }
+.story-arrow { color: var(--text-2); padding: 0 4px; font-size: 12px; }
 
 .is-story { outline: 2px solid var(--text) !important; outline-offset: 4px; transition: outline-color 0.2s; }
 
@@ -185,11 +184,12 @@
 /* Model forecasts have their own row and shape; clinical-status ticks remain unchanged. */
 .tl-warnings { position: relative; height: 24px; }
 .tl-warning { position: absolute; top: 0; width: 24px; height: 24px; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; border: none; border-radius: 2px; background: transparent; padding: 6px; }
-.tl-warning-diamond { display: inline-block; width: 8px; height: 8px; flex: none; transform: rotate(45deg); background: var(--watch); border: 1px solid #8b6118; }
+/* Forecast marker: HOLLOW + DASHED (solid markers are rule-based events) */
+.tl-warning-diamond { display: inline-block; width: 10px; height: 10px; flex: none; transform: rotate(45deg); background: #fff; border: 1.5px dashed #b07612; box-sizing: border-box; }
 .tl-warning:hover, .tl-warning.is-current { background: #d9961a18; }
 .tl-warning.is-current .tl-warning-diamond { outline: 1px solid var(--text); outline-offset: 2px; }
 .tl-warning-legend { display: flex; align-items: center; gap: 7px; margin-top: 3px; color: var(--text-2); font-size: 10px; line-height: 1.5; }
-.tl-warning-legend .tl-warning-diamond { width: 6px; height: 6px; }
+.tl-warning-legend .tl-warning-diamond { width: 8px; height: 8px; border-width: 1px; }
 
 
 /* ---------- Stage: card column | 3D anatomy | card column ---------- */
@@ -385,3 +385,16 @@
 /* Locked main view: the canvas ignores pointer input; only the organ dots are interactive. */
 .body3d.is-locked model-viewer { pointer-events: none; }
 .body3d.is-locked .organ-dot { pointer-events: auto; }
+
+/* ---------- Forecast on the body: DASHED amber outline, no fill, above halos ---------- */
+.forecast-outline { position: absolute; z-index: 2; pointer-events: none; border: 2px dashed #b07612; background: transparent; }
+.forecast-outline-body { left: 18%; top: 0.3%; width: 64%; height: 99.4%; border-radius: 46% 46% 32% 32% / 9% 9% 5% 5%; }
+.forecast-outline-heart { transform: translate(-50%, -50%); aspect-ratio: 1; border-radius: 50%; }
+.body-legend { display: flex; justify-content: center; gap: 18px; margin-top: 6px; font-size: 11px; color: var(--text-2); }
+.body-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.body-legend i { display: inline-block; width: 18px; border-top: 2px solid #9a9a96; }
+.body-legend i.is-dashed { border-top: 2px dashed #b07612; }
+
+/* Evening re-check: added by the early warning (dashed = forecast) */
+.rt-recheck { border-left: 2px dashed #b07612; padding-left: 6px; margin-left: -8px; }
+.rt-recheck .rt-name { white-space: normal; overflow: visible; }

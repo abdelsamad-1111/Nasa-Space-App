@@ -2,8 +2,6 @@ import { LOCATION_LABEL, type Location } from '../brain/indicators';
 import { useApp, type Screen } from '../state/AppState';
 import { fmtDate, fmtNumber } from '../lib/format';
 import { Logo } from './Logo';
-import { AstronautMark } from './AstronautMark';
-import { APP_NAME } from '../lib/brand';
 
 const NAV: { id: Screen; label: string }[] = [
   { id: 'twin', label: 'Health Twin' },
@@ -16,7 +14,7 @@ const LOCATIONS: Location[] = ['ISS', 'MOON', 'MARS'];
 
 /** Dark space band (Earth image) = top bar + mission-day bar. Everything below stays light. */
 export function Header() {
-  const { screen, setScreen, startCheckIn, openAlerts, data, dispatch, view, maxDay, assistantOpen, openAssistant, closeAssistant } = useApp();
+  const { screen, setScreen, startCheckIn, openAlerts, earlyWarningCount, data, dispatch, view, maxDay } = useApp();
   const setLocation = (location: Location) => dispatch({ type: 'settings', settings: { ...data.settings, location } });
   const dayDate = new Date(new Date(data.missionStart).getTime() + (view.day - 1) * 86400000);
 
@@ -35,20 +33,19 @@ export function Header() {
                   {openAlerts.length.toLocaleString('en-US')}
                 </span>
               )}
+              {n.id === 'alerts' && earlyWarningCount > 0 && (
+                <span
+                  className="badge badge-early"
+                  aria-label={`${earlyWarningCount} early warning${earlyWarningCount === 1 ? '' : 's'} (next 48 h forecast, not counted as alerts)`}
+                  title="Early warnings (next 48 h forecast) — not counted in the alerts badge"
+                >
+                  {earlyWarningCount.toLocaleString('en-US')}
+                </span>
+              )}
             </button>
           ))}
         </nav>
         <div className="header-right">
-          <button
-            className="assistant-launch"
-            aria-label={`${assistantOpen ? 'Close' : 'Open'} ${APP_NAME} assistant`}
-            aria-expanded={assistantOpen}
-            aria-controls="capcom-panel"
-            onClick={() => (assistantOpen ? closeAssistant() : openAssistant(true))}
-          >
-            <AstronautMark size={32} />
-            <span><strong>{APP_NAME}</strong><span>Ask your assistant</span></span>
-          </button>
           <div className="segmented" role="group" aria-label="Location">
             {LOCATIONS.map((l) => (
               <button key={l} aria-pressed={data.settings.location === l} onClick={() => setLocation(l)}>

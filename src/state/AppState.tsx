@@ -16,7 +16,7 @@ import {
 import type { IndicatorId, MetricId, Status } from '../brain/indicators';
 import { MISSION_LENGTH, missionDayFor } from '../data/demo';
 import { clearState, demoState, emptyState, loadState, saveState, type PersistedState } from '../data/storage';
-import { forecastPresentation, type ForecastPresentation } from '../lib/forecastPresentation';
+import { forecastPresentation, warningDays, type ForecastPresentation, type WarningDay } from '../lib/forecastPresentation';
 
 type Action =
   | { type: 'settings'; settings: Settings }
@@ -47,7 +47,7 @@ function reducer(s: PersistedState, a: Action): PersistedState {
   }
 }
 
-export type Screen = 'twin' | 'checkin' | 'exercise' | 'alerts' | 'settings' | 'sources';
+export type Screen = 'twin' | 'checkin' | 'exercise' | 'alerts' | 'settings' | 'sources' | 'forecast';
 
 export interface DayView {
   day: number;
@@ -82,6 +82,10 @@ interface Ctx {
   view: DayView;
   alerts: Alert[];
   openAlerts: Alert[];
+  /** Early warnings (forecast) up to the selected day — never part of `alerts` or the red badge. */
+  earlyWarnings: WarningDay[];
+  /** Early warnings still inside their 48 h window (selected day or the day before). */
+  earlyWarningCount: number;
   loadDemo: () => void;
   resetAll: () => void;
   /** Astro Health AI assistant side panel. */
@@ -182,6 +186,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     [data.measurements, data.settings, data.acknowledgedAlerts, day],
   );
   const openAlerts = useMemo(() => alerts.filter((a) => a.open), [alerts]);
+  const earlyWarnings = useMemo(() => warningDays(data.measurements, day), [data.measurements, day]);
+  const earlyWarningCount = earlyWarnings.filter((w) => w.day >= day - 1).length;
 
   const loadDemo = useCallback(() => {
     const s = demoState();
@@ -217,6 +223,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     view,
     alerts,
     openAlerts,
+    earlyWarnings,
+    earlyWarningCount,
     loadDemo,
     resetAll,
     assistantOpen,

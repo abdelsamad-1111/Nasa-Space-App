@@ -9,3 +9,7 @@
 .alerts table.data td:first-child { white-space: nowrap; }
 .td-action { text-align: right; white-space: nowrap; }
 .alerts .section-head h2 { display: flex; align-items: center; gap: 8px; }
+
+/* Early warnings (forecast) — dashed, separate from rule-based alerts */
+.early-alerts { border-left: 2px dashed #b07612; padding-left: 14px; }
+.badge-early-light { background: transparent; color: var(--text); border: 1.5px dashed #b07612; }

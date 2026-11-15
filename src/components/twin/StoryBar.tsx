@@ -14,11 +14,10 @@ export function StoryBar({ active, onStep }: Props) {
             <button
               className={`story-step${active === s.id ? ' is-active' : ''}`}
               onClick={() => onStep(s.id)}
-              aria-describedby={`story-help-${s.id}`}
+              title={s.help}
             >
               <span className="story-num num">{String(i + 1).padStart(2, '0')}</span>
               <span className="story-label">{s.label}</span>
-              <span className="story-help" id={`story-help-${s.id}`}>{s.help}</span>
             </button>
             {i < STORY_STEPS.length - 1 && (
               <span className="story-arrow" aria-hidden="true">→</span>

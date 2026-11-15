@@ -37,11 +37,11 @@ describe('Report-day synthetic early warning', () => {
     const report = buildReportModel(state, day, NOW);
     const observed = summarizeAssessment(evaluateDay(state.measurements, day, state.settings), detectPatterns(state.measurements, day));
 
-    expect(report.summary.earlyWarning).toContain(`Early warning: ${expected.level}`);
+    expect(report.summary.earlyWarning).toContain(`Early warning (next 48 h): ${expected.level}`);
     expect(report.summary.earlyWarning).not.toMatch(/\d+%/);
     expect(report.summary.earlyWarning).toContain(FORECAST_LABEL);
     if (expected.warn) {
-      expect(report.summary.earlyWarning).toContain(expected.problemLabel);
+      expect(report.summary.earlyWarning).toContain(`Elevated — ${expected.problemShort} (`);
       for (const driver of expected.drivers.slice(0, 2)) expect(report.summary.earlyWarning).toContain(driver);
     }
     expect(report.summary.status).toBe(observed.status);
@@ -54,15 +54,15 @@ describe('Report-day synthetic early warning', () => {
 
   it('labels Low risk without presenting a possible illness or warning drivers', () => {
     const report = buildReportModel(demo(), 1, NOW);
-    expect(report.summary.earlyWarning).toMatch(/^Early warning: Low\./);
-    expect(report.summary.earlyWarning).not.toContain('Possible');
+    expect(report.summary.earlyWarning).toMatch(/^Early warning \(next 48 h\): Low\./);
+    expect(report.summary.earlyWarning).not.toMatch(/possible/i);
     expect(report.summary.earlyWarning).not.toContain('drivers:');
     expect(report.summary.earlyWarning).toContain(FORECAST_LABEL);
   });
 
   it('reports a missing forecast instead of inventing Low risk when the check-in is absent', () => {
     const report = buildReportModel(emptyState(), 18, NOW);
-    expect(report.summary.earlyWarning).toBe('Early warning: No forecast — check-in missing.');
+    expect(report.summary.earlyWarning).toBe('Early warning (next 48 h): No forecast — morning check-in missing.');
     expect(report.summary.earlyWarning).not.toContain('Low');
     expect(report.summary.status).toBeNull();
     expect(report.measured).toBe(0);

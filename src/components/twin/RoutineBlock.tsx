@@ -3,6 +3,7 @@ import { INDICATOR_ORDER, ROUTINE, ROUTINE_LABEL, type IndicatorId } from '../..
 import { pointsOn, routineFor, streakOn, type RoutineState } from '../../brain/evaluate';
 import { useApp } from '../../state/AppState';
 import { fmtNumber } from '../../lib/format';
+import { EVENING_HOUR, eveningRecheck, recheckPoints } from '../../lib/recheck';
 
 const pad = (n: number) => String(n).padStart(2, '0');
 
@@ -20,7 +21,11 @@ export const RoutineBlock = memo(function RoutineBlock() {
   const clock = useMemo(() => ({ today, now }), [today, now]);
   const groups = useMemo(() => routineFor(data.measurements, view.day, clock), [data.measurements, view.day, clock]);
   const streak = useMemo(() => streakOn(data.measurements, view.day, clock), [data.measurements, view.day, clock]);
-  const points = useMemo(() => pointsOn(data.measurements, view.day, clock), [data.measurements, view.day, clock]);
+  const recheck = useMemo(() => eveningRecheck(data.measurements, view.day, clock), [data.measurements, view.day, clock]);
+  const points = useMemo(
+    () => pointsOn(data.measurements, view.day, clock) + recheckPoints(data.measurements, view.day, clock),
+    [data.measurements, view.day, clock],
+  );
   const isToday = view.day === today;
 
   const tag = (id: IndicatorId, state: RoutineState, dueFromHour: number) => {
@@ -75,6 +80,33 @@ export const RoutineBlock = memo(function RoutineBlock() {
           </div>
         );
       })}
+      {recheck && (
+        <div className="rt-group rt-recheck">
+          <span className="rt-slot">Evening</span>
+          <ul className="rt-items">
+            <li className={`rt-item rt-item-${recheck.state}`}>
+              <span className="rt-name" title="Added because the next 48 h early warning is Elevated">
+                Evening re-check · {recheck.label}
+              </span>
+              {recheck.state === 'done' ? (
+                <span className="rt-state rt-done"><Check /> Done</span>
+              ) : recheck.state === 'missed' ? (
+                <span className="rt-state rt-missed">Missed</span>
+              ) : recheck.state === 'upcoming' ? (
+                <span className="rt-state muted">—</span>
+              ) : (
+                <button
+                  className={recheck.state === 'due' ? 'rt-due' : 'rt-later'}
+                  onClick={() => startCheckIn(recheck.step)}
+                  aria-label={`Evening re-check of ${recheck.label.toLowerCase()}. Open the check-in at this step.`}
+                >
+                  {recheck.state === 'due' ? 'Due now' : `Due ${pad(EVENING_HOUR)}:00`}
+                </button>
+              )}
+            </li>
+          </ul>
+        </div>
+      )}
       <p className="hint rt-note">+10 points per check. A day with all morning and evening checks adds 1 to the streak.</p>
     </section>
   );

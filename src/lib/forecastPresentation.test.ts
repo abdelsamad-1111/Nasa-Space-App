@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { forecastDay, FORECAST_LABEL } from '../brain/forecast';
+import { forecastDay, FORECAST_LABEL, rowFor, type DayRow } from '../brain/forecast';
 import { demoState } from '../data/storage';
-import { forecastPresentation } from './forecastPresentation';
+import { describeDriver, forecastPresentation, warningDays } from './forecastPresentation';
 import type { Measurement } from '../brain/evaluate';
 
 const measurements = demoState(new Date('2026-11-15T12:00:00Z')).measurements;
@@ -40,13 +40,30 @@ describe('Forecast presentation uses the supplied model', () => {
   });
 
   it('describes the EVA driver as heart-rate context rather than all readings', () => {
-    const readings: Measurement[] = Array.from({ length: 18 }, (_, index) => ({
-      id: `temp-${index + 1}`, indicatorId: 'temp', value: [16, 18].includes(index + 1) ? 38.9 : 36.5,
-      unit: '°C', missionDay: index + 1, timestamp: '2026-11-15T07:00:00Z', context: ['Just woke up'],
-    }));
-    readings.push({ id: 'bp-eva', indicatorId: 'bp', value: { sys: 120, dia: 80 }, unit: 'mmHg', missionDay: 18, timestamp: '2026-11-15T07:00:00Z', context: ['After EVA'] });
-    expect(forecastPresentation(readings, 18)?.drivers).toContain('heart rate context unavailable');
-    readings.push({ id: 'hr', indicatorId: 'hr', value: 70, unit: 'bpm', missionDay: 18, timestamp: '2026-11-15T07:00:00Z', context: ['At rest'] });
-    expect(forecastPresentation(readings, 18)?.drivers).toContain('heart rate not marked after EVA');
+    // Tested on the wording directly: which features rank in the top two is the model's decision.
+    const noHr = new Map<number, DayRow>([[18, { ...rowFor([], 18), bp_sys: 120 }]]);
+    expect(describeDriver('after_eva', 1, noHr, 18)).toBe('heart rate context unavailable');
+    const withHr = new Map<number, DayRow>([[18, { ...rowFor([], 18), hr: 70 }]]);
+    expect(describeDriver('after_eva', 0, withHr, 18)).toBe('heart rate not marked after EVA');
+    expect(describeDriver('after_eva', 1, withHr, 18)).toBe('heart rate recorded after EVA');
+  });
+
+  it('uses the plain-word driver map (never raw feature names)', () => {
+    const rows = new Map<number, DayRow>();
+    for (let d = 1; d <= 18; d++) rows.set(d, { ...rowFor([], d), temp: 36.6, hr: 60, bp_sys: 115, bp_dia: 75, spo2: 98, sleep: 7.5, mood: 4 });
+    expect(describeDriver('bp_sys_dev', -2, rows, 18)).toBe('blood pressure below your usual');
+    expect(describeDriver('bp_dia_dev', 1, rows, 18)).toBe('diastolic blood pressure above your usual');
+    expect(describeDriver('spo2_dev', -1, rows, 18)).toBe('oxygen below your usual');
+    expect(describeDriver('sleep_dev', -1, rows, 18)).toBe('less sleep than usual');
+    expect(describeDriver('mood_dev', -1, rows, 18)).toBe('mood lower than usual');
+    expect(describeDriver('temp_slope', 0.4, rows, 18)).toBe('temperature rising');
+    expect(describeDriver('spo2_slope', -1, rows, 18)).toBe('oxygen falling');
+  });
+
+  it('gives "Do today" actions and the warning days used by the timeline', () => {
+    expect(forecastPresentation(measurements, 17)?.doToday).toEqual(['Drink extra fluids', 'Rest when you can', 'Re-measure temperature tonight']);
+    expect(forecastPresentation(measurements, 16)?.doToday).toEqual([]);
+    expect(warningDays(measurements, 30).map((w) => w.day)).toContain(17);
+    expect(warningDays(measurements, 30).find((w) => w.day === 17)).toMatchObject({ problem: 'infection', riskPercent: 99 });
   });
 });

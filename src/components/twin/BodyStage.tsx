@@ -49,6 +49,7 @@ function isotonic(d: number[]): number[] {
 
 export function BodyStage({ selected, highlight, hoverZone, onHover, onOpen }: Props) {
   const { view, data } = useApp();
+  const forecast = view.forecast;
   const stageRef = useRef<HTMLDivElement>(null);
   const colRefs = useRef<Partial<Record<'left' | 'right', HTMLDivElement | null>>>({});
   const anchorRefs = useRef<Partial<Record<ZoneId, HTMLButtonElement | null>>>({});
@@ -218,6 +219,16 @@ export function BodyStage({ selected, highlight, hoverZone, onHover, onOpen }: P
             draggable={false}
             onLoad={relayout}
           />
+          {forecast?.warn && (forecast.problem === 'infection' ? (
+            <span className="forecast-outline forecast-outline-body" aria-hidden="true" title="Next 48 h: possible infection starting" />
+          ) : (
+            <span
+              className="forecast-outline forecast-outline-heart"
+              aria-hidden="true"
+              title="Next 48 h: possible fluid loss starting"
+              style={{ left: `${ZONE_SPOTS.heart.x}%`, top: `${ZONE_SPOTS.heart.y}%`, width: `${ZONE_SPOTS.heart.w + 6}%` }}
+            />
+          ))}
           {ZONES.map((z) => {
             const spot = ZONE_SPOTS[z.id];
             const st = statuses[z.id];

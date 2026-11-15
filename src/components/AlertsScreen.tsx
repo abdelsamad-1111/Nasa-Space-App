@@ -4,24 +4,28 @@ import type { Alert, AlertType } from '../brain/evaluate';
 import { useApp } from '../state/AppState';
 import { StatusBadge } from './StatusBadge';
 import { fmtNumber } from '../lib/format';
+import { FORECAST_LABEL } from '../brain/forecast';
+import { PROBLEM_NAME } from '../lib/forecastPresentation';
 import './alerts.css';
 
-const TYPES: { id: AlertType | 'all'; label: string }[] = [
+type TypeFilter = AlertType | 'early' | 'all';
+const TYPES: { id: TypeFilter; label: string }[] = [
   { id: 'all', label: 'All types' },
   { id: 'range', label: 'Out of range' },
   { id: 'baseline', label: 'Unusual for you' },
   { id: 'trend', label: 'Trend' },
   { id: 'pattern', label: 'Pattern' },
+  { id: 'early', label: 'Early warning' },
 ];
 const STATUSES: (Status | 'all')[] = ['all', 'WATCH', 'ACT', 'CRITICAL'];
 const TYPE_LABEL = Object.fromEntries(TYPES.map((t) => [t.id, t.label])) as Record<AlertType, string>;
 
 export function AlertsScreen() {
-  const { alerts, openAlerts, data, dispatch, day, openReport } = useApp();
-  const [type, setType] = useState<AlertType | 'all'>('all');
+  const { alerts, openAlerts, earlyWarnings, earlyWarningCount, data, dispatch, day, openReport } = useApp();
+  const [type, setType] = useState<TypeFilter>('all');
   const [status, setStatus] = useState<Status | 'all'>('all');
 
-  const match = (a: Alert) => (type === 'all' || a.type === type) && (status === 'all' || a.status === status);
+  const match = (a: Alert) => type !== 'early' && (type === 'all' || a.type === type) && (status === 'all' || a.status === status);
   const openList = openAlerts.filter(match);
   const history = useMemo(() => alerts.filter((a) => !a.open).sort((a, b) => b.missionDay - a.missionDay), [alerts]).filter(match);
 
@@ -67,7 +71,7 @@ export function AlertsScreen() {
       <div className="section filters" role="group" aria-label="Filters">
         <div className="field">
           <label htmlFor="f-type">Type</label>
-          <select id="f-type" className="input" value={type} onChange={(e) => setType(e.target.value as AlertType | 'all')}>
+          <select id="f-type" className="input" value={type} onChange={(e) => setType(e.target.value as TypeFilter)}>
             {TYPES.map((t) => (
               <option key={t.id} value={t.id}>{t.label}</option>
             ))}
@@ -87,6 +91,38 @@ export function AlertsScreen() {
           </button>
         </div>
       </div>
+
+      {(type === 'all' || type === 'early') && status === 'all' && (
+        <section className="section early-alerts" aria-labelledby="early-alerts-title">
+          <div className="section-head">
+            <h2 id="early-alerts-title">
+              Early warnings · next 48 h <span className="badge badge-early-light">{fmtNumber(earlyWarningCount)}</span>
+            </h2>
+            <span className="hint">Forecast only — not counted in the alerts badge and never changes a status.</span>
+          </div>
+          {earlyWarnings.length ? (
+            <table className="data">
+              <thead>
+                <tr><th>Day</th><th>Type</th><th>Likely problem</th><th>Risk</th><th>Window</th></tr>
+              </thead>
+              <tbody>
+                {[...earlyWarnings].reverse().map((w) => (
+                  <tr key={w.day}>
+                    <td className="num">Day {fmtNumber(w.day)}</td>
+                    <td>Early warning</td>
+                    <td>{PROBLEM_NAME[w.problem].replace(/^./, (c) => c.toUpperCase())}</td>
+                    <td className="num">{fmtNumber(w.riskPercent)}%</td>
+                    <td className="muted">{w.day >= day - 1 ? `Active · days ${fmtNumber(w.day + 1)}–${fmtNumber(w.day + 2)}` : 'Past'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p className="muted">No early warnings up to Day {fmtNumber(day)}.</p>
+          )}
+          <p className="hint">{FORECAST_LABEL}</p>
+        </section>
+      )}
 
       <section className="section">
         <div className="section-head">

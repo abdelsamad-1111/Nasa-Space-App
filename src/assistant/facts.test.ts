@@ -173,7 +173,7 @@ describe('Rules applied to the model answer', () => {
 });
 
 describe('Selected-day early-warning forecast in the assistant', () => {
-  const caveat = 'trained on synthetic data — not a diagnosis';
+  const caveat = 'Trained on synthetic data — not a diagnosis.';
 
   it.each([17, 18])('uses the supplied model for Day %i in both facts and model context', (day) => {
     const input = inputFor(day);
@@ -286,6 +286,18 @@ describe('Selected-day early-warning forecast in the assistant', () => {
     expect(result.answer.actions).not.toContain('You have an infection, so drink fluids.');
     const tooth = buildFactPack('question', inputFor(18), 'Can you check my broken tooth?');
     expect(finalizeAnswer(tooth, { inScope: false, reply: 'The forecast confirms infection.' }).answer.reply).toBe(OUT_OF_SCOPE_ANSWER.reply);
+  });
+  it('quick action "Why am I at risk?" explains Day 17 with drivers, do-today actions and the exact ending', () => {
+    const pack = buildFactPack('risk', inputFor(17));
+    expect(pack.forecastRequested).toBe(true);
+    expect(pack.fallback.reply).toContain('Elevated');
+    expect(pack.fallback.reply).toContain('heart rate rising');
+    expect(pack.fallback.reply.endsWith(caveat)).toBe(true);
+    expect(pack.fallback.actions).toEqual(['Drink extra fluids.', 'Rest when you can.', 'Re-measure temperature tonight.']);
+    expect(pack.facts.forecastDoToday).toEqual(['Drink extra fluids', 'Rest when you can', 'Re-measure temperature tonight']);
+    const mars = buildFactPack('risk', inputFor(17, 'temp', 'MARS'));
+    expect(mars.fallback.reply).toContain('Start these steps now — Earth reply can take ~20 min.');
+    expect(mars.fallback.reply.endsWith(caveat)).toBe(true);
   });
 });
 

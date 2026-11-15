@@ -43,9 +43,9 @@ import {
 import { HEALTH_SOURCES, SOURCES, sourcesForMetric } from '../data/healthSources';
 import { fmtNumber, fmtPct, fmtValue } from '../lib/format';
 import { FORECAST_LABEL } from '../brain/forecast';
-import { forecastPresentation, type ForecastPresentation } from '../lib/forecastPresentation';
+import { FORECAST_ANSWER_END, forecastLocationNote, forecastPresentation, type ForecastPresentation } from '../lib/forecastPresentation';
 
-export type QuickActionId = 'status' | 'reading' | 'todo' | 'contact' | 'pattern' | 'measure';
+export type QuickActionId = 'status' | 'reading' | 'todo' | 'contact' | 'pattern' | 'measure' | 'risk';
 export type AskKind = QuickActionId | 'question';
 
 export const QUICK_ACTIONS: { id: QuickActionId; label: string }[] = [
@@ -55,6 +55,7 @@ export const QUICK_ACTIONS: { id: QuickActionId; label: string }[] = [
   { id: 'contact', label: 'Do I need to contact Earth?' },
   { id: 'pattern', label: 'Explain the pattern' },
   { id: 'measure', label: 'How do I measure this?' },
+  { id: 'risk', label: 'Why am I at risk?' },
 ];
 
 /** What an assistant message contains (model JSON, after the app's rules). */
@@ -544,18 +545,20 @@ function howToMeasure(input: AssistantInput): Draft {
   );
 }
 
-function forecastReply(day: number, forecast: ForecastPresentation | null): string {
+function forecastReply(day: number, forecast: ForecastPresentation | null, location: Location = 'ISS'): string {
   if (!forecast) {
-    return `No forecast is available for Day ${fmtNumber(day)}; a morning check-in reading is missing. Start a check-in to provide the missing readings. ${FORECAST_LABEL}`;
+    return `No forecast is available for Day ${fmtNumber(day)}; a morning check-in reading is missing. Start a check-in to provide the missing readings. ${FORECAST_ANSWER_END}`;
   }
   if (!forecast.warn) {
-    return `For the next 2 days after Day ${fmtNumber(day)}, the synthetic model's early-warning level is Low. It does not cross this model's warning threshold; that does not rule out a health problem. ${FORECAST_LABEL}`;
+    return `For the next 2 days after Day ${fmtNumber(day)}, the synthetic model's early-warning level is Low. It does not cross this model's warning threshold; that does not rule out a health problem. ${FORECAST_ANSWER_END}`;
   }
   const drivers = forecast.drivers.slice(0, 2);
+  const note = forecastLocationNote(forecast, location);
   return [
     `For the next 2 days after Day ${fmtNumber(day)}, the synthetic model's early-warning level is Elevated: ${forecast.problemLabel}.`,
     drivers.length ? `Leading model signals: ${joinList(drivers)}.` : 'No positive model driver is available to explain this estimate.',
-    FORECAST_LABEL,
+    ...(note ? [note] : []),
+    FORECAST_ANSWER_END,
   ].join(' ');
 }
 
@@ -568,15 +571,22 @@ function explainForecast(input: AssistantInput, forecast: ForecastPresentation |
       status: null,
       label: `Next 2 days · Day ${fmtNumber(input.day)} forecast`,
       required,
-      showActions: required,
+      showActions: required || Boolean(forecast?.warn),
       showContact: required,
       showSource: false,
       sourceUrls: [],
     },
-    { forecastDoesNotChangeCurrentStatus: true },
     {
-      reply: forecastReply(input.day, forecast),
-      actions: required ? todoActions(input) : [],
+      forecastDoesNotChangeCurrentStatus: true,
+      forecastRisk: forecast ? `${forecast.riskPercent}% (${forecast.level})` : 'no forecast',
+      forecastLikelyProblem: forecast?.warn ? forecast.problemShort : 'none above the warning threshold',
+      forecastDrivers: forecast?.warn ? forecast.drivers : [],
+      forecastDoToday: forecast?.doToday ?? [],
+      forecastLocationNote: forecastLocationNote(forecast, input.settings.location) ?? '',
+    },
+    {
+      reply: forecastReply(input.day, forecast, input.settings.location),
+      actions: forecast?.warn ? forecast.doToday : required ? todoActions(input) : [],
       followups: ['Explain my status today', forecast ? 'What should I do now?' : 'How do I measure this?'],
     },
   );
@@ -641,13 +651,20 @@ function allowedFor(kind: AskKind, input: AssistantInput, pack: Draft): string[]
       return e ? followUpActions(e) : [];
     case 'question':
     case 'measure':
+    case 'risk':
       return pack.fallback.actions;
   }
 }
 
+/** Location code from the facts (the model context carries the label, the input the code). */
+function locationFromFacts(pack: FactPack): Location {
+  const label = String(pack.facts.location ?? '');
+  return label === 'Mars' ? 'MARS' : label === 'Moon' ? 'MOON' : 'ISS';
+}
+
 export function buildFactPack(kind: AskKind, input: AssistantInput, question = '', history: ChatTurn[] = []): FactPack {
   const forecast = forecastPresentation(input.measurements, input.day);
-  const forecastRequested = kind === 'question' && asksForecast(question, history);
+  const forecastRequested = kind === 'risk' || (kind === 'question' && asksForecast(question, history));
   const pack: Draft =
     forecastRequested ? explainForecast(input, forecast)
     : kind === 'status' ? explainStatus(input)
@@ -792,7 +809,7 @@ export function finalizeAnswer(pack: FactPack, model: (Partial<ChatAnswer> & { i
     // Keep the risk, uncertainty and synthetic-training caveat together, regardless of model wording.
     reply = fb.reply;
   } else if (discussesForecast(reply)) {
-    reply = `${firstSentences(fb.reply, 1)} ${forecastReply(Number(pack.facts.missionDay), pack.forecast)}`;
+    reply = `${firstSentences(fb.reply, 1)} ${forecastReply(Number(pack.facts.missionDay), pack.forecast, locationFromFacts(pack))}`;
   }
 
   let actions: string[] = [];

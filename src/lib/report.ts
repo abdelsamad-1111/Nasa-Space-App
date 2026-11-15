@@ -156,10 +156,10 @@ export interface ReportModel {
 // ---------------------------------------------------------------------------
 function earlyWarningLine(measurements: PersistedState['measurements'], day: number): string {
   const forecast = forecastPresentation(measurements, day);
-  if (!forecast) return 'Early warning: No forecast — check-in missing.';
-  const drivers = forecast.warn && forecast.drivers.length ? `; drivers: ${forecast.drivers.slice(0, 2).join(', ')}` : '';
-  const problem = forecast.warn ? ` — ${forecast.problemLabel}${drivers}` : '';
-  return `Early warning: ${forecast.level}${problem}. ${forecast.caption.trim()}`;
+  if (!forecast) return 'Early warning (next 48 h): No forecast — morning check-in missing.';
+  if (!forecast.warn) return `Early warning (next 48 h): Low. ${forecast.caption.trim()}`;
+  const drivers = forecast.drivers.length ? ` (${forecast.drivers.slice(0, 2).join(', ')})` : '';
+  return `Early warning (next 48 h): Elevated — ${forecast.problemShort}${drivers}. ${forecast.caption.trim()}`;
 }
 
 function evalOn(state: PersistedState, id: MetricId, day: number): Evaluation | null {

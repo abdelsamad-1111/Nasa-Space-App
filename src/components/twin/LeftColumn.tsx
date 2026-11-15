@@ -2,11 +2,9 @@ import { memo } from 'react';
 import { INDICATOR_ORDER, INDICATORS, LOCATION_LABEL, type MetricId } from '../../brain/indicators';
 import { useApp } from '../../state/AppState';
 import { StatusBadge, StatusLegend } from '../StatusBadge';
-import { AssessmentStatus } from '../AssessmentStatus';
 import { fmtDate, fmtNumber, fmtValue } from '../../lib/format';
 import { radiationValue } from './values';
 import { RoutineBlock } from './RoutineBlock';
-import { EarlyWarningCard } from './EarlyWarningCard';
 
 function initials(name: string): string {
   const words = name.replace(/^Astronaut\s+/i, '').split(/[\s.]+/).filter(Boolean);
@@ -38,19 +36,7 @@ export const LeftColumn = memo(function LeftColumn({ selected, onSelect }: Props
         </div>
       </div>
 
-      <div className="overall">
-        <div className="eyebrow">Overall status</div>
-        <div className="overall-status">
-          <AssessmentStatus summary={view.assessment} size={16} />
-        </div>
-        <div className="muted">
-          {view.attention === 0
-            ? view.assessment.complete ? 'All measured indicators are OK.' : 'Record the missing indicators to complete this assessment.'
-            : `${fmtNumber(view.attention)} indicator${view.attention === 1 ? '' : 's'} need${view.attention === 1 ? 's' : ''} attention`}
-        </div>
-      </div>
-
-      <EarlyWarningCard forecast={view.forecast} />
+      {/* Overall status and the 48 h early warning live in the Now / Next strip above. */}
       <RoutineBlock />
       <button className="btn" onClick={startExerciseLog}>Log today’s exercise</button>
 
