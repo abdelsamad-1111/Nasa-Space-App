@@ -1,11 +1,8 @@
-import { Suspense, lazy, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
-import { STATUS_COLOR, ZONES, type MetricId, type Status, type ZoneId } from '../../brain/indicators';
+import { Fragment, useCallback, useEffect, useLayoutEffect, useMemo, useRef, type CSSProperties } from 'react';
+import { STATUS_COLOR, STATUS_WORD, ZONES, type MetricId, type Status, type ZoneId } from '../../brain/indicators';
 import { useApp } from '../../state/AppState';
 import { Callout, zoneLead, zoneStatus } from './Callout';
-import type { AnatomyModelHandle } from './AnatomyModel';
-
-// three.js + model-viewer are large: load them in their own chunk.
-const AnatomyModel = lazy(() => import('./AnatomyModel').then((m) => ({ default: m.AnatomyModel })));
+import { BODY_IMAGE, ZONE_SPOTS } from './bodyImage';
 
 interface Props {
   selected: MetricId;
@@ -54,7 +51,7 @@ export function BodyStage({ selected, highlight, hoverZone, onHover, onOpen }: P
   const { view, data } = useApp();
   const stageRef = useRef<HTMLDivElement>(null);
   const colRefs = useRef<Partial<Record<'left' | 'right', HTMLDivElement | null>>>({});
-  const modelRef = useRef<AnatomyModelHandle>(null);
+  const anchorRefs = useRef<Partial<Record<ZoneId, HTMLButtonElement | null>>>({});
   const cardRefs = useRef<Partial<Record<ZoneId, HTMLDivElement | null>>>({});
   const pathRefs = useRef<Partial<Record<ZoneId, SVGPathElement | null>>>({});
   const frame = useRef(0);
@@ -67,10 +64,12 @@ export function BodyStage({ selected, highlight, hoverZone, onHover, onOpen }: P
   }, [view.metrics]);
 
   const selectedZone = ZONES.find((z) => z.indicators.includes(selected))?.id ?? null;
+  // Whole-body temperature is shown as a thin outline glow around the silhouette.
+  const tempGlow = statuses.body && statuses.body !== 'OK' ? statuses.body : null;
 
-  /** Organ dot centre relative to the stage, or null before the model is ready. */
+  /** Halo / organ point centre relative to the stage, or null before layout. */
   const organPoint = (z: ZoneId, s: DOMRect) => {
-    const spot = modelRef.current?.hotspot(z);
+    const spot = anchorRefs.current[z];
     if (!spot) return null;
     const r = spot.getBoundingClientRect();
     if (!r.width) return null;
@@ -160,7 +159,7 @@ export function BodyStage({ selected, highlight, hoverZone, onHover, onOpen }: P
     const ro = new ResizeObserver(() => {
       placed.current = false;
       updateLines();
-      // model-viewer re-projects its hotspots asynchronously after a resize: measure again.
+      // Layout can settle a frame later (fonts, scrollbars): measure again.
       timers.push(window.setTimeout(() => { placed.current = false; updateLines(); }, 150));
       timers.push(window.setTimeout(() => { placed.current = false; updateLines(); }, 500));
     });
@@ -209,18 +208,48 @@ export function BodyStage({ selected, highlight, hoverZone, onHover, onOpen }: P
         </div>
       ))}
       <div className="body-cell">
-        <Suspense fallback={<div className="body3d-msg muted">Loading 3D anatomy…</div>}>
-          <AnatomyModel
-            ref={modelRef}
-            zoneStatus={statuses}
-            highlight={highlight}
-            hoverZone={hoverZone}
-            selectedZone={selectedZone}
-            onHover={onHover}
-            onActivate={activateZone}
-            onReady={relayout}
+        <div className="body-figure">
+          <img
+            className={`body-img${tempGlow ? ` body-glow body-glow-${tempGlow}` : ''}`}
+            src={BODY_IMAGE.src}
+            width={BODY_IMAGE.width}
+            height={BODY_IMAGE.height}
+            alt="Front view of the human body with the health zones"
+            draggable={false}
+            onLoad={relayout}
           />
-        </Suspense>
+          {ZONES.map((z) => {
+            const spot = ZONE_SPOTS[z.id];
+            const st = statuses[z.id];
+            const alert = !!st && st !== 'OK';
+            const at: CSSProperties = { left: `${spot.x}%`, top: `${spot.y}%` };
+            return (
+              <Fragment key={z.id}>
+                {alert && z.id !== 'body' && (
+                  <span
+                    className={`halo halo-${st}`}
+                    aria-hidden="true"
+                    style={{ ...at, width: `${spot.w}%`, height: `${spot.h}%` }}
+                  />
+                )}
+                {z.id === 'dosimeter' && <span className="dosimeter-badge" aria-hidden="true" style={at} />}
+                <button
+                  ref={(el) => {
+                    anchorRefs.current[z.id] = el;
+                  }}
+                  className={`organ-anchor${hoverZone === z.id || highlight.includes(z.id) ? ' is-hot' : ''}${selectedZone === z.id ? ' is-selected' : ''}`}
+                  style={at}
+                  aria-label={`${z.name}${st ? `: ${STATUS_WORD[st]}` : ': no reading'}. Open details.`}
+                  onClick={() => activateZone(z.id)}
+                  onMouseEnter={() => onHover(z.id)}
+                  onMouseLeave={() => onHover(null)}
+                  onFocus={() => onHover(z.id)}
+                  onBlur={() => onHover(null)}
+                />
+              </Fragment>
+            );
+          })}
+        </div>
       </div>
       <svg className="leaders" aria-hidden="true">
         {ZONES.map((z) => {

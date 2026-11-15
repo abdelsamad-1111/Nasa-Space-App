@@ -2,6 +2,7 @@ import {
   APP_DESIGNED_NOTE,
   EXERCISE,
   GLUCOSE_NOTE,
+  IMAGE_CREDITS,
   INDICATOR_ORDER,
   INDICATORS,
   MODEL_CREDIT,
@@ -96,7 +97,19 @@ export function SourcesScreen() {
       </section>
 
       <section className="section">
-        <div className="section-head"><h2>3D model credit</h2></div>
+        <div className="section-head"><h2>Image credits</h2></div>
+        <ul className="src-list">
+          {IMAGE_CREDITS.map((c) => (
+            <li key={c.file}>
+              <strong>{c.title}</strong> — {c.creator}. License: {c.license}.
+              <div className="hint">{c.file}. {c.changes}</div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="section">
+        <div className="section-head"><h2>3D model credit (Explore 3D view)</h2></div>
         <p>
           <strong>{MODEL_CREDIT.attribution}.</strong>{' '}
           <a href={MODEL_CREDIT.licenseUrl} target="_blank" rel="noreferrer">License</a> ·{' '}

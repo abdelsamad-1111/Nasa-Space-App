@@ -99,6 +99,50 @@ p { margin: 0; }
 .segmented button + button { border-left: 1px solid var(--rule); }
 .segmented button[aria-pressed='true'] { background: var(--text); color: #fff; }
 
+/* ---------- Space band: top bar + mission-day bar on Earth (only this band is dark) ---------- */
+.band {
+  --band-bg: #0b1220;
+  --band-orange: #ff4f00;
+  position: relative; isolation: isolate; min-height: 140px; color: #fff;
+  background: var(--band-bg) url('/assets/earth.jpg') right 22% / cover no-repeat;
+}
+/* Keep the left side (logo, tabs, mission day) on solid space for legible text */
+.band::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, var(--band-bg) 0%, var(--band-bg) 30%, rgba(11, 18, 32, 0.55) 62%, rgba(11, 18, 32, 0) 85%);
+}
+.band .header { border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
+.band .brand { align-items: center; }
+.band .brand-name { color: #fff; }
+.band .brand-sub { color: rgba(255, 255, 255, 0.62); }
+.logo { display: inline-flex; align-items: center; gap: 10px; }
+.logo-mark { flex: none; }
+.band .nav button { color: rgba(255, 255, 255, 0.68); }
+.band .nav button:hover { color: #fff; }
+.band .nav button[aria-current='page'],
+.band .nav button[aria-expanded='true'] { color: #fff; border-bottom-color: var(--band-orange); }
+.band .badge { background: var(--band-orange); color: #fff; }
+.band .segmented { border-color: rgba(255, 255, 255, 0.55); }
+.band .segmented button { background: transparent; color: #fff; }
+.band .segmented button + button { border-left-color: rgba(255, 255, 255, 0.55); }
+.band .segmented button[aria-pressed='true'] { background: #fff; color: var(--band-bg); }
+.band .btn-primary { background: #fff; color: var(--band-bg); border-color: #fff; }
+.band .btn-primary:hover { background: #e9ecf1; }
+.band :focus-visible { outline-color: #fff; }
+
+.mission-bar {
+  display: flex; align-items: center; gap: 14px; padding: 18px var(--gutter) 20px;
+  font-size: 14px; color: rgba(255, 255, 255, 0.78);
+}
+.mission-day { font-size: 24px; font-weight: 600; letter-spacing: -0.01em; color: #fff; }
+.mission-of { font-size: 14px; font-weight: 400; color: rgba(255, 255, 255, 0.62); }
+.mission-sep { width: 1px; height: 18px; background: rgba(255, 255, 255, 0.3); }
+.mission-loc { font-weight: 600; color: #fff; }
+.mission-pill {
+  margin-left: 6px; padding: 3px 9px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 2px; color: rgba(255, 255, 255, 0.85);
+}
+
 .footer {
   border-top: 1px solid var(--rule);
   padding: 10px var(--gutter);

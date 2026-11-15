@@ -71,7 +71,8 @@ export function TwinScreen() {
         <LeftColumn selected={selected} onSelect={open} />
         <section className="center" aria-label="Health twin">
           <div className="center-head">
-            <h1 className="center-title">
+            {/* Mission day and date are shown in the space band; the heading stays for screen readers. */}
+            <h1 className="center-title visually-hidden">
               Day <span className="num">{fmtNumber(view.day)}</span>
               <span className="muted center-date num"> · {fmtDate(dayDate)}</span>
             </h1>

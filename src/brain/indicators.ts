@@ -626,6 +626,27 @@ export const MODEL_CREDIT = {
     'Selected BodyParts3D 4.0 meshes and complete lung lobe surfaces from 3.0, merged, smoothly shaded, simplified and Draco-compressed; a skin outline and chest dosimeter marker were added.',
 };
 
+/**
+ * Images supplied by the project author. Their creator and license were not recorded
+ * with the files — fill these in before publishing.
+ */
+export const IMAGE_CREDITS = [
+  {
+    title: 'Body illustration (main screen)',
+    file: 'public/assets/body.png',
+    creator: 'Supplied by the project author',
+    license: 'Not recorded — confirm creator and license before publishing',
+    changes: 'Resized to 800 × 1200 px; background already transparent. Status halos and the outline glow are drawn by the app on top.',
+  },
+  {
+    title: 'Earth from orbit (header band)',
+    file: 'public/assets/earth.jpg',
+    creator: 'Supplied by the project author',
+    license: 'Not recorded — confirm creator and license before publishing',
+    changes: 'Converted to JPEG; shown as the background of the header band only.',
+  },
+] as const;
+
 /** 2D body diagram credit (not used on screen while the 3D model is shown). */
 export const BODY_CREDIT = {
   author: 'Mikael Häggström',
