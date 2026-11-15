@@ -97,12 +97,14 @@ export function forecastDay(ms: Measurement[], day: number): Forecast | null {
   for (let d = day - M.window; d <= day; d++) if (d >= 1) rows.set(d, rowFor(ms, d));
   const x = featuresFor(rows, day);
   if (!x) return null;
-  const { p, z } = predictFromFeatures(x);
+  const { p } = predictFromFeatures(x);
   const risk = p[1] + p[2];
   const likely: ForecastKind = p[1] >= p[2] ? 'infection' : 'fluid_loss';
   const cls = likely === 'infection' ? 1 : 2;
+  // Contribution measured from "no change" (feature = 0: reading equal to the usual value, not after an EVA),
+  // so a feature that is simply absent today is never listed as a driver.
   const drivers = M.features
-    .map((feature, i) => ({ feature, contribution: (M.coef[cls][i] - M.coef[0][i]) * z[i] }))
+    .map((feature, i) => ({ feature, contribution: ((M.coef[cls][i] - M.coef[0][i]) * x[i]) / M.std[i] }))
     .filter((d) => d.contribution > 0)
     .sort((a, b) => b.contribution - a.contribution)
     .slice(0, 3);
