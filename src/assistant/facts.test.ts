@@ -41,7 +41,7 @@ const sentences = (t: string) => t.split(/(?<=[.!?])\s+/).filter(Boolean).length
 describe('Welcome message (app data only)', () => {
   it('greets by name and summarises Day 18 on the ISS', () => {
     const w = welcomeMessage(inputFor(18), new Date(2026, 0, 1, 8, 0));
-    expect(w.reply).toMatch(/^Good morning, A\. Rahman\. Day 18 on the ISS\./);
+    expect(w.reply).toMatch(/^Good morning, Lina Khalil\. Day 18 on the ISS\./);
     expect(w.reply).toMatch(/temperature, sleep and mood need attention today/);
     expect(w.reply).toMatch(/What would you like to check\?$/);
     expect(w.followups).toHaveLength(2);

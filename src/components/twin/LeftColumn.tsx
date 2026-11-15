@@ -5,11 +5,8 @@ import { StatusBadge, StatusLegend } from '../StatusBadge';
 import { fmtDate, fmtNumber, fmtValue } from '../../lib/format';
 import { radiationValue } from './values';
 import { RoutineBlock } from './RoutineBlock';
+import { CrewAvatar } from '../CrewAvatar';
 
-function initials(name: string): string {
-  const words = name.replace(/^Astronaut\s+/i, '').split(/[\s.]+/).filter(Boolean);
-  return (words[0]?.[0] ?? '') + (words.length > 1 ? words[words.length - 1][0] : '');
-}
 
 interface Props {
   selected: MetricId;
@@ -24,7 +21,7 @@ export const LeftColumn = memo(function LeftColumn({ selected, onSelect }: Props
   return (
     <aside className="left-col" aria-label="Astronaut and indicators">
       <div className="astro">
-        <div className="astro-initials" aria-hidden="true">{initials(settings.name).toUpperCase()}</div>
+        <CrewAvatar name={settings.name} photo={settings.photo} />
         <div>
           <div className="astro-name">{settings.name}</div>
           <div className="muted">
@@ -32,7 +29,7 @@ export const LeftColumn = memo(function LeftColumn({ selected, onSelect }: Props
             {LOCATION_LABEL[settings.location]}
           </div>
           <div className="muted num">{fmtDate(dayDate)}</div>
-          <div className="mission-mode">{data.mode === 'demo' ? 'Demo mission · sample data' : data.measurements.some((m) => m.id.startsWith('demo-')) ? 'Personal mission · includes sample data' : 'Personal mission'}</div>
+          <div className="mission-mode">{data.mode === 'demo' ? 'Fictional crew member · demo data' : data.measurements.some((m) => m.id.startsWith('demo-')) ? 'Personal mission · includes sample data' : 'Personal mission'}</div>
         </div>
       </div>
 

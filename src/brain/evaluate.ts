@@ -45,8 +45,14 @@ export interface Measurement {
   context: string[];
 }
 
+export type CrewSex = 'female' | 'male';
+
 export interface Settings {
   name: string;
+  /** Crew profile: default for the Male / Female body switch (optional for older saved data). */
+  sex?: CrewSex;
+  /** Optional profile photo path (e.g. /assets/crew-photo.png); initials are shown when missing. */
+  photo?: string;
   location: Location;
   baselines: Baselines;
   careerRadiationLimit: number;

@@ -9,7 +9,7 @@ import './settings.css';
 type Draft = Record<string, string>;
 
 function toDraft(s: Settings): Draft {
-  const d: Draft = { name: s.name, limit: String(s.careerRadiationLimit) };
+  const d: Draft = { name: s.name, sex: s.sex ?? '', photo: s.photo ?? '', limit: String(s.careerRadiationLimit) };
   for (const id of BASELINE_INDICATORS) {
     const v = s.baselines[id];
     if (isBp(v)) {
@@ -70,7 +70,15 @@ export function SettingsScreen() {
     }
     dispatch({
       type: 'settings',
-      settings: { name: draft.name.trim(), location, baselines, careerRadiationLimit: limitN! },
+      settings: {
+        ...data.settings,
+        name: draft.name.trim(),
+        sex: draft.sex === 'female' || draft.sex === 'male' ? draft.sex : undefined,
+        photo: draft.photo?.trim() || undefined,
+        location,
+        baselines,
+        careerRadiationLimit: limitN!,
+      },
     });
     setSaved(true);
   };
@@ -89,6 +97,20 @@ export function SettingsScreen() {
             <label htmlFor="s-name">Name</label>
             <input id="s-name" className="input" value={draft.name} onChange={(e) => update('name', e.target.value)} aria-invalid={!!errors.name} />
             {errors.name && <span className="field-error">{errors.name}</span>}
+          </div>
+          <div className="field" style={{ marginTop: 16 }}>
+            <label htmlFor="s-sex">Sex</label>
+            <select id="s-sex" className="input" value={draft.sex ?? ''} onChange={(e) => update('sex', e.target.value)} aria-describedby="s-sex-note">
+              <option value="">Not set</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+            </select>
+            <span className="hint" id="s-sex-note">Default body illustration.</span>
+          </div>
+          <div className="field" style={{ marginTop: 16 }}>
+            <label htmlFor="s-photo">Photo (optional image path)</label>
+            <input id="s-photo" className="input" value={draft.photo ?? ''} placeholder="/assets/crew-photo.png" onChange={(e) => update('photo', e.target.value)} aria-describedby="s-photo-note" />
+            <span className="hint" id="s-photo-note">Initials are shown when no photo is set or the file is missing.</span>
           </div>
           <div className="field" style={{ marginTop: 16 }}>
             <span className="label" id="s-loc">Location (applies immediately)</span>
@@ -145,7 +167,7 @@ export function SettingsScreen() {
         <div className="data-actions">
           <div>
             <button className="btn" onClick={() => setConfirm('demo')}>Load demo data</button>
-            <p className="hint">30-day ISS mission for Astronaut A. Rahman. Replaces all current data.</p>
+            <p className="hint">30-day ISS mission for the fictional crew member Lina Khalil. Replaces all current data.</p>
           </div>
           <div>
             <button className="btn" onClick={() => setConfirm('reset')}>Reset all data</button>

@@ -47,7 +47,7 @@ export function demoState(today = new Date()): PersistedState {
 export function emptyState(today = new Date()): PersistedState {
   return {
     mode: 'personal',
-    settings: { ...structuredClone(DEMO_SETTINGS), name: 'Astronaut', baselines: {} },
+    settings: { ...structuredClone(DEMO_SETTINGS), name: 'Astronaut', sex: undefined, photo: undefined, baselines: {} },
     missionStart: (() => {
       const d = new Date(today);
       d.setHours(0, 0, 0, 0);
@@ -90,7 +90,14 @@ function restoreState(saved: SavedState): PersistedState {
     : saved.measurements.length > 0 && saved.measurements.every((m) => typeof m?.id === 'string' && m.id.startsWith('demo-'))
       ? 'demo'
       : 'personal';
-  return addDemoActions(addDemoExercise({ ...saved, mode }));
+  return addDemoActions(addDemoExercise(updateDemoCrew({ ...saved, mode })));
+}
+
+/** Saved demo missions from before the crew profile used a different fictional name: switch to the current demo crew member. */
+const OLD_DEMO_NAMES = ['Astronaut A. Rahman'];
+function updateDemoCrew(s: PersistedState): PersistedState {
+  if (s.mode !== 'demo' || !OLD_DEMO_NAMES.includes(s.settings.name)) return s;
+  return { ...s, settings: { ...s.settings, name: DEMO_SETTINGS.name, sex: DEMO_SETTINGS.sex, photo: DEMO_SETTINGS.photo } };
 }
 
 /** Older saved demo data has no demo follow-up actions: add them (never to personal missions). */

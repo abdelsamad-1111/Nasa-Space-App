@@ -1,5 +1,7 @@
 import { Suspense, lazy, memo, useCallback, useRef, useState, type KeyboardEvent } from 'react';
 import { Explore3D } from './Explore3D';
+import { AstronautMark } from '../AstronautMark';
+import { APP_NAME } from '../../lib/brand';
 import {
   BONE_TEXT,
   GLUCOSE_NOTE,
@@ -64,13 +66,24 @@ export const SidePanel = memo(function SidePanel({ selected, tab, onTab }: Props
   return (
     <aside className="panel" aria-label={`${ind.name} details`} id="side-panel" tabIndex={-1}>
       <div className="panel-head">
-        <div>
-          <span className="eyebrow">Selected indicator</span>
+        <div className="panel-heading">
+          <span className="eyebrow panel-eyebrow">Selected indicator</span>
           <h2 className="panel-title">{ind.name}</h2>
         </div>
         <div className="panel-head-actions">
-          <button className="btn explore-btn" onClick={askAboutThis} aria-controls="capcom-panel">
-            Ask about this
+          {/* The only orange AI button on the screen: asks about this indicator on the selected day. */}
+          <button
+            className="ai-ask-btn"
+            onClick={askAboutThis}
+            aria-controls="capcom-panel"
+            aria-label={`Ask ${APP_NAME} about ${ind.name}`}
+            title={`Ask ${APP_NAME} about ${ind.name}`}
+          >
+            <AstronautMark size={26} onDark />
+            <span className="ai-ask-text">
+              <strong>Ask {APP_NAME}</strong>
+              <span>about {ind.name}</span>
+            </span>
           </button>
           <button className="btn explore-btn" onClick={() => setExplore(true)}>
             Explore 3D

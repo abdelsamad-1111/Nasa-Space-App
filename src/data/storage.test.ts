@@ -13,6 +13,18 @@ describe('Mission provenance and saved-data migration', () => {
   });
   afterEach(() => vi.unstubAllGlobals());
 
+  it('demo crew is the fictional Lina Khalil; old saved demo names are updated, personal names never', () => {
+    expect(demoState().settings).toMatchObject({ name: 'Lina Khalil', sex: 'female', photo: '/assets/crew-photo.png' });
+    const old = demoState();
+    stored = JSON.stringify({ ...old, settings: { ...old.settings, name: 'Astronaut A. Rahman', sex: undefined, photo: undefined } });
+    expect(loadState().state.settings).toMatchObject({ name: 'Lina Khalil', sex: 'female' });
+    const personal = emptyState();
+    expect(personal.settings.sex).toBeUndefined();
+    expect(personal.settings.photo).toBeUndefined();
+    stored = JSON.stringify({ ...personal, settings: { ...personal.settings, name: 'Astronaut A. Rahman' } });
+    expect(loadState().state.settings.name).toBe('Astronaut A. Rahman');
+  });
+
   it('adds the demo follow-up actions to saved demo missions only', () => {
     const oldDemo = { ...demoState(), actionsTaken: [] };
     stored = JSON.stringify(oldDemo);

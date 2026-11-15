@@ -75,9 +75,9 @@ describe('Crew Health Report, demo Day 20', () => {
   const r = buildReportModel(demo(), 20, NOW);
 
   it('header and info grid', () => {
-    expect(r.id).toBe('VO-ISS-ARA-D20');
+    expect(r.id).toBe('VO-ISS-LKH-D20');
     expect(r.generatedUtc).toBe('15 Nov 2026, 14:32 UTC');
-    expect(r.crew).toBe('A. Rahman');
+    expect(r.crew).toBe('Lina Khalil');
     expect([r.from, r.day, r.measured, r.total]).toEqual([14, 20, 8, 8]);
   });
 
@@ -133,7 +133,7 @@ describe('Crew Health Report, demo Day 20', () => {
 
   it('text version for "Copy text"', () => {
     const text = buildReport(demo(), 20, NOW);
-    expect(text).toContain('VO-ISS-ARA-D20');
+    expect(text).toContain('VO-ISS-LKH-D20');
     expect(text).toContain('Reviewed by: ____________');
     expect(text).toContain('Not a medical diagnosis.');
   });

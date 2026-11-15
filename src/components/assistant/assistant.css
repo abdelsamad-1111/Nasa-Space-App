@@ -111,4 +111,3 @@
 }
 .capcom-form input::placeholder { color: var(--text-2); }
 
-.panel-head-actions { display: flex; gap: 6px; flex: none; }

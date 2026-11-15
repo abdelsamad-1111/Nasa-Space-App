@@ -326,7 +326,21 @@
   .ind-status { grid-area: status; justify-self: end; }
 }
 
-.panel-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.panel-head { display: flex; flex-direction: column; gap: 10px; }
+.panel-eyebrow { display: block; white-space: nowrap; }
+/* Orange AI button (international orange) + Explore 3D on one row under the title */
+.panel-head-actions { display: flex; align-items: stretch; gap: 8px; }
+.ai-ask-btn {
+  flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 8px; padding: 5px 12px 5px 7px;
+  background: #ff4f00; color: #fff; border: 1px solid #d94300; border-radius: 2px; text-align: left; cursor: pointer;
+}
+.ai-ask-btn:hover { background: #e84800; }
+.ai-ask-btn:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+.ai-ask-btn .astronaut-mark { flex: none; }
+.ai-ask-text { display: flex; flex-direction: column; min-width: 0; line-height: 1.2; }
+.ai-ask-text strong { font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ai-ask-text > span { font-size: 11px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.panel-head-actions .explore-btn { flex: none; align-self: stretch; }
 
 /* ---------- Today's routine ---------- */
 .routine { padding-bottom: 14px; border-bottom: 1px solid var(--rule-light); }
@@ -410,3 +424,6 @@
 /* Evening re-check: added by the early warning (dashed = forecast) */
 .rt-recheck { border-left: 2px dashed #b07612; padding-left: 6px; margin-left: -8px; }
 .rt-recheck .rt-name { white-space: normal; overflow: visible; }
+
+/* Crew photo (round); the initials circle is the fallback */
+.astro-photo { flex: none; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--text); background: var(--surface); }
