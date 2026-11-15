@@ -13,6 +13,11 @@ import {
 import { fmtNumber } from '../lib/format';
 import { useApp } from '../state/AppState';
 import { METRIC_EVIDENCE, SOURCE_REVIEWED_ON, sourcesForMetric } from '../data/healthSources';
+import { FEMALE_BODY_CREDIT } from './twin/bodyImage';
+
+const imageCredits = IMAGE_CREDITS.flatMap<(typeof IMAGE_CREDITS)[number] | typeof FEMALE_BODY_CREDIT>((credit) =>
+  credit.file === 'public/assets/body.png' ? [credit, FEMALE_BODY_CREDIT] : [credit],
+);
 
 export function SourcesScreen() {
   const { setScreen } = useApp();
@@ -109,7 +114,7 @@ export function SourcesScreen() {
       <section className="section">
         <div className="section-head"><h2>Image credits</h2></div>
         <ul className="src-list">
-          {IMAGE_CREDITS.map((c) => (
+          {imageCredits.map((c) => (
             <li key={c.file}>
               <strong>{c.title}</strong> — {c.creator}. License: {c.license}.
               <div className="hint">{c.file}. {c.changes}</div>

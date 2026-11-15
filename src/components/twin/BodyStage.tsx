@@ -1,8 +1,9 @@
-import { Fragment, useCallback, useEffect, useLayoutEffect, useMemo, useRef, type CSSProperties } from 'react';
+import { Fragment, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { STATUS_COLOR, STATUS_WORD, ZONES, type MetricId, type Status, type ZoneId } from '../../brain/indicators';
 import { useApp } from '../../state/AppState';
 import { Callout, zoneLead, zoneStatus } from './Callout';
-import { BODY_IMAGE, ZONE_SPOTS } from './bodyImage';
+import { BODY_APPEARANCES, BODY_IMAGES, type BodyAppearance } from './bodyImage';
+import { useBodyAppearance } from './useBodyAppearance';
 
 interface Props {
   selected: MetricId;
@@ -50,6 +51,10 @@ function isotonic(d: number[]): number[] {
 export function BodyStage({ selected, highlight, hoverZone, onHover, onOpen }: Props) {
   const { view, data } = useApp();
   const forecast = view.forecast;
+  const [appearance, chooseAppearance] = useBodyAppearance(data.settings);
+  const [imageStatus, setImageStatus] = useState<Record<BodyAppearance, 'loading' | 'ready' | 'error'>>({ male: 'loading', female: 'loading' });
+  const body = BODY_IMAGES[appearance];
+  const spots = body.spots;
   const stageRef = useRef<HTMLDivElement>(null);
   const colRefs = useRef<Partial<Record<'left' | 'right', HTMLDivElement | null>>>({});
   const anchorRefs = useRef<Partial<Record<ZoneId, HTMLButtonElement | null>>>({});
@@ -181,108 +186,146 @@ export function BodyStage({ selected, highlight, hoverZone, onHover, onOpen }: P
   );
 
   return (
-    <div className="stage" ref={stageRef} data-region="visualize">
-      {SIDES.map((side) => (
-        <div
-          key={side}
-          className={`card-col card-col-${side}`}
-          ref={(el) => {
-            colRefs.current[side] = el;
-          }}
-        >
-          {ZONES.filter((z) => z.side === side).map((z) => (
-            <Callout
-              key={z.id}
-              ref={(el) => {
-                cardRefs.current[z.id] = el;
-              }}
-              zone={z}
-              metrics={view.metrics}
-              cumulativeDose={view.cumulativeDose}
-              limit={data.settings.careerRadiationLimit}
-              selected={selectedZone === z.id}
-              hovered={hoverZone === z.id || highlight.includes(z.id)}
-              onOpen={onOpen}
-              onHover={handleHover}
-            />
+    <div className="body-area">
+      <div className="body-toolbar">
+        <div className="body-switch" role="group" aria-label="Displayed body">
+          {BODY_APPEARANCES.map((option) => (
+            <button
+              key={option}
+              type="button"
+              aria-pressed={appearance === option}
+              disabled={imageStatus[option] !== 'ready'}
+              onClick={() => chooseAppearance(option)}
+            >
+              {BODY_IMAGES[option].label}
+            </button>
           ))}
         </div>
-      ))}
-      <div className="body-cell">
-        <div className="body-figure">
-          <img
-            className={`body-img${tempGlow ? ` body-glow body-glow-${tempGlow}` : ''}`}
-            src={BODY_IMAGE.src}
-            width={BODY_IMAGE.width}
-            height={BODY_IMAGE.height}
-            alt="Front view of the human body with the health zones"
-            draggable={false}
-            onLoad={relayout}
-          />
-          {forecast?.warn && (forecast.problem === 'infection' ? (
-            <span className="forecast-outline forecast-outline-body" aria-hidden="true" title="Next 48 h: possible infection starting" />
-          ) : (
-            <span
-              className="forecast-outline forecast-outline-heart"
-              aria-hidden="true"
-              title="Next 48 h: possible fluid loss starting"
-              style={{ left: `${ZONE_SPOTS.heart.x}%`, top: `${ZONE_SPOTS.heart.y}%`, width: `${ZONE_SPOTS.heart.w + 6}%` }}
-            />
-          ))}
+        <span className="body-load-status" role="status">
+          {imageStatus[appearance] === 'loading' ? `Loading ${body.label.toLowerCase()} body…`
+            : imageStatus[appearance] === 'error' ? `${body.label} image unavailable. Choose the other body.` : ''}
+        </span>
+      </div>
+      <div className="stage" ref={stageRef} data-region="visualize">
+        {SIDES.map((side) => (
+          <div
+            key={side}
+            className={`card-col card-col-${side}`}
+            ref={(el) => {
+              colRefs.current[side] = el;
+            }}
+          >
+            {ZONES.filter((z) => z.side === side).map((z) => (
+              <Callout
+                key={z.id}
+                ref={(el) => {
+                  cardRefs.current[z.id] = el;
+                }}
+                zone={z}
+                metrics={view.metrics}
+                cumulativeDose={view.cumulativeDose}
+                limit={data.settings.careerRadiationLimit}
+                selected={selectedZone === z.id}
+                hovered={hoverZone === z.id || highlight.includes(z.id)}
+                onOpen={onOpen}
+                onHover={handleHover}
+              />
+            ))}
+          </div>
+        ))}
+        <div className="body-cell">
+          <div className="body-figure" data-body-appearance={appearance} aria-busy={imageStatus[appearance] === 'loading'}>
+            {BODY_APPEARANCES.map((option) => {
+              const image = BODY_IMAGES[option];
+              return (
+                <img
+                  key={option}
+                  className={`body-img${appearance === option ? ' is-current' : ''}${tempGlow ? ` body-glow body-glow-${tempGlow}` : ''}`}
+                  src={image.src}
+                  width={image.width}
+                  height={image.height}
+                  alt={appearance === option ? `Front view of the ${option} human body with the health zones` : ''}
+                  aria-hidden={appearance !== option}
+                  draggable={false}
+                  onLoad={() => {
+                    setImageStatus((current) => ({ ...current, [option]: 'ready' }));
+                    if (option === appearance) relayout();
+                  }}
+                  onError={() => setImageStatus((current) => ({ ...current, [option]: 'error' }))}
+                />
+              );
+            })}
+            {forecast?.warn && (forecast.problem === 'infection' ? (
+              <span
+                className="forecast-outline forecast-outline-body"
+                aria-hidden="true"
+                title="Next 48 h: possible infection starting"
+                style={{ left: `${body.outline.x}%`, top: `${body.outline.y}%`, width: `${body.outline.w}%`, height: `${body.outline.h}%` }}
+              />
+            ) : (
+              <span
+                className="forecast-outline forecast-outline-heart"
+                aria-hidden="true"
+                title="Next 48 h: possible fluid loss starting"
+                style={{ left: `${spots.heart.x}%`, top: `${spots.heart.y}%`, width: `${spots.heart.w + 6}%` }}
+              />
+            ))}
+            {ZONES.map((z) => {
+              const spot = spots[z.id];
+              const st = statuses[z.id];
+              const alert = !!st && st !== 'OK';
+              const at: CSSProperties = { left: `${spot.x}%`, top: `${spot.y}%` };
+              return (
+                <Fragment key={z.id}>
+                  {alert && z.id !== 'body' && (
+                    <span
+                      className={`halo halo-${st}`}
+                      aria-hidden="true"
+                      style={{ ...at, width: `${spot.w}%`, height: `${spot.h}%` }}
+                    />
+                  )}
+                  {z.id === 'dosimeter' && <span className="dosimeter-badge" aria-hidden="true" style={at} />}
+                  <button
+                    ref={(el) => {
+                      anchorRefs.current[z.id] = el;
+                    }}
+                    className={`organ-anchor${hoverZone === z.id || highlight.includes(z.id) ? ' is-hot' : ''}${selectedZone === z.id ? ' is-selected' : ''}`}
+                    data-zone={z.id}
+                    style={at}
+                    aria-label={`${z.name}${st ? `: ${STATUS_WORD[st]}` : ': no reading'}. Open details.`}
+                    onClick={() => activateZone(z.id)}
+                    onMouseEnter={() => onHover(z.id)}
+                    onMouseLeave={() => onHover(null)}
+                    onFocus={() => onHover(z.id)}
+                    onBlur={() => onHover(null)}
+                  />
+                </Fragment>
+              );
+            })}
+          </div>
+        </div>
+        <svg className="leaders" aria-hidden="true">
           {ZONES.map((z) => {
-            const spot = ZONE_SPOTS[z.id];
             const st = statuses[z.id];
             const alert = !!st && st !== 'OK';
-            const at: CSSProperties = { left: `${spot.x}%`, top: `${spot.y}%` };
+            const hot = hoverZone === z.id || highlight.includes(z.id);
             return (
-              <Fragment key={z.id}>
-                {alert && z.id !== 'body' && (
-                  <span
-                    className={`halo halo-${st}`}
-                    aria-hidden="true"
-                    style={{ ...at, width: `${spot.w}%`, height: `${spot.h}%` }}
-                  />
-                )}
-                {z.id === 'dosimeter' && <span className="dosimeter-badge" aria-hidden="true" style={at} />}
-                <button
-                  ref={(el) => {
-                    anchorRefs.current[z.id] = el;
-                  }}
-                  className={`organ-anchor${hoverZone === z.id || highlight.includes(z.id) ? ' is-hot' : ''}${selectedZone === z.id ? ' is-selected' : ''}`}
-                  style={at}
-                  aria-label={`${z.name}${st ? `: ${STATUS_WORD[st]}` : ': no reading'}. Open details.`}
-                  onClick={() => activateZone(z.id)}
-                  onMouseEnter={() => onHover(z.id)}
-                  onMouseLeave={() => onHover(null)}
-                  onFocus={() => onHover(z.id)}
-                  onBlur={() => onHover(null)}
-                />
-              </Fragment>
+              <path
+                key={z.id}
+                ref={(el) => {
+                  pathRefs.current[z.id] = el;
+                }}
+                className="leader"
+                pathLength={1}
+                fill="none"
+                stroke={hot ? '#111111' : alert ? STATUS_COLOR[st!] : QUIET}
+                strokeWidth={hot ? 1.5 : 1}
+                style={{ opacity: 0 }}
+              />
             );
           })}
-        </div>
+        </svg>
       </div>
-      <svg className="leaders" aria-hidden="true">
-        {ZONES.map((z) => {
-          const st = statuses[z.id];
-          const alert = !!st && st !== 'OK';
-          const hot = hoverZone === z.id || highlight.includes(z.id);
-          return (
-            <path
-              key={z.id}
-              ref={(el) => {
-                pathRefs.current[z.id] = el;
-              }}
-              className="leader"
-              pathLength={1}
-              fill="none"
-              stroke={hot ? '#111111' : alert ? STATUS_COLOR[st!] : QUIET}
-              strokeWidth={hot ? 1.5 : 1}
-              style={{ opacity: 0 }}
-            />
-          );
-        })}
-      </svg>
     </div>
   );
 }
