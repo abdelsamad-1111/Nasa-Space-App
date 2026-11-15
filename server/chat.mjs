@@ -1,7 +1,9 @@
 // Astro Health AI — server side of POST /api/chat.
 // The browser never talks to Groq: it sends the app's own facts here, this module
 // asks the model to explain them, and returns a strict JSON answer.
-// The API key is read ONLY from process.env.GROQ_API_KEY and is never logged or returned.
+// The API key comes from process.env.GROQ_API_KEY, or else from server/groq-key.mjs. It is never logged or returned.
+
+import { GROQ_API_KEY_IN_FILE } from './groq-key.mjs';
 
 export const GROQ_BASE_URL = 'https://api.groq.com/openai/v1';
 /** Current Groq general chat model with JSON mode (checked against GET /models on 2026-11-15). */
@@ -68,7 +70,7 @@ function cleanAnswer(raw) {
  * { ok: false, reason } where reason is no_key | rate_limit | timeout | upstream | bad_json | bad_request.
  */
 export async function handleChat(payload, opts = {}) {
-  const apiKey = opts.apiKey ?? process.env.GROQ_API_KEY;
+  const apiKey = opts.apiKey ?? process.env.GROQ_API_KEY ?? GROQ_API_KEY_IN_FILE;
   const fetchImpl = opts.fetchImpl ?? fetch;
   const timeoutMs = opts.timeoutMs ?? GROQ_TIMEOUT_MS;
   if (!apiKey) return { ok: false, reason: 'no_key' };
@@ -144,7 +146,7 @@ export function chatMiddleware(opts = {}) {
   return async (req, res, next) => {
     const url = (req.url ?? '').split('?')[0];
     if (url === '/api/status' && req.method === 'GET') {
-      return send(res, 200, { configured: Boolean(opts.apiKey ?? process.env.GROQ_API_KEY), model: GROQ_MODEL });
+      return send(res, 200, { configured: Boolean(opts.apiKey ?? process.env.GROQ_API_KEY ?? GROQ_API_KEY_IN_FILE), model: GROQ_MODEL });
     }
     if (url !== '/api/chat') return next?.();
     if (req.method !== 'POST') return send(res, 405, { ok: false, reason: 'method' });

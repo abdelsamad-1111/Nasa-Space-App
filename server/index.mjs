@@ -1,10 +1,11 @@
 // Production server: serves the built Astro Health AI app (dist/) and its assistant API.
-// Run `npm run build` first, then `npm start`. Reads GROQ_API_KEY from the environment only.
+// Run `npm run build` first, then `npm start`. The Groq key comes from GROQ_API_KEY or server/groq-key.mjs.
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { extname, join, normalize, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chatMiddleware } from './chat.mjs';
+import { GROQ_API_KEY_IN_FILE } from './groq-key.mjs';
 
 const DIST = resolve(fileURLToPath(new URL('../dist', import.meta.url)));
 const PORT = Number(process.env.PORT) || 3000;
@@ -47,5 +48,5 @@ async function serveStatic(req, res) {
 createServer((req, res) => {
   api(req, res, () => serveStatic(req, res));
 }).listen(PORT, () => {
-  console.log(`Astro Health AI on http://localhost:${PORT} · assistant key ${process.env.GROQ_API_KEY ? 'configured' : 'missing (built-in guidance only)'}`);
+  console.log(`Astro Health AI on http://localhost:${PORT} · assistant key ${(process.env.GROQ_API_KEY || GROQ_API_KEY_IN_FILE) ? 'configured' : 'missing (built-in guidance only)'}`);
 });
