@@ -1,0 +1,16 @@
+{
+  "label": "SYNTHETIC DATA, research-based. Not real astronaut measurements. Not clinical validation.",
+  "checks": {
+    "registry_unique_keys_sources_and_column_lineage": true,
+    "full_grid_schema_precision_technical_ranges_and_labels": true,
+    "missingness_is_bundled_with_identical_values_and_masks": true,
+    "temperature_scenario_changes_only_temperature": true,
+    "identical_event_timing_in_all_size_scenarios": true,
+    "episode_ledger_matches_daily_ground_truth_and_ordered_event_sizes": true,
+    "source_check_json_matches_saved_csv": true,
+    "preflight_baselines_match_recorded_calibration_rows": true,
+    "missingness_counts_match_json": true
+  },
+  "passed": true,
+  "rows_per_file": 3600
+}

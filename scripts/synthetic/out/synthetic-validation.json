@@ -1,0 +1,349 @@
+{
+  "label": "SYNTHETIC DATA, research-based. Not real astronaut measurements. Not clinical validation.",
+  "seed": 42,
+  "crew_size": 20,
+  "days": 180,
+  "rows_per_mission_file": 3600,
+  "app_engine_evaluated": false,
+  "clinical_validation": false,
+  "app_contract_verified": false,
+  "parameter_status_counts": {
+    "VERIFIED": 17,
+    "DATA": 11,
+    "ASSUMPTION": 135
+  },
+  "scenarios": {
+    "A": {
+      "label": "SYNTHETIC DATA, research-based. Not real astronaut measurements. Not clinical validation.",
+      "event_size": "default",
+      "oral_temp_shift": 0.0,
+      "realistic_file": "synthetic-astronauts.csv",
+      "clean_file": "synthetic-astronauts-clean.csv",
+      "means": {
+        "bp_sys": 106.13972222222222,
+        "bp_dia": 75.81611111111111,
+        "hr": 60.5975,
+        "temp": 36.20869444444444,
+        "spo2": 97.47083333333333,
+        "glucose": 91.69423076923077,
+        "sleep": 6.09,
+        "mood": 3.18,
+        "radiation": 0.36554166666666665,
+        "exercise": 119.81444444444445
+      },
+      "radiation_total_min": 57.470000000000006,
+      "radiation_total_max": 74.77,
+      "mood_low_fraction": 0.09166666666666666,
+      "mood_high_fraction": 0.26861111111111113,
+      "source_check_nights_ge7": 0.25583333333333336,
+      "diagnostics": {
+        "bp_pulse_pressure_repairs": 39,
+        "range_clips": {
+          "bp_sys": 0,
+          "bp_dia": 0,
+          "hr": 0,
+          "temp": 0,
+          "spo2": 33,
+          "glucose": 0,
+          "sleep": 0,
+          "mood": 0,
+          "radiation": 0,
+          "exercise": 0
+        }
+      }
+    },
+    "B": {
+      "label": "SYNTHETIC DATA, research-based. Not real astronaut measurements. Not clinical validation.",
+      "event_size": "default",
+      "oral_temp_shift": 1.0,
+      "realistic_file": "synthetic-astronauts-tempshift.csv",
+      "clean_file": "synthetic-astronauts-tempshift-clean.csv",
+      "means": {
+        "bp_sys": 106.13972222222222,
+        "bp_dia": 75.81611111111111,
+        "hr": 60.5975,
+        "temp": 37.0028888888889,
+        "spo2": 97.47083333333333,
+        "glucose": 91.69423076923077,
+        "sleep": 6.09,
+        "mood": 3.18,
+        "radiation": 0.36554166666666665,
+        "exercise": 119.81444444444445
+      },
+      "radiation_total_min": 57.470000000000006,
+      "radiation_total_max": 74.77,
+      "mood_low_fraction": 0.09166666666666666,
+      "mood_high_fraction": 0.26861111111111113,
+      "source_check_nights_ge7": 0.25583333333333336,
+      "diagnostics": {
+        "bp_pulse_pressure_repairs": 39,
+        "range_clips": {
+          "bp_sys": 0,
+          "bp_dia": 0,
+          "hr": 0,
+          "temp": 0,
+          "spo2": 33,
+          "glucose": 0,
+          "sleep": 0,
+          "mood": 0,
+          "radiation": 0,
+          "exercise": 0
+        }
+      }
+    },
+    "C": {
+      "label": "SYNTHETIC DATA, research-based. Not real astronaut measurements. Not clinical validation.",
+      "event_size": "small",
+      "oral_temp_shift": 0.0,
+      "realistic_file": "synthetic-astronauts-small.csv",
+      "clean_file": "synthetic-astronauts-small-clean.csv",
+      "means": {
+        "bp_sys": 106.11027777777778,
+        "bp_dia": 75.79694444444445,
+        "hr": 60.26166666666666,
+        "temp": 36.19555555555556,
+        "spo2": 97.48166666666667,
+        "glucose": 91.69423076923077,
+        "sleep": 6.123777777777778,
+        "mood": 3.198888888888889,
+        "radiation": 0.3631888888888889,
+        "exercise": 119.81444444444445
+      },
+      "radiation_total_min": 57.080000000000005,
+      "radiation_total_max": 74.33,
+      "mood_low_fraction": 0.07805555555555556,
+      "mood_high_fraction": 0.27361111111111114,
+      "source_check_nights_ge7": 0.2588888888888889,
+      "diagnostics": {
+        "bp_pulse_pressure_repairs": 37,
+        "range_clips": {
+          "bp_sys": 0,
+          "bp_dia": 0,
+          "hr": 0,
+          "temp": 0,
+          "spo2": 33,
+          "glucose": 0,
+          "sleep": 0,
+          "mood": 0,
+          "radiation": 0,
+          "exercise": 0
+        }
+      }
+    },
+    "D": {
+      "label": "SYNTHETIC DATA, research-based. Not real astronaut measurements. Not clinical validation.",
+      "event_size": "large",
+      "oral_temp_shift": 0.0,
+      "realistic_file": "synthetic-astronauts-large.csv",
+      "clean_file": "synthetic-astronauts-large-clean.csv",
+      "means": {
+        "bp_sys": 106.16305555555556,
+        "bp_dia": 75.84138888888889,
+        "hr": 60.94305555555555,
+        "temp": 36.220666666666666,
+        "spo2": 97.45972222222223,
+        "glucose": 91.69423076923077,
+        "sleep": 6.052083333333333,
+        "mood": 3.1591666666666667,
+        "radiation": 0.373825,
+        "exercise": 119.81444444444445
+      },
+      "radiation_total_min": 58.870000000000005,
+      "radiation_total_max": 76.56,
+      "mood_low_fraction": 0.10444444444444445,
+      "mood_high_fraction": 0.2627777777777778,
+      "source_check_nights_ge7": 0.25055555555555553,
+      "diagnostics": {
+        "bp_pulse_pressure_repairs": 39,
+        "range_clips": {
+          "bp_sys": 0,
+          "bp_dia": 0,
+          "hr": 0,
+          "temp": 0,
+          "spo2": 33,
+          "glucose": 0,
+          "sleep": 0,
+          "mood": 0,
+          "radiation": 0,
+          "exercise": 0
+        }
+      }
+    }
+  },
+  "missingness": {
+    "morning_person_days": 153,
+    "evening_person_days": 89
+  },
+  "source_checks": [
+    {
+      "key": "bp_sys",
+      "check": "Event-free systolic after adaptation",
+      "synthetic": 105.89953452288596,
+      "target": 106.0,
+      "tolerance": 2.0,
+      "role": "Input-consistency check; ambulatory-to-seated transfer is assumed",
+      "pass_check": true,
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31319685/"
+    },
+    {
+      "key": "sleep_mean",
+      "check": "Sleep mean, all nights including events",
+      "synthetic": 6.09,
+      "target": 6.09,
+      "tolerance": 0.03,
+      "role": "Calibrated input-consistency check",
+      "pass_check": true,
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4188436/"
+    },
+    {
+      "key": "sleep_ge7",
+      "check": "Nights with at least seven hours of sleep",
+      "synthetic": 0.25583333333333336,
+      "target": 0.2422907488986784,
+      "tolerance": 0.05,
+      "role": "Only held-out independent source check; not used for calibration",
+      "pass_check": true,
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4188436/"
+    },
+    {
+      "key": "temp",
+      "check": "Event-free oral temperature, main no-shift scenario",
+      "synthetic": 36.16268425135764,
+      "target": 36.16,
+      "tolerance": 0.12,
+      "role": "Input-consistency check; Earth oral-temperature proxy",
+      "pass_check": true,
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31578101/"
+    },
+    {
+      "key": "hr",
+      "check": "Event-free resting heart rate",
+      "synthetic": 59.23390224980605,
+      "target": 59.5,
+      "tolerance": 1.0,
+      "role": "Input-consistency check against supplied Earth-proxy summary",
+      "pass_check": true,
+      "source_url": "https://datasets.simula.no/pmdata/"
+    },
+    {
+      "key": "mood_mean",
+      "check": "Mean exported rounded mood, all days",
+      "synthetic": 3.18,
+      "target": 3.18,
+      "tolerance": 0.002,
+      "role": "Calibrated input-consistency check against supplied summary",
+      "pass_check": true,
+      "source_url": "https://datasets.simula.no/pmdata/"
+    },
+    {
+      "key": "mood_low",
+      "check": "Days with mood two or lower",
+      "synthetic": 0.09166666666666666,
+      "target": 0.083,
+      "tolerance": 0.05,
+      "role": "Prior calibration diagnostic; NOT an independent source check",
+      "pass_check": true,
+      "source_url": "https://datasets.simula.no/pmdata/"
+    },
+    {
+      "key": "radiation_total",
+      "check": "Per-person total mission effective dose, including solar event",
+      "synthetic_min": 57.470000000000006,
+      "synthetic_max": 74.77,
+      "target_min": 40.0,
+      "target_max": 90.0,
+      "role": "Approximate input-consistency check; acceptance bounds are assumptions",
+      "pass_check": true,
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10919966/"
+    }
+  ],
+  "episode_counts": {
+    "eva": 60,
+    "sleep_debt": 60,
+    "fluid_loss": 20,
+    "infection": 40,
+    "solar_event": 1
+  },
+  "event_person_days": {
+    "infection": 200,
+    "fluid_loss": 120,
+    "sleep_debt": 471,
+    "eva": 60,
+    "solar_event": 40
+  },
+  "independent_raw_pmdata_recomputation": false,
+  "structural_checks": {
+    "latent_personal_means_and_sample_sd_exact": true,
+    "temperature_scenario_changes_only_temperature": true
+  },
+  "latent_baseline_checks": {
+    "bp_sys": {
+      "mean": 120.0,
+      "sample_sd": 10.0,
+      "target_mean": 120.0,
+      "target_sd": 10.0
+    },
+    "bp_dia": {
+      "mean": 75.99999999999999,
+      "sample_sd": 6.000000000000001,
+      "target_mean": 76.0,
+      "target_sd": 6.0
+    },
+    "hr": {
+      "mean": 59.5,
+      "sample_sd": 6.7,
+      "target_mean": 59.5,
+      "target_sd": 6.7
+    },
+    "temp": {
+      "mean": 36.16,
+      "sample_sd": 0.2600000000000004,
+      "target_mean": 36.16,
+      "target_sd": 0.26
+    },
+    "spo2": {
+      "mean": 97.5,
+      "sample_sd": 0.3500000000000021,
+      "target_mean": 97.5,
+      "target_sd": 0.35
+    },
+    "glucose": {
+      "mean": 92.0,
+      "sample_sd": 5.999999999999998,
+      "target_mean": 92.0,
+      "target_sd": 6.0
+    },
+    "sleep": {
+      "mean": 6.089999999999999,
+      "sample_sd": 0.71,
+      "target_mean": 6.09,
+      "target_sd": 0.71
+    },
+    "mood": {
+      "mean": 3.18,
+      "sample_sd": 0.32000000000000006,
+      "target_mean": 3.18,
+      "target_sd": 0.32
+    },
+    "radiation": {
+      "mean": 0.35,
+      "sample_sd": 0.024999999999999994,
+      "target_mean": 0.35,
+      "target_sd": 0.025
+    },
+    "exercise": {
+      "mean": 120.0,
+      "sample_sd": 12.0,
+      "target_mean": 120.0,
+      "target_sd": 12.0
+    }
+  },
+  "source_checks_passed": true,
+  "calibration": {
+    "sleep_offset": 0.1645028191903113,
+    "mood_offset": 0.12109258593457883,
+    "average_sleep_event_effect": -0.1708562382001462,
+    "average_mood_event_effect": -0.049848318737515156,
+    "average_sleep_mood_link": -0.08053086308997741
+  }
+}

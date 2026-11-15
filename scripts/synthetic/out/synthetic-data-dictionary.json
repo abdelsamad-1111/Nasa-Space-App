@@ -1,0 +1,294 @@
+{
+  "label": "SYNTHETIC DATA, research-based. Not real astronaut measurements. Not clinical validation.",
+  "columns": [
+    "astronaut_id",
+    "mission_day",
+    "bp_sys",
+    "bp_dia",
+    "hr",
+    "temp",
+    "spo2",
+    "glucose",
+    "sleep",
+    "mood",
+    "radiation",
+    "exercise",
+    "context",
+    "events"
+  ],
+  "indicators": {
+    "bp_sys": {
+      "unit": "mmHg",
+      "decimals": 0,
+      "technical_range": [
+        50.0,
+        240.0
+      ],
+      "parameter_keys": [
+        "bp_sys_mean",
+        "bp_sys_between_sd",
+        "range_bp_sys",
+        "precision_bp_sys",
+        "bp_sys_within_sd",
+        "bp_sys_shift",
+        "bp_sys_ramp_days",
+        "bp_min_pulse_pressure",
+        "bp_baseline_correlation",
+        "bp_daily_correlation",
+        "fluid_bp_sys_small",
+        "fluid_bp_sys_default",
+        "fluid_bp_sys_large",
+        "eva_bp_sys_small",
+        "eva_bp_sys_default",
+        "eva_bp_sys_large"
+      ],
+      "missing_tokens": [
+        "missed_checkin"
+      ]
+    },
+    "bp_dia": {
+      "unit": "mmHg",
+      "decimals": 0,
+      "technical_range": [
+        30.0,
+        150.0
+      ],
+      "parameter_keys": [
+        "bp_dia_mean",
+        "bp_dia_between_sd",
+        "range_bp_dia",
+        "precision_bp_dia",
+        "bp_dia_within_sd",
+        "bp_dia_shift",
+        "bp_baseline_correlation",
+        "bp_daily_correlation",
+        "fluid_dia_multiplier",
+        "fluid_bp_sys_small",
+        "fluid_bp_sys_default",
+        "fluid_bp_sys_large",
+        "eva_bp_dia_small",
+        "eva_bp_dia_default",
+        "eva_bp_dia_large"
+      ],
+      "missing_tokens": [
+        "missed_checkin"
+      ]
+    },
+    "hr": {
+      "unit": "bpm",
+      "decimals": 0,
+      "technical_range": [
+        30.0,
+        220.0
+      ],
+      "parameter_keys": [
+        "hr_mean",
+        "hr_between_sd",
+        "range_hr",
+        "precision_hr",
+        "hr_within_sd",
+        "hr_lag1",
+        "hr_manual_sd",
+        "infection_hr_per_c",
+        "infection_temp_small",
+        "infection_temp_default",
+        "infection_temp_large",
+        "fluid_hr_small",
+        "fluid_hr_default",
+        "fluid_hr_large",
+        "eva_hr_small",
+        "eva_hr_default",
+        "eva_hr_large"
+      ],
+      "missing_tokens": [
+        "missed_checkin"
+      ]
+    },
+    "temp": {
+      "unit": "degC oral",
+      "decimals": 1,
+      "technical_range": [
+        33.0,
+        42.0
+      ],
+      "parameter_keys": [
+        "temp_mean",
+        "temp_between_sd",
+        "range_temp",
+        "precision_temp",
+        "temp_within_sd",
+        "temp_inflight_shift_A",
+        "temp_inflight_shift_B",
+        "temp_oral_ramp_days",
+        "infection_temp_small",
+        "infection_temp_default",
+        "infection_temp_large"
+      ],
+      "missing_tokens": [
+        "missed_checkin"
+      ]
+    },
+    "spo2": {
+      "unit": "%",
+      "decimals": 0,
+      "technical_range": [
+        50.0,
+        100.0
+      ],
+      "parameter_keys": [
+        "spo2_mean",
+        "spo2_between_sd",
+        "range_spo2",
+        "precision_spo2",
+        "spo2_within_sd",
+        "infection_spo2_small",
+        "infection_spo2_default",
+        "infection_spo2_large"
+      ],
+      "missing_tokens": [
+        "missed_checkin"
+      ]
+    },
+    "glucose": {
+      "unit": "mg/dL fasting",
+      "decimals": 0,
+      "technical_range": [
+        40.0,
+        400.0
+      ],
+      "parameter_keys": [
+        "glucose_mean",
+        "glucose_between_sd",
+        "range_glucose",
+        "precision_glucose",
+        "glucose_within_sd",
+        "glucose_every_days",
+        "glucose_first_day"
+      ],
+      "missing_tokens": [
+        "not_measured",
+        "missed_checkin"
+      ]
+    },
+    "sleep": {
+      "unit": "hour/night",
+      "decimals": 1,
+      "technical_range": [
+        0.0,
+        16.0
+      ],
+      "parameter_keys": [
+        "sleep_mean",
+        "sleep_between_sd",
+        "range_sleep",
+        "precision_sleep",
+        "sleep_within_sd",
+        "calibration_search_bounds",
+        "calibration_iterations",
+        "infection_sleep_small",
+        "infection_sleep_default",
+        "infection_sleep_large",
+        "sleep_debt_sleep_small",
+        "sleep_debt_sleep_default",
+        "sleep_debt_sleep_large"
+      ],
+      "missing_tokens": [
+        "missed_checkin"
+      ]
+    },
+    "mood": {
+      "unit": "point; higher is better",
+      "decimals": 0,
+      "technical_range": [
+        1.0,
+        5.0
+      ],
+      "parameter_keys": [
+        "mood_mean",
+        "mood_between_sd",
+        "range_mood",
+        "precision_mood",
+        "mood_latent_within_sd",
+        "sleep_to_mood_next_day",
+        "calibration_search_bounds",
+        "calibration_iterations",
+        "infection_mood_small",
+        "infection_mood_default",
+        "infection_mood_large",
+        "sleep_debt_mood_small",
+        "sleep_debt_mood_default",
+        "sleep_debt_mood_large"
+      ],
+      "missing_tokens": [
+        "missed_checkin"
+      ]
+    },
+    "radiation": {
+      "unit": "mSv/day effective dose",
+      "decimals": 2,
+      "technical_range": [
+        0.0,
+        10.0
+      ],
+      "parameter_keys": [
+        "radiation_mean",
+        "radiation_between_sd",
+        "range_radiation",
+        "precision_radiation",
+        "radiation_within_sd",
+        "radiation_common_sd",
+        "radiation_reference_range",
+        "solar_day1_small",
+        "solar_day1_default",
+        "solar_day1_large",
+        "solar_day2_small",
+        "solar_day2_default",
+        "solar_day2_large"
+      ],
+      "missing_tokens": [
+        "missed_dosimeter"
+      ]
+    },
+    "exercise": {
+      "unit": "minute/day",
+      "decimals": 0,
+      "technical_range": [
+        0.0,
+        240.0
+      ],
+      "parameter_keys": [
+        "exercise_mean",
+        "exercise_between_sd",
+        "range_exercise",
+        "precision_exercise",
+        "exercise_within_sd"
+      ],
+      "missing_tokens": []
+    }
+  },
+  "row_definition": "One synthetic astronaut, one mission day. AST identifiers are fictional.",
+  "context": "JSON object with per-indicator context, bundle missingness, and _label. Context strings have not been matched to the app enums.",
+  "events": "none, or semicolon-separated event:phase tokens. Allowed phases: onset, rising, peak, recovering. Ground truth stays present when check-ins are missed.",
+  "schedule": "Morning bundle plus weekly fasting glucose; evening radiation; daily exercise. EVA BP/HR readings are post-activity within the check-in bundle. No exact app timestamp contract is asserted.",
+  "formula": "value = latent personal baseline + spaceflight effect + event effects + daily links + daily noise + offline mean-calibration offset; then technical clipping and rounding. Radiation uses a daily dose multiplied by the solar-event factor.",
+  "shared_controls": [
+    "seed",
+    "crew_size",
+    "mission_days",
+    "preflight_days",
+    "morning_hour_utc",
+    "evening_hour_utc",
+    "exercise_hour_utc",
+    "rng_stream_baselines",
+    "rng_stream_daily",
+    "rng_stream_events",
+    "rng_stream_missing",
+    "miss_morning_probability",
+    "miss_evening_probability",
+    "event_start_min_day",
+    "event_end_buffer_days",
+    "event_gap_days"
+  ],
+  "app_contract_verified": false,
+  "clinical_validation": false
+}
