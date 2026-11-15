@@ -1,4 +1,4 @@
-// VITALS-ORBIT — pure evaluation functions (no ML, no side effects).
+// Astro Health AI — pure evaluation functions (no ML, no side effects).
 import {
   BASELINE_INDICATORS,
   FACTOR_NAMES,

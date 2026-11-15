@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ZONES, type MetricId, type PatternId, type Status, type StoryStepId, type ZoneId } from '../../brain/indicators';
 import { detectPatterns, evaluateDay, summarizeAssessment, worstIndicator } from '../../brain/evaluate';
+import { forecastDay } from '../../brain/forecast';
 import { useApp } from '../../state/AppState';
 import { fmtDate, fmtNumber } from '../../lib/format';
 import { LeftColumn } from './LeftColumn';
@@ -25,14 +26,16 @@ export function TwinScreen() {
   const storyTimer = useRef<number>();
 
   // Overall status for every day (timeline ticks).
-  const dayStatus = useMemo<(Status | null)[]>(() => {
+  const { dayStatus, warningDays } = useMemo(() => {
     const out: (Status | null)[] = [];
+    const warnings: number[] = [];
     for (let d = 1; d <= maxDay; d++) {
       const evals = evaluateDay(data.measurements, d, data.settings);
       const summary = summarizeAssessment(evals, detectPatterns(data.measurements, d));
       out.push(summary.complete || summary.status !== 'OK' ? summary.status : null);
+      if (forecastDay(data.measurements, d)?.warn) warnings.push(d);
     }
-    return out;
+    return { dayStatus: out, warningDays: warnings };
   }, [data.measurements, data.settings, maxDay]);
 
   const open = useCallback((id: MetricId) => {
@@ -83,7 +86,7 @@ export function TwinScreen() {
         </section>
         <SidePanel selected={selected} tab={tab} onTab={setTab} />
       </div>
-      <Timeline dayStatus={dayStatus} />
+      <Timeline dayStatus={dayStatus} warningDays={warningDays} />
     </main>
   );
 }

@@ -1,4 +1,4 @@
-/* CAPCOM Assistant — chat view. Same tokens as the rest of the app: white, graphite, thin rules,
+/* Astro Health AI — chat view. Same tokens as the rest of the app: white, graphite, thin rules,
    2px corners, no gradients. */
 :root {
   --mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas, Menlo, monospace;
@@ -8,19 +8,20 @@
 .nav button[aria-expanded='true'] { color: var(--text); border-bottom-color: var(--text); }
 
 .capcom {
-  position: fixed; top: 0; right: 0; bottom: 0; width: 420px; z-index: 50;
+  position: fixed; top: 0; right: 0; bottom: 0; width: 420px; max-width: 100%; z-index: 50;
   display: flex; flex-direction: column; background: var(--bg);
   border-left: 1px solid var(--rule); box-shadow: -8px 0 24px rgba(0, 0, 0, 0.06);
 }
 .capcom[hidden] { display: none; }
 
 .capcom-head {
-  display: flex; align-items: center; gap: 12px; padding: 14px 16px 12px;
-  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 12px; padding: 16px;
+  border-top: 3px solid var(--capcom-orange); border-bottom: 1px solid var(--rule);
 }
-.capcom-helmet { flex: none; }
-.capcom-id { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
-.capcom-title { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.capcom-brand-mark { width: 48px; height: 52px; flex: none; display: flex; align-items: center; justify-content: center; }
+.capcom-id { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
+.capcom-eyebrow { color: var(--text-2); font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.capcom-title { font-size: 18px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.2; }
 .capcom-link { font-family: var(--mono); font-size: 11px; color: var(--text-2); }
 .capcom-link::before {
   content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 6px; vertical-align: 0;
@@ -37,13 +38,13 @@
 /* ---------- Conversation ---------- */
 .capcom-log { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 8px 16px 12px; }
 .capcom-msg { padding: 8px 0; }
-.capcom-meta { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+.capcom-meta { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 8px; margin-bottom: 4px; }
 .capcom-met { font-family: var(--mono); font-size: 10.5px; color: var(--text-2); }
-.capcom-sender { font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; }
+.capcom-sender { font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em; }
 
-/* CAPCOM: left, helmet avatar */
-.capcom-msg-capcom { display: grid; grid-template-columns: 26px minmax(0, 1fr); column-gap: 10px; align-items: start; }
-.capcom-msg-capcom .capcom-helmet { margin-top: 2px; }
+/* Assistant: left, shared astronaut avatar */
+.capcom-msg-capcom { display: grid; grid-template-columns: 30px minmax(0, 1fr); column-gap: 10px; align-items: start; }
+.capcom-avatar { flex: none; margin-top: 2px; }
 .capcom-msg-capcom .capcom-sender { color: var(--text); }
 .capcom-body { min-width: 0; }
 .capcom-reply { font-size: 13.5px; line-height: 1.5; }

@@ -3,6 +3,8 @@ import { LOCATION_LABEL, STATUS_COLOR, STATUS_WORD, metricDef, type Status } fro
 import { worstIndicator } from '../../brain/evaluate';
 import { useApp } from '../../state/AppState';
 import { StatusIcon } from '../StatusBadge';
+import { AstronautMark } from '../AstronautMark';
+import { APP_NAME } from '../../lib/brand';
 import { fmtNumber } from '../../lib/format';
 import { QUICK_ACTIONS, sourceLabel, welcomeMessage, type AskKind, type AssistantInput, type ChatAnswer, type ChatTurn } from '../../assistant/facts';
 import { askCapcom, fetchLinkStatus, metStamp, type CapcomResult, type FallbackReason } from '../../assistant/client';
@@ -21,22 +23,6 @@ const FALLBACK_REASON: Record<FallbackReason, string> = {
   error: 'link error',
 };
 
-/** Our own helmet mark: graphite outline, international-orange visor. */
-export function HelmetIcon({ size = 28 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true" className="capcom-helmet">
-      <g fill="none" stroke="#2b2b2b" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round">
-        <path d="M5.5 21V14.5a10.5 10.5 0 0 1 21 0V21" />
-        <path d="M4 21h24v3.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />
-        <path d="M9 14a7 7 0 0 1 14 0v2a3 3 0 0 1-3 3h-8a3 3 0 0 1-3-3z" fill="#FF4F00" />
-        <path d="M11.6 12.6a4.6 4.6 0 0 1 3.2-2.6" stroke="#fff" strokeOpacity="0.85" />
-        <circle cx="7.6" cy="23.7" r="0.6" fill="#2b2b2b" stroke="none" />
-        <circle cx="24.4" cy="23.7" r="0.6" fill="#2b2b2b" stroke="none" />
-      </g>
-    </svg>
-  );
-}
-
 function StatusChip({ status, label }: { status: Status; label: string }) {
   return (
     <div className="capcom-chip-row">
@@ -54,11 +40,11 @@ function CapcomMessage({ entry, onFollowup, disabled }: { entry: Extract<Entry, 
   const showChip = result && result.inScope && result.pack.status;
   return (
     <article className="capcom-msg capcom-msg-capcom">
-      <HelmetIcon size={26} />
+      <AstronautMark size={30} className="capcom-avatar" />
       <div className="capcom-body">
         <div className="capcom-meta">
           <span className="capcom-met">{entry.met}</span>
-          <span className="capcom-sender">CAPCOM</span>
+          <span className="capcom-sender">{APP_NAME}</span>
         </div>
         {showChip && <StatusChip status={result.pack.status!} label={result.pack.statusLabel} />}
         <p className="capcom-reply">{answer.reply}</p>
@@ -110,8 +96,12 @@ export function AssistantPanel() {
   const [configured, setConfigured] = useState<boolean | null>(null);
   const [lastMode, setLastMode] = useState<'ai' | 'fallback' | null>(null);
   const [online, setOnline] = useState(() => navigator.onLine);
+  const panelRef = useRef<HTMLElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const logRef = useRef<HTMLDivElement>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
+  const wasOpenRef = useRef(false);
+  const focusTokenRef = useRef(0);
   const nextId = useRef(1);
   const visible = assistantOpen && screen !== 'checkin' && screen !== 'exercise';
 
@@ -168,8 +158,25 @@ export function AssistantPanel() {
   }, [contextKey, contextText, today]);
 
   useEffect(() => {
-    if (assistantFocusToken && visible) inputRef.current?.focus();
-  }, [assistantFocusToken, visible]);
+    const opened = assistantOpen && !wasOpenRef.current;
+    const focusRequested = assistantFocusToken !== focusTokenRef.current;
+    if (visible && (opened || focusRequested)) {
+      const active = document.activeElement;
+      if (active instanceof HTMLElement && active !== document.body && !panelRef.current?.contains(active)) {
+        openerRef.current = active;
+      }
+      if (focusRequested) inputRef.current?.focus();
+    } else if (!assistantOpen && wasOpenRef.current) {
+      const opener = openerRef.current;
+      openerRef.current = null;
+      if (screen !== 'checkin' && screen !== 'exercise' && opener?.isConnected && !opener.closest('[inert]') && opener.getClientRects().length > 0) {
+        opener.focus({ preventScroll: true });
+      }
+    }
+    // Temporary screen hiding does not reopen the assistant or request input focus.
+    wasOpenRef.current = assistantOpen;
+    focusTokenRef.current = assistantFocusToken;
+  }, [assistantOpen, assistantFocusToken, visible, screen]);
 
   useEffect(() => {
     logRef.current?.scrollTo({ top: logRef.current.scrollHeight, behavior: 'smooth' });
@@ -205,20 +212,24 @@ export function AssistantPanel() {
   };
 
   const onKeyDown = (ev: KeyboardEvent) => {
-    if (ev.key === 'Escape') closeAssistant();
+    if (ev.key === 'Escape') {
+      ev.preventDefault();
+      closeAssistant();
+    }
   };
 
   return (
-    <aside id="capcom-panel" className="capcom" aria-label="CAPCOM Assistant" hidden={!visible} onKeyDown={onKeyDown}>
+    <aside ref={panelRef} id="capcom-panel" className="capcom" aria-labelledby="capcom-title" hidden={!visible} onKeyDown={onKeyDown}>
       <div className="capcom-head">
-        <HelmetIcon />
+        <div className="capcom-brand-mark"><AstronautMark size={40} /></div>
         <div className="capcom-id">
-          <span className="capcom-title">CAPCOM Assistant</span>
+          <span className="capcom-eyebrow">Mission health assistant</span>
+          <h2 className="capcom-title" id="capcom-title">{APP_NAME}</h2>
           <span className={`capcom-link${linkUp ? ' is-up' : ''}`}>
             {linkUp ? 'Link: online' : 'Link: offline — built-in guidance'}
           </span>
         </div>
-        <button className="btn btn-ghost capcom-close" onClick={closeAssistant} aria-label="Close CAPCOM Assistant">
+        <button className="btn btn-ghost capcom-close" onClick={closeAssistant} aria-label={`Close ${APP_NAME}`}>
           Close
         </button>
       </div>
@@ -242,10 +253,10 @@ export function AssistantPanel() {
           ),
         )}
         {busy && (
-          <div className="capcom-msg capcom-msg-capcom capcom-typing" aria-label="CAPCOM is typing">
-            <HelmetIcon size={26} />
+          <div className="capcom-msg capcom-msg-capcom capcom-typing" aria-label={`${APP_NAME} is typing`}>
+            <AstronautMark size={30} className="capcom-avatar" />
             <p className="capcom-reply">
-              CAPCOM is typing<span className="capcom-dots" aria-hidden="true"><i /><i /><i /></span>
+              {APP_NAME} is typing<span className="capcom-dots" aria-hidden="true"><i /><i /><i /></span>
             </p>
           </div>
         )}
@@ -258,14 +269,14 @@ export function AssistantPanel() {
         ))}
       </div>
       <form className="capcom-form" onSubmit={onSubmit}>
-        <label className="visually-hidden" htmlFor="capcom-input">Question for CAPCOM</label>
+        <label className="visually-hidden" htmlFor="capcom-input">Question for {APP_NAME}</label>
         <input
           id="capcom-input"
           ref={inputRef}
           value={text}
           maxLength={600}
           autoComplete="off"
-          placeholder="Ask CAPCOM about your health…"
+          placeholder={`Ask ${APP_NAME} about your health…`}
           onChange={(ev) => setText(ev.target.value)}
         />
         <button type="submit" className="btn btn-primary" disabled={busy || !text.trim()}>

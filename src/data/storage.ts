@@ -1,4 +1,4 @@
-// VITALS-ORBIT — localStorage persistence. Every read/write is wrapped in try/catch.
+// Astro Health AI — localStorage persistence. Every read/write is wrapped in try/catch.
 import type { Measurement, Settings } from '../brain/evaluate';
 import { DEMO_SETTINGS, defaultMissionStart, generateDemoMission } from './demo';
 
@@ -21,6 +21,17 @@ export interface PersistedState {
   actionsTaken: ActionTaken[];
 }
 
+/** Demo follow-up actions for the infection story (days 18–19), so the recovery shows in the report. */
+export function demoActions(missionStart: string): ActionTaken[] {
+  const at = (day: number, hour: number) => new Date(new Date(missionStart).getTime() + (day - 1) * 86400000 + hour * 3600000).toISOString();
+  return [
+    { key: 'demo-temp-18-0', missionDay: 18, label: 'Body temperature: Drank extra fluids', timestamp: at(18, 8) },
+    { key: 'demo-temp-18-1', missionDay: 18, label: 'Body temperature: Re-measured temperature after 4 h', timestamp: at(18, 12) },
+    { key: 'demo-temp-19-0', missionDay: 19, label: 'Body temperature: Rested 2 h', timestamp: at(19, 10) },
+    { key: 'demo-temp-19-1', missionDay: 19, label: 'Body temperature: Drank extra fluids', timestamp: at(19, 11) },
+  ];
+}
+
 export function demoState(today = new Date()): PersistedState {
   const missionStart = defaultMissionStart(today);
   return {
@@ -29,7 +40,7 @@ export function demoState(today = new Date()): PersistedState {
     missionStart,
     measurements: generateDemoMission(missionStart),
     acknowledgedAlerts: [],
-    actionsTaken: [],
+    actionsTaken: demoActions(missionStart),
   };
 }
 
@@ -79,7 +90,13 @@ function restoreState(saved: SavedState): PersistedState {
     : saved.measurements.length > 0 && saved.measurements.every((m) => typeof m?.id === 'string' && m.id.startsWith('demo-'))
       ? 'demo'
       : 'personal';
-  return addDemoExercise({ ...saved, mode });
+  return addDemoActions(addDemoExercise({ ...saved, mode }));
+}
+
+/** Older saved demo data has no demo follow-up actions: add them (never to personal missions). */
+function addDemoActions(s: PersistedState): PersistedState {
+  if (s.mode !== 'demo' || s.actionsTaken.some((a) => a.key.startsWith('demo-'))) return s;
+  return { ...s, actionsTaken: [...s.actionsTaken, ...demoActions(s.missionStart)] };
 }
 
 /** Load saved state; on first open (or unreadable storage) load the demo mission. */

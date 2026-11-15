@@ -1,4 +1,4 @@
-// VITALS-ORBIT — single source of truth for thresholds, texts and links.
+// Astro Health AI — single source of truth for thresholds, texts and links.
 // Every number used by evaluate.ts lives here.
 
 export type IndicatorId = 'bp' | 'hr' | 'temp' | 'spo2' | 'glucose' | 'sleep' | 'mood' | 'radiation';

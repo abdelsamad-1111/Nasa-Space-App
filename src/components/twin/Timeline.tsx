@@ -6,11 +6,13 @@ import { fmtNumber } from '../../lib/format';
 
 interface Props {
   dayStatus: (Status | null)[]; // index 0 = day 1
+  warningDays?: readonly number[];
 }
 
-export const Timeline = memo(function Timeline({ dayStatus }: Props) {
+export const Timeline = memo(function Timeline({ dayStatus, warningDays = [] }: Props) {
   const { day, setDay, maxDay, data } = useApp();
   const events = data.mode === 'demo' ? MISSION_EVENTS.filter((ev) => ev.day <= maxDay) : [];
+  const warnings = [...new Set(warningDays)].filter((d) => Number.isInteger(d) && d >= 1 && d <= maxDay).sort((a, b) => a - b);
   const [playing, setPlaying] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -110,6 +112,28 @@ export const Timeline = memo(function Timeline({ dayStatus }: Props) {
           ))}
         </div>}
 
+        {warnings.length > 0 && (
+          <div className="tl-warnings" role="group" aria-label="Early warnings from the synthetic-trained model">
+            {warnings.map((d) => {
+              const label = `Early warning on Day ${fmtNumber(d)} — trained on synthetic data, not a diagnosis`;
+              return (
+                <button
+                  key={d}
+                  type="button"
+                  className={`tl-warning${day === d ? ' is-current' : ''}`}
+                  style={{ left: pos(d) }}
+                  aria-label={label}
+                  aria-pressed={day === d}
+                  title={label}
+                  onClick={() => { setPlaying(false); setDay(d); }}
+                >
+                  <span className="tl-warning-diamond" aria-hidden="true" />
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         <div
           ref={trackRef}
           className="tl-track"
@@ -146,6 +170,12 @@ export const Timeline = memo(function Timeline({ dayStatus }: Props) {
             <span key={ev.day} className="tl-event-pin" style={{ left: pos(ev.day) }} aria-hidden="true" />
           ))}
         </div>
+        {warnings.length > 0 && (
+          <p className="tl-warning-legend">
+            <span className="tl-warning-diamond" aria-hidden="true" />
+            Early warning · synthetic model · not a diagnosis
+          </p>
+        )}
       </div>
     </section>
   );

@@ -1,0 +1,1871 @@
+{
+  "label": "SYNTHETIC DATA, research-based. Not real astronaut measurements. Not clinical validation.",
+  "registry": [
+    {
+      "key": "bp_sys_mean",
+      "value": 120.0,
+      "unit": "mmHg",
+      "status": "VERIFIED",
+      "source": "Impact of Prolonged Spaceflight on Orthostatic Tolerance During Ambulation and Blood Pressure Profiles in Astronauts. Circulation (2019), DOI:10.1161/CIRCULATIONAHA.119.041050; PMID:31319685",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31319685/",
+      "note": "Pre-flight ambulatory average; use as morning seated baseline is an ASSUMPTION.",
+      "source_id": "bp"
+    },
+    {
+      "key": "bp_sys_between_sd",
+      "value": 10.0,
+      "unit": "mmHg",
+      "status": "VERIFIED",
+      "source": "Impact of Prolonged Spaceflight on Orthostatic Tolerance During Ambulation and Blood Pressure Profiles in Astronauts. Circulation (2019), DOI:10.1161/CIRCULATIONAHA.119.041050; PMID:31319685",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31319685/",
+      "note": "Pre-flight between-person SD of ambulatory averages; simulated latent crew sample SD is matched exactly.",
+      "source_id": "bp"
+    },
+    {
+      "key": "bp_sys_inflight_reference",
+      "value": 106.0,
+      "unit": "mmHg",
+      "status": "VERIFIED",
+      "source": "Impact of Prolonged Spaceflight on Orthostatic Tolerance During Ambulation and Blood Pressure Profiles in Astronauts. Circulation (2019), DOI:10.1161/CIRCULATIONAHA.119.041050; PMID:31319685",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31319685/",
+      "note": "Validation reference, not a second generator input.",
+      "source_id": "bp"
+    },
+    {
+      "key": "bp_sys_shift",
+      "value": -14.0,
+      "unit": "mmHg",
+      "status": "VERIFIED",
+      "source": "Impact of Prolonged Spaceflight on Orthostatic Tolerance During Ambulation and Blood Pressure Profiles in Astronauts. Circulation (2019), DOI:10.1161/CIRCULATIONAHA.119.041050; PMID:31319685",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31319685/",
+      "note": "The -14 mmHg shift comes from 24-hour ambulatory averages (sleep + activity). Applying it to a morning seated reading is an ASSUMPTION.",
+      "source_id": "bp"
+    },
+    {
+      "key": "bp_dia_shift",
+      "value": 0.0,
+      "unit": "mmHg",
+      "status": "VERIFIED",
+      "source": "Impact of Prolonged Spaceflight on Orthostatic Tolerance During Ambulation and Blood Pressure Profiles in Astronauts. Circulation (2019), DOI:10.1161/CIRCULATIONAHA.119.041050; PMID:31319685",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31319685/",
+      "note": "Unchanged diastolic pressure in that study; transfer to morning seated readings is an ASSUMPTION.",
+      "source_id": "bp"
+    },
+    {
+      "key": "temp_mean",
+      "value": 36.16,
+      "unit": "degC oral",
+      "status": "VERIFIED",
+      "source": "Variability in body temperature in healthy adults and in patients receiving chemotherapy: prospective observational cohort study. J Med Eng Technol (2019), DOI:10.1080/03091902.2019.1667446; PMID:31578101",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31578101/",
+      "note": "Healthy Earth adults, not astronaut measurements; morning-only transfer is an ASSUMPTION.",
+      "source_id": "temp"
+    },
+    {
+      "key": "temp_between_sd",
+      "value": 0.26,
+      "unit": "degC oral",
+      "status": "VERIFIED",
+      "source": "Variability in body temperature in healthy adults and in patients receiving chemotherapy: prospective observational cohort study. J Med Eng Technol (2019), DOI:10.1080/03091902.2019.1667446; PMID:31578101",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31578101/",
+      "note": "",
+      "source_id": "temp"
+    },
+    {
+      "key": "temp_within_sd",
+      "value": 0.4,
+      "unit": "degC oral",
+      "status": "VERIFIED",
+      "source": "Variability in body temperature in healthy adults and in patients receiving chemotherapy: prospective observational cohort study. J Med Eng Technol (2019), DOI:10.1080/03091902.2019.1667446; PMID:31578101",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31578101/",
+      "note": "",
+      "source_id": "temp"
+    },
+    {
+      "key": "core_temp_reference_rise",
+      "value": 1.0,
+      "unit": "degC core",
+      "status": "VERIFIED",
+      "source": "Increased core body temperature in astronauts during long-duration space missions. Scientific Reports (2017), DOI:10.1038/s41598-017-15560-w; PMID:29170507",
+      "url": "https://doi.org/10.1038/s41598-017-15560-w",
+      "note": "Reference only. Published full text opened at DLR. CORE temperature measured with a forehead heat-flux sensor. The size of the rise for ORAL temperature is an ASSUMPTION.",
+      "source_id": "core_temp"
+    },
+    {
+      "key": "core_temp_reference_plateau_days",
+      "value": 75,
+      "unit": "day",
+      "status": "VERIFIED",
+      "source": "Increased core body temperature in astronauts during long-duration space missions. Scientific Reports (2017), DOI:10.1038/s41598-017-15560-w; PMID:29170507",
+      "url": "https://doi.org/10.1038/s41598-017-15560-w",
+      "note": "Reference plateau timing; linear shape and its oral-temperature transfer are ASSUMPTIONs.",
+      "source_id": "core_temp"
+    },
+    {
+      "key": "sleep_mean",
+      "value": 6.09,
+      "unit": "hour/night",
+      "status": "VERIFIED",
+      "source": "Prevalence of Sleep Deficiency and Hypnotic Use Among Astronauts Before, During and After Spaceflight: An Observational Study. Lancet Neurology (2014), DOI:10.1016/S1474-4422(14)70122-X; PMID:25127232",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4188436/",
+      "note": "Overall simulated clean mean including events is calibrated to this ISS mean.",
+      "source_id": "sleep"
+    },
+    {
+      "key": "sleep_ge7_reference",
+      "value": 0.24,
+      "unit": "fraction",
+      "status": "VERIFIED",
+      "source": "Prevalence of Sleep Deficiency and Hypnotic Use Among Astronauts Before, During and After Spaceflight: An Observational Study. Lancet Neurology (2014), DOI:10.1016/S1474-4422(14)70122-X; PMID:25127232",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4188436/",
+      "note": "CHECK ONLY; not used to generate or tune sleep. Table 2 gives rounded categories; exact count-based reference is supplied separately.",
+      "source_id": "sleep"
+    },
+    {
+      "key": "sleep_ge7_source_counts",
+      "value": [
+        487,
+        228,
+        2951
+      ],
+      "unit": "nights: 7-to-8, 8-plus, total",
+      "status": "VERIFIED",
+      "source": "Prevalence of Sleep Deficiency and Hypnotic Use Among Astronauts Before, During and After Spaceflight: An Observational Study. Lancet Neurology (2014), DOI:10.1016/S1474-4422(14)70122-X; PMID:25127232",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4188436/",
+      "note": "Independent held-out check: (487+228)/2951, from ISS inflight total sleep time (actigraphy), Table 2.",
+      "source_id": "sleep"
+    },
+    {
+      "key": "radiation_reference_range",
+      "value": [
+        0.2,
+        0.5
+      ],
+      "unit": "mSv/day effective dose",
+      "status": "VERIFIED",
+      "source": "Space agency-specific standards for crew dose and risk assessment of ionising radiation exposures for the International Space Station. Z Med Phys (2024 issue; online 2023), DOI:10.1016/j.zemedi.2023.06.005; PMC10919966",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10919966/",
+      "note": "Typical range, not a strict biological maximum. The source also permits higher daily doses. Synthetic solar-event multipliers are not observational estimates.",
+      "source_id": "radiation"
+    },
+    {
+      "key": "career_radiation_limit",
+      "value": 600.0,
+      "unit": "mSv career effective dose",
+      "status": "VERIFIED",
+      "source": "NASA-STD-3001 Volume 1, Human Performance, Career Space Permissible Exposure Limit, requirement V1 4030",
+      "url": "https://www.nasa.gov/reference/4-0-human-performance/",
+      "note": "Context only; never treated as a daily limit or clinical safety classification.",
+      "source_id": "nasa_limit"
+    },
+    {
+      "key": "infection_hr_per_c",
+      "value": 8.5,
+      "unit": "bpm/degC",
+      "status": "VERIFIED",
+      "source": "Fever and Cardiac Rhythm. Arch Intern Med (1986), DOI:10.1001/archinte.1986.00360180179026; PMID:2424378",
+      "url": "https://jamanetwork.com/journals/jamainternalmedicine/article-abstract/606966",
+      "note": "Earth febrile young men; applying the coefficient to simulated astronaut oral-temperature increments is an ASSUMPTION.",
+      "source_id": "fever"
+    },
+    {
+      "key": "hypovolemia_hr_direction",
+      "value": 1,
+      "unit": "positive direction only",
+      "status": "VERIFIED",
+      "source": "Hypovolemia Induced Orthostatic Hypotension in Presyncopal Astronauts and Normal Subjects Related to Hypoadrenergic Responsiveness. NASA NTRS 20080026097",
+      "url": "https://ntrs.nasa.gov/citations/20080026097",
+      "note": "Direction only; not an effect magnitude. Orthostatic Earth protocol is not the same as seated in-flight physiology.",
+      "source_id": "fluid"
+    },
+    {
+      "key": "hr_mean",
+      "value": 59.5,
+      "unit": "bpm",
+      "status": "DATA",
+      "source": "PMData: A Sports Logging Dataset. ACM MMSys (2020), DOI:10.1145/3339825.3394926. Summary statistics supplied in the user's brief, not independently recomputed in this delivery",
+      "url": "https://datasets.simula.no/pmdata/",
+      "note": "Earth proxy (non-astronaut Fitbit users). Supplied summary; not independently recomputed here. Resting Fitbit HR used as proxy for manual resting HR.",
+      "source_id": "pmdata"
+    },
+    {
+      "key": "hr_between_sd",
+      "value": 6.7,
+      "unit": "bpm",
+      "status": "DATA",
+      "source": "PMData: A Sports Logging Dataset. ACM MMSys (2020), DOI:10.1145/3339825.3394926. Summary statistics supplied in the user's brief, not independently recomputed in this delivery",
+      "url": "https://datasets.simula.no/pmdata/",
+      "note": "Earth proxy (non-astronaut Fitbit users). Supplied summary; not independently recomputed here. ",
+      "source_id": "pmdata"
+    },
+    {
+      "key": "hr_within_sd",
+      "value": 2.2,
+      "unit": "bpm",
+      "status": "DATA",
+      "source": "PMData: A Sports Logging Dataset. ACM MMSys (2020), DOI:10.1145/3339825.3394926. Summary statistics supplied in the user's brief, not independently recomputed in this delivery",
+      "url": "https://datasets.simula.no/pmdata/",
+      "note": "Earth proxy (non-astronaut Fitbit users). Supplied summary; not independently recomputed here. Stationary AR(1) target SD before manual-reading noise.",
+      "source_id": "pmdata"
+    },
+    {
+      "key": "hr_lag1",
+      "value": 0.83,
+      "unit": "correlation",
+      "status": "DATA",
+      "source": "PMData: A Sports Logging Dataset. ACM MMSys (2020), DOI:10.1145/3339825.3394926. Summary statistics supplied in the user's brief, not independently recomputed in this delivery",
+      "url": "https://datasets.simula.no/pmdata/",
+      "note": "Earth proxy (non-astronaut Fitbit users). Supplied summary; not independently recomputed here. Consecutive-day stationary AR(1) parameter.",
+      "source_id": "pmdata"
+    },
+    {
+      "key": "sleep_between_sd",
+      "value": 0.71,
+      "unit": "hour",
+      "status": "DATA",
+      "source": "PMData: A Sports Logging Dataset. ACM MMSys (2020), DOI:10.1145/3339825.3394926. Summary statistics supplied in the user's brief, not independently recomputed in this delivery",
+      "url": "https://datasets.simula.no/pmdata/",
+      "note": "Earth proxy (non-astronaut Fitbit users). Supplied summary; not independently recomputed here. Earth spread transferred to ISS mean; not the paper's reported astronaut SD.",
+      "source_id": "pmdata"
+    },
+    {
+      "key": "sleep_within_sd",
+      "value": 1.07,
+      "unit": "hour",
+      "status": "DATA",
+      "source": "PMData: A Sports Logging Dataset. ACM MMSys (2020), DOI:10.1145/3339825.3394926. Summary statistics supplied in the user's brief, not independently recomputed in this delivery",
+      "url": "https://datasets.simula.no/pmdata/",
+      "note": "Earth proxy (non-astronaut Fitbit users). Supplied summary; not independently recomputed here. Gaussian noise shape is a team assumption.",
+      "source_id": "pmdata"
+    },
+    {
+      "key": "mood_mean",
+      "value": 3.18,
+      "unit": "point on 1-5 scale",
+      "status": "DATA",
+      "source": "PMData: A Sports Logging Dataset. ACM MMSys (2020), DOI:10.1145/3339825.3394926. Summary statistics supplied in the user's brief, not independently recomputed in this delivery",
+      "url": "https://datasets.simula.no/pmdata/",
+      "note": "Earth proxy (non-astronaut Fitbit users). Supplied summary; not independently recomputed here. Mean of exported rounded ratings is calibrated once in the default scenario.",
+      "source_id": "pmdata"
+    },
+    {
+      "key": "mood_between_sd",
+      "value": 0.32,
+      "unit": "point",
+      "status": "DATA",
+      "source": "PMData: A Sports Logging Dataset. ACM MMSys (2020), DOI:10.1145/3339825.3394926. Summary statistics supplied in the user's brief, not independently recomputed in this delivery",
+      "url": "https://datasets.simula.no/pmdata/",
+      "note": "Earth proxy (non-astronaut Fitbit users). Supplied summary; not independently recomputed here. ",
+      "source_id": "pmdata"
+    },
+    {
+      "key": "mood_raw_within_sd_reference",
+      "value": 0.53,
+      "unit": "point",
+      "status": "DATA",
+      "source": "PMData: A Sports Logging Dataset. ACM MMSys (2020), DOI:10.1145/3339825.3394926. Summary statistics supplied in the user's brief, not independently recomputed in this delivery",
+      "url": "https://datasets.simula.no/pmdata/",
+      "note": "Earth proxy (non-astronaut Fitbit users). Supplied summary; not independently recomputed here. Reference only; not the latent generator SD.",
+      "source_id": "pmdata"
+    },
+    {
+      "key": "mood_low_reference",
+      "value": 0.083,
+      "unit": "fraction mood <=2",
+      "status": "DATA",
+      "source": "PMData: A Sports Logging Dataset. ACM MMSys (2020), DOI:10.1145/3339825.3394926. Summary statistics supplied in the user's brief, not independently recomputed in this delivery",
+      "url": "https://datasets.simula.no/pmdata/",
+      "note": "Earth proxy (non-astronaut Fitbit users). Supplied summary; not independently recomputed here. Diagnostic only; not used for fitting.",
+      "source_id": "pmdata"
+    },
+    {
+      "key": "mood_high_reference",
+      "value": 0.28,
+      "unit": "fraction mood >=4",
+      "status": "DATA",
+      "source": "PMData: A Sports Logging Dataset. ACM MMSys (2020), DOI:10.1145/3339825.3394926. Summary statistics supplied in the user's brief, not independently recomputed in this delivery",
+      "url": "https://datasets.simula.no/pmdata/",
+      "note": "Earth proxy (non-astronaut Fitbit users). Supplied summary; not independently recomputed here. Approximate diagnostic only; not used for fitting.",
+      "source_id": "pmdata"
+    },
+    {
+      "key": "mood_latent_within_sd",
+      "value": 0.37,
+      "unit": "latent point",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "User-specified calibration choice derived from a prior PMData analysis; this is a modeling choice, not a raw observed SD. Earth proxy (non-astronaut Fitbit users).",
+      "source_id": null
+    },
+    {
+      "key": "seed",
+      "value": 42,
+      "unit": "integer",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Default reproducible seed.",
+      "source_id": null
+    },
+    {
+      "key": "crew_size",
+      "value": 20,
+      "unit": "synthetic people",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Independent illustrative people, not a simultaneous real ISS crew or a real mission roster.",
+      "source_id": null
+    },
+    {
+      "key": "mission_days",
+      "value": 180,
+      "unit": "day/person",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Illustrative mission length.",
+      "source_id": null
+    },
+    {
+      "key": "preflight_days",
+      "value": 7,
+      "unit": "day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Daily calibration readings for all indicators, including glucose; mission schedule differs.",
+      "source_id": null
+    },
+    {
+      "key": "glucose_every_days",
+      "value": 7,
+      "unit": "day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Weekly assumed from the supplied brief; app ROUTINE has not been inspected.",
+      "source_id": null
+    },
+    {
+      "key": "glucose_first_day",
+      "value": 1,
+      "unit": "mission day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "First weekly test at morning check-in.",
+      "source_id": null
+    },
+    {
+      "key": "morning_hour_utc",
+      "value": 8,
+      "unit": "hour UTC",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Synthetic operational schedule; no calendar launch date is asserted.",
+      "source_id": null
+    },
+    {
+      "key": "evening_hour_utc",
+      "value": 20,
+      "unit": "hour UTC",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Daily dose accumulated since the previous evening.",
+      "source_id": null
+    },
+    {
+      "key": "exercise_hour_utc",
+      "value": 21,
+      "unit": "hour UTC",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Daily exercise total logged after the evening reading.",
+      "source_id": null
+    },
+    {
+      "key": "bp_sys_ramp_days",
+      "value": 7,
+      "unit": "day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Linear ramp; applying an ambulatory shift to a morning reading is an ASSUMPTION.",
+      "source_id": null
+    },
+    {
+      "key": "temp_inflight_shift_A",
+      "value": 0.0,
+      "unit": "degC oral",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Main scenario; no assumed oral spaceflight shift.",
+      "source_id": null
+    },
+    {
+      "key": "temp_inflight_shift_B",
+      "value": 1.0,
+      "unit": "degC oral",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Sensitivity scenario only. The source measured CORE temperature with a forehead heat-flux sensor; the size for ORAL temperature is an ASSUMPTION.",
+      "source_id": null
+    },
+    {
+      "key": "temp_oral_ramp_days",
+      "value": 75,
+      "unit": "day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Linear oral extrapolation from a core-temperature study, an ASSUMPTION.",
+      "source_id": null
+    },
+    {
+      "key": "bp_dia_mean",
+      "value": 76.0,
+      "unit": "mmHg",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "No verified diastolic baseline in the supplied brief.",
+      "source_id": null
+    },
+    {
+      "key": "bp_dia_between_sd",
+      "value": 6.0,
+      "unit": "mmHg",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "bp_baseline_correlation",
+      "value": 0.7,
+      "unit": "correlation",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Personal latent sys/dia baselines positively linked.",
+      "source_id": null
+    },
+    {
+      "key": "bp_sys_within_sd",
+      "value": 7.8,
+      "unit": "mmHg",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Value retained from the brief; Empirical Health page supporting it could not be resolved. Downgraded to ASSUMPTION, not VERIFIED/VERIFY.",
+      "source_id": null
+    },
+    {
+      "key": "bp_dia_within_sd",
+      "value": 5.5,
+      "unit": "mmHg",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Approximate modeling choice; not an observed astronaut SD.",
+      "source_id": null
+    },
+    {
+      "key": "bp_daily_correlation",
+      "value": 0.6,
+      "unit": "correlation",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Daily systolic/diastolic noise correlation.",
+      "source_id": null
+    },
+    {
+      "key": "bp_min_pulse_pressure",
+      "value": 10.0,
+      "unit": "mmHg",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Engineering consistency floor, not a normality or clinical threshold; repair counts are reported.",
+      "source_id": null
+    },
+    {
+      "key": "hr_manual_sd",
+      "value": 1.0,
+      "unit": "bpm",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Independent manual-reading noise in addition to Fitbit-proxy AR(1).",
+      "source_id": null
+    },
+    {
+      "key": "spo2_mean",
+      "value": 97.5,
+      "unit": "%",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Team healthy-profile choice; no claim this mean/spread was measured by the cited studies.",
+      "source_id": null
+    },
+    {
+      "key": "spo2_between_sd",
+      "value": 0.35,
+      "unit": "percentage point",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "spo2_within_sd",
+      "value": 1.0,
+      "unit": "percentage point",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "glucose_mean",
+      "value": 92.0,
+      "unit": "mg/dL fasting",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Team illustrative fasting profile.",
+      "source_id": null
+    },
+    {
+      "key": "glucose_between_sd",
+      "value": 6.0,
+      "unit": "mg/dL",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "glucose_within_sd",
+      "value": 7.0,
+      "unit": "mg/dL",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "sleep_to_mood_next_day",
+      "value": -0.15,
+      "unit": "latent mood point/hour deficit",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Only a deficit relative to that person's compensated event-free sleep baseline lowers next-day mood; no causal strength is established.",
+      "source_id": null
+    },
+    {
+      "key": "radiation_mean",
+      "value": 0.35,
+      "unit": "mSv/day effective dose",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Team point inside the documented typical ISS range.",
+      "source_id": null
+    },
+    {
+      "key": "radiation_between_sd",
+      "value": 0.025,
+      "unit": "mSv/day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Exposure heterogeneity; not a physiological personal baseline.",
+      "source_id": null
+    },
+    {
+      "key": "radiation_within_sd",
+      "value": 0.025,
+      "unit": "mSv/day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Individual dosimeter/environment noise.",
+      "source_id": null
+    },
+    {
+      "key": "radiation_common_sd",
+      "value": 0.025,
+      "unit": "mSv/day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Shared day-to-day environment term.",
+      "source_id": null
+    },
+    {
+      "key": "exercise_mean",
+      "value": 120.0,
+      "unit": "minute/day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Changed from 100 to 120 (2 h): the astronauts in the Circulation 2019 BP study did individualized endurance and resistance training for up to two hours daily (AHA news release, 19/7/2019). Still a team ASSUMPTION, not a NASA prescription. The app's own target is 150 min.",
+      "source_id": null
+    },
+    {
+      "key": "exercise_between_sd",
+      "value": 12.0,
+      "unit": "minute/day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "exercise_within_sd",
+      "value": 20.0,
+      "unit": "minute/day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "miss_morning_probability",
+      "value": 0.04,
+      "unit": "probability/day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Bundle-level missingness, independent of physiology and events; not an observed NASA absence rate.",
+      "source_id": null
+    },
+    {
+      "key": "miss_evening_probability",
+      "value": 0.025,
+      "unit": "probability/day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Independent evening dosimeter absence.",
+      "source_id": null
+    },
+    {
+      "key": "event_start_min_day",
+      "value": 15,
+      "unit": "mission day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "No programmed event during the initial adaptation period.",
+      "source_id": null
+    },
+    {
+      "key": "event_end_buffer_days",
+      "value": 7,
+      "unit": "day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Leave recovery time at the end.",
+      "source_id": null
+    },
+    {
+      "key": "event_gap_days",
+      "value": 2,
+      "unit": "day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Individual event separation; solar events may overlap individual events.",
+      "source_id": null
+    },
+    {
+      "key": "schedule_max_attempts",
+      "value": 10000,
+      "unit": "attempt",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Engineering failure limit for non-overlapping placement.",
+      "source_id": null
+    },
+    {
+      "key": "infection_episodes",
+      "value": 2,
+      "unit": "episode/person/mission",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Scenario coverage, not estimated incidence.",
+      "source_id": null
+    },
+    {
+      "key": "infection_duration",
+      "value": 5,
+      "unit": "day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "infection_shape",
+      "value": [
+        0.25,
+        0.65,
+        1.0,
+        0.65,
+        0.25
+      ],
+      "unit": "peak fraction/day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Time profile, not a clinical trajectory estimate.",
+      "source_id": null
+    },
+    {
+      "key": "fluid_loss_episodes",
+      "value": 1,
+      "unit": "episode/person/mission",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "fluid_loss_duration",
+      "value": 6,
+      "unit": "day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "fluid_loss_shape",
+      "value": [
+        0.15,
+        0.35,
+        0.65,
+        1.0,
+        0.65,
+        0.25
+      ],
+      "unit": "peak fraction/day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "fluid_dia_multiplier",
+      "value": 0.6,
+      "unit": "diastolic/systolic effect ratio",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "sleep_debt_episodes",
+      "value": 3,
+      "unit": "episode/person/mission",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "sleep_debt_duration_range",
+      "value": [
+        5,
+        10
+      ],
+      "unit": "day inclusive",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "sleep_debt_shape_anchors",
+      "value": [
+        0.6,
+        1.0,
+        0.7
+      ],
+      "unit": "onset/peak/end fraction",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Linear interpolation over each episode.",
+      "source_id": null
+    },
+    {
+      "key": "sleep_debt_mood_from_day",
+      "value": 3,
+      "unit": "episode day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "eva_episodes",
+      "value": 3,
+      "unit": "episode/person/mission",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Coverage assumption, not a real EVA assignment.",
+      "source_id": null
+    },
+    {
+      "key": "eva_duration",
+      "value": 1,
+      "unit": "day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "BP and HR contexts are After EVA. Other readings remain morning contexts.",
+      "source_id": null
+    },
+    {
+      "key": "solar_event_day",
+      "value": 85,
+      "unit": "mission day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Crew-wide identical timing and dose multipliers; stress scenario, not an ISS forecast.",
+      "source_id": null
+    },
+    {
+      "key": "solar_duration",
+      "value": 2,
+      "unit": "day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "calibration_search_bounds",
+      "value": [
+        -5.0,
+        5.0
+      ],
+      "unit": "additive units",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Engineering bracket for one-time sleep and rounded-mood mean correction.",
+      "source_id": null
+    },
+    {
+      "key": "calibration_iterations",
+      "value": 80,
+      "unit": "iteration",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "latent_sd_ddof",
+      "value": 1,
+      "unit": "degree of freedom",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Crew latent personal baselines match SAMPLE SD, not population SD.",
+      "source_id": null
+    },
+    {
+      "key": "numeric_tolerance",
+      "value": 1e-09,
+      "unit": "floating point",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Consistency tolerance; not a source-based physiological tolerance.",
+      "source_id": null
+    },
+    {
+      "key": "check_bp_tolerance",
+      "value": 2.0,
+      "unit": "mmHg",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Predeclared synthetic source-match acceptance tolerance.",
+      "source_id": null
+    },
+    {
+      "key": "check_sleep_tolerance",
+      "value": 0.03,
+      "unit": "hour",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "check_sleep_share_tolerance",
+      "value": 0.05,
+      "unit": "absolute fraction",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Predeclared held-out sleep-tail tolerance; no sleep-width tuning is performed.",
+      "source_id": null
+    },
+    {
+      "key": "check_temp_tolerance",
+      "value": 0.12,
+      "unit": "degC",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "check_hr_tolerance",
+      "value": 1.0,
+      "unit": "bpm",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "check_mood_mean_tolerance",
+      "value": 0.002,
+      "unit": "point",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "check_mood_low_tolerance",
+      "value": 0.05,
+      "unit": "absolute fraction",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Prior PMData-tail diagnostic, not independent validation.",
+      "source_id": null
+    },
+    {
+      "key": "check_radiation_mission_range",
+      "value": [
+        40.0,
+        90.0
+      ],
+      "unit": "mSv/180 days",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Approximate brief acceptance range including synthetic solar events.",
+      "source_id": null
+    },
+    {
+      "key": "low_mood_cutoff",
+      "value": 2,
+      "unit": "point inclusive",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Diagnostic rating cutoff, not a clinical label.",
+      "source_id": null
+    },
+    {
+      "key": "high_mood_cutoff",
+      "value": 4,
+      "unit": "point inclusive",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "sleep_check_cutoff",
+      "value": 7.0,
+      "unit": "hour inclusive",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Held-out source check boundary.",
+      "source_id": null
+    },
+    {
+      "key": "rng_stream_baselines",
+      "value": 101,
+      "unit": "stream id",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "rng_stream_daily",
+      "value": 202,
+      "unit": "stream id",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "rng_stream_events",
+      "value": 303,
+      "unit": "stream id",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "",
+      "source_id": null
+    },
+    {
+      "key": "rng_stream_missing",
+      "value": 404,
+      "unit": "stream id",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Missingness does not consume any physiological RNG state.",
+      "source_id": null
+    },
+    {
+      "key": "infection_temp_small",
+      "value": [
+        0.8,
+        1.2
+      ],
+      "unit": "degC rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "infection_temp_default",
+      "value": [
+        0.8,
+        2.0
+      ],
+      "unit": "degC rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "infection_temp_large",
+      "value": [
+        1.6,
+        2.0
+      ],
+      "unit": "degC rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "infection_sleep_small",
+      "value": [
+        0.3,
+        0.5
+      ],
+      "unit": "hour loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "infection_sleep_default",
+      "value": [
+        0.3,
+        0.8
+      ],
+      "unit": "hour loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "infection_sleep_large",
+      "value": [
+        0.6,
+        0.8
+      ],
+      "unit": "hour loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "infection_mood_small",
+      "value": [
+        0.3,
+        0.4
+      ],
+      "unit": "latent point loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "infection_mood_default",
+      "value": [
+        0.3,
+        0.7
+      ],
+      "unit": "latent point loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "infection_mood_large",
+      "value": [
+        0.6,
+        0.7
+      ],
+      "unit": "latent point loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "infection_spo2_small",
+      "value": [
+        0.5,
+        0.8
+      ],
+      "unit": "percentage point loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "infection_spo2_default",
+      "value": [
+        0.5,
+        1.5
+      ],
+      "unit": "percentage point loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "infection_spo2_large",
+      "value": [
+        1.2,
+        1.5
+      ],
+      "unit": "percentage point loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "fluid_bp_sys_small",
+      "value": [
+        12.0,
+        18.0
+      ],
+      "unit": "mmHg loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "fluid_bp_sys_default",
+      "value": [
+        12.0,
+        25.0
+      ],
+      "unit": "mmHg loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "fluid_bp_sys_large",
+      "value": [
+        19.0,
+        25.0
+      ],
+      "unit": "mmHg loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "fluid_hr_small",
+      "value": [
+        10.0,
+        14.0
+      ],
+      "unit": "bpm rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "fluid_hr_default",
+      "value": [
+        10.0,
+        22.0
+      ],
+      "unit": "bpm rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "fluid_hr_large",
+      "value": [
+        18.0,
+        22.0
+      ],
+      "unit": "bpm rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "sleep_debt_sleep_small",
+      "value": [
+        1.0,
+        1.4
+      ],
+      "unit": "hour loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "sleep_debt_sleep_default",
+      "value": [
+        1.0,
+        2.0
+      ],
+      "unit": "hour loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "sleep_debt_sleep_large",
+      "value": [
+        1.6,
+        2.0
+      ],
+      "unit": "hour loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "sleep_debt_mood_small",
+      "value": [
+        0.2,
+        0.3
+      ],
+      "unit": "latent point loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "sleep_debt_mood_default",
+      "value": [
+        0.2,
+        0.6
+      ],
+      "unit": "latent point loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "sleep_debt_mood_large",
+      "value": [
+        0.5,
+        0.6
+      ],
+      "unit": "latent point loss",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "eva_hr_small",
+      "value": [
+        25.0,
+        35.0
+      ],
+      "unit": "bpm rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "eva_hr_default",
+      "value": [
+        25.0,
+        55.0
+      ],
+      "unit": "bpm rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "eva_hr_large",
+      "value": [
+        45.0,
+        55.0
+      ],
+      "unit": "bpm rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "eva_bp_sys_small",
+      "value": [
+        10.0,
+        15.0
+      ],
+      "unit": "mmHg rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "eva_bp_sys_default",
+      "value": [
+        10.0,
+        25.0
+      ],
+      "unit": "mmHg rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "eva_bp_sys_large",
+      "value": [
+        20.0,
+        25.0
+      ],
+      "unit": "mmHg rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "eva_bp_dia_small",
+      "value": [
+        5.0,
+        8.0
+      ],
+      "unit": "mmHg rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "eva_bp_dia_default",
+      "value": [
+        5.0,
+        15.0
+      ],
+      "unit": "mmHg rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "eva_bp_dia_large",
+      "value": [
+        12.0,
+        15.0
+      ],
+      "unit": "mmHg rise",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "solar_day1_small",
+      "value": [
+        4.0,
+        6.0
+      ],
+      "unit": "dose multiplier",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "solar_day1_default",
+      "value": [
+        4.0,
+        10.0
+      ],
+      "unit": "dose multiplier",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "solar_day1_large",
+      "value": [
+        8.0,
+        10.0
+      ],
+      "unit": "dose multiplier",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "solar_day2_small",
+      "value": [
+        2.0,
+        2.7
+      ],
+      "unit": "dose multiplier",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "solar_day2_default",
+      "value": [
+        2.0,
+        4.0
+      ],
+      "unit": "dose multiplier",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "solar_day2_large",
+      "value": [
+        3.3,
+        4.0
+      ],
+      "unit": "dose multiplier",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Assumed event magnitude; same episode timing and severity quantile in every size scenario.",
+      "source_id": null
+    },
+    {
+      "key": "range_bp_sys",
+      "value": [
+        50.0,
+        240.0
+      ],
+      "unit": "mmHg",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Standalone technical guard; app compatibility is unverified. This is not a clinical normal range.",
+      "source_id": null
+    },
+    {
+      "key": "precision_bp_sys",
+      "value": 0,
+      "unit": "decimal places",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Output format requested in brief; exercise is assumed whole minutes.",
+      "source_id": null
+    },
+    {
+      "key": "range_bp_dia",
+      "value": [
+        30.0,
+        150.0
+      ],
+      "unit": "mmHg",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Standalone technical guard; app compatibility is unverified. This is not a clinical normal range.",
+      "source_id": null
+    },
+    {
+      "key": "precision_bp_dia",
+      "value": 0,
+      "unit": "decimal places",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Output format requested in brief; exercise is assumed whole minutes.",
+      "source_id": null
+    },
+    {
+      "key": "range_hr",
+      "value": [
+        30.0,
+        220.0
+      ],
+      "unit": "bpm",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Standalone technical guard; app compatibility is unverified. This is not a clinical normal range.",
+      "source_id": null
+    },
+    {
+      "key": "precision_hr",
+      "value": 0,
+      "unit": "decimal places",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Output format requested in brief; exercise is assumed whole minutes.",
+      "source_id": null
+    },
+    {
+      "key": "range_temp",
+      "value": [
+        33.0,
+        42.0
+      ],
+      "unit": "degC oral",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Standalone technical guard; app compatibility is unverified. This is not a clinical normal range.",
+      "source_id": null
+    },
+    {
+      "key": "precision_temp",
+      "value": 1,
+      "unit": "decimal places",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Output format requested in brief; exercise is assumed whole minutes.",
+      "source_id": null
+    },
+    {
+      "key": "range_spo2",
+      "value": [
+        50.0,
+        100.0
+      ],
+      "unit": "%",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Standalone technical guard; app compatibility is unverified. This is not a clinical normal range.",
+      "source_id": null
+    },
+    {
+      "key": "precision_spo2",
+      "value": 0,
+      "unit": "decimal places",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Output format requested in brief; exercise is assumed whole minutes.",
+      "source_id": null
+    },
+    {
+      "key": "range_glucose",
+      "value": [
+        40.0,
+        400.0
+      ],
+      "unit": "mg/dL fasting",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Standalone technical guard; app compatibility is unverified. This is not a clinical normal range.",
+      "source_id": null
+    },
+    {
+      "key": "precision_glucose",
+      "value": 0,
+      "unit": "decimal places",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Output format requested in brief; exercise is assumed whole minutes.",
+      "source_id": null
+    },
+    {
+      "key": "range_sleep",
+      "value": [
+        0.0,
+        16.0
+      ],
+      "unit": "hour/night",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Standalone technical guard; app compatibility is unverified. This is not a clinical normal range.",
+      "source_id": null
+    },
+    {
+      "key": "precision_sleep",
+      "value": 1,
+      "unit": "decimal places",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Output format requested in brief; exercise is assumed whole minutes.",
+      "source_id": null
+    },
+    {
+      "key": "range_mood",
+      "value": [
+        1.0,
+        5.0
+      ],
+      "unit": "point; higher is better",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Standalone technical guard; app compatibility is unverified. This is not a clinical normal range.",
+      "source_id": null
+    },
+    {
+      "key": "precision_mood",
+      "value": 0,
+      "unit": "decimal places",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Output format requested in brief; exercise is assumed whole minutes.",
+      "source_id": null
+    },
+    {
+      "key": "range_radiation",
+      "value": [
+        0.0,
+        10.0
+      ],
+      "unit": "mSv/day effective dose",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Standalone technical guard; app compatibility is unverified. This is not a clinical normal range.",
+      "source_id": null
+    },
+    {
+      "key": "precision_radiation",
+      "value": 2,
+      "unit": "decimal places",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Output format requested in brief; exercise is assumed whole minutes.",
+      "source_id": null
+    },
+    {
+      "key": "range_exercise",
+      "value": [
+        0.0,
+        240.0
+      ],
+      "unit": "minute/day",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Standalone technical guard; app compatibility is unverified. This is not a clinical normal range.",
+      "source_id": null
+    },
+    {
+      "key": "precision_exercise",
+      "value": 0,
+      "unit": "decimal places",
+      "status": "ASSUMPTION",
+      "source": "Team simulation / engineering design choice",
+      "url": "",
+      "note": "Output format requested in brief; exercise is assumed whole minutes.",
+      "source_id": null
+    }
+  ],
+  "sources": {
+    "bp": {
+      "title": "Impact of Prolonged Spaceflight on Orthostatic Tolerance During Ambulation and Blood Pressure Profiles in Astronauts. Circulation (2019), DOI:10.1161/CIRCULATIONAHA.119.041050; PMID:31319685",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31319685/",
+      "opened_url": "https://utsouthwestern.elsevierpure.com/en/publications/impact-of-prolonged-spaceflight-on-orthostatic-tolerance-during-a/",
+      "access": "Institutional primary abstract opened and read; PubMed direct access was intermittent."
+    },
+    "temp": {
+      "title": "Variability in body temperature in healthy adults and in patients receiving chemotherapy: prospective observational cohort study. J Med Eng Technol (2019), DOI:10.1080/03091902.2019.1667446; PMID:31578101",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31578101/",
+      "opened_url": "https://pubmed.ncbi.nlm.nih.gov/31578101/",
+      "access": "Primary abstract opened and read."
+    },
+    "core_temp": {
+      "title": "Increased core body temperature in astronauts during long-duration space missions. Scientific Reports (2017), DOI:10.1038/s41598-017-15560-w; PMID:29170507",
+      "url": "https://doi.org/10.1038/s41598-017-15560-w",
+      "opened_url": "https://elib.dlr.de/116228/1/ME-SBA-2017-Stahn-Reitz-BodyCore-Temp-2017-Scientific_Reports.pdf",
+      "access": "Published full-text PDF opened at DLR; Results confirms plateau timing and Methods/Discussion describes the forehead heat-flux sensor. Institutional abstracts also opened."
+    },
+    "sleep": {
+      "title": "Prevalence of Sleep Deficiency and Hypnotic Use Among Astronauts Before, During and After Spaceflight: An Observational Study. Lancet Neurology (2014), DOI:10.1016/S1474-4422(14)70122-X; PMID:25127232",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4188436/",
+      "opened_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4188436/",
+      "access": "Primary full text opened; ISS total-sleep-time categories checked in Table 2."
+    },
+    "radiation": {
+      "title": "Space agency-specific standards for crew dose and risk assessment of ionising radiation exposures for the International Space Station. Z Med Phys (2024 issue; online 2023), DOI:10.1016/j.zemedi.2023.06.005; PMC10919966",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10919966/",
+      "opened_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10919966/",
+      "access": "Primary full text opened; Introduction distinguishes absorbed dose from effective dose."
+    },
+    "nasa_limit": {
+      "title": "NASA-STD-3001 Volume 1, Human Performance, Career Space Permissible Exposure Limit, requirement V1 4030",
+      "url": "https://www.nasa.gov/reference/4-0-human-performance/",
+      "opened_url": "https://www.nasa.gov/reference/4-0-human-performance/",
+      "access": "Official NASA standards page opened and read. Context only; not a daily alarm threshold."
+    },
+    "fever": {
+      "title": "Fever and Cardiac Rhythm. Arch Intern Med (1986), DOI:10.1001/archinte.1986.00360180179026; PMID:2424378",
+      "url": "https://jamanetwork.com/journals/jamainternalmedicine/article-abstract/606966",
+      "opened_url": "https://jamanetwork.com/journals/jamainternalmedicine/article-abstract/606966",
+      "access": "Publisher primary abstract opened and read; axillary temperature in young men, not astronaut oral-temperature calibration."
+    },
+    "fluid": {
+      "title": "Hypovolemia Induced Orthostatic Hypotension in Presyncopal Astronauts and Normal Subjects Related to Hypoadrenergic Responsiveness. NASA NTRS 20080026097",
+      "url": "https://ntrs.nasa.gov/citations/20080026097",
+      "opened_url": "https://ntrs.nasa.gov/citations/20080026097",
+      "access": "Official NTRS abstract opened; indexed primary PDF results read for direction of heart-rate change. Effect sizes below remain assumptions."
+    },
+    "pmdata": {
+      "title": "PMData: A Sports Logging Dataset. ACM MMSys (2020), DOI:10.1145/3339825.3394926. Summary statistics supplied in the user's brief, not independently recomputed in this delivery",
+      "url": "https://datasets.simula.no/pmdata/",
+      "opened_url": "https://datasets.simula.no/pmdata/",
+      "access": "Official dataset description retrieved through indexed primary page; direct site timed out. Raw Fitbit/PMSys files were not downloaded or reprocessed. DATA means supplied prior-analysis summary, not new computation."
+    }
+  }
+}

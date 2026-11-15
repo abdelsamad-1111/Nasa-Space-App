@@ -13,6 +13,14 @@ describe('Mission provenance and saved-data migration', () => {
   });
   afterEach(() => vi.unstubAllGlobals());
 
+  it('adds the demo follow-up actions to saved demo missions only', () => {
+    const oldDemo = { ...demoState(), actionsTaken: [] };
+    stored = JSON.stringify(oldDemo);
+    expect(loadState().state.actionsTaken.map((a) => a.missionDay)).toEqual([18, 18, 19, 19]);
+    saveState(emptyState());
+    expect(loadState().state.actionsTaken).toEqual([]);
+  });
+
   it('keeps demo and personal missions distinct after save and reload', () => {
     saveState(emptyState());
     expect(loadState().state.mode).toBe('personal');

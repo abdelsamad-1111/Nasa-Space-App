@@ -1,4 +1,4 @@
-// CAPCOM Assistant — facts, built-in answers and answer rules.
+// Astro Health AI — facts, built-in answers and answer rules.
 // Every fact (status, values, trend, guidance, escalation, sources) comes from evaluate.ts and
 // indicators.ts. The model only words the reply; the app decides the status chip, whether
 // actions / contact / source are shown, the escalation text, and which numbers and status
@@ -42,6 +42,8 @@ import {
 } from '../brain/evaluate';
 import { HEALTH_SOURCES, SOURCES, sourcesForMetric } from '../data/healthSources';
 import { fmtNumber, fmtPct, fmtValue } from '../lib/format';
+import { FORECAST_LABEL } from '../brain/forecast';
+import { forecastPresentation, type ForecastPresentation } from '../lib/forecastPresentation';
 
 export type QuickActionId = 'status' | 'reading' | 'todo' | 'contact' | 'pattern' | 'measure';
 export type AskKind = QuickActionId | 'question';
@@ -55,7 +57,7 @@ export const QUICK_ACTIONS: { id: QuickActionId; label: string }[] = [
   { id: 'measure', label: 'How do I measure this?' },
 ];
 
-/** What a CAPCOM chat message contains (model JSON, after the app's rules). */
+/** What an assistant message contains (model JSON, after the app's rules). */
 export interface ChatAnswer {
   reply: string;
   actions: string[];
@@ -104,6 +106,9 @@ export interface FactPack {
   fallback: ChatAnswer;
   /** For "is it getting better?" questions: the app's own answer with the real readings. */
   lead?: string;
+  forecast: ForecastPresentation | null;
+  /** Forecast replies remain app-authored so a model cannot turn a warning into a diagnosis. */
+  forecastRequested: boolean;
 }
 
 export const NO_ESCALATION = 'The app rules do not require contacting the ground now.';
@@ -332,12 +337,19 @@ const APP_TOPICS = /status|today|yesterday|alert|pattern|infection|reading|trend
 const ASKS_WHAT_TO_DO = /what (should|do|can) i|what now|what to do|should i|how (do|can|should) i (fix|treat|help|lower|raise|improve)|next step|help me/i;
 const ASKS_CONTACT = /contact|call|earth|ground|flight surgeon|escalat|houston/i;
 const ASKS_TREND = /better|worse|improv|trend|getting|rising|falling|going (up|down)|chang/i;
+const ASKS_FORECAST = /\bforecast\b|\bpredict(?:ion)?\b|\boutlook\b|what should i watch|\b(?:next|coming)\s+(?:(?:two|2|few|couple of)\s+)?days?\b/i;
+
+function asksForecast(question: string, history: ChatTurn[]): boolean {
+  return ASKS_FORECAST.test(question) || (/\b(?:tomorrow|after that)\b/i.test(question) &&
+    history.some((turn) => turn.from === 'CREW' && ASKS_FORECAST.test(turn.text)));
+}
 
 function mentioned(text: string): MetricId[] {
   return KEYWORDS.filter(([, re]) => re.test(text)).map(([id]) => id);
 }
 
 export function guessInScope(question: string, history: ChatTurn[]): boolean {
+  if (asksForecast(question, history)) return true;
   if (mentioned(question).length || APP_TOPICS.test(question)) return true;
   // Short follow-ups ("and yesterday?") continue an in-scope conversation.
   return question.trim().split(/\s+/).length <= 5 && history.some((t) => t.from === 'CREW' && mentioned(t.text).length > 0);
@@ -346,7 +358,7 @@ export function guessInScope(question: string, history: ChatTurn[]): boolean {
 // ---------------------------------------------------------------------------
 // The six quick actions + free questions
 // ---------------------------------------------------------------------------
-type Draft = Omit<FactPack, 'allowedActions' | 'facts'> & { facts: Record<string, unknown> };
+type Draft = Omit<FactPack, 'allowedActions' | 'facts' | 'forecast' | 'forecastRequested'> & { facts: Record<string, unknown> };
 
 function draft(
   input: AssistantInput,
@@ -532,6 +544,44 @@ function howToMeasure(input: AssistantInput): Draft {
   );
 }
 
+function forecastReply(day: number, forecast: ForecastPresentation | null): string {
+  if (!forecast) {
+    return `No forecast is available for Day ${fmtNumber(day)}; a morning check-in reading is missing. Start a check-in to provide the missing readings. ${FORECAST_LABEL}`;
+  }
+  if (!forecast.warn) {
+    return `For the next 2 days after Day ${fmtNumber(day)}, the synthetic model's early-warning level is Low. It does not cross this model's warning threshold; that does not rule out a health problem. ${FORECAST_LABEL}`;
+  }
+  const drivers = forecast.drivers.slice(0, 2);
+  return [
+    `For the next 2 days after Day ${fmtNumber(day)}, the synthetic model's early-warning level is Elevated: ${forecast.problemLabel}.`,
+    drivers.length ? `Leading model signals: ${joinList(drivers)}.` : 'No positive model driver is available to explain this estimate.',
+    FORECAST_LABEL,
+  ].join(' ');
+}
+
+function explainForecast(input: AssistantInput, forecast: ForecastPresentation | null): Draft {
+  const required = dayNeedsEscalation(input);
+  return draft(
+    input,
+    'question',
+    {
+      status: null,
+      label: `Next 2 days · Day ${fmtNumber(input.day)} forecast`,
+      required,
+      showActions: required,
+      showContact: required,
+      showSource: false,
+      sourceUrls: [],
+    },
+    { forecastDoesNotChangeCurrentStatus: true },
+    {
+      reply: forecastReply(input.day, forecast),
+      actions: required ? todoActions(input) : [],
+      followups: ['Explain my status today', forecast ? 'What should I do now?' : 'How do I measure this?'],
+    },
+  );
+}
+
 function freeQuestion(input: AssistantInput, question: string, history: ChatTurn[]): Draft & { inScope: boolean } {
   const fromHistory = [...history].reverse().filter((t) => t.from === 'CREW').flatMap((t) => mentioned(t.text));
   const named = mentioned(question);
@@ -596,8 +646,11 @@ function allowedFor(kind: AskKind, input: AssistantInput, pack: Draft): string[]
 }
 
 export function buildFactPack(kind: AskKind, input: AssistantInput, question = '', history: ChatTurn[] = []): FactPack {
+  const forecast = forecastPresentation(input.measurements, input.day);
+  const forecastRequested = kind === 'question' && asksForecast(question, history);
   const pack: Draft =
-    kind === 'status' ? explainStatus(input)
+    forecastRequested ? explainForecast(input, forecast)
+    : kind === 'status' ? explainStatus(input)
     : kind === 'reading' ? explainReading(input)
     : kind === 'todo' ? whatToDo(input)
     : kind === 'contact' ? contactEarth(input)
@@ -605,7 +658,21 @@ export function buildFactPack(kind: AskKind, input: AssistantInput, question = '
     : kind === 'measure' ? howToMeasure(input)
     : freeQuestion(input, question, history);
   const allowedActions = [...new Set([...pack.fallback.actions, ...allowedFor(kind, input, pack)])];
-  return { ...pack, allowedActions, facts: { ...pack.facts, allowedActions: pack.showActions ? allowedActions : [] } };
+  return {
+    ...pack,
+    allowedActions,
+    forecast,
+    forecastRequested,
+    facts: {
+      ...pack.facts,
+      forecast,
+      forecastRequested,
+      forecastHorizonDays: 2,
+      forecastAvailability: forecast ? 'Available from selected-day readings.' : 'No forecast: a morning check-in reading is missing.',
+      forecastDisclaimer: FORECAST_LABEL,
+      allowedActions: pack.showActions ? allowedActions : [],
+    },
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -641,6 +708,9 @@ export function buildModelContext(input: AssistantInput) {
     last7Days: { columns: ['day', ...ALL_METRICS.map((id) => metricDef(id).name)], rows },
     currentStatuses: Object.fromEntries(ALL_METRICS.map((id) => [metricDef(id).name, statusWord(input.metrics[id]?.status)])),
     overallStatus: statusWord(input.overall),
+    forecast: forecastPresentation(input.measurements, input.day),
+    forecastHorizonDays: 2,
+    forecastDisclaimer: FORECAST_LABEL,
   };
 }
 
@@ -651,9 +721,12 @@ const NUMBER = /(?<![A-Za-z\d.])\d+(?:[.,]\d+)*/g;
 const numbersIn = (text: string): string[] => (text.match(NUMBER) ?? []).map((n) => n.replace(/,/g, ''));
 const STATUS_WORDS = /\b(OK|Watch|Act|Critical)\b/g;
 const HAS_STATUS_WORD = /\b(OK|Watch|Act|Critical)\b/;
-/** Follow-ups are questions the astronaut taps: about readings, not diagnoses, not CAPCOM asking back. */
+/** Follow-ups are questions the astronaut taps: about readings, not diagnoses, not the assistant asking back. */
 const OFF_TOPIC_FOLLOWUP = /symptom|\bsigns?\b|disease|diagnos|infection|medicine|medication|\bdrug|^(would|do) you (like|want)/i;
 const EARTH_ONLY = /\b(911|999|112|ambulance|hospital|emergency room|urgent care|ER|GP|pharmacy)\b/;
+const FORECAST_DISCUSSION = /\bforecast\b|early[- ]warning|synthetic|\b(?:model|predict(?:ion)?)\b|\b(?:next|coming)\s+(?:(?:two|2|few|couple of)\s+)?days?\b|\b(?:will|going to|definitely|certain|confirm(?:ed|s)?|diagnos(?:ed|is))\b.{0,80}\b(?:infection|fluid[ -]loss)\b|\byou (?:have|are developing|are experiencing)\b.{0,40}\b(?:infection|fluid[ -]loss)\b|\b(?:infection|fluid[ -]loss)\b.{0,80}\b(?:tomorrow|will|certain|confirmed|starting)\b/i;
+const FORECAST_PERCENTAGE = /\b(?:risk|chance|probability|likelihood)\b[^.!?\n]{0,60}\d[\d.,]*\s*%|\b\d[\d.,]*\s*%[^.!?\n]{0,60}\b(?:risk|chance|probability|likelihood)\b/i;
+const discussesForecast = (text: string) => FORECAST_DISCUSSION.test(text) || FORECAST_PERCENTAGE.test(text);
 const STOP = new Set(['your', 'with', 'this', 'that', 'from', 'have', 'when', 'then', 'them', 'they', 'will', 'into', 'about', 'after', 'before', 'again', 'there', 'their', 'what', 'more', 'than', 'only', 'just', 'some', 'such', 'other', 'also', 'still', 'today', 'tomorrow']);
 const stems = (text: string) =>
   new Set(text.toLowerCase().split(/[^a-z]+/).filter((w) => w.length >= 4 && !STOP.has(w)).map((w) => w.slice(0, 5)));
@@ -697,10 +770,10 @@ export function finalizeAnswer(pack: FactPack, model: (Partial<ChatAnswer> & { i
     return [...new Set([...picked, ...fallback])].slice(0, 2);
   };
 
-  const inScope = pack.kind === 'question' ? model?.inScope !== false : true;
+  const inScope = pack.forecastRequested || pack.kind !== 'question' ? true : model?.inScope !== false;
   if (!inScope) {
     let reply = firstSentences(str(model?.reply), 4);
-    if (!okText(reply) || HAS_STATUS_WORD.test(reply)) reply = OUT_OF_SCOPE_ANSWER.reply;
+    if (!okText(reply) || HAS_STATUS_WORD.test(reply) || discussesForecast(reply)) reply = OUT_OF_SCOPE_ANSWER.reply;
     return { inScope, answer: { ...OUT_OF_SCOPE_ANSWER, reply, followups: followupsFrom(OUT_OF_SCOPE_ANSWER.followups) } };
   }
 
@@ -715,11 +788,17 @@ export function finalizeAnswer(pack: FactPack, model: (Partial<ChatAnswer> & { i
   if (pack.lead && parts.length && !/^(yes|no|not yet|not really|about the same|it'?s about the same)\b/i.test(parts[0])) parts = [pack.lead, ...parts];
   let reply = parts.slice(0, 4).join(' ');
   if (!okText(reply) || !usesOnlyAppStatuses(reply, statuses)) reply = fb.reply;
+  if (pack.forecastRequested) {
+    // Keep the risk, uncertainty and synthetic-training caveat together, regardless of model wording.
+    reply = fb.reply;
+  } else if (discussesForecast(reply)) {
+    reply = `${firstSentences(fb.reply, 1)} ${forecastReply(Number(pack.facts.missionDay), pack.forecast)}`;
+  }
 
   let actions: string[] = [];
   if (pack.showActions) {
     actions = (Array.isArray(model?.actions) ? model!.actions.map(str) : [])
-      .filter((a) => isGroundedAction(a, pack.allowedActions, known))
+      .filter((a) => !discussesForecast(a) && isGroundedAction(a, pack.allowedActions, known))
       .map(tidyAction)
       .slice(0, 3);
     if (!actions.length) actions = fb.actions.slice(0, 3);

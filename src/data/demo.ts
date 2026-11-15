@@ -1,4 +1,4 @@
-// VITALS-ORBIT — demo mission generator (section 7).
+// Astro Health AI — demo mission generator (section 7).
 // 30-day ISS mission for "Astronaut A. Rahman". Hand-tuned daily values so the
 // story (adaptation → sleep debt → infection pattern → solar event → recovery)
 // is deterministic.

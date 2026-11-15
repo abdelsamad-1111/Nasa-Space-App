@@ -2,6 +2,8 @@ import { LOCATION_LABEL, type Location } from '../brain/indicators';
 import { useApp, type Screen } from '../state/AppState';
 import { fmtDate, fmtNumber } from '../lib/format';
 import { Logo } from './Logo';
+import { AstronautMark } from './AstronautMark';
+import { APP_NAME } from '../lib/brand';
 
 const NAV: { id: Screen; label: string }[] = [
   { id: 'twin', label: 'Health Twin' },
@@ -22,8 +24,7 @@ export function Header() {
     <div className="band">
       <header className="header">
         <div className="brand">
-          <Logo onDark />
-          <span className="brand-sub">Astronaut Health Twin</span>
+          <Logo onDark animated />
         </div>
         <nav className="nav" aria-label="Main">
           {NAV.map((n) => (
@@ -36,15 +37,18 @@ export function Header() {
               )}
             </button>
           ))}
-          <button
-            aria-expanded={assistantOpen}
-            aria-controls="capcom-panel"
-            onClick={() => (assistantOpen ? closeAssistant() : openAssistant())}
-          >
-            Assistant
-          </button>
         </nav>
         <div className="header-right">
+          <button
+            className="assistant-launch"
+            aria-label={`${assistantOpen ? 'Close' : 'Open'} ${APP_NAME} assistant`}
+            aria-expanded={assistantOpen}
+            aria-controls="capcom-panel"
+            onClick={() => (assistantOpen ? closeAssistant() : openAssistant(true))}
+          >
+            <AstronautMark size={32} />
+            <span><strong>{APP_NAME}</strong><span>Ask your assistant</span></span>
+          </button>
           <div className="segmented" role="group" aria-label="Location">
             {LOCATIONS.map((l) => (
               <button key={l} aria-pressed={data.settings.location === l} onClick={() => setLocation(l)}>

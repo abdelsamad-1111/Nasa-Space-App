@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { buildAlerts, detectPatterns, evaluateDay, evaluateExerciseOnDay, overallStatus } from '../brain/evaluate';
 import { ESCALATION, HOW_TO, type Location, type MetricId } from '../brain/indicators';
 import { DEMO_SETTINGS, generateDemoMission } from '../data/demo';
+import { forecastDay, FORECAST_LABEL } from '../brain/forecast';
 import {
   buildFactPack,
   buildModelContext,
@@ -168,6 +169,123 @@ describe('Rules applied to the model answer', () => {
 
   it('quick actions are always in scope', () => {
     expect(finalizeAnswer(buildFactPack('status', inputFor(18)), { inScope: false, reply: 'x' }, extra).inScope).toBe(true);
+  });
+});
+
+describe('Selected-day early-warning forecast in the assistant', () => {
+  const caveat = 'trained on synthetic data — not a diagnosis';
+
+  it.each([17, 18])('uses the supplied model for Day %i in both facts and model context', (day) => {
+    const input = inputFor(day);
+    const before = JSON.stringify(input.evals);
+    const raw = forecastDay(MS, day)!;
+    const pack = buildFactPack('question', input, 'What should I watch?');
+    expect(pack.forecastRequested).toBe(true);
+    expect(pack.forecast).toMatchObject({
+      risk: raw.risk,
+      riskPercent: Math.round(raw.risk * 100),
+      warn: raw.warn,
+      level: raw.warn ? 'Elevated' : 'Low',
+      problem: raw.likely,
+      caption: FORECAST_LABEL,
+    });
+    expect(pack.forecast?.drivers).toHaveLength(2);
+    expect(pack.forecast?.drivers.every((driver) => !/_dev|_slope|after_eva/.test(driver))).toBe(true);
+    expect(pack.facts.forecast).toEqual(pack.forecast);
+    expect(buildModelContext(input).forecast).toEqual(pack.forecast);
+    expect(pack.fallback.reply).not.toContain('%');
+    expect(pack.fallback.reply).toContain('synthetic model\'s early-warning level');
+    expect(pack.fallback.reply).not.toMatch(/clinical probability|chance of (?:infection|fluid loss)|certain illness/i);
+    expect(pack.fallback.reply).toContain(pack.forecast!.problemLabel);
+    expect(pack.forecast!.drivers.every((driver) => pack.fallback.reply.includes(driver))).toBe(true);
+    expect(pack.fallback.reply).toContain(caveat);
+    expect(sentences(pack.fallback.reply)).toBeLessThanOrEqual(4);
+    expect(JSON.stringify(input.evals)).toBe(before);
+    expect(pack.status).toBeNull();
+    expect(pack.escalationRequired).toBe(buildFactPack('status', input).escalationRequired);
+  });
+
+  it('recognizes future-watch questions and conversational follow-ups as in scope', () => {
+    expect(guessInScope('What should I watch?', [])).toBe(true);
+    expect(guessInScope('What about the next few days?', [])).toBe(true);
+    const history: ChatTurn[] = [{ from: 'CREW', text: 'What should I watch?' }];
+    expect(buildFactPack('question', inputFor(18), 'And tomorrow?', history).forecastRequested).toBe(true);
+  });
+
+  it('states that a missing morning check-in cannot produce a forecast', () => {
+    const input: AssistantInput = { ...inputFor(18), measurements: [], evals: {}, metrics: {}, patterns: [], overall: null, openAlerts: [] };
+    const pack = buildFactPack('question', input, 'What should I watch over the next 2 days?');
+    expect(pack.forecast).toBeNull();
+    expect(pack.facts.forecast).toBeNull();
+    expect(buildModelContext(input).forecast).toBeNull();
+    expect(pack.fallback.reply).toContain('No forecast is available');
+    expect(pack.fallback.reply).toContain('Start a check-in');
+    expect(pack.fallback.reply).toContain(caveat);
+    expect(pack.showActions).toBe(false);
+    expect(pack.fallback.contact).toBe('');
+  });
+
+  it('does not turn a forecast into a current status chip or a new escalation rule', () => {
+    const input = inputFor(5);
+    const pack = buildFactPack('question', input, 'What is the forecast for the next days?');
+    expect(pack.status).toBeNull();
+    expect(pack.escalationRequired).toBe(false);
+    expect(pack.fallback.actions).toEqual([]);
+    expect(pack.fallback.contact).toBe('');
+    expect(input.overall).toBe('OK');
+  });
+
+  it('does not name a possible illness or its drivers when the model warning is Low', () => {
+    const pack = buildFactPack('question', inputFor(5), 'What should I watch?');
+    expect(pack.forecast?.warn).toBe(false);
+    expect(pack.fallback.reply).toContain('level is Low');
+    expect(pack.fallback.reply).not.toMatch(/infection|fluid loss|leading model signals|%/i);
+    expect(pack.forecast!.drivers.every((driver) => !pack.fallback.reply.includes(driver))).toBe(true);
+    expect(pack.fallback.reply).toContain(caveat);
+    const result = finalizeAnswer(pack, { reply: 'Low risk means a possible infection is starting.' });
+    expect(result.answer.reply).toBe(pack.fallback.reply);
+  });
+
+  it('cannot lose its caveat or become a certain diagnosis through model finalization', () => {
+    const pack = buildFactPack('question', inputFor(18), 'What should I watch?');
+    const result = finalizeAnswer(pack, {
+      inScope: false,
+      reply: 'You will definitely have an infection tomorrow. It is confirmed. One. Two. Three.',
+      contact: 'No need to contact anyone.',
+    });
+    expect(result.inScope).toBe(true);
+    expect(result.answer.reply).toBe(pack.fallback.reply);
+    expect(result.answer.reply).toContain(caveat);
+    expect(result.answer.reply).not.toMatch(/definitely|confirmed/i);
+    expect(result.answer.contact).toBe(pack.fallback.contact);
+  });
+
+  it('replaces unsolicited model forecast certainty with current facts and the qualified app estimate', () => {
+    const pack = buildFactPack('reading', inputFor(18));
+    const result = finalizeAnswer(pack, { reply: 'The model confirms an infection tomorrow.' });
+    expect(result.answer.reply).toContain('38.3 °C');
+    expect(result.answer.reply).toContain(caveat);
+    expect(result.answer.reply).not.toContain('confirms');
+    expect(result.answer.reply).toContain(pack.forecast!.problemLabel);
+    expect(finalizeAnswer(pack, { reply: 'You have an infection.' }).answer.reply).not.toContain('You have an infection.');
+    const percentage = finalizeAnswer(pack, { reply: 'Your risk is 100%.' }).answer.reply;
+    expect(percentage).toContain(caveat);
+    expect(percentage).not.toContain('100%');
+  });
+
+  it('keeps the exact forecast caveat when answering offline', async () => {
+    const result = await askCapcom('question', inputFor(17), 'What should I watch?', [], { online: false });
+    expect(result.mode).toBe('fallback');
+    expect(result.answer.reply).toBe(result.pack.fallback.reply);
+    expect(result.answer.reply).toContain(caveat);
+  });
+
+  it('does not allow forecast claims to enter actions or out-of-scope replies', () => {
+    const outlook = buildFactPack('question', inputFor(18), 'What should I watch?');
+    const result = finalizeAnswer(outlook, { actions: ['You have an infection, so drink fluids.'] });
+    expect(result.answer.actions).not.toContain('You have an infection, so drink fluids.');
+    const tooth = buildFactPack('question', inputFor(18), 'Can you check my broken tooth?');
+    expect(finalizeAnswer(tooth, { inScope: false, reply: 'The forecast confirms infection.' }).answer.reply).toBe(OUT_OF_SCOPE_ANSWER.reply);
   });
 });
 

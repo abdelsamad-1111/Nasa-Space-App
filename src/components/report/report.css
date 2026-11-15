@@ -1,0 +1,153 @@
+/* Crew Health Report — A4 portrait, white page, prints well in black & white.
+   IBM Plex Sans for text, IBM Plex Mono only for numbers. */
+.rpt-overlay {
+  --rpt-OK: #2e7d4f;
+  --rpt-WATCH: #d9961a;
+  --rpt-ACT: #c62828;
+  --rpt-CRITICAL: #c62828;
+  --rpt-ink: #111;
+  --rpt-ink-2: #555;
+  --rpt-rule: #cfcfca;
+  --rpt-zebra: #f5f5f3;
+  --rpt-sans: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  --rpt-mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+  position: fixed; inset: 0; z-index: 70; overflow: auto; background: #e6e6e2;
+  font-family: var(--rpt-sans); color: var(--rpt-ink);
+}
+
+/* ---------- Toolbar (screen only) ---------- */
+.rpt-toolbar {
+  position: sticky; top: 0; z-index: 1; display: flex; align-items: center; gap: 10px;
+  padding: 10px var(--gutter); background: #fff; border-bottom: 1px solid var(--rule);
+  font-family: var(--font);
+}
+.rpt-toolbar-title { font-weight: 600; font-size: 13px; }
+.rpt-toolbar-msg { margin-left: auto; font-size: 12px; color: var(--text-2); }
+
+.rpt-pages { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 28px 0 48px; }
+
+/* ---------- A4 sheet ---------- */
+.rpt-sheet {
+  width: 210mm; height: 297mm; padding: 12mm 13mm 9mm; box-sizing: border-box; overflow: hidden;
+  display: flex; flex-direction: column; background: #fff; box-shadow: 0 2px 14px rgba(0, 0, 0, 0.14);
+  font-size: 8.6pt; line-height: 1.38;
+}
+.rpt-sheet .mono, .rpt-sheet .num { font-family: var(--rpt-mono); font-variant-numeric: tabular-nums; }
+.rpt-muted { color: var(--rpt-ink-2); }
+
+/* Header band */
+.rpt-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 8mm; padding-bottom: 3mm; border-bottom: 0.6pt solid var(--rpt-ink); }
+.rpt-brand { display: flex; align-items: center; gap: 3mm; }
+.rpt-wordmark { font-weight: 700; font-size: 10pt; letter-spacing: 0.16em; }
+.rpt-title { font-size: 15pt; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; }
+.rpt-meta { margin: 0; display: grid; grid-template-columns: auto auto; column-gap: 3mm; row-gap: 0.6mm; font-size: 7.8pt; text-align: right; }
+.rpt-meta > div { display: contents; }
+.rpt-meta dt { color: var(--rpt-ink-2); }
+.rpt-meta dd { margin: 0; text-align: left; }
+
+/* Patient-style info grid */
+.rpt-info { margin: 4mm 0 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 8mm; row-gap: 2.4mm; }
+.rpt-info dt { font-size: 6.8pt; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rpt-ink-2); }
+.rpt-info dd { margin: 0.3mm 0 0; font-size: 9.2pt; font-weight: 500; }
+.rpt-warn { font-weight: 400; color: var(--rpt-ink-2); }
+
+/* Clinical summary box */
+.rpt-summary {
+  margin-top: 4.5mm; padding: 3mm 4mm 3.2mm; background: #f2f2ef; border-left: 2.2mm solid #999;
+}
+.rpt-summary-head { display: flex; align-items: center; gap: 3mm; margin-bottom: 1.4mm; }
+.rpt-summary-head h2 { margin: 0; font-size: 9.5pt; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.rpt-summary-head .rpt-muted { margin-left: auto; font-size: 7.6pt; }
+.rpt-summary p { margin: 0.8mm 0 0; font-size: 9pt; }
+.rpt-summary .rpt-early-warning { margin-top: 1.2mm; font-size: 8.3pt; line-height: 1.32; overflow-wrap: break-word; }
+
+/* Sections and tables */
+.rpt-section { margin-top: 5mm; }
+.rpt-section h2 {
+  margin: 0 0 1.6mm; font-size: 8.4pt; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.rpt-note { margin-top: 1.4mm; font-size: 7pt; color: var(--rpt-ink-2); }
+.rpt-table { width: 100%; border-collapse: collapse; }
+.rpt-table th, .rpt-table td { padding: 1.25mm 1.4mm; text-align: left; vertical-align: middle; border-bottom: 0.4pt solid var(--rpt-rule); }
+.rpt-table thead th {
+  font-size: 6.8pt; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--rpt-ink-2);
+  border-bottom: 0.8pt solid var(--rpt-ink); white-space: nowrap;
+}
+.rpt-table tbody tr:nth-child(even):not(.rpt-dose-row) { background: var(--rpt-zebra); }
+.rpt-table tbody th { font-weight: 600; white-space: nowrap; }
+
+.rpt-vitals { table-layout: fixed; }
+/* 184 mm content width: 28 + 10.5 + 7 × 13.4 + 26 + 8.5 + 17.2 */
+.rpt-vitals .c-name { width: 28mm; }
+.rpt-vitals .c-unit { width: 10.5mm; }
+.rpt-vitals .c-day { width: 13.4mm; }
+.rpt-vitals .c-ref { width: 26mm; }
+.rpt-vitals .c-trend { width: 8.5mm; }
+.rpt-vitals .c-status { width: 17.2mm; }
+.rpt-vitals td.num, .rpt-vitals th.num { text-align: right; white-space: nowrap; padding-left: 0.6mm; padding-right: 0.8mm; }
+.rpt-vitals td.num .mono, .rpt-ref .mono { font-size: 7.8pt; letter-spacing: -0.01em; }
+.rpt-vitals tr.rpt-row-bp td.num .mono { font-size: 7.3pt; letter-spacing: -0.03em; }
+.rpt-vitals th.is-today { color: var(--rpt-ink); }
+.rpt-vitals thead th.c-trend-h { padding-left: 0.3mm; padding-right: 0.3mm; text-align: center; letter-spacing: 0.02em; }
+.rpt-vitals td.rpt-trend { padding-left: 0.3mm; padding-right: 0.3mm; }
+.rpt-vitals thead th.c-status-h { padding-left: 1.6mm; }
+.rpt-vitals td.is-flag .mono { font-weight: 700; }
+.rpt-vitals td.is-empty { color: #999; }
+.rpt-flag { margin-left: 0.6mm; font-family: var(--rpt-sans); font-size: 6.2pt; font-weight: 700; vertical-align: 0.15em; }
+.rpt-unit { color: var(--rpt-ink-2); white-space: nowrap; }
+.rpt-ref { white-space: nowrap; }
+.rpt-ref sup, .rpt-dose sup { font-size: 5.8pt; margin-left: 0.4mm; color: var(--rpt-ink-2); }
+.rpt-spark { display: block; }
+
+.rpt-dose-row td { padding-top: 1mm; padding-bottom: 1.4mm; }
+.rpt-dose { display: flex; align-items: center; gap: 3mm; padding-left: 4mm; font-size: 8pt; }
+.rpt-bar { width: 38mm; height: 1.6mm; border: 0.5pt solid var(--rpt-ink); background: #fff; }
+.rpt-bar > span { display: block; height: 100%; background: var(--rpt-ink); }
+
+/* Status chip: icon shape + word, readable in black & white */
+.rpt-chip {
+  display: inline-flex; align-items: center; gap: 1mm; padding: 0.3mm 1.4mm; border: 0.6pt solid currentColor;
+  border-radius: 0.6mm; font-size: 6.6pt; font-weight: 700; letter-spacing: 0.06em; white-space: nowrap; color: var(--rpt-ink);
+}
+.rpt-chip-OK { border-color: var(--rpt-OK); }
+.rpt-chip-WATCH { border-color: var(--rpt-WATCH); }
+.rpt-chip-ACT, .rpt-chip-CRITICAL { border-color: var(--rpt-ACT); }
+.rpt-chip-none { color: var(--rpt-ink-2); border-color: var(--rpt-rule); }
+
+.rpt-alerts td:first-child, .rpt-table td.mono:first-child { width: 8mm; }
+/* Page 2 tables: denser rows so alerts, patterns and actions fit on one page */
+.rpt-compact { font-size: 7.9pt; line-height: 1.3; }
+.rpt-compact th, .rpt-compact td { padding-top: 0.65mm; padding-bottom: 0.65mm; }
+.rpt-compact .rpt-chip { padding: 0 1.2mm; font-size: 6.1pt; }
+.rpt-compact td { white-space: nowrap; }
+.rpt-compact td.rpt-wrap { white-space: normal; }
+.rpt-open { font-weight: 600; }
+
+/* Footer (every page) */
+.rpt-foot { margin-top: auto; padding-top: 2.4mm; border-top: 0.6pt solid var(--rpt-ink); font-size: 6.6pt; color: var(--rpt-ink-2); }
+.rpt-sources { margin: 0; padding: 0; list-style: none; columns: 3; column-gap: 5mm; }
+.rpt-sources li { break-inside: avoid; margin-bottom: 0.3mm; }
+.rpt-sources sup { font-weight: 700; color: var(--rpt-ink); }
+.rpt-legend { margin-top: 1.2mm; }
+.rpt-disclaimer { margin-top: 1mm; font-weight: 600; color: var(--rpt-ink); font-size: 7pt; }
+.rpt-sign { display: flex; gap: 10mm; margin-top: 3mm; color: var(--rpt-ink); font-size: 7.6pt; }
+.rpt-line { display: inline-block; width: 26mm; border-bottom: 0.5pt solid var(--rpt-ink); vertical-align: -0.6mm; }
+.rpt-line-long { width: 60mm; }
+.rpt-foot-bottom { display: flex; justify-content: space-between; margin-top: 2.2mm; }
+
+/* ---------- Print: only the sheets ---------- */
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  html, body { background: #fff !important; min-width: 0 !important; overflow: visible !important; }
+  #root > .app, .capcom, .rpt-toolbar { display: none !important; }
+  .rpt-overlay { position: static; overflow: visible; background: none; }
+  .rpt-pages { display: block; padding: 0; }
+  .rpt-sheet { box-shadow: none; margin: 0; break-after: page; page-break-after: always; }
+  .rpt-sheet:last-child { break-after: auto; page-break-after: auto; }
+  .rpt-overlay * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Page 2 spacing */
+.rpt-sheet-2 .rpt-section { margin-top: 3.6mm; }
+.rpt-patterns { table-layout: fixed; }
+.rpt-patterns td { white-space: normal; }

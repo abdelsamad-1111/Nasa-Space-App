@@ -182,6 +182,15 @@
 .tl-event::after { content: ''; position: absolute; left: 50%; top: 100%; height: 4px; border-left: 1px solid var(--text); }
 .tl-event.tl-row-0::after { height: 34px; }
 
+/* Model forecasts have their own row and shape; clinical-status ticks remain unchanged. */
+.tl-warnings { position: relative; height: 24px; }
+.tl-warning { position: absolute; top: 0; width: 24px; height: 24px; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; border: none; border-radius: 2px; background: transparent; padding: 6px; }
+.tl-warning-diamond { display: inline-block; width: 8px; height: 8px; flex: none; transform: rotate(45deg); background: var(--watch); border: 1px solid #8b6118; }
+.tl-warning:hover, .tl-warning.is-current { background: #d9961a18; }
+.tl-warning.is-current .tl-warning-diamond { outline: 1px solid var(--text); outline-offset: 2px; }
+.tl-warning-legend { display: flex; align-items: center; gap: 7px; margin-top: 3px; color: var(--text-2); font-size: 10px; line-height: 1.5; }
+.tl-warning-legend .tl-warning-diamond { width: 6px; height: 6px; }
+
 
 /* ---------- Stage: card column | 3D anatomy | card column ---------- */
 .stage {

@@ -6,6 +6,7 @@ import { AssessmentStatus } from '../AssessmentStatus';
 import { fmtDate, fmtNumber, fmtValue } from '../../lib/format';
 import { radiationValue } from './values';
 import { RoutineBlock } from './RoutineBlock';
+import { EarlyWarningCard } from './EarlyWarningCard';
 
 function initials(name: string): string {
   const words = name.replace(/^Astronaut\s+/i, '').split(/[\s.]+/).filter(Boolean);
@@ -49,6 +50,7 @@ export const LeftColumn = memo(function LeftColumn({ selected, onSelect }: Props
         </div>
       </div>
 
+      <EarlyWarningCard forecast={view.forecast} />
       <RoutineBlock />
       <button className="btn" onClick={startExerciseLog}>Log today’s exercise</button>
 

@@ -1,9 +1,8 @@
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { INDICATORS, STATUS_WORD, type Status } from '../brain/indicators';
 import type { Alert, AlertType } from '../brain/evaluate';
 import { useApp } from '../state/AppState';
 import { StatusBadge } from './StatusBadge';
-import { buildReport } from '../lib/report';
 import { fmtNumber } from '../lib/format';
 import './alerts.css';
 
@@ -18,36 +17,13 @@ const STATUSES: (Status | 'all')[] = ['all', 'WATCH', 'ACT', 'CRITICAL'];
 const TYPE_LABEL = Object.fromEntries(TYPES.map((t) => [t.id, t.label])) as Record<AlertType, string>;
 
 export function AlertsScreen() {
-  const { alerts, openAlerts, data, dispatch, day } = useApp();
+  const { alerts, openAlerts, data, dispatch, day, openReport } = useApp();
   const [type, setType] = useState<AlertType | 'all'>('all');
   const [status, setStatus] = useState<Status | 'all'>('all');
-  const [report, setReport] = useState<string | null>(null);
-  const [copied, setCopied] = useState<'idle' | 'ok' | 'fail'>('idle');
-  const reportRef = useRef<HTMLTextAreaElement>(null);
 
   const match = (a: Alert) => (type === 'all' || a.type === type) && (status === 'all' || a.status === status);
   const openList = openAlerts.filter(match);
   const history = useMemo(() => alerts.filter((a) => !a.open).sort((a, b) => b.missionDay - a.missionDay), [alerts]).filter(match);
-
-  const generate = () => {
-    setReport(buildReport(data, day, openAlerts));
-    setCopied('idle');
-  };
-
-  const copy = async () => {
-    if (!report) return;
-    try {
-      await navigator.clipboard.writeText(report);
-      setCopied('ok');
-    } catch {
-      try {
-        reportRef.current?.select();
-        setCopied(document.execCommand('copy') ? 'ok' : 'fail');
-      } catch {
-        setCopied('fail');
-      }
-    }
-  };
 
   const row = (a: Alert, showAck: boolean) => (
     <tr key={a.id}>
@@ -106,25 +82,11 @@ export function AlertsScreen() {
           </select>
         </div>
         <div className="report-btn">
-          <button className="btn btn-primary" onClick={generate}>Generate report for flight surgeon</button>
+          <button className="btn btn-primary" onClick={() => openReport(day)}>
+            Generate report for flight surgeon (Day {fmtNumber(day)})
+          </button>
         </div>
       </div>
-
-      {report && (
-        <section className="section report" aria-label="Report for flight surgeon">
-          <div className="section-head">
-            <h2>Report for flight surgeon</h2>
-            <div className="report-actions">
-              <span role="status" className="muted">
-                {copied === 'ok' ? 'Copied to clipboard.' : copied === 'fail' ? 'Copy failed — select the text and copy it.' : ''}
-              </span>
-              <button className="btn" onClick={copy}>Copy</button>
-              <button className="btn btn-ghost" onClick={() => setReport(null)}>Close</button>
-            </div>
-          </div>
-          <textarea ref={reportRef} className="report-text" readOnly value={report} rows={report.split('\n').length + 1} />
-        </section>
-      )}
 
       <section className="section">
         <div className="section-head">

@@ -4,6 +4,9 @@ type ModelViewerAttributes = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTML
   src?: string;
   alt?: string;
   'camera-controls'?: boolean | string;
+  'auto-rotate'?: boolean | string;
+  'auto-rotate-delay'?: string;
+  'rotation-per-second'?: string;
   'disable-pan'?: boolean | string;
   'disable-zoom'?: boolean | string;
   'disable-tap'?: boolean | string;

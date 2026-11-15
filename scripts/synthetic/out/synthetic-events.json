@@ -1,0 +1,5634 @@
+{
+  "label": "SYNTHETIC DATA, research-based. Not real astronaut measurements. Not clinical validation.",
+  "event_sizes_assumed": true,
+  "episodes": [
+    {
+      "episode_id": "AST-019-eva-1",
+      "astronaut_index": 18,
+      "astronaut_id": "AST-019",
+      "kind": "eva",
+      "start_day": 15,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.2537629477906238,
+        "eva_bp_sys": 0.8753150838501463,
+        "eva_bp_dia": 0.015215006814883525
+      },
+      "peak_day": 15,
+      "end_day": 15,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 27.537629477906236,
+          "eva_bp_sys": 14.376575419250731,
+          "eva_bp_dia": 5.045645020444651
+        },
+        "default": {
+          "eva_hr": 32.612888433718716,
+          "eva_bp_sys": 23.129726257752196,
+          "eva_bp_dia": 5.152150068148835
+        },
+        "large": {
+          "eva_hr": 47.537629477906236,
+          "eva_bp_sys": 24.37657541925073,
+          "eva_bp_dia": 12.04564502044465
+        }
+      }
+    },
+    {
+      "episode_id": "AST-011-eva-1",
+      "astronaut_index": 10,
+      "astronaut_id": "AST-011",
+      "kind": "eva",
+      "start_day": 16,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.02472566341516036,
+        "eva_bp_sys": 0.9023998747754226,
+        "eva_bp_dia": 0.5090237491610873
+      },
+      "peak_day": 16,
+      "end_day": 16,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 25.247256634151604,
+          "eva_bp_sys": 14.511999373877114,
+          "eva_bp_dia": 6.527071247483262
+        },
+        "default": {
+          "eva_hr": 25.74176990245481,
+          "eva_bp_sys": 23.535998121631337,
+          "eva_bp_dia": 10.090237491610873
+        },
+        "large": {
+          "eva_hr": 45.247256634151604,
+          "eva_bp_sys": 24.511999373877114,
+          "eva_bp_dia": 13.527071247483262
+        }
+      }
+    },
+    {
+      "episode_id": "AST-002-sleep_debt-1",
+      "astronaut_index": 1,
+      "astronaut_id": "AST-002",
+      "kind": "sleep_debt",
+      "start_day": 18,
+      "duration": 7,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.31096711611503725,
+        "sleep_debt_mood": 0.31446634366273585
+      },
+      "peak_day": 21,
+      "end_day": 24,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.124386846446015,
+          "sleep_debt_mood": 0.23144663436627358
+        },
+        "default": {
+          "sleep_debt_sleep": 1.3109671161150374,
+          "sleep_debt_mood": 0.32578653746509434
+        },
+        "large": {
+          "sleep_debt_sleep": 1.724386846446015,
+          "sleep_debt_mood": 0.5314466343662736
+        }
+      }
+    },
+    {
+      "episode_id": "AST-012-eva-2",
+      "astronaut_index": 11,
+      "astronaut_id": "AST-012",
+      "kind": "eva",
+      "start_day": 18,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.455102826587653,
+        "eva_bp_sys": 0.9835375978501273,
+        "eva_bp_dia": 0.16995441701219038
+      },
+      "peak_day": 18,
+      "end_day": 18,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 29.551028265876532,
+          "eva_bp_sys": 14.917687989250636,
+          "eva_bp_dia": 5.509863251036571
+        },
+        "default": {
+          "eva_hr": 38.65308479762959,
+          "eva_bp_sys": 24.75306396775191,
+          "eva_bp_dia": 6.699544170121904
+        },
+        "large": {
+          "eva_hr": 49.55102826587653,
+          "eva_bp_sys": 24.917687989250638,
+          "eva_bp_dia": 12.50986325103657
+        }
+      }
+    },
+    {
+      "episode_id": "AST-013-sleep_debt-3",
+      "astronaut_index": 12,
+      "astronaut_id": "AST-013",
+      "kind": "sleep_debt",
+      "start_day": 18,
+      "duration": 8,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.5985469065037692,
+        "sleep_debt_mood": 0.4220835281643409
+      },
+      "peak_day": 22,
+      "end_day": 25,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.2394187626015076,
+          "sleep_debt_mood": 0.2422083528164341
+        },
+        "default": {
+          "sleep_debt_sleep": 1.5985469065037692,
+          "sleep_debt_mood": 0.3688334112657363
+        },
+        "large": {
+          "sleep_debt_sleep": 1.8394187626015077,
+          "sleep_debt_mood": 0.5422083528164341
+        }
+      }
+    },
+    {
+      "episode_id": "AST-014-fluid_loss-1",
+      "astronaut_index": 13,
+      "astronaut_id": "AST-014",
+      "kind": "fluid_loss",
+      "start_day": 18,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.8469605909690663,
+        "fluid_hr": 0.5544565444121021
+      },
+      "peak_day": 21,
+      "end_day": 23,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 17.081763545814397,
+          "fluid_hr": 12.217826177648409
+        },
+        "default": {
+          "fluid_bp_sys": 23.010487682597862,
+          "fluid_hr": 16.653478532945226
+        },
+        "large": {
+          "fluid_bp_sys": 24.081763545814397,
+          "fluid_hr": 20.21782617764841
+        }
+      }
+    },
+    {
+      "episode_id": "AST-018-fluid_loss-1",
+      "astronaut_index": 17,
+      "astronaut_id": "AST-018",
+      "kind": "fluid_loss",
+      "start_day": 18,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.435390500959804,
+        "fluid_hr": 0.17077764823921215
+      },
+      "peak_day": 21,
+      "end_day": 23,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 14.612343005758824,
+          "fluid_hr": 10.683110592956849
+        },
+        "default": {
+          "fluid_bp_sys": 17.660076512477453,
+          "fluid_hr": 12.049331778870545
+        },
+        "large": {
+          "fluid_bp_sys": 21.612343005758824,
+          "fluid_hr": 18.683110592956847
+        }
+      }
+    },
+    {
+      "episode_id": "AST-020-sleep_debt-2",
+      "astronaut_index": 19,
+      "astronaut_id": "AST-020",
+      "kind": "sleep_debt",
+      "start_day": 19,
+      "duration": 7,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.47470347340844377,
+        "sleep_debt_mood": 0.9529459973109828
+      },
+      "peak_day": 22,
+      "end_day": 25,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.1898813893633775,
+          "sleep_debt_mood": 0.2952945997310983
+        },
+        "default": {
+          "sleep_debt_sleep": 1.4747034734084439,
+          "sleep_debt_mood": 0.581178398924393
+        },
+        "large": {
+          "sleep_debt_sleep": 1.7898813893633776,
+          "sleep_debt_mood": 0.5952945997310982
+        }
+      }
+    },
+    {
+      "episode_id": "AST-003-sleep_debt-3",
+      "astronaut_index": 2,
+      "astronaut_id": "AST-003",
+      "kind": "sleep_debt",
+      "start_day": 20,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.586611435338791,
+        "sleep_debt_mood": 0.7980345555569623
+      },
+      "peak_day": 24,
+      "end_day": 28,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.2346445741355163,
+          "sleep_debt_mood": 0.27980345555569625
+        },
+        "default": {
+          "sleep_debt_sleep": 1.586611435338791,
+          "sleep_debt_mood": 0.5192138222227849
+        },
+        "large": {
+          "sleep_debt_sleep": 1.8346445741355164,
+          "sleep_debt_mood": 0.5798034555556962
+        }
+      }
+    },
+    {
+      "episode_id": "AST-006-eva-2",
+      "astronaut_index": 5,
+      "astronaut_id": "AST-006",
+      "kind": "eva",
+      "start_day": 20,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.8015194100972045,
+        "eva_bp_sys": 0.3385414880040786,
+        "eva_bp_dia": 0.07802625956754095
+      },
+      "peak_day": 20,
+      "end_day": 20,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 33.015194100972046,
+          "eva_bp_sys": 11.692707440020392,
+          "eva_bp_dia": 5.234078778702623
+        },
+        "default": {
+          "eva_hr": 49.04558230291613,
+          "eva_bp_sys": 15.07812232006118,
+          "eva_bp_dia": 5.78026259567541
+        },
+        "large": {
+          "eva_hr": 53.015194100972046,
+          "eva_bp_sys": 21.692707440020392,
+          "eva_bp_dia": 12.234078778702623
+        }
+      }
+    },
+    {
+      "episode_id": "AST-004-eva-1",
+      "astronaut_index": 3,
+      "astronaut_id": "AST-004",
+      "kind": "eva",
+      "start_day": 22,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.7858017987793507,
+        "eva_bp_sys": 0.687567698567605,
+        "eva_bp_dia": 0.8713562967343342
+      },
+      "peak_day": 22,
+      "end_day": 22,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 32.85801798779351,
+          "eva_bp_sys": 13.437838492838026,
+          "eva_bp_dia": 7.6140688902030025
+        },
+        "default": {
+          "eva_hr": 48.57405396338052,
+          "eva_bp_sys": 20.313515478514077,
+          "eva_bp_dia": 13.713562967343343
+        },
+        "large": {
+          "eva_hr": 52.85801798779351,
+          "eva_bp_sys": 23.437838492838026,
+          "eva_bp_dia": 14.614068890203002
+        }
+      }
+    },
+    {
+      "episode_id": "AST-005-eva-1",
+      "astronaut_index": 4,
+      "astronaut_id": "AST-005",
+      "kind": "eva",
+      "start_day": 23,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.392419485433954,
+        "eva_bp_sys": 0.4846555690882338,
+        "eva_bp_dia": 0.4552630619579954
+      },
+      "peak_day": 23,
+      "end_day": 23,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 28.92419485433954,
+          "eva_bp_sys": 12.42327784544117,
+          "eva_bp_dia": 6.365789185873986
+        },
+        "default": {
+          "eva_hr": 36.77258456301862,
+          "eva_bp_sys": 17.269833536323507,
+          "eva_bp_dia": 9.552630619579954
+        },
+        "large": {
+          "eva_hr": 48.92419485433954,
+          "eva_bp_sys": 22.42327784544117,
+          "eva_bp_dia": 13.365789185873986
+        }
+      }
+    },
+    {
+      "episode_id": "AST-006-infection-2",
+      "astronaut_index": 5,
+      "astronaut_id": "AST-006",
+      "kind": "infection",
+      "start_day": 23,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.4921572709315001,
+        "infection_sleep": 0.18769035036014226,
+        "infection_mood": 0.06772131612318066,
+        "infection_spo2": 0.4536651096796872
+      },
+      "peak_day": 25,
+      "end_day": 27,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.9968629083726,
+          "infection_sleep": 0.33753807007202846,
+          "infection_mood": 0.30677213161231803,
+          "infection_spo2": 0.6360995329039062
+        },
+        "default": {
+          "infection_temp": 1.3905887251178002,
+          "infection_sleep": 0.3938451751800711,
+          "infection_mood": 0.3270885264492723,
+          "infection_spo2": 0.9536651096796872
+        },
+        "large": {
+          "infection_temp": 1.7968629083726,
+          "infection_sleep": 0.6375380700720285,
+          "infection_mood": 0.606772131612318,
+          "infection_spo2": 1.3360995329039063
+        }
+      }
+    },
+    {
+      "episode_id": "AST-009-sleep_debt-3",
+      "astronaut_index": 8,
+      "astronaut_id": "AST-009",
+      "kind": "sleep_debt",
+      "start_day": 23,
+      "duration": 8,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.16887137573628885,
+        "sleep_debt_mood": 0.07886422861255149
+      },
+      "peak_day": 27,
+      "end_day": 30,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.0675485502945155,
+          "sleep_debt_mood": 0.20788642286125517
+        },
+        "default": {
+          "sleep_debt_sleep": 1.168871375736289,
+          "sleep_debt_mood": 0.2315456914450206
+        },
+        "large": {
+          "sleep_debt_sleep": 1.6675485502945155,
+          "sleep_debt_mood": 0.5078864228612552
+        }
+      }
+    },
+    {
+      "episode_id": "AST-007-infection-1",
+      "astronaut_index": 6,
+      "astronaut_id": "AST-007",
+      "kind": "infection",
+      "start_day": 24,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.8183836620904882,
+        "infection_sleep": 0.8833376545658658,
+        "infection_mood": 0.9757678140685104,
+        "infection_spo2": 0.2374716388683944
+      },
+      "peak_day": 26,
+      "end_day": 28,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.1273534648361951,
+          "infection_sleep": 0.47666753091317315,
+          "infection_mood": 0.39757678140685104,
+          "infection_spo2": 0.5712414916605183
+        },
+        "default": {
+          "infection_temp": 1.7820603945085858,
+          "infection_sleep": 0.7416688272829328,
+          "infection_mood": 0.6903071256274042,
+          "infection_spo2": 0.7374716388683944
+        },
+        "large": {
+          "infection_temp": 1.9273534648361954,
+          "infection_sleep": 0.7766675309131732,
+          "infection_mood": 0.697576781406851,
+          "infection_spo2": 1.2712414916605184
+        }
+      }
+    },
+    {
+      "episode_id": "AST-015-sleep_debt-2",
+      "astronaut_index": 14,
+      "astronaut_id": "AST-015",
+      "kind": "sleep_debt",
+      "start_day": 24,
+      "duration": 5,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.7666089973421997,
+        "sleep_debt_mood": 0.23867998925835032
+      },
+      "peak_day": 26,
+      "end_day": 28,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.3066435989368799,
+          "sleep_debt_mood": 0.22386799892583503
+        },
+        "default": {
+          "sleep_debt_sleep": 1.7666089973421997,
+          "sleep_debt_mood": 0.29547199570334015
+        },
+        "large": {
+          "sleep_debt_sleep": 1.90664359893688,
+          "sleep_debt_mood": 0.523867998925835
+        }
+      }
+    },
+    {
+      "episode_id": "AST-017-eva-2",
+      "astronaut_index": 16,
+      "astronaut_id": "AST-017",
+      "kind": "eva",
+      "start_day": 26,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.26367753461779486,
+        "eva_bp_sys": 0.4253898941841088,
+        "eva_bp_dia": 0.6522664683788494
+      },
+      "peak_day": 26,
+      "end_day": 26,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 27.63677534617795,
+          "eva_bp_sys": 12.126949470920543,
+          "eva_bp_dia": 6.9567994051365485
+        },
+        "default": {
+          "eva_hr": 32.910326038533846,
+          "eva_bp_sys": 16.38084841276163,
+          "eva_bp_dia": 11.522664683788495
+        },
+        "large": {
+          "eva_hr": 47.63677534617795,
+          "eva_bp_sys": 22.126949470920543,
+          "eva_bp_dia": 13.956799405136548
+        }
+      }
+    },
+    {
+      "episode_id": "AST-008-infection-1",
+      "astronaut_index": 7,
+      "astronaut_id": "AST-008",
+      "kind": "infection",
+      "start_day": 27,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.9480109158610213,
+        "infection_sleep": 0.9946879719526543,
+        "infection_mood": 0.47405706183395324,
+        "infection_spo2": 0.21338133855753538
+      },
+      "peak_day": 29,
+      "end_day": 31,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.1792043663444085,
+          "infection_sleep": 0.49893759439053087,
+          "infection_mood": 0.34740570618339534,
+          "infection_spo2": 0.5640144015672606
+        },
+        "default": {
+          "infection_temp": 1.9376130990332254,
+          "infection_sleep": 0.7973439859763272,
+          "infection_mood": 0.48962282473358126,
+          "infection_spo2": 0.7133813385575354
+        },
+        "large": {
+          "infection_temp": 1.9792043663444085,
+          "infection_sleep": 0.7989375943905309,
+          "infection_mood": 0.6474057061833953,
+          "infection_spo2": 1.2640144015672605
+        }
+      }
+    },
+    {
+      "episode_id": "AST-011-eva-3",
+      "astronaut_index": 10,
+      "astronaut_id": "AST-011",
+      "kind": "eva",
+      "start_day": 28,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.8988580044478318,
+        "eva_bp_sys": 0.5056251602583897,
+        "eva_bp_dia": 0.3395795240999354
+      },
+      "peak_day": 28,
+      "end_day": 28,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 33.98858004447832,
+          "eva_bp_sys": 12.52812580129195,
+          "eva_bp_dia": 6.018738572299807
+        },
+        "default": {
+          "eva_hr": 51.965740133434956,
+          "eva_bp_sys": 17.584377403875845,
+          "eva_bp_dia": 8.395795240999355
+        },
+        "large": {
+          "eva_hr": 53.98858004447832,
+          "eva_bp_sys": 22.52812580129195,
+          "eva_bp_dia": 13.018738572299807
+        }
+      }
+    },
+    {
+      "episode_id": "AST-012-sleep_debt-1",
+      "astronaut_index": 11,
+      "astronaut_id": "AST-012",
+      "kind": "sleep_debt",
+      "start_day": 28,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.9066114565437463,
+        "sleep_debt_mood": 0.5309937558078842
+      },
+      "peak_day": 32,
+      "end_day": 36,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.3626445826174984,
+          "sleep_debt_mood": 0.25309937558078843
+        },
+        "default": {
+          "sleep_debt_sleep": 1.9066114565437462,
+          "sleep_debt_mood": 0.41239750232315364
+        },
+        "large": {
+          "sleep_debt_sleep": 1.9626445826174985,
+          "sleep_debt_mood": 0.5530993755807884
+        }
+      }
+    },
+    {
+      "episode_id": "AST-005-sleep_debt-3",
+      "astronaut_index": 4,
+      "astronaut_id": "AST-005",
+      "kind": "sleep_debt",
+      "start_day": 29,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.07617120262222987,
+        "sleep_debt_mood": 0.5079196731926252
+      },
+      "peak_day": 33,
+      "end_day": 37,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.030468481048892,
+          "sleep_debt_mood": 0.2507919673192625
+        },
+        "default": {
+          "sleep_debt_sleep": 1.0761712026222299,
+          "sleep_debt_mood": 0.40316786927705006
+        },
+        "large": {
+          "sleep_debt_sleep": 1.630468481048892,
+          "sleep_debt_mood": 0.5507919673192625
+        }
+      }
+    },
+    {
+      "episode_id": "AST-001-sleep_debt-2",
+      "astronaut_index": 0,
+      "astronaut_id": "AST-001",
+      "kind": "sleep_debt",
+      "start_day": 31,
+      "duration": 10,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.31372348910581316,
+        "sleep_debt_mood": 0.7437854906065546
+      },
+      "peak_day": 36,
+      "end_day": 40,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.1254893956423253,
+          "sleep_debt_mood": 0.27437854906065545
+        },
+        "default": {
+          "sleep_debt_sleep": 1.3137234891058132,
+          "sleep_debt_mood": 0.49751419624262183
+        },
+        "large": {
+          "sleep_debt_sleep": 1.7254893956423254,
+          "sleep_debt_mood": 0.5743785490606554
+        }
+      }
+    },
+    {
+      "episode_id": "AST-014-eva-1",
+      "astronaut_index": 13,
+      "astronaut_id": "AST-014",
+      "kind": "eva",
+      "start_day": 33,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.14890011674319337,
+        "eva_bp_sys": 0.5893186871390195,
+        "eva_bp_dia": 0.38620011078209093
+      },
+      "peak_day": 33,
+      "end_day": 33,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 26.489001167431933,
+          "eva_bp_sys": 12.946593435695098,
+          "eva_bp_dia": 6.158600332346273
+        },
+        "default": {
+          "eva_hr": 29.467003502295803,
+          "eva_bp_sys": 18.83978030708529,
+          "eva_bp_dia": 8.862001107820909
+        },
+        "large": {
+          "eva_hr": 46.48900116743194,
+          "eva_bp_sys": 22.946593435695096,
+          "eva_bp_dia": 13.158600332346273
+        }
+      }
+    },
+    {
+      "episode_id": "AST-015-infection-1",
+      "astronaut_index": 14,
+      "astronaut_id": "AST-015",
+      "kind": "infection",
+      "start_day": 33,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.03203434586874376,
+        "infection_sleep": 0.5327884592275436,
+        "infection_mood": 0.278059162640262,
+        "infection_spo2": 0.149481100101437
+      },
+      "peak_day": 35,
+      "end_day": 37,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.8128137383474976,
+          "infection_sleep": 0.4065576918455087,
+          "infection_mood": 0.3278059162640262,
+          "infection_spo2": 0.5448443300304311
+        },
+        "default": {
+          "infection_temp": 0.8384412150424926,
+          "infection_sleep": 0.5663942296137718,
+          "infection_mood": 0.41122366505610475,
+          "infection_spo2": 0.649481100101437
+        },
+        "large": {
+          "infection_temp": 1.6128137383474976,
+          "infection_sleep": 0.7065576918455088,
+          "infection_mood": 0.6278059162640262,
+          "infection_spo2": 1.244844330030431
+        }
+      }
+    },
+    {
+      "episode_id": "AST-018-sleep_debt-3",
+      "astronaut_index": 17,
+      "astronaut_id": "AST-018",
+      "kind": "sleep_debt",
+      "start_day": 33,
+      "duration": 6,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.7055586867404534,
+        "sleep_debt_mood": 0.914266579421184
+      },
+      "peak_day": 36,
+      "end_day": 38,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.2822234746961814,
+          "sleep_debt_mood": 0.2914266579421184
+        },
+        "default": {
+          "sleep_debt_sleep": 1.7055586867404533,
+          "sleep_debt_mood": 0.5657066317684736
+        },
+        "large": {
+          "sleep_debt_sleep": 1.8822234746961815,
+          "sleep_debt_mood": 0.5914266579421184
+        }
+      }
+    },
+    {
+      "episode_id": "AST-004-infection-2",
+      "astronaut_index": 3,
+      "astronaut_id": "AST-004",
+      "kind": "infection",
+      "start_day": 34,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.5935684862931941,
+        "infection_sleep": 0.6660350149185604,
+        "infection_mood": 0.16645119038338285,
+        "infection_spo2": 0.42122552256274526
+      },
+      "peak_day": 36,
+      "end_day": 38,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.0374273945172776,
+          "infection_sleep": 0.43320700298371206,
+          "infection_mood": 0.31664511903833825,
+          "infection_spo2": 0.6263676567688236
+        },
+        "default": {
+          "infection_temp": 1.512282183551833,
+          "infection_sleep": 0.6330175074592802,
+          "infection_mood": 0.3665804761533531,
+          "infection_spo2": 0.9212255225627453
+        },
+        "large": {
+          "infection_temp": 1.8374273945172777,
+          "infection_sleep": 0.7332070029837121,
+          "infection_mood": 0.6166451190383383,
+          "infection_spo2": 1.3263676567688236
+        }
+      }
+    },
+    {
+      "episode_id": "AST-002-eva-1",
+      "astronaut_index": 1,
+      "astronaut_id": "AST-002",
+      "kind": "eva",
+      "start_day": 35,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.6856107225748208,
+        "eva_bp_sys": 0.41881353028652113,
+        "eva_bp_dia": 0.25329463416994347
+      },
+      "peak_day": 35,
+      "end_day": 35,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 31.856107225748207,
+          "eva_bp_sys": 12.094067651432606,
+          "eva_bp_dia": 5.759883902509831
+        },
+        "default": {
+          "eva_hr": 45.568321677244626,
+          "eva_bp_sys": 16.282202954297816,
+          "eva_bp_dia": 7.532946341699435
+        },
+        "large": {
+          "eva_hr": 51.85610722574821,
+          "eva_bp_sys": 22.094067651432606,
+          "eva_bp_dia": 12.75988390250983
+        }
+      }
+    },
+    {
+      "episode_id": "AST-007-eva-2",
+      "astronaut_index": 6,
+      "astronaut_id": "AST-007",
+      "kind": "eva",
+      "start_day": 35,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.1618610241280456,
+        "eva_bp_sys": 0.5230570576506204,
+        "eva_bp_dia": 0.42226187382678515
+      },
+      "peak_day": 35,
+      "end_day": 35,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 26.618610241280457,
+          "eva_bp_sys": 12.615285288253101,
+          "eva_bp_dia": 6.266785621480356
+        },
+        "default": {
+          "eva_hr": 29.85583072384137,
+          "eva_bp_sys": 17.845855864759308,
+          "eva_bp_dia": 9.222618738267851
+        },
+        "large": {
+          "eva_hr": 46.61861024128046,
+          "eva_bp_sys": 22.6152852882531,
+          "eva_bp_dia": 13.266785621480356
+        }
+      }
+    },
+    {
+      "episode_id": "AST-019-sleep_debt-1",
+      "astronaut_index": 18,
+      "astronaut_id": "AST-019",
+      "kind": "sleep_debt",
+      "start_day": 35,
+      "duration": 6,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.14963664951119104,
+        "sleep_debt_mood": 0.6512050998722373
+      },
+      "peak_day": 38,
+      "end_day": 40,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.0598546598044765,
+          "sleep_debt_mood": 0.2651205099872237
+        },
+        "default": {
+          "sleep_debt_sleep": 1.1496366495111912,
+          "sleep_debt_mood": 0.4604820399488949
+        },
+        "large": {
+          "sleep_debt_sleep": 1.6598546598044766,
+          "sleep_debt_mood": 0.5651205099872237
+        }
+      }
+    },
+    {
+      "episode_id": "AST-011-sleep_debt-1",
+      "astronaut_index": 10,
+      "astronaut_id": "AST-011",
+      "kind": "sleep_debt",
+      "start_day": 36,
+      "duration": 5,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.46010226697224577,
+        "sleep_debt_mood": 0.31557441701990707
+      },
+      "peak_day": 38,
+      "end_day": 40,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.1840409067888982,
+          "sleep_debt_mood": 0.23155744170199072
+        },
+        "default": {
+          "sleep_debt_sleep": 1.4601022669722457,
+          "sleep_debt_mood": 0.32622976680796284
+        },
+        "large": {
+          "sleep_debt_sleep": 1.7840409067888983,
+          "sleep_debt_mood": 0.5315574417019907
+        }
+      }
+    },
+    {
+      "episode_id": "AST-016-eva-3",
+      "astronaut_index": 15,
+      "astronaut_id": "AST-016",
+      "kind": "eva",
+      "start_day": 36,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.22467810779327824,
+        "eva_bp_sys": 0.9512867950348258,
+        "eva_bp_dia": 0.9657120577762646
+      },
+      "peak_day": 36,
+      "end_day": 36,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 27.24678107793278,
+          "eva_bp_sys": 14.75643397517413,
+          "eva_bp_dia": 7.897136173328794
+        },
+        "default": {
+          "eva_hr": 31.74034323379835,
+          "eva_bp_sys": 24.269301925522388,
+          "eva_bp_dia": 14.657120577762646
+        },
+        "large": {
+          "eva_hr": 47.24678107793278,
+          "eva_bp_sys": 24.75643397517413,
+          "eva_bp_dia": 14.897136173328793
+        }
+      }
+    },
+    {
+      "episode_id": "AST-009-infection-2",
+      "astronaut_index": 8,
+      "astronaut_id": "AST-009",
+      "kind": "infection",
+      "start_day": 38,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.6220316449019263,
+        "infection_sleep": 0.9573974635358157,
+        "infection_mood": 0.656491691470286,
+        "infection_spo2": 0.2629823033594879
+      },
+      "peak_day": 40,
+      "end_day": 42,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.0488126579607706,
+          "infection_sleep": 0.4914794927071631,
+          "infection_mood": 0.3656491691470286,
+          "infection_spo2": 0.5788946910078464
+        },
+        "default": {
+          "infection_temp": 1.5464379738823117,
+          "infection_sleep": 0.7786987317679078,
+          "infection_mood": 0.5625966765881143,
+          "infection_spo2": 0.7629823033594879
+        },
+        "large": {
+          "infection_temp": 1.8488126579607704,
+          "infection_sleep": 0.7914794927071631,
+          "infection_mood": 0.6656491691470285,
+          "infection_spo2": 1.2788946910078463
+        }
+      }
+    },
+    {
+      "episode_id": "AST-005-sleep_debt-2",
+      "astronaut_index": 4,
+      "astronaut_id": "AST-005",
+      "kind": "sleep_debt",
+      "start_day": 40,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.7510415728725652,
+        "sleep_debt_mood": 0.42804712407023926
+      },
+      "peak_day": 44,
+      "end_day": 48,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.300416629149026,
+          "sleep_debt_mood": 0.24280471240702392
+        },
+        "default": {
+          "sleep_debt_sleep": 1.7510415728725652,
+          "sleep_debt_mood": 0.3712188496280957
+        },
+        "large": {
+          "sleep_debt_sleep": 1.900416629149026,
+          "sleep_debt_mood": 0.5428047124070239
+        }
+      }
+    },
+    {
+      "episode_id": "AST-010-fluid_loss-1",
+      "astronaut_index": 9,
+      "astronaut_id": "AST-010",
+      "kind": "fluid_loss",
+      "start_day": 41,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.923541149338472,
+        "fluid_hr": 0.9616584858272832
+      },
+      "peak_day": 44,
+      "end_day": 46,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 17.54124689603083,
+          "fluid_hr": 13.846633943309133
+        },
+        "default": {
+          "fluid_bp_sys": 24.006034941400138,
+          "fluid_hr": 21.5399018299274
+        },
+        "large": {
+          "fluid_bp_sys": 24.54124689603083,
+          "fluid_hr": 21.846633943309133
+        }
+      }
+    },
+    {
+      "episode_id": "AST-013-infection-2",
+      "astronaut_index": 12,
+      "astronaut_id": "AST-013",
+      "kind": "infection",
+      "start_day": 42,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.8198858000023101,
+        "infection_sleep": 0.6370636315577954,
+        "infection_mood": 0.8861033222355637,
+        "infection_spo2": 0.07655127147058716
+      },
+      "peak_day": 44,
+      "end_day": 46,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.127954320000924,
+          "infection_sleep": 0.4274127263115591,
+          "infection_mood": 0.3886103322235564,
+          "infection_spo2": 0.5229653814411761
+        },
+        "default": {
+          "infection_temp": 1.7838629600027722,
+          "infection_sleep": 0.6185318157788977,
+          "infection_mood": 0.6544413288942255,
+          "infection_spo2": 0.5765512714705872
+        },
+        "large": {
+          "infection_temp": 1.9279543200009241,
+          "infection_sleep": 0.7274127263115591,
+          "infection_mood": 0.6886103322235563,
+          "infection_spo2": 1.222965381441176
+        }
+      }
+    },
+    {
+      "episode_id": "AST-006-sleep_debt-3",
+      "astronaut_index": 5,
+      "astronaut_id": "AST-006",
+      "kind": "sleep_debt",
+      "start_day": 43,
+      "duration": 7,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.5183984572501369,
+        "sleep_debt_mood": 0.6123895500256444
+      },
+      "peak_day": 46,
+      "end_day": 49,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.2073593829000546,
+          "sleep_debt_mood": 0.26123895500256444
+        },
+        "default": {
+          "sleep_debt_sleep": 1.5183984572501368,
+          "sleep_debt_mood": 0.4449558200102578
+        },
+        "large": {
+          "sleep_debt_sleep": 1.8073593829000547,
+          "sleep_debt_mood": 0.5612389550025645
+        }
+      }
+    },
+    {
+      "episode_id": "AST-007-sleep_debt-1",
+      "astronaut_index": 6,
+      "astronaut_id": "AST-007",
+      "kind": "sleep_debt",
+      "start_day": 44,
+      "duration": 10,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.2557027629378177,
+        "sleep_debt_mood": 0.8225004833843549
+      },
+      "peak_day": 49,
+      "end_day": 53,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.1022811051751271,
+          "sleep_debt_mood": 0.2822500483384355
+        },
+        "default": {
+          "sleep_debt_sleep": 1.2557027629378177,
+          "sleep_debt_mood": 0.5290001933537419
+        },
+        "large": {
+          "sleep_debt_sleep": 1.7022811051751272,
+          "sleep_debt_mood": 0.5822500483384354
+        }
+      }
+    },
+    {
+      "episode_id": "AST-008-eva-2",
+      "astronaut_index": 7,
+      "astronaut_id": "AST-008",
+      "kind": "eva",
+      "start_day": 46,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.1625112229272685,
+        "eva_bp_sys": 0.1885165334695278,
+        "eva_bp_dia": 0.6316312334099753
+      },
+      "peak_day": 46,
+      "end_day": 46,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 26.625112229272684,
+          "eva_bp_sys": 10.942582667347638,
+          "eva_bp_dia": 6.894893700229925
+        },
+        "default": {
+          "eva_hr": 29.875336687818056,
+          "eva_bp_sys": 12.827748002042917,
+          "eva_bp_dia": 11.316312334099752
+        },
+        "large": {
+          "eva_hr": 46.62511222927269,
+          "eva_bp_sys": 20.94258266734764,
+          "eva_bp_dia": 13.894893700229925
+        }
+      }
+    },
+    {
+      "episode_id": "AST-019-sleep_debt-2",
+      "astronaut_index": 18,
+      "astronaut_id": "AST-019",
+      "kind": "sleep_debt",
+      "start_day": 47,
+      "duration": 6,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.045138476820342666,
+        "sleep_debt_mood": 0.717551481440211
+      },
+      "peak_day": 50,
+      "end_day": 52,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.018055390728137,
+          "sleep_debt_mood": 0.2717551481440211
+        },
+        "default": {
+          "sleep_debt_sleep": 1.0451384768203427,
+          "sleep_debt_mood": 0.4870205925760844
+        },
+        "large": {
+          "sleep_debt_sleep": 1.6180553907281372,
+          "sleep_debt_mood": 0.5717551481440211
+        }
+      }
+    },
+    {
+      "episode_id": "AST-003-eva-2",
+      "astronaut_index": 2,
+      "astronaut_id": "AST-003",
+      "kind": "eva",
+      "start_day": 48,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.5152005732436531,
+        "eva_bp_sys": 0.13203832018914696,
+        "eva_bp_dia": 0.061343171340315084
+      },
+      "peak_day": 48,
+      "end_day": 48,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 30.152005732436532,
+          "eva_bp_sys": 10.660191600945735,
+          "eva_bp_dia": 5.184029514020946
+        },
+        "default": {
+          "eva_hr": 40.45601719730959,
+          "eva_bp_sys": 11.980574802837204,
+          "eva_bp_dia": 5.613431713403151
+        },
+        "large": {
+          "eva_hr": 50.15200573243653,
+          "eva_bp_sys": 20.660191600945733,
+          "eva_bp_dia": 12.184029514020946
+        }
+      }
+    },
+    {
+      "episode_id": "AST-013-eva-2",
+      "astronaut_index": 12,
+      "astronaut_id": "AST-013",
+      "kind": "eva",
+      "start_day": 50,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.9622976706459371,
+        "eva_bp_sys": 0.3921903808019195,
+        "eva_bp_dia": 0.2207575466087559
+      },
+      "peak_day": 50,
+      "end_day": 50,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 34.62297670645937,
+          "eva_bp_sys": 11.960951904009598,
+          "eva_bp_dia": 5.662272639826268
+        },
+        "default": {
+          "eva_hr": 53.86893011937811,
+          "eva_bp_sys": 15.882855712028793,
+          "eva_bp_dia": 7.207575466087559
+        },
+        "large": {
+          "eva_hr": 54.62297670645937,
+          "eva_bp_sys": 21.960951904009598,
+          "eva_bp_dia": 12.662272639826268
+        }
+      }
+    },
+    {
+      "episode_id": "AST-012-infection-1",
+      "astronaut_index": 11,
+      "astronaut_id": "AST-012",
+      "kind": "infection",
+      "start_day": 51,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.8815105488081446,
+        "infection_sleep": 0.9841649278764533,
+        "infection_mood": 0.25332089321174434,
+        "infection_spo2": 0.97660004575468
+      },
+      "peak_day": 53,
+      "end_day": 55,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.1526042195232578,
+          "infection_sleep": 0.49683298557529065,
+          "infection_mood": 0.3253320893211744,
+          "infection_spo2": 0.792980013726404
+        },
+        "default": {
+          "infection_temp": 1.8578126585697736,
+          "infection_sleep": 0.7920824639382267,
+          "infection_mood": 0.40132835728469773,
+          "infection_spo2": 1.47660004575468
+        },
+        "large": {
+          "infection_temp": 1.9526042195232578,
+          "infection_sleep": 0.7968329855752907,
+          "infection_mood": 0.6253320893211745,
+          "infection_spo2": 1.492980013726404
+        }
+      }
+    },
+    {
+      "episode_id": "AST-001-sleep_debt-3",
+      "astronaut_index": 0,
+      "astronaut_id": "AST-001",
+      "kind": "sleep_debt",
+      "start_day": 52,
+      "duration": 8,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.1347077751027861,
+        "sleep_debt_mood": 0.33184444695804216
+      },
+      "peak_day": 56,
+      "end_day": 59,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.0538831100411143,
+          "sleep_debt_mood": 0.2331844446958042
+        },
+        "default": {
+          "sleep_debt_sleep": 1.134707775102786,
+          "sleep_debt_mood": 0.33273777878321686
+        },
+        "large": {
+          "sleep_debt_sleep": 1.6538831100411144,
+          "sleep_debt_mood": 0.5331844446958042
+        }
+      }
+    },
+    {
+      "episode_id": "AST-010-infection-1",
+      "astronaut_index": 9,
+      "astronaut_id": "AST-010",
+      "kind": "infection",
+      "start_day": 53,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.2051357979106142,
+        "infection_sleep": 0.425578409331123,
+        "infection_mood": 0.9049251856203355,
+        "infection_spo2": 0.21343740411538337
+      },
+      "peak_day": 55,
+      "end_day": 57,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.8820543191642457,
+          "infection_sleep": 0.3851156818662246,
+          "infection_mood": 0.3904925185620336,
+          "infection_spo2": 0.564031221234615
+        },
+        "default": {
+          "infection_temp": 1.0461629574927371,
+          "infection_sleep": 0.5127892046655615,
+          "infection_mood": 0.6619700742481341,
+          "infection_spo2": 0.7134374041153834
+        },
+        "large": {
+          "infection_temp": 1.6820543191642456,
+          "infection_sleep": 0.6851156818662246,
+          "infection_mood": 0.6904925185620335,
+          "infection_spo2": 1.264031221234615
+        }
+      }
+    },
+    {
+      "episode_id": "AST-011-fluid_loss-1",
+      "astronaut_index": 10,
+      "astronaut_id": "AST-011",
+      "kind": "fluid_loss",
+      "start_day": 53,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.7564026784079209,
+        "fluid_hr": 0.6800199721662149
+      },
+      "peak_day": 56,
+      "end_day": 58,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 16.538416070447525,
+          "fluid_hr": 12.72007988866486
+        },
+        "default": {
+          "fluid_bp_sys": 21.833234819302973,
+          "fluid_hr": 18.16023966599458
+        },
+        "large": {
+          "fluid_bp_sys": 23.538416070447525,
+          "fluid_hr": 20.72007988866486
+        }
+      }
+    },
+    {
+      "episode_id": "AST-018-infection-1",
+      "astronaut_index": 17,
+      "astronaut_id": "AST-018",
+      "kind": "infection",
+      "start_day": 55,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.01760108328278942,
+        "infection_sleep": 0.8849312100237852,
+        "infection_mood": 0.4789135807478494,
+        "infection_spo2": 0.5206665082679719
+      },
+      "peak_day": 57,
+      "end_day": 59,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.8070404333131158,
+          "infection_sleep": 0.47698624200475703,
+          "infection_mood": 0.34789135807478494,
+          "infection_spo2": 0.6561999524803916
+        },
+        "default": {
+          "infection_temp": 0.8211212999393473,
+          "infection_sleep": 0.7424656050118925,
+          "infection_mood": 0.49156543229913974,
+          "infection_spo2": 1.020666508267972
+        },
+        "large": {
+          "infection_temp": 1.6070404333131159,
+          "infection_sleep": 0.7769862420047571,
+          "infection_mood": 0.6478913580747849,
+          "infection_spo2": 1.3561999524803916
+        }
+      }
+    },
+    {
+      "episode_id": "AST-014-eva-2",
+      "astronaut_index": 13,
+      "astronaut_id": "AST-014",
+      "kind": "eva",
+      "start_day": 57,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.3659482454797046,
+        "eva_bp_sys": 0.24312928382199483,
+        "eva_bp_dia": 0.4594310402903249
+      },
+      "peak_day": 57,
+      "end_day": 57,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 28.659482454797047,
+          "eva_bp_sys": 11.215646419109975,
+          "eva_bp_dia": 6.378293120870975
+        },
+        "default": {
+          "eva_hr": 35.97844736439114,
+          "eva_bp_sys": 13.646939257329922,
+          "eva_bp_dia": 9.594310402903249
+        },
+        "large": {
+          "eva_hr": 48.65948245479704,
+          "eva_bp_sys": 21.215646419109973,
+          "eva_bp_dia": 13.378293120870975
+        }
+      }
+    },
+    {
+      "episode_id": "AST-005-sleep_debt-1",
+      "astronaut_index": 4,
+      "astronaut_id": "AST-005",
+      "kind": "sleep_debt",
+      "start_day": 58,
+      "duration": 8,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.36921158580682567,
+        "sleep_debt_mood": 0.9067915289118236
+      },
+      "peak_day": 62,
+      "end_day": 65,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.1476846343227303,
+          "sleep_debt_mood": 0.29067915289118235
+        },
+        "default": {
+          "sleep_debt_sleep": 1.3692115858068257,
+          "sleep_debt_mood": 0.5627166115647294
+        },
+        "large": {
+          "sleep_debt_sleep": 1.7476846343227304,
+          "sleep_debt_mood": 0.5906791528911823
+        }
+      }
+    },
+    {
+      "episode_id": "AST-017-sleep_debt-3",
+      "astronaut_index": 16,
+      "astronaut_id": "AST-017",
+      "kind": "sleep_debt",
+      "start_day": 59,
+      "duration": 10,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.354113329276212,
+        "sleep_debt_mood": 0.056182639837067616
+      },
+      "peak_day": 64,
+      "end_day": 68,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.1416453317104849,
+          "sleep_debt_mood": 0.20561826398370678
+        },
+        "default": {
+          "sleep_debt_sleep": 1.354113329276212,
+          "sleep_debt_mood": 0.22247305593482705
+        },
+        "large": {
+          "sleep_debt_sleep": 1.741645331710485,
+          "sleep_debt_mood": 0.5056182639837068
+        }
+      }
+    },
+    {
+      "episode_id": "AST-020-infection-2",
+      "astronaut_index": 19,
+      "astronaut_id": "AST-020",
+      "kind": "infection",
+      "start_day": 59,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.03986190827839142,
+        "infection_sleep": 0.11764867109092869,
+        "infection_mood": 0.14196670326609162,
+        "infection_spo2": 0.7847269550539205
+      },
+      "peak_day": 61,
+      "end_day": 63,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.8159447633113566,
+          "infection_sleep": 0.3235297342181857,
+          "infection_mood": 0.31419667032660914,
+          "infection_spo2": 0.7354180865161761
+        },
+        "default": {
+          "infection_temp": 0.8478342899340697,
+          "infection_sleep": 0.35882433554546433,
+          "infection_mood": 0.35678668130643665,
+          "infection_spo2": 1.2847269550539204
+        },
+        "large": {
+          "infection_temp": 1.6159447633113566,
+          "infection_sleep": 0.6235297342181857,
+          "infection_mood": 0.6141966703266092,
+          "infection_spo2": 1.435418086516176
+        }
+      }
+    },
+    {
+      "episode_id": "AST-015-sleep_debt-1",
+      "astronaut_index": 14,
+      "astronaut_id": "AST-015",
+      "kind": "sleep_debt",
+      "start_day": 61,
+      "duration": 6,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.6162713424263447,
+        "sleep_debt_mood": 0.4161015609790909
+      },
+      "peak_day": 64,
+      "end_day": 66,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.2465085369705378,
+          "sleep_debt_mood": 0.2416101560979091
+        },
+        "default": {
+          "sleep_debt_sleep": 1.6162713424263448,
+          "sleep_debt_mood": 0.3664406243916364
+        },
+        "large": {
+          "sleep_debt_sleep": 1.8465085369705379,
+          "sleep_debt_mood": 0.5416101560979091
+        }
+      }
+    },
+    {
+      "episode_id": "AST-001-eva-1",
+      "astronaut_index": 0,
+      "astronaut_id": "AST-001",
+      "kind": "eva",
+      "start_day": 62,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.033927222818588954,
+        "eva_bp_sys": 0.4094454594313278,
+        "eva_bp_dia": 0.371995102743639
+      },
+      "peak_day": 62,
+      "end_day": 62,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 25.33927222818589,
+          "eva_bp_sys": 12.047227297156638,
+          "eva_bp_dia": 6.115985308230917
+        },
+        "default": {
+          "eva_hr": 26.01781668455767,
+          "eva_bp_sys": 16.14168189146992,
+          "eva_bp_dia": 8.719951027436391
+        },
+        "large": {
+          "eva_hr": 45.33927222818589,
+          "eva_bp_sys": 22.04722729715664,
+          "eva_bp_dia": 13.115985308230917
+        }
+      }
+    },
+    {
+      "episode_id": "AST-003-infection-2",
+      "astronaut_index": 2,
+      "astronaut_id": "AST-003",
+      "kind": "infection",
+      "start_day": 63,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.8333177933030315,
+        "infection_sleep": 0.6173554717592012,
+        "infection_mood": 0.31787832469928723,
+        "infection_spo2": 0.30270668647918564
+      },
+      "peak_day": 65,
+      "end_day": 67,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.1333271173212125,
+          "infection_sleep": 0.42347109435184027,
+          "infection_mood": 0.3317878324699287,
+          "infection_spo2": 0.5908120059437557
+        },
+        "default": {
+          "infection_temp": 1.7999813519636376,
+          "infection_sleep": 0.6086777358796006,
+          "infection_mood": 0.4271513298797149,
+          "infection_spo2": 0.8027066864791856
+        },
+        "large": {
+          "infection_temp": 1.9333271173212125,
+          "infection_sleep": 0.7234710943518403,
+          "infection_mood": 0.6317878324699286,
+          "infection_spo2": 1.2908120059437556
+        }
+      }
+    },
+    {
+      "episode_id": "AST-006-sleep_debt-1",
+      "astronaut_index": 5,
+      "astronaut_id": "AST-006",
+      "kind": "sleep_debt",
+      "start_day": 63,
+      "duration": 10,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.9787731914775737,
+        "sleep_debt_mood": 0.5032494084191648
+      },
+      "peak_day": 68,
+      "end_day": 72,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.3915092765910293,
+          "sleep_debt_mood": 0.2503249408419165
+        },
+        "default": {
+          "sleep_debt_sleep": 1.9787731914775737,
+          "sleep_debt_mood": 0.40129976336766593
+        },
+        "large": {
+          "sleep_debt_sleep": 1.9915092765910294,
+          "sleep_debt_mood": 0.5503249408419164
+        }
+      }
+    },
+    {
+      "episode_id": "AST-018-infection-2",
+      "astronaut_index": 17,
+      "astronaut_id": "AST-018",
+      "kind": "infection",
+      "start_day": 65,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.5872978103487049,
+        "infection_sleep": 0.9485935708359189,
+        "infection_mood": 0.5099307354294464,
+        "infection_spo2": 0.4546136331295999
+      },
+      "peak_day": 67,
+      "end_day": 69,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.034919124139482,
+          "infection_sleep": 0.48971871416718377,
+          "infection_mood": 0.3509930735429446,
+          "infection_spo2": 0.63638408993888
+        },
+        "default": {
+          "infection_temp": 1.504757372418446,
+          "infection_sleep": 0.7742967854179594,
+          "infection_mood": 0.5039722941717786,
+          "infection_spo2": 0.9546136331295999
+        },
+        "large": {
+          "infection_temp": 1.834919124139482,
+          "infection_sleep": 0.7897187141671838,
+          "infection_mood": 0.6509930735429446,
+          "infection_spo2": 1.33638408993888
+        }
+      }
+    },
+    {
+      "episode_id": "AST-019-fluid_loss-1",
+      "astronaut_index": 18,
+      "astronaut_id": "AST-019",
+      "kind": "fluid_loss",
+      "start_day": 66,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.987388526078425,
+        "fluid_hr": 0.8743171613787802
+      },
+      "peak_day": 69,
+      "end_day": 71,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 17.92433115647055,
+          "fluid_hr": 13.49726864551512
+        },
+        "default": {
+          "fluid_bp_sys": 24.836050839019524,
+          "fluid_hr": 20.49180593654536
+        },
+        "large": {
+          "fluid_bp_sys": 24.92433115647055,
+          "fluid_hr": 21.49726864551512
+        }
+      }
+    },
+    {
+      "episode_id": "AST-010-sleep_debt-2",
+      "astronaut_index": 9,
+      "astronaut_id": "AST-010",
+      "kind": "sleep_debt",
+      "start_day": 67,
+      "duration": 8,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.9113974630935342,
+        "sleep_debt_mood": 0.093019330287053
+      },
+      "peak_day": 71,
+      "end_day": 74,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.3645589852374136,
+          "sleep_debt_mood": 0.2093019330287053
+        },
+        "default": {
+          "sleep_debt_sleep": 1.9113974630935342,
+          "sleep_debt_mood": 0.2372077321148212
+        },
+        "large": {
+          "sleep_debt_sleep": 1.9645589852374137,
+          "sleep_debt_mood": 0.5093019330287053
+        }
+      }
+    },
+    {
+      "episode_id": "AST-007-infection-2",
+      "astronaut_index": 6,
+      "astronaut_id": "AST-007",
+      "kind": "infection",
+      "start_day": 69,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.5657388933548803,
+        "infection_sleep": 0.12812497018849445,
+        "infection_mood": 0.38430517652877383,
+        "infection_spo2": 0.31320547706762203
+      },
+      "peak_day": 71,
+      "end_day": 73,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.026295557341952,
+          "infection_sleep": 0.3256249940376989,
+          "infection_mood": 0.3384305176528774,
+          "infection_spo2": 0.5939616431202867
+        },
+        "default": {
+          "infection_temp": 1.4788866720258564,
+          "infection_sleep": 0.3640624850942472,
+          "infection_mood": 0.4537220706115095,
+          "infection_spo2": 0.813205477067622
+        },
+        "large": {
+          "infection_temp": 1.8262955573419521,
+          "infection_sleep": 0.6256249940376989,
+          "infection_mood": 0.6384305176528774,
+          "infection_spo2": 1.2939616431202865
+        }
+      }
+    },
+    {
+      "episode_id": "AST-013-infection-1",
+      "astronaut_index": 12,
+      "astronaut_id": "AST-013",
+      "kind": "infection",
+      "start_day": 69,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.8939209335884266,
+        "infection_sleep": 0.09306517549932947,
+        "infection_mood": 0.13817571238219817,
+        "infection_spo2": 0.9499427130066425
+      },
+      "peak_day": 71,
+      "end_day": 73,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.1575683734353706,
+          "infection_sleep": 0.3186130350998659,
+          "infection_mood": 0.3138175712382198,
+          "infection_spo2": 0.7849828139019928
+        },
+        "default": {
+          "infection_temp": 1.872705120306112,
+          "infection_sleep": 0.3465325877496647,
+          "infection_mood": 0.35527028495287927,
+          "infection_spo2": 1.4499427130066425
+        },
+        "large": {
+          "infection_temp": 1.9575683734353706,
+          "infection_sleep": 0.6186130350998659,
+          "infection_mood": 0.6138175712382198,
+          "infection_spo2": 1.4849828139019927
+        }
+      }
+    },
+    {
+      "episode_id": "AST-016-sleep_debt-1",
+      "astronaut_index": 15,
+      "astronaut_id": "AST-016",
+      "kind": "sleep_debt",
+      "start_day": 69,
+      "duration": 5,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.9064576249540337,
+        "sleep_debt_mood": 0.885979317895205
+      },
+      "peak_day": 71,
+      "end_day": 73,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.3625830499816134,
+          "sleep_debt_mood": 0.2885979317895205
+        },
+        "default": {
+          "sleep_debt_sleep": 1.9064576249540337,
+          "sleep_debt_mood": 0.554391727158082
+        },
+        "large": {
+          "sleep_debt_sleep": 1.9625830499816135,
+          "sleep_debt_mood": 0.5885979317895205
+        }
+      }
+    },
+    {
+      "episode_id": "AST-005-infection-2",
+      "astronaut_index": 4,
+      "astronaut_id": "AST-005",
+      "kind": "infection",
+      "start_day": 70,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.49863018219484345,
+        "infection_sleep": 0.9773786229488112,
+        "infection_mood": 0.611297828020598,
+        "infection_spo2": 0.9909902161549448
+      },
+      "peak_day": 72,
+      "end_day": 74,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.9994520728779374,
+          "infection_sleep": 0.49547572458976225,
+          "infection_mood": 0.3611297828020598,
+          "infection_spo2": 0.7972970648464834
+        },
+        "default": {
+          "infection_temp": 1.398356218633812,
+          "infection_sleep": 0.7886893114744056,
+          "infection_mood": 0.5445191312082391,
+          "infection_spo2": 1.4909902161549446
+        },
+        "large": {
+          "infection_temp": 1.7994520728779375,
+          "infection_sleep": 0.7954757245897623,
+          "infection_mood": 0.6611297828020598,
+          "infection_spo2": 1.4972970648464834
+        }
+      }
+    },
+    {
+      "episode_id": "AST-001-infection-1",
+      "astronaut_index": 0,
+      "astronaut_id": "AST-001",
+      "kind": "infection",
+      "start_day": 71,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.3989857674204895,
+        "infection_sleep": 0.4486255584197455,
+        "infection_mood": 0.026918820196719873,
+        "infection_spo2": 0.6089046106818953
+      },
+      "peak_day": 73,
+      "end_day": 75,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.9595943069681958,
+          "infection_sleep": 0.3897251116839491,
+          "infection_mood": 0.30269188201967195,
+          "infection_spo2": 0.6826713832045685
+        },
+        "default": {
+          "infection_temp": 1.2787829209045873,
+          "infection_sleep": 0.5243127792098727,
+          "infection_mood": 0.31076752807868796,
+          "infection_spo2": 1.1089046106818952
+        },
+        "large": {
+          "infection_temp": 1.7595943069681959,
+          "infection_sleep": 0.6897251116839491,
+          "infection_mood": 0.6026918820196719,
+          "infection_spo2": 1.3826713832045685
+        }
+      }
+    },
+    {
+      "episode_id": "AST-003-sleep_debt-1",
+      "astronaut_index": 2,
+      "astronaut_id": "AST-003",
+      "kind": "sleep_debt",
+      "start_day": 71,
+      "duration": 8,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.19332893624388714,
+        "sleep_debt_mood": 0.9690399541981297
+      },
+      "peak_day": 75,
+      "end_day": 78,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.077331574497555,
+          "sleep_debt_mood": 0.29690399541981294
+        },
+        "default": {
+          "sleep_debt_sleep": 1.193328936243887,
+          "sleep_debt_mood": 0.5876159816792519
+        },
+        "large": {
+          "sleep_debt_sleep": 1.677331574497555,
+          "sleep_debt_mood": 0.596903995419813
+        }
+      }
+    },
+    {
+      "episode_id": "AST-002-sleep_debt-3",
+      "astronaut_index": 1,
+      "astronaut_id": "AST-002",
+      "kind": "sleep_debt",
+      "start_day": 73,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.28924175841300126,
+        "sleep_debt_mood": 0.47067607508458964
+      },
+      "peak_day": 77,
+      "end_day": 81,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.1156967033652005,
+          "sleep_debt_mood": 0.24706760750845896
+        },
+        "default": {
+          "sleep_debt_sleep": 1.2892417584130014,
+          "sleep_debt_mood": 0.3882704300338359
+        },
+        "large": {
+          "sleep_debt_sleep": 1.7156967033652006,
+          "sleep_debt_mood": 0.547067607508459
+        }
+      }
+    },
+    {
+      "episode_id": "AST-008-fluid_loss-1",
+      "astronaut_index": 7,
+      "astronaut_id": "AST-008",
+      "kind": "fluid_loss",
+      "start_day": 75,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.7107411015458421,
+        "fluid_hr": 0.19582736670069756
+      },
+      "peak_day": 78,
+      "end_day": 80,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 16.264446609275055,
+          "fluid_hr": 10.783309466802791
+        },
+        "default": {
+          "fluid_bp_sys": 21.23963432009595,
+          "fluid_hr": 12.34992840040837
+        },
+        "large": {
+          "fluid_bp_sys": 23.264446609275055,
+          "fluid_hr": 18.78330946680279
+        }
+      }
+    },
+    {
+      "episode_id": "AST-004-sleep_debt-2",
+      "astronaut_index": 3,
+      "astronaut_id": "AST-004",
+      "kind": "sleep_debt",
+      "start_day": 76,
+      "duration": 8,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.5661216271748203,
+        "sleep_debt_mood": 0.6297609772162932
+      },
+      "peak_day": 80,
+      "end_day": 83,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.2264486508699282,
+          "sleep_debt_mood": 0.26297609772162933
+        },
+        "default": {
+          "sleep_debt_sleep": 1.5661216271748204,
+          "sleep_debt_mood": 0.4519043908865173
+        },
+        "large": {
+          "sleep_debt_sleep": 1.8264486508699282,
+          "sleep_debt_mood": 0.5629760977216293
+        }
+      }
+    },
+    {
+      "episode_id": "AST-017-sleep_debt-2",
+      "astronaut_index": 16,
+      "astronaut_id": "AST-017",
+      "kind": "sleep_debt",
+      "start_day": 76,
+      "duration": 10,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.6272362064780413,
+        "sleep_debt_mood": 0.25553265270539005
+      },
+      "peak_day": 81,
+      "end_day": 85,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.2508944825912165,
+          "sleep_debt_mood": 0.225553265270539
+        },
+        "default": {
+          "sleep_debt_sleep": 1.6272362064780412,
+          "sleep_debt_mood": 0.302213061082156
+        },
+        "large": {
+          "sleep_debt_sleep": 1.8508944825912166,
+          "sleep_debt_mood": 0.525553265270539
+        }
+      }
+    },
+    {
+      "episode_id": "AST-020-infection-1",
+      "astronaut_index": 19,
+      "astronaut_id": "AST-020",
+      "kind": "infection",
+      "start_day": 76,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.8603086198848134,
+        "infection_sleep": 0.9098558566619561,
+        "infection_mood": 0.1918944630633208,
+        "infection_spo2": 0.29073020881774814
+      },
+      "peak_day": 78,
+      "end_day": 80,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.1441234479539253,
+          "infection_sleep": 0.4819711713323912,
+          "infection_mood": 0.31918944630633206,
+          "infection_spo2": 0.5872190626453244
+        },
+        "default": {
+          "infection_temp": 1.8323703438617762,
+          "infection_sleep": 0.754927928330978,
+          "infection_mood": 0.3767577852253283,
+          "infection_spo2": 0.7907302088177481
+        },
+        "large": {
+          "infection_temp": 1.9441234479539253,
+          "infection_sleep": 0.7819711713323912,
+          "infection_mood": 0.6191894463063321,
+          "infection_spo2": 1.2872190626453244
+        }
+      }
+    },
+    {
+      "episode_id": "AST-011-infection-2",
+      "astronaut_index": 10,
+      "astronaut_id": "AST-011",
+      "kind": "infection",
+      "start_day": 78,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.6100383757751252,
+        "infection_sleep": 0.4607604875119371,
+        "infection_mood": 0.9976243975592809,
+        "infection_spo2": 0.7171935337590449
+      },
+      "peak_day": 80,
+      "end_day": 82,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.04401535031005,
+          "infection_sleep": 0.39215209750238744,
+          "infection_mood": 0.3997624397559281,
+          "infection_spo2": 0.7151580601277135
+        },
+        "default": {
+          "infection_temp": 1.5320460509301501,
+          "infection_sleep": 0.5303802437559686,
+          "infection_mood": 0.6990497590237124,
+          "infection_spo2": 1.217193533759045
+        },
+        "large": {
+          "infection_temp": 1.84401535031005,
+          "infection_sleep": 0.6921520975023874,
+          "infection_mood": 0.699762439755928,
+          "infection_spo2": 1.4151580601277134
+        }
+      }
+    },
+    {
+      "episode_id": "AST-012-sleep_debt-2",
+      "astronaut_index": 11,
+      "astronaut_id": "AST-012",
+      "kind": "sleep_debt",
+      "start_day": 79,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.5035717138752732,
+        "sleep_debt_mood": 0.6314628094404424
+      },
+      "peak_day": 83,
+      "end_day": 87,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.2014286855501093,
+          "sleep_debt_mood": 0.26314628094404424
+        },
+        "default": {
+          "sleep_debt_sleep": 1.503571713875273,
+          "sleep_debt_mood": 0.45258512377617693
+        },
+        "large": {
+          "sleep_debt_sleep": 1.8014286855501094,
+          "sleep_debt_mood": 0.5631462809440442
+        }
+      }
+    },
+    {
+      "episode_id": "AST-014-sleep_debt-3",
+      "astronaut_index": 13,
+      "astronaut_id": "AST-014",
+      "kind": "sleep_debt",
+      "start_day": 80,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.7893453687306341,
+        "sleep_debt_mood": 0.14745437738263467
+      },
+      "peak_day": 84,
+      "end_day": 88,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.3157381474922536,
+          "sleep_debt_mood": 0.2147454377382635
+        },
+        "default": {
+          "sleep_debt_sleep": 1.789345368730634,
+          "sleep_debt_mood": 0.25898175095305387
+        },
+        "large": {
+          "sleep_debt_sleep": 1.9157381474922537,
+          "sleep_debt_mood": 0.5147454377382634
+        }
+      }
+    },
+    {
+      "episode_id": "AST-006-eva-1",
+      "astronaut_index": 5,
+      "astronaut_id": "AST-006",
+      "kind": "eva",
+      "start_day": 81,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.46192923373653694,
+        "eva_bp_sys": 0.73860272228404,
+        "eva_bp_dia": 0.8347942151320706
+      },
+      "peak_day": 81,
+      "end_day": 81,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 29.61929233736537,
+          "eva_bp_sys": 13.6930136114202,
+          "eva_bp_dia": 7.504382645396212
+        },
+        "default": {
+          "eva_hr": 38.85787701209611,
+          "eva_bp_sys": 21.0790408342606,
+          "eva_bp_dia": 13.347942151320707
+        },
+        "large": {
+          "eva_hr": 49.619292337365366,
+          "eva_bp_sys": 23.6930136114202,
+          "eva_bp_dia": 14.504382645396213
+        }
+      }
+    },
+    {
+      "episode_id": "AST-009-infection-1",
+      "astronaut_index": 8,
+      "astronaut_id": "AST-009",
+      "kind": "infection",
+      "start_day": 81,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.7937864440694844,
+        "infection_sleep": 0.4455679014541817,
+        "infection_mood": 0.3257060492048669,
+        "infection_spo2": 0.3834352982687794
+      },
+      "peak_day": 83,
+      "end_day": 85,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.1175145776277937,
+          "infection_sleep": 0.3891135802908363,
+          "infection_mood": 0.3325706049204867,
+          "infection_spo2": 0.6150305894806338
+        },
+        "default": {
+          "infection_temp": 1.7525437328833813,
+          "infection_sleep": 0.5227839507270908,
+          "infection_mood": 0.43028241968194675,
+          "infection_spo2": 0.8834352982687794
+        },
+        "large": {
+          "infection_temp": 1.9175145776277938,
+          "infection_sleep": 0.6891135802908364,
+          "infection_mood": 0.6325706049204867,
+          "infection_spo2": 1.3150305894806338
+        }
+      }
+    },
+    {
+      "episode_id": "AST-005-infection-1",
+      "astronaut_index": 4,
+      "astronaut_id": "AST-005",
+      "kind": "infection",
+      "start_day": 82,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.663069854970526,
+        "infection_sleep": 0.9863224848481548,
+        "infection_mood": 0.22926422419207892,
+        "infection_spo2": 0.7199805394730561
+      },
+      "peak_day": 84,
+      "end_day": 86,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.0652279419882102,
+          "infection_sleep": 0.49726449696963093,
+          "infection_mood": 0.3229264224192079,
+          "infection_spo2": 0.7159941618419169
+        },
+        "default": {
+          "infection_temp": 1.595683825964631,
+          "infection_sleep": 0.7931612424240774,
+          "infection_mood": 0.39170568967683156,
+          "infection_spo2": 1.219980539473056
+        },
+        "large": {
+          "infection_temp": 1.8652279419882105,
+          "infection_sleep": 0.797264496969631,
+          "infection_mood": 0.6229264224192078,
+          "infection_spo2": 1.4159941618419167
+        }
+      }
+    },
+    {
+      "episode_id": "AST-013-eva-1",
+      "astronaut_index": 12,
+      "astronaut_id": "AST-013",
+      "kind": "eva",
+      "start_day": 84,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.04593642630078043,
+        "eva_bp_sys": 0.1407435896802992,
+        "eva_bp_dia": 0.1443703881910201
+      },
+      "peak_day": 84,
+      "end_day": 84,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 25.459364263007803,
+          "eva_bp_sys": 10.703717948401495,
+          "eva_bp_dia": 5.43311116457306
+        },
+        "default": {
+          "eva_hr": 26.378092789023412,
+          "eva_bp_sys": 12.111153845204488,
+          "eva_bp_dia": 6.443703881910201
+        },
+        "large": {
+          "eva_hr": 45.45936426300781,
+          "eva_bp_sys": 20.703717948401497,
+          "eva_bp_dia": 12.43311116457306
+        }
+      }
+    },
+    {
+      "episode_id": "AST-016-eva-2",
+      "astronaut_index": 15,
+      "astronaut_id": "AST-016",
+      "kind": "eva",
+      "start_day": 84,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.4397330021344342,
+        "eva_bp_sys": 0.6351009711027644,
+        "eva_bp_dia": 0.4944904069391922
+      },
+      "peak_day": 84,
+      "end_day": 84,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 29.39733002134434,
+          "eva_bp_sys": 13.175504855513822,
+          "eva_bp_dia": 6.483471220817576
+        },
+        "default": {
+          "eva_hr": 38.19199006403303,
+          "eva_bp_sys": 19.526514566541465,
+          "eva_bp_dia": 9.944904069391923
+        },
+        "large": {
+          "eva_hr": 49.397330021344345,
+          "eva_bp_sys": 23.17550485551382,
+          "eva_bp_dia": 13.483471220817577
+        }
+      }
+    },
+    {
+      "episode_id": "CREW-solar_event",
+      "astronaut_index": null,
+      "astronaut_id": "ALL",
+      "kind": "solar_event",
+      "start_day": 85,
+      "duration": 2,
+      "severity_quantiles": {
+        "solar_day1": 0.02766625849411053,
+        "solar_day2": 0.7968343503752771
+      },
+      "peak_day": 85,
+      "end_day": 86,
+      "amplitudes": {
+        "small": {
+          "solar_day1": 4.055332516988221,
+          "solar_day2": 2.557784045262694
+        },
+        "default": {
+          "solar_day1": 4.165997550964663,
+          "solar_day2": 3.593668700750554
+        },
+        "large": {
+          "solar_day1": 8.055332516988221,
+          "solar_day2": 3.8577840452626937
+        }
+      }
+    },
+    {
+      "episode_id": "AST-008-infection-2",
+      "astronaut_index": 7,
+      "astronaut_id": "AST-008",
+      "kind": "infection",
+      "start_day": 86,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.34813878924015285,
+        "infection_sleep": 0.11793892894497882,
+        "infection_mood": 0.31198619341966394,
+        "infection_spo2": 0.24010982146429072
+      },
+      "peak_day": 88,
+      "end_day": 90,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.9392555156960611,
+          "infection_sleep": 0.3235877857889958,
+          "infection_mood": 0.33119861934196637,
+          "infection_spo2": 0.5720329464392873
+        },
+        "default": {
+          "infection_temp": 1.2177665470881833,
+          "infection_sleep": 0.3589694644724894,
+          "infection_mood": 0.4247944773678656,
+          "infection_spo2": 0.7401098214642907
+        },
+        "large": {
+          "infection_temp": 1.7392555156960612,
+          "infection_sleep": 0.6235877857889958,
+          "infection_mood": 0.6311986193419664,
+          "infection_spo2": 1.2720329464392872
+        }
+      }
+    },
+    {
+      "episode_id": "AST-004-eva-3",
+      "astronaut_index": 3,
+      "astronaut_id": "AST-004",
+      "kind": "eva",
+      "start_day": 87,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.47967692786602256,
+        "eva_bp_sys": 0.7935876168262398,
+        "eva_bp_dia": 0.7410320133663572
+      },
+      "peak_day": 87,
+      "end_day": 87,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 29.796769278660225,
+          "eva_bp_sys": 13.967938084131198,
+          "eva_bp_dia": 7.223096040099072
+        },
+        "default": {
+          "eva_hr": 39.39030783598068,
+          "eva_bp_sys": 21.903814252393595,
+          "eva_bp_dia": 12.410320133663571
+        },
+        "large": {
+          "eva_hr": 49.79676927866023,
+          "eva_bp_sys": 23.967938084131198,
+          "eva_bp_dia": 14.223096040099072
+        }
+      }
+    },
+    {
+      "episode_id": "AST-009-eva-1",
+      "astronaut_index": 8,
+      "astronaut_id": "AST-009",
+      "kind": "eva",
+      "start_day": 88,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.3451044030011454,
+        "eva_bp_sys": 0.016880912113043434,
+        "eva_bp_dia": 0.9242303328279067
+      },
+      "peak_day": 88,
+      "end_day": 88,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 28.451044030011452,
+          "eva_bp_sys": 10.084404560565217,
+          "eva_bp_dia": 7.77269099848372
+        },
+        "default": {
+          "eva_hr": 35.353132090034364,
+          "eva_bp_sys": 10.253213681695652,
+          "eva_bp_dia": 14.242303328279068
+        },
+        "large": {
+          "eva_hr": 48.45104403001145,
+          "eva_bp_sys": 20.08440456056522,
+          "eva_bp_dia": 14.77269099848372
+        }
+      }
+    },
+    {
+      "episode_id": "AST-015-infection-2",
+      "astronaut_index": 14,
+      "astronaut_id": "AST-015",
+      "kind": "infection",
+      "start_day": 88,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.13942626561849514,
+        "infection_sleep": 0.12853467745478886,
+        "infection_mood": 0.49583442714198966,
+        "infection_spo2": 0.8394535633349518
+      },
+      "peak_day": 90,
+      "end_day": 92,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.8557705062473981,
+          "infection_sleep": 0.32570693549095775,
+          "infection_mood": 0.34958344271419894,
+          "infection_spo2": 0.7518360690004855
+        },
+        "default": {
+          "infection_temp": 0.9673115187421942,
+          "infection_sleep": 0.3642673387273944,
+          "infection_mood": 0.49833377085679587,
+          "infection_spo2": 1.3394535633349518
+        },
+        "large": {
+          "infection_temp": 1.6557705062473982,
+          "infection_sleep": 0.6257069354909578,
+          "infection_mood": 0.6495834427141989,
+          "infection_spo2": 1.4518360690004855
+        }
+      }
+    },
+    {
+      "episode_id": "AST-016-fluid_loss-1",
+      "astronaut_index": 15,
+      "astronaut_id": "AST-016",
+      "kind": "fluid_loss",
+      "start_day": 88,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.1469005605081377,
+        "fluid_hr": 0.7999257289055096
+      },
+      "peak_day": 91,
+      "end_day": 93,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 12.881403363048825,
+          "fluid_hr": 13.199702915622039
+        },
+        "default": {
+          "fluid_bp_sys": 13.90970728660579,
+          "fluid_hr": 19.599108746866115
+        },
+        "large": {
+          "fluid_bp_sys": 19.881403363048825,
+          "fluid_hr": 21.199702915622037
+        }
+      }
+    },
+    {
+      "episode_id": "AST-020-eva-3",
+      "astronaut_index": 19,
+      "astronaut_id": "AST-020",
+      "kind": "eva",
+      "start_day": 89,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.2747656225680165,
+        "eva_bp_sys": 0.02262622801974057,
+        "eva_bp_dia": 0.3681082532292256
+      },
+      "peak_day": 89,
+      "end_day": 89,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 27.747656225680167,
+          "eva_bp_sys": 10.113131140098703,
+          "eva_bp_dia": 6.104324759687676
+        },
+        "default": {
+          "eva_hr": 33.242968677040494,
+          "eva_bp_sys": 10.339393420296108,
+          "eva_bp_dia": 8.681082532292255
+        },
+        "large": {
+          "eva_hr": 47.74765622568017,
+          "eva_bp_sys": 20.1131311400987,
+          "eva_bp_dia": 13.104324759687676
+        }
+      }
+    },
+    {
+      "episode_id": "AST-004-infection-1",
+      "astronaut_index": 3,
+      "astronaut_id": "AST-004",
+      "kind": "infection",
+      "start_day": 90,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.500507007404451,
+        "infection_sleep": 0.4380997082971343,
+        "infection_mood": 0.2992116430742495,
+        "infection_spo2": 0.9848792299477936
+      },
+      "peak_day": 92,
+      "end_day": 94,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.0002028029617804,
+          "infection_sleep": 0.38761994165942687,
+          "infection_mood": 0.32992116430742496,
+          "infection_spo2": 0.7954637689843381
+        },
+        "default": {
+          "infection_temp": 1.4006084088853412,
+          "infection_sleep": 0.5190498541485671,
+          "infection_mood": 0.4196846572296998,
+          "infection_spo2": 1.4848792299477935
+        },
+        "large": {
+          "infection_temp": 1.8002028029617805,
+          "infection_sleep": 0.6876199416594269,
+          "infection_mood": 0.629921164307425,
+          "infection_spo2": 1.495463768984338
+        }
+      }
+    },
+    {
+      "episode_id": "AST-001-infection-2",
+      "astronaut_index": 0,
+      "astronaut_id": "AST-001",
+      "kind": "infection",
+      "start_day": 91,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.05014340322955024,
+        "infection_sleep": 0.8964713255148176,
+        "infection_mood": 0.11963828429153112,
+        "infection_spo2": 0.696693619462166
+      },
+      "peak_day": 93,
+      "end_day": 95,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.8200573612918202,
+          "infection_sleep": 0.4792942651029635,
+          "infection_mood": 0.3119638284291531,
+          "infection_spo2": 0.7090080858386498
+        },
+        "default": {
+          "infection_temp": 0.8601720838754603,
+          "infection_sleep": 0.7482356627574087,
+          "infection_mood": 0.34785531371661244,
+          "infection_spo2": 1.196693619462166
+        },
+        "large": {
+          "infection_temp": 1.62005736129182,
+          "infection_sleep": 0.7792942651029635,
+          "infection_mood": 0.6119638284291531,
+          "infection_spo2": 1.4090080858386498
+        }
+      }
+    },
+    {
+      "episode_id": "AST-002-sleep_debt-2",
+      "astronaut_index": 1,
+      "astronaut_id": "AST-002",
+      "kind": "sleep_debt",
+      "start_day": 91,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.1116463879701367,
+        "sleep_debt_mood": 0.272691799347733
+      },
+      "peak_day": 95,
+      "end_day": 99,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.0446585551880547,
+          "sleep_debt_mood": 0.2272691799347733
+        },
+        "default": {
+          "sleep_debt_sleep": 1.1116463879701368,
+          "sleep_debt_mood": 0.30907671973909323
+        },
+        "large": {
+          "sleep_debt_sleep": 1.6446585551880548,
+          "sleep_debt_mood": 0.5272691799347733
+        }
+      }
+    },
+    {
+      "episode_id": "AST-007-sleep_debt-2",
+      "astronaut_index": 6,
+      "astronaut_id": "AST-007",
+      "kind": "sleep_debt",
+      "start_day": 91,
+      "duration": 7,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.40694090074909517,
+        "sleep_debt_mood": 0.039394379068242724
+      },
+      "peak_day": 94,
+      "end_day": 97,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.162776360299638,
+          "sleep_debt_mood": 0.20393943790682428
+        },
+        "default": {
+          "sleep_debt_sleep": 1.4069409007490952,
+          "sleep_debt_mood": 0.2157577516272971
+        },
+        "large": {
+          "sleep_debt_sleep": 1.762776360299638,
+          "sleep_debt_mood": 0.5039394379068243
+        }
+      }
+    },
+    {
+      "episode_id": "AST-009-fluid_loss-1",
+      "astronaut_index": 8,
+      "astronaut_id": "AST-009",
+      "kind": "fluid_loss",
+      "start_day": 94,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.15694456282524027,
+        "fluid_hr": 0.04695698520698066
+      },
+      "peak_day": 97,
+      "end_day": 99,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 12.941667376951441,
+          "fluid_hr": 10.187827940827923
+        },
+        "default": {
+          "fluid_bp_sys": 14.040279316728125,
+          "fluid_hr": 10.563483822483768
+        },
+        "large": {
+          "fluid_bp_sys": 19.941667376951443,
+          "fluid_hr": 18.187827940827923
+        }
+      }
+    },
+    {
+      "episode_id": "AST-003-eva-1",
+      "astronaut_index": 2,
+      "astronaut_id": "AST-003",
+      "kind": "eva",
+      "start_day": 95,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.3806707323415187,
+        "eva_bp_sys": 0.766417037935262,
+        "eva_bp_dia": 0.43866576380041056
+      },
+      "peak_day": 95,
+      "end_day": 95,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 28.80670732341519,
+          "eva_bp_sys": 13.83208518967631,
+          "eva_bp_dia": 6.3159972914012315
+        },
+        "default": {
+          "eva_hr": 36.42012197024556,
+          "eva_bp_sys": 21.49625556902893,
+          "eva_bp_dia": 9.386657638004106
+        },
+        "large": {
+          "eva_hr": 48.80670732341519,
+          "eva_bp_sys": 23.83208518967631,
+          "eva_bp_dia": 13.315997291401231
+        }
+      }
+    },
+    {
+      "episode_id": "AST-006-eva-3",
+      "astronaut_index": 5,
+      "astronaut_id": "AST-006",
+      "kind": "eva",
+      "start_day": 95,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.6812659421607439,
+        "eva_bp_sys": 0.6916963836395962,
+        "eva_bp_dia": 0.8341748106377201
+      },
+      "peak_day": 95,
+      "end_day": 95,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 31.81265942160744,
+          "eva_bp_sys": 13.45848191819798,
+          "eva_bp_dia": 7.5025244319131605
+        },
+        "default": {
+          "eva_hr": 45.43797826482232,
+          "eva_bp_sys": 20.37544575459394,
+          "eva_bp_dia": 13.341748106377201
+        },
+        "large": {
+          "eva_hr": 51.812659421607435,
+          "eva_bp_sys": 23.458481918197982,
+          "eva_bp_dia": 14.50252443191316
+        }
+      }
+    },
+    {
+      "episode_id": "AST-016-sleep_debt-3",
+      "astronaut_index": 15,
+      "astronaut_id": "AST-016",
+      "kind": "sleep_debt",
+      "start_day": 96,
+      "duration": 6,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.15413055135717946,
+        "sleep_debt_mood": 0.8729600395339394
+      },
+      "peak_day": 99,
+      "end_day": 101,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.0616522205428718,
+          "sleep_debt_mood": 0.28729600395339394
+        },
+        "default": {
+          "sleep_debt_sleep": 1.1541305513571793,
+          "sleep_debt_mood": 0.5491840158135757
+        },
+        "large": {
+          "sleep_debt_sleep": 1.6616522205428719,
+          "sleep_debt_mood": 0.5872960039533939
+        }
+      }
+    },
+    {
+      "episode_id": "AST-014-infection-2",
+      "astronaut_index": 13,
+      "astronaut_id": "AST-014",
+      "kind": "infection",
+      "start_day": 97,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.001972484604356728,
+        "infection_sleep": 0.541786437697067,
+        "infection_mood": 0.8506210131095017,
+        "infection_spo2": 0.2610937705954488
+      },
+      "peak_day": 99,
+      "end_day": 101,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.8007889938417427,
+          "infection_sleep": 0.4083572875394134,
+          "infection_mood": 0.3850621013109502,
+          "infection_spo2": 0.5783281311786347
+        },
+        "default": {
+          "infection_temp": 0.8023669815252281,
+          "infection_sleep": 0.5708932188485335,
+          "infection_mood": 0.6402484052438007,
+          "infection_spo2": 0.7610937705954488
+        },
+        "large": {
+          "infection_temp": 1.6007889938417428,
+          "infection_sleep": 0.7083572875394134,
+          "infection_mood": 0.6850621013109501,
+          "infection_spo2": 1.2783281311786345
+        }
+      }
+    },
+    {
+      "episode_id": "AST-006-fluid_loss-1",
+      "astronaut_index": 5,
+      "astronaut_id": "AST-006",
+      "kind": "fluid_loss",
+      "start_day": 98,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.5825910609097996,
+        "fluid_hr": 0.7873472218887538
+      },
+      "peak_day": 101,
+      "end_day": 103,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 15.495546365458797,
+          "fluid_hr": 13.149388887555016
+        },
+        "default": {
+          "fluid_bp_sys": 19.573683791827396,
+          "fluid_hr": 19.448166662665045
+        },
+        "large": {
+          "fluid_bp_sys": 22.495546365458797,
+          "fluid_hr": 21.149388887555016
+        }
+      }
+    },
+    {
+      "episode_id": "AST-017-infection-2",
+      "astronaut_index": 16,
+      "astronaut_id": "AST-017",
+      "kind": "infection",
+      "start_day": 98,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.1192342233363175,
+        "infection_sleep": 0.289417372645529,
+        "infection_mood": 0.6367193650235492,
+        "infection_spo2": 0.5993789020523828
+      },
+      "peak_day": 100,
+      "end_day": 102,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.847693689334527,
+          "infection_sleep": 0.3578834745291058,
+          "infection_mood": 0.36367193650235496,
+          "infection_spo2": 0.6798136706157148
+        },
+        "default": {
+          "infection_temp": 0.943081068003581,
+          "infection_sleep": 0.4447086863227645,
+          "infection_mood": 0.5546877460094197,
+          "infection_spo2": 1.0993789020523828
+        },
+        "large": {
+          "infection_temp": 1.647693689334527,
+          "infection_sleep": 0.6578834745291058,
+          "infection_mood": 0.6636719365023549,
+          "infection_spo2": 1.379813670615715
+        }
+      }
+    },
+    {
+      "episode_id": "AST-003-infection-1",
+      "astronaut_index": 2,
+      "astronaut_id": "AST-003",
+      "kind": "infection",
+      "start_day": 100,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.8754965063808765,
+        "infection_sleep": 0.15346899997547514,
+        "infection_mood": 0.6641441118021606,
+        "infection_spo2": 0.8214468143477757
+      },
+      "peak_day": 102,
+      "end_day": 104,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.1501986025523505,
+          "infection_sleep": 0.330693799995095,
+          "infection_mood": 0.36641441118021606,
+          "infection_spo2": 0.7464340443043327
+        },
+        "default": {
+          "infection_temp": 1.850595807657052,
+          "infection_sleep": 0.37673449998773756,
+          "infection_mood": 0.5656576447208642,
+          "infection_spo2": 1.3214468143477758
+        },
+        "large": {
+          "infection_temp": 1.9501986025523506,
+          "infection_sleep": 0.630693799995095,
+          "infection_mood": 0.666414411180216,
+          "infection_spo2": 1.4464340443043326
+        }
+      }
+    },
+    {
+      "episode_id": "AST-013-eva-3",
+      "astronaut_index": 12,
+      "astronaut_id": "AST-013",
+      "kind": "eva",
+      "start_day": 100,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.12997206246379578,
+        "eva_bp_sys": 0.015840194203693647,
+        "eva_bp_dia": 0.8196948576133825
+      },
+      "peak_day": 100,
+      "end_day": 100,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 26.299720624637956,
+          "eva_bp_sys": 10.079200971018468,
+          "eva_bp_dia": 7.459084572840148
+        },
+        "default": {
+          "eva_hr": 28.899161873913872,
+          "eva_bp_sys": 10.237602913055404,
+          "eva_bp_dia": 13.196948576133824
+        },
+        "large": {
+          "eva_hr": 46.299720624637956,
+          "eva_bp_sys": 20.07920097101847,
+          "eva_bp_dia": 14.459084572840148
+        }
+      }
+    },
+    {
+      "episode_id": "AST-018-sleep_debt-1",
+      "astronaut_index": 17,
+      "astronaut_id": "AST-018",
+      "kind": "sleep_debt",
+      "start_day": 100,
+      "duration": 8,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.6942747217556722,
+        "sleep_debt_mood": 0.4622343674282985
+      },
+      "peak_day": 104,
+      "end_day": 107,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.2777098887022689,
+          "sleep_debt_mood": 0.24622343674282984
+        },
+        "default": {
+          "sleep_debt_sleep": 1.6942747217556722,
+          "sleep_debt_mood": 0.3848937469713194
+        },
+        "large": {
+          "sleep_debt_sleep": 1.877709888702269,
+          "sleep_debt_mood": 0.5462234367428298
+        }
+      }
+    },
+    {
+      "episode_id": "AST-020-eva-1",
+      "astronaut_index": 19,
+      "astronaut_id": "AST-020",
+      "kind": "eva",
+      "start_day": 100,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.7582117729188466,
+        "eva_bp_sys": 0.90921573933753,
+        "eva_bp_dia": 0.9811489573222397
+      },
+      "peak_day": 100,
+      "end_day": 100,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 32.58211772918847,
+          "eva_bp_sys": 14.54607869668765,
+          "eva_bp_dia": 7.943446871966719
+        },
+        "default": {
+          "eva_hr": 47.7463531875654,
+          "eva_bp_sys": 23.63823609006295,
+          "eva_bp_dia": 14.811489573222397
+        },
+        "large": {
+          "eva_hr": 52.58211772918847,
+          "eva_bp_sys": 24.54607869668765,
+          "eva_bp_dia": 14.943446871966719
+        }
+      }
+    },
+    {
+      "episode_id": "AST-010-sleep_debt-1",
+      "astronaut_index": 9,
+      "astronaut_id": "AST-010",
+      "kind": "sleep_debt",
+      "start_day": 101,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.34881120647398967,
+        "sleep_debt_mood": 0.500019586475783
+      },
+      "peak_day": 105,
+      "end_day": 109,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.1395244825895958,
+          "sleep_debt_mood": 0.2500019586475783
+        },
+        "default": {
+          "sleep_debt_sleep": 1.3488112064739897,
+          "sleep_debt_mood": 0.4000078345903132
+        },
+        "large": {
+          "sleep_debt_sleep": 1.739524482589596,
+          "sleep_debt_mood": 0.5500019586475783
+        }
+      }
+    },
+    {
+      "episode_id": "AST-011-sleep_debt-2",
+      "astronaut_index": 10,
+      "astronaut_id": "AST-011",
+      "kind": "sleep_debt",
+      "start_day": 102,
+      "duration": 7,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.2509938117817875,
+        "sleep_debt_mood": 0.7644579029429114
+      },
+      "peak_day": 105,
+      "end_day": 108,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.100397524712715,
+          "sleep_debt_mood": 0.2764457902942911
+        },
+        "default": {
+          "sleep_debt_sleep": 1.2509938117817874,
+          "sleep_debt_mood": 0.5057831611771646
+        },
+        "large": {
+          "sleep_debt_sleep": 1.700397524712715,
+          "sleep_debt_mood": 0.5764457902942911
+        }
+      }
+    },
+    {
+      "episode_id": "AST-009-eva-2",
+      "astronaut_index": 8,
+      "astronaut_id": "AST-009",
+      "kind": "eva",
+      "start_day": 103,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.5896465740373421,
+        "eva_bp_sys": 0.912197798077089,
+        "eva_bp_dia": 0.02427653588580947
+      },
+      "peak_day": 103,
+      "end_day": 103,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 30.896465740373422,
+          "eva_bp_sys": 14.560988990385445,
+          "eva_bp_dia": 5.072829607657429
+        },
+        "default": {
+          "eva_hr": 42.68939722112026,
+          "eva_bp_sys": 23.682966971156333,
+          "eva_bp_dia": 5.242765358858095
+        },
+        "large": {
+          "eva_hr": 50.89646574037342,
+          "eva_bp_sys": 24.560988990385447,
+          "eva_bp_dia": 12.072829607657429
+        }
+      }
+    },
+    {
+      "episode_id": "AST-019-sleep_debt-3",
+      "astronaut_index": 18,
+      "astronaut_id": "AST-019",
+      "kind": "sleep_debt",
+      "start_day": 103,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.5140869510033669,
+        "sleep_debt_mood": 0.7207673531750585
+      },
+      "peak_day": 107,
+      "end_day": 111,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.2056347804013468,
+          "sleep_debt_mood": 0.27207673531750587
+        },
+        "default": {
+          "sleep_debt_sleep": 1.514086951003367,
+          "sleep_debt_mood": 0.4883069412700234
+        },
+        "large": {
+          "sleep_debt_sleep": 1.8056347804013468,
+          "sleep_debt_mood": 0.5720767353175058
+        }
+      }
+    },
+    {
+      "episode_id": "AST-008-sleep_debt-1",
+      "astronaut_index": 7,
+      "astronaut_id": "AST-008",
+      "kind": "sleep_debt",
+      "start_day": 104,
+      "duration": 7,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.9742933394024295,
+        "sleep_debt_mood": 0.9354222024789942
+      },
+      "peak_day": 107,
+      "end_day": 110,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.3897173357609716,
+          "sleep_debt_mood": 0.29354222024789944
+        },
+        "default": {
+          "sleep_debt_sleep": 1.9742933394024296,
+          "sleep_debt_mood": 0.5741688809915977
+        },
+        "large": {
+          "sleep_debt_sleep": 1.9897173357609717,
+          "sleep_debt_mood": 0.5935422202478994
+        }
+      }
+    },
+    {
+      "episode_id": "AST-014-infection-1",
+      "astronaut_index": 13,
+      "astronaut_id": "AST-014",
+      "kind": "infection",
+      "start_day": 104,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.05203707136144975,
+        "infection_sleep": 0.8073001722600438,
+        "infection_mood": 0.9682362769058869,
+        "infection_spo2": 0.09577491399451532
+      },
+      "peak_day": 106,
+      "end_day": 108,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.82081482854458,
+          "infection_sleep": 0.4614600344520088,
+          "infection_mood": 0.3968236276905887,
+          "infection_spo2": 0.5287324741983546
+        },
+        "default": {
+          "infection_temp": 0.8624444856337398,
+          "infection_sleep": 0.7036500861300219,
+          "infection_mood": 0.6872945107623547,
+          "infection_spo2": 0.5957749139945153
+        },
+        "large": {
+          "infection_temp": 1.62081482854458,
+          "infection_sleep": 0.7614600344520088,
+          "infection_mood": 0.6968236276905886,
+          "infection_spo2": 1.2287324741983545
+        }
+      }
+    },
+    {
+      "episode_id": "AST-002-infection-1",
+      "astronaut_index": 1,
+      "astronaut_id": "AST-002",
+      "kind": "infection",
+      "start_day": 107,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.5449998519747475,
+        "infection_sleep": 0.024029771777074105,
+        "infection_mood": 0.3426192981331624,
+        "infection_spo2": 0.21552123269475065
+      },
+      "peak_day": 109,
+      "end_day": 111,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.017999940789899,
+          "infection_sleep": 0.3048059543554148,
+          "infection_mood": 0.33426192981331626,
+          "infection_spo2": 0.5646563698084253
+        },
+        "default": {
+          "infection_temp": 1.453999822369697,
+          "infection_sleep": 0.31201488588853704,
+          "infection_mood": 0.4370477192532649,
+          "infection_spo2": 0.7155212326947507
+        },
+        "large": {
+          "infection_temp": 1.817999940789899,
+          "infection_sleep": 0.6048059543554148,
+          "infection_mood": 0.6342619298133162,
+          "infection_spo2": 1.2646563698084252
+        }
+      }
+    },
+    {
+      "episode_id": "AST-007-eva-3",
+      "astronaut_index": 6,
+      "astronaut_id": "AST-007",
+      "kind": "eva",
+      "start_day": 109,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.7027732875015708,
+        "eva_bp_sys": 0.5132526131091436,
+        "eva_bp_dia": 0.18453388096964918
+      },
+      "peak_day": 109,
+      "end_day": 109,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 32.02773287501571,
+          "eva_bp_sys": 12.566263065545717,
+          "eva_bp_dia": 5.553601642908948
+        },
+        "default": {
+          "eva_hr": 46.08319862504712,
+          "eva_bp_sys": 17.698789196637154,
+          "eva_bp_dia": 6.845338809696492
+        },
+        "large": {
+          "eva_hr": 52.02773287501571,
+          "eva_bp_sys": 22.56626306554572,
+          "eva_bp_dia": 12.553601642908948
+        }
+      }
+    },
+    {
+      "episode_id": "AST-012-eva-3",
+      "astronaut_index": 11,
+      "astronaut_id": "AST-012",
+      "kind": "eva",
+      "start_day": 110,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.4923577309329753,
+        "eva_bp_sys": 0.2579384971868426,
+        "eva_bp_dia": 0.41896486292066615
+      },
+      "peak_day": 110,
+      "end_day": 110,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 29.92357730932975,
+          "eva_bp_sys": 11.289692485934212,
+          "eva_bp_dia": 6.256894588761998
+        },
+        "default": {
+          "eva_hr": 39.77073192798926,
+          "eva_bp_sys": 13.86907745780264,
+          "eva_bp_dia": 9.189648629206662
+        },
+        "large": {
+          "eva_hr": 49.92357730932975,
+          "eva_bp_sys": 21.289692485934214,
+          "eva_bp_dia": 13.256894588761998
+        }
+      }
+    },
+    {
+      "episode_id": "AST-001-eva-3",
+      "astronaut_index": 0,
+      "astronaut_id": "AST-001",
+      "kind": "eva",
+      "start_day": 111,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.7515091569692622,
+        "eva_bp_sys": 0.18024806022294182,
+        "eva_bp_dia": 0.1844512736551278
+      },
+      "peak_day": 111,
+      "end_day": 111,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 32.51509156969262,
+          "eva_bp_sys": 10.90124030111471,
+          "eva_bp_dia": 5.553353820965383
+        },
+        "default": {
+          "eva_hr": 47.545274709077866,
+          "eva_bp_sys": 12.703720903344127,
+          "eva_bp_dia": 6.844512736551279
+        },
+        "large": {
+          "eva_hr": 52.51509156969262,
+          "eva_bp_sys": 20.901240301114708,
+          "eva_bp_dia": 12.553353820965384
+        }
+      }
+    },
+    {
+      "episode_id": "AST-015-eva-1",
+      "astronaut_index": 14,
+      "astronaut_id": "AST-015",
+      "kind": "eva",
+      "start_day": 112,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.23970982057078005,
+        "eva_bp_sys": 0.31020265659596313,
+        "eva_bp_dia": 0.9768595385644496
+      },
+      "peak_day": 112,
+      "end_day": 112,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 27.3970982057078,
+          "eva_bp_sys": 11.551013282979817,
+          "eva_bp_dia": 7.930578615693349
+        },
+        "default": {
+          "eva_hr": 32.191294617123404,
+          "eva_bp_sys": 14.653039848939446,
+          "eva_bp_dia": 14.768595385644495
+        },
+        "large": {
+          "eva_hr": 47.3970982057078,
+          "eva_bp_sys": 21.551013282979817,
+          "eva_bp_dia": 14.93057861569335
+        }
+      }
+    },
+    {
+      "episode_id": "AST-005-eva-2",
+      "astronaut_index": 4,
+      "astronaut_id": "AST-005",
+      "kind": "eva",
+      "start_day": 113,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.6389971928824525,
+        "eva_bp_sys": 0.655231133852592,
+        "eva_bp_dia": 0.6492215803143903
+      },
+      "peak_day": 113,
+      "end_day": 113,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 31.389971928824526,
+          "eva_bp_sys": 13.276155669262959,
+          "eva_bp_dia": 6.947664740943171
+        },
+        "default": {
+          "eva_hr": 44.169915786473574,
+          "eva_bp_sys": 19.82846700778888,
+          "eva_bp_dia": 11.492215803143903
+        },
+        "large": {
+          "eva_hr": 51.38997192882452,
+          "eva_bp_sys": 23.27615566926296,
+          "eva_bp_dia": 13.947664740943171
+        }
+      }
+    },
+    {
+      "episode_id": "AST-010-sleep_debt-3",
+      "astronaut_index": 9,
+      "astronaut_id": "AST-010",
+      "kind": "sleep_debt",
+      "start_day": 113,
+      "duration": 8,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.611016808333882,
+        "sleep_debt_mood": 0.6851683890320832
+      },
+      "peak_day": 117,
+      "end_day": 120,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.2444067233335527,
+          "sleep_debt_mood": 0.2685168389032083
+        },
+        "default": {
+          "sleep_debt_sleep": 1.611016808333882,
+          "sleep_debt_mood": 0.47406735561283325
+        },
+        "large": {
+          "sleep_debt_sleep": 1.8444067233335528,
+          "sleep_debt_mood": 0.5685168389032083
+        }
+      }
+    },
+    {
+      "episode_id": "AST-013-sleep_debt-1",
+      "astronaut_index": 12,
+      "astronaut_id": "AST-013",
+      "kind": "sleep_debt",
+      "start_day": 113,
+      "duration": 7,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.5645242143057233,
+        "sleep_debt_mood": 0.22008658757465516
+      },
+      "peak_day": 116,
+      "end_day": 119,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.2258096857222893,
+          "sleep_debt_mood": 0.22200865875746553
+        },
+        "default": {
+          "sleep_debt_sleep": 1.5645242143057234,
+          "sleep_debt_mood": 0.28803463502986204
+        },
+        "large": {
+          "sleep_debt_sleep": 1.8258096857222894,
+          "sleep_debt_mood": 0.5220086587574655
+        }
+      }
+    },
+    {
+      "episode_id": "AST-008-eva-3",
+      "astronaut_index": 7,
+      "astronaut_id": "AST-008",
+      "kind": "eva",
+      "start_day": 114,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.14067909719082317,
+        "eva_bp_sys": 0.42184140968867356,
+        "eva_bp_dia": 0.1567993270532656
+      },
+      "peak_day": 114,
+      "end_day": 114,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 26.406790971908233,
+          "eva_bp_sys": 12.109207048443368,
+          "eva_bp_dia": 5.470397981159797
+        },
+        "default": {
+          "eva_hr": 29.220372915724695,
+          "eva_bp_sys": 16.327621145330102,
+          "eva_bp_dia": 6.567993270532656
+        },
+        "large": {
+          "eva_hr": 46.40679097190823,
+          "eva_bp_sys": 22.109207048443366,
+          "eva_bp_dia": 12.470397981159797
+        }
+      }
+    },
+    {
+      "episode_id": "AST-017-infection-1",
+      "astronaut_index": 16,
+      "astronaut_id": "AST-017",
+      "kind": "infection",
+      "start_day": 114,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.64278765122518,
+        "infection_sleep": 0.1274516544572072,
+        "infection_mood": 0.2866316815341702,
+        "infection_spo2": 0.07830324029488778
+      },
+      "peak_day": 116,
+      "end_day": 118,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.057115060490072,
+          "infection_sleep": 0.3254903308914414,
+          "infection_mood": 0.328663168153417,
+          "infection_spo2": 0.5234909720884663
+        },
+        "default": {
+          "infection_temp": 1.5713451814702162,
+          "infection_sleep": 0.3637258272286036,
+          "infection_mood": 0.41465267261366806,
+          "infection_spo2": 0.5783032402948878
+        },
+        "large": {
+          "infection_temp": 1.857115060490072,
+          "infection_sleep": 0.6254903308914415,
+          "infection_mood": 0.6286631681534169,
+          "infection_spo2": 1.2234909720884664
+        }
+      }
+    },
+    {
+      "episode_id": "AST-019-eva-2",
+      "astronaut_index": 18,
+      "astronaut_id": "AST-019",
+      "kind": "eva",
+      "start_day": 114,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.05145488695907896,
+        "eva_bp_sys": 0.03175879996765352,
+        "eva_bp_dia": 0.8797778119027496
+      },
+      "peak_day": 114,
+      "end_day": 114,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 25.51454886959079,
+          "eva_bp_sys": 10.158793999838268,
+          "eva_bp_dia": 7.639333435708249
+        },
+        "default": {
+          "eva_hr": 26.54364660877237,
+          "eva_bp_sys": 10.476381999514803,
+          "eva_bp_dia": 13.797778119027496
+        },
+        "large": {
+          "eva_hr": 45.51454886959079,
+          "eva_bp_sys": 20.158793999838267,
+          "eva_bp_dia": 14.639333435708249
+        }
+      }
+    },
+    {
+      "episode_id": "AST-020-sleep_debt-3",
+      "astronaut_index": 19,
+      "astronaut_id": "AST-020",
+      "kind": "sleep_debt",
+      "start_day": 114,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.3324791966634818,
+        "sleep_debt_mood": 0.8271969241487559
+      },
+      "peak_day": 118,
+      "end_day": 122,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.1329916786653926,
+          "sleep_debt_mood": 0.2827196924148756
+        },
+        "default": {
+          "sleep_debt_sleep": 1.3324791966634817,
+          "sleep_debt_mood": 0.5308787696595023
+        },
+        "large": {
+          "sleep_debt_sleep": 1.7329916786653927,
+          "sleep_debt_mood": 0.5827196924148755
+        }
+      }
+    },
+    {
+      "episode_id": "AST-012-infection-2",
+      "astronaut_index": 11,
+      "astronaut_id": "AST-012",
+      "kind": "infection",
+      "start_day": 117,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.06878845556042812,
+        "infection_sleep": 0.33089139590651906,
+        "infection_mood": 0.638683896475911,
+        "infection_spo2": 0.7134420210793494
+      },
+      "peak_day": 119,
+      "end_day": 121,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.8275153822241713,
+          "infection_sleep": 0.3661782791813038,
+          "infection_mood": 0.3638683896475911,
+          "infection_spo2": 0.7140326063238048
+        },
+        "default": {
+          "infection_temp": 0.8825461466725137,
+          "infection_sleep": 0.4654456979532595,
+          "infection_mood": 0.5554735585903643,
+          "infection_spo2": 1.2134420210793495
+        },
+        "large": {
+          "infection_temp": 1.6275153822241712,
+          "infection_sleep": 0.6661782791813038,
+          "infection_mood": 0.6638683896475911,
+          "infection_spo2": 1.414032606323805
+        }
+      }
+    },
+    {
+      "episode_id": "AST-018-eva-3",
+      "astronaut_index": 17,
+      "astronaut_id": "AST-018",
+      "kind": "eva",
+      "start_day": 117,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.01878857468834849,
+        "eva_bp_sys": 0.06888864431683395,
+        "eva_bp_dia": 0.2809242539146387
+      },
+      "peak_day": 117,
+      "end_day": 117,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 25.187885746883484,
+          "eva_bp_sys": 10.34444322158417,
+          "eva_bp_dia": 5.842772761743916
+        },
+        "default": {
+          "eva_hr": 25.563657240650453,
+          "eva_bp_sys": 11.03332966475251,
+          "eva_bp_dia": 7.809242539146387
+        },
+        "large": {
+          "eva_hr": 45.18788574688349,
+          "eva_bp_sys": 20.34444322158417,
+          "eva_bp_dia": 12.842772761743916
+        }
+      }
+    },
+    {
+      "episode_id": "AST-011-eva-2",
+      "astronaut_index": 10,
+      "astronaut_id": "AST-011",
+      "kind": "eva",
+      "start_day": 122,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.08247260822585811,
+        "eva_bp_sys": 0.9434960142764527,
+        "eva_bp_dia": 0.1524188995426411
+      },
+      "peak_day": 122,
+      "end_day": 122,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 25.824726082258582,
+          "eva_bp_sys": 14.717480071382264,
+          "eva_bp_dia": 5.457256698627924
+        },
+        "default": {
+          "eva_hr": 27.474178246775743,
+          "eva_bp_sys": 24.15244021414679,
+          "eva_bp_dia": 6.524188995426411
+        },
+        "large": {
+          "eva_hr": 45.82472608225858,
+          "eva_bp_sys": 24.717480071382262,
+          "eva_bp_dia": 12.457256698627923
+        }
+      }
+    },
+    {
+      "episode_id": "AST-002-eva-3",
+      "astronaut_index": 1,
+      "astronaut_id": "AST-002",
+      "kind": "eva",
+      "start_day": 123,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.6361351482570013,
+        "eva_bp_sys": 0.5972739190438277,
+        "eva_bp_dia": 0.19070024487372184
+      },
+      "peak_day": 123,
+      "end_day": 123,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 31.361351482570015,
+          "eva_bp_sys": 12.986369595219138,
+          "eva_bp_dia": 5.5721007346211655
+        },
+        "default": {
+          "eva_hr": 44.084054447710045,
+          "eva_bp_sys": 18.959108785657413,
+          "eva_bp_dia": 6.907002448737218
+        },
+        "large": {
+          "eva_hr": 51.361351482570015,
+          "eva_bp_sys": 22.986369595219138,
+          "eva_bp_dia": 12.572100734621166
+        }
+      }
+    },
+    {
+      "episode_id": "AST-006-infection-1",
+      "astronaut_index": 5,
+      "astronaut_id": "AST-006",
+      "kind": "infection",
+      "start_day": 123,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.5435909043023458,
+        "infection_sleep": 0.8704691761840465,
+        "infection_mood": 0.2796558182837362,
+        "infection_spo2": 0.049979099438650976
+      },
+      "peak_day": 125,
+      "end_day": 127,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.0174363617209383,
+          "infection_sleep": 0.4740938352368093,
+          "infection_mood": 0.3279655818283736,
+          "infection_spo2": 0.5149937298315953
+        },
+        "default": {
+          "infection_temp": 1.452309085162815,
+          "infection_sleep": 0.7352345880920232,
+          "infection_mood": 0.4118623273134945,
+          "infection_spo2": 0.549979099438651
+        },
+        "large": {
+          "infection_temp": 1.8174363617209384,
+          "infection_sleep": 0.7740938352368093,
+          "infection_mood": 0.6279655818283736,
+          "infection_spo2": 1.2149937298315951
+        }
+      }
+    },
+    {
+      "episode_id": "AST-003-sleep_debt-2",
+      "astronaut_index": 2,
+      "astronaut_id": "AST-003",
+      "kind": "sleep_debt",
+      "start_day": 124,
+      "duration": 10,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.09916272643942048,
+        "sleep_debt_mood": 0.5011207081474167
+      },
+      "peak_day": 129,
+      "end_day": 133,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.0396650905757683,
+          "sleep_debt_mood": 0.2501120708147417
+        },
+        "default": {
+          "sleep_debt_sleep": 1.0991627264394204,
+          "sleep_debt_mood": 0.40044828325896664
+        },
+        "large": {
+          "sleep_debt_sleep": 1.6396650905757684,
+          "sleep_debt_mood": 0.5501120708147417
+        }
+      }
+    },
+    {
+      "episode_id": "AST-013-fluid_loss-1",
+      "astronaut_index": 12,
+      "astronaut_id": "AST-013",
+      "kind": "fluid_loss",
+      "start_day": 124,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.8289336381636508,
+        "fluid_hr": 0.7483414319759888
+      },
+      "peak_day": 127,
+      "end_day": 129,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 16.973601828981906,
+          "fluid_hr": 12.993365727903955
+        },
+        "default": {
+          "fluid_bp_sys": 22.77613729612746,
+          "fluid_hr": 18.980097183711866
+        },
+        "large": {
+          "fluid_bp_sys": 23.973601828981906,
+          "fluid_hr": 20.993365727903956
+        }
+      }
+    },
+    {
+      "episode_id": "AST-014-eva-3",
+      "astronaut_index": 13,
+      "astronaut_id": "AST-014",
+      "kind": "eva",
+      "start_day": 124,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.8773526400061247,
+        "eva_bp_sys": 0.7707521139183178,
+        "eva_bp_dia": 0.48167459539248025
+      },
+      "peak_day": 124,
+      "end_day": 124,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 33.77352640006124,
+          "eva_bp_sys": 13.85376056959159,
+          "eva_bp_dia": 6.44502378617744
+        },
+        "default": {
+          "eva_hr": 51.320579200183744,
+          "eva_bp_sys": 21.561281708774764,
+          "eva_bp_dia": 9.816745953924801
+        },
+        "large": {
+          "eva_hr": 53.77352640006124,
+          "eva_bp_sys": 23.85376056959159,
+          "eva_bp_dia": 13.44502378617744
+        }
+      }
+    },
+    {
+      "episode_id": "AST-004-sleep_debt-3",
+      "astronaut_index": 3,
+      "astronaut_id": "AST-004",
+      "kind": "sleep_debt",
+      "start_day": 125,
+      "duration": 6,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.11568714283478854,
+        "sleep_debt_mood": 0.0015575543087289478
+      },
+      "peak_day": 128,
+      "end_day": 130,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.0462748571339153,
+          "sleep_debt_mood": 0.2001557554308729
+        },
+        "default": {
+          "sleep_debt_sleep": 1.1156871428347885,
+          "sleep_debt_mood": 0.20062302172349158
+        },
+        "large": {
+          "sleep_debt_sleep": 1.6462748571339154,
+          "sleep_debt_mood": 0.5001557554308729
+        }
+      }
+    },
+    {
+      "episode_id": "AST-007-sleep_debt-3",
+      "astronaut_index": 6,
+      "astronaut_id": "AST-007",
+      "kind": "sleep_debt",
+      "start_day": 126,
+      "duration": 7,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.8362721108568041,
+        "sleep_debt_mood": 0.7754595425449257
+      },
+      "peak_day": 129,
+      "end_day": 132,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.3345088443427215,
+          "sleep_debt_mood": 0.2775459542544926
+        },
+        "default": {
+          "sleep_debt_sleep": 1.836272110856804,
+          "sleep_debt_mood": 0.5101838170179702
+        },
+        "large": {
+          "sleep_debt_sleep": 1.9345088443427216,
+          "sleep_debt_mood": 0.5775459542544925
+        }
+      }
+    },
+    {
+      "episode_id": "AST-017-eva-3",
+      "astronaut_index": 16,
+      "astronaut_id": "AST-017",
+      "kind": "eva",
+      "start_day": 126,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.58294470771045,
+        "eva_bp_sys": 0.3727984619678456,
+        "eva_bp_dia": 0.006710282379450594
+      },
+      "peak_day": 126,
+      "end_day": 126,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 30.8294470771045,
+          "eva_bp_sys": 11.863992309839228,
+          "eva_bp_dia": 5.0201308471383514
+        },
+        "default": {
+          "eva_hr": 42.4883412313135,
+          "eva_bp_sys": 15.591976929517685,
+          "eva_bp_dia": 5.067102823794506
+        },
+        "large": {
+          "eva_hr": 50.829447077104504,
+          "eva_bp_sys": 21.86399230983923,
+          "eva_bp_dia": 12.020130847138352
+        }
+      }
+    },
+    {
+      "episode_id": "AST-016-infection-1",
+      "astronaut_index": 15,
+      "astronaut_id": "AST-016",
+      "kind": "infection",
+      "start_day": 128,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.9804268675325967,
+        "infection_sleep": 0.6370320403047047,
+        "infection_mood": 0.7880173224679402,
+        "infection_spo2": 0.2617031421925585
+      },
+      "peak_day": 130,
+      "end_day": 132,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.1921707470130385,
+          "infection_sleep": 0.42740640806094093,
+          "infection_mood": 0.37880173224679403,
+          "infection_spo2": 0.5785109426577676
+        },
+        "default": {
+          "infection_temp": 1.976512241039116,
+          "infection_sleep": 0.6185160201523523,
+          "infection_mood": 0.615206928987176,
+          "infection_spo2": 0.7617031421925585
+        },
+        "large": {
+          "infection_temp": 1.9921707470130388,
+          "infection_sleep": 0.727406408060941,
+          "infection_mood": 0.678801732246794,
+          "infection_spo2": 1.2785109426577674
+        }
+      }
+    },
+    {
+      "episode_id": "AST-017-sleep_debt-1",
+      "astronaut_index": 16,
+      "astronaut_id": "AST-017",
+      "kind": "sleep_debt",
+      "start_day": 129,
+      "duration": 6,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.568297497431526,
+        "sleep_debt_mood": 0.1645820390375664
+      },
+      "peak_day": 132,
+      "end_day": 134,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.2273189989726103,
+          "sleep_debt_mood": 0.21645820390375664
+        },
+        "default": {
+          "sleep_debt_sleep": 1.568297497431526,
+          "sleep_debt_mood": 0.2658328156150266
+        },
+        "large": {
+          "sleep_debt_sleep": 1.8273189989726104,
+          "sleep_debt_mood": 0.5164582039037566
+        }
+      }
+    },
+    {
+      "episode_id": "AST-014-sleep_debt-2",
+      "astronaut_index": 13,
+      "astronaut_id": "AST-014",
+      "kind": "sleep_debt",
+      "start_day": 131,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.4227258841010475,
+        "sleep_debt_mood": 0.646956133223864
+      },
+      "peak_day": 135,
+      "end_day": 139,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.169090353640419,
+          "sleep_debt_mood": 0.2646956133223864
+        },
+        "default": {
+          "sleep_debt_sleep": 1.4227258841010475,
+          "sleep_debt_mood": 0.4587824532895456
+        },
+        "large": {
+          "sleep_debt_sleep": 1.769090353640419,
+          "sleep_debt_mood": 0.5646956133223864
+        }
+      }
+    },
+    {
+      "episode_id": "AST-012-fluid_loss-1",
+      "astronaut_index": 11,
+      "astronaut_id": "AST-012",
+      "kind": "fluid_loss",
+      "start_day": 132,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.493109893304146,
+        "fluid_hr": 0.8113581049880829
+      },
+      "peak_day": 135,
+      "end_day": 137,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 14.958659359824876,
+          "fluid_hr": 13.245432419952332
+        },
+        "default": {
+          "fluid_bp_sys": 18.410428612953897,
+          "fluid_hr": 19.736297259856997
+        },
+        "large": {
+          "fluid_bp_sys": 21.958659359824875,
+          "fluid_hr": 21.24543241995233
+        }
+      }
+    },
+    {
+      "episode_id": "AST-018-eva-1",
+      "astronaut_index": 17,
+      "astronaut_id": "AST-018",
+      "kind": "eva",
+      "start_day": 132,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.28038988770940776,
+        "eva_bp_sys": 0.7878565270668887,
+        "eva_bp_dia": 0.9781019037743419
+      },
+      "peak_day": 132,
+      "end_day": 132,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 27.803898877094078,
+          "eva_bp_sys": 13.939282635334443,
+          "eva_bp_dia": 7.9343057113230255
+        },
+        "default": {
+          "eva_hr": 33.41169663128223,
+          "eva_bp_sys": 21.81784790600333,
+          "eva_bp_dia": 14.78101903774342
+        },
+        "large": {
+          "eva_hr": 47.80389887709408,
+          "eva_bp_sys": 23.939282635334443,
+          "eva_bp_dia": 14.934305711323026
+        }
+      }
+    },
+    {
+      "episode_id": "AST-020-fluid_loss-1",
+      "astronaut_index": 19,
+      "astronaut_id": "AST-020",
+      "kind": "fluid_loss",
+      "start_day": 132,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.6020351028189006,
+        "fluid_hr": 0.5852130977838012
+      },
+      "peak_day": 135,
+      "end_day": 137,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 15.612210616913403,
+          "fluid_hr": 12.340852391135204
+        },
+        "default": {
+          "fluid_bp_sys": 19.82645633664571,
+          "fluid_hr": 17.022557173405616
+        },
+        "large": {
+          "fluid_bp_sys": 22.612210616913405,
+          "fluid_hr": 20.340852391135204
+        }
+      }
+    },
+    {
+      "episode_id": "AST-010-eva-3",
+      "astronaut_index": 9,
+      "astronaut_id": "AST-010",
+      "kind": "eva",
+      "start_day": 133,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.7408381881480771,
+        "eva_bp_sys": 0.28347001999884447,
+        "eva_bp_dia": 0.6717373046172106
+      },
+      "peak_day": 133,
+      "end_day": 133,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 32.40838188148077,
+          "eva_bp_sys": 11.417350099994222,
+          "eva_bp_dia": 7.015211913851632
+        },
+        "default": {
+          "eva_hr": 47.225145644442314,
+          "eva_bp_sys": 14.252050299982667,
+          "eva_bp_dia": 11.717373046172106
+        },
+        "large": {
+          "eva_hr": 52.40838188148077,
+          "eva_bp_sys": 21.417350099994223,
+          "eva_bp_dia": 14.015211913851632
+        }
+      }
+    },
+    {
+      "episode_id": "AST-005-fluid_loss-1",
+      "astronaut_index": 4,
+      "astronaut_id": "AST-005",
+      "kind": "fluid_loss",
+      "start_day": 134,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.5278561759440594,
+        "fluid_hr": 0.09541832526271687
+      },
+      "peak_day": 137,
+      "end_day": 139,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 15.167137055664357,
+          "fluid_hr": 10.381673301050867
+        },
+        "default": {
+          "fluid_bp_sys": 18.862130287272773,
+          "fluid_hr": 11.145019903152603
+        },
+        "large": {
+          "fluid_bp_sys": 22.167137055664355,
+          "fluid_hr": 18.381673301050867
+        }
+      }
+    },
+    {
+      "episode_id": "AST-009-sleep_debt-1",
+      "astronaut_index": 8,
+      "astronaut_id": "AST-009",
+      "kind": "sleep_debt",
+      "start_day": 135,
+      "duration": 10,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.9948468677710854,
+        "sleep_debt_mood": 0.46991532049935336
+      },
+      "peak_day": 140,
+      "end_day": 144,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.3979387471084341,
+          "sleep_debt_mood": 0.24699153204993535
+        },
+        "default": {
+          "sleep_debt_sleep": 1.9948468677710856,
+          "sleep_debt_mood": 0.3879661281997413
+        },
+        "large": {
+          "sleep_debt_sleep": 1.9979387471084342,
+          "sleep_debt_mood": 0.5469915320499353
+        }
+      }
+    },
+    {
+      "episode_id": "AST-016-infection-2",
+      "astronaut_index": 15,
+      "astronaut_id": "AST-016",
+      "kind": "infection",
+      "start_day": 136,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.6684376625319344,
+        "infection_sleep": 0.5490774937513777,
+        "infection_mood": 0.34768695097240143,
+        "infection_spo2": 0.5232019573326124
+      },
+      "peak_day": 138,
+      "end_day": 140,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.0673750650127738,
+          "infection_sleep": 0.40981549875027556,
+          "infection_mood": 0.33476869509724017,
+          "infection_spo2": 0.6569605871997838
+        },
+        "default": {
+          "infection_temp": 1.6021251950383213,
+          "infection_sleep": 0.5745387468756888,
+          "infection_mood": 0.43907478038896053,
+          "infection_spo2": 1.0232019573326125
+        },
+        "large": {
+          "infection_temp": 1.8673750650127738,
+          "infection_sleep": 0.7098154987502756,
+          "infection_mood": 0.6347686950972401,
+          "infection_spo2": 1.3569605871997836
+        }
+      }
+    },
+    {
+      "episode_id": "AST-004-fluid_loss-1",
+      "astronaut_index": 3,
+      "astronaut_id": "AST-004",
+      "kind": "fluid_loss",
+      "start_day": 137,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.14059715851114218,
+        "fluid_hr": 0.8448931911455475
+      },
+      "peak_day": 140,
+      "end_day": 142,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 12.843582951066853,
+          "fluid_hr": 13.37957276458219
+        },
+        "default": {
+          "fluid_bp_sys": 13.827763060644848,
+          "fluid_hr": 20.13871829374657
+        },
+        "large": {
+          "fluid_bp_sys": 19.843582951066853,
+          "fluid_hr": 21.37957276458219
+        }
+      }
+    },
+    {
+      "episode_id": "AST-019-infection-1",
+      "astronaut_index": 18,
+      "astronaut_id": "AST-019",
+      "kind": "infection",
+      "start_day": 137,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.855986053744349,
+        "infection_sleep": 0.11760418082386459,
+        "infection_mood": 0.7662141424553521,
+        "infection_spo2": 0.7234754389020169
+      },
+      "peak_day": 139,
+      "end_day": 141,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.1423944214977395,
+          "infection_sleep": 0.3235208361647729,
+          "infection_mood": 0.37662141424553525,
+          "infection_spo2": 0.7170426316706051
+        },
+        "default": {
+          "infection_temp": 1.8271832644932189,
+          "infection_sleep": 0.3588020904119323,
+          "infection_mood": 0.6064856569821409,
+          "infection_spo2": 1.223475438902017
+        },
+        "large": {
+          "infection_temp": 1.9423944214977396,
+          "infection_sleep": 0.6235208361647729,
+          "infection_mood": 0.6766214142455351,
+          "infection_spo2": 1.417042631670605
+        }
+      }
+    },
+    {
+      "episode_id": "AST-020-sleep_debt-1",
+      "astronaut_index": 19,
+      "astronaut_id": "AST-020",
+      "kind": "sleep_debt",
+      "start_day": 140,
+      "duration": 7,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.7687026357044302,
+        "sleep_debt_mood": 0.9842823196915926
+      },
+      "peak_day": 143,
+      "end_day": 146,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.307481054281772,
+          "sleep_debt_mood": 0.29842823196915924
+        },
+        "default": {
+          "sleep_debt_sleep": 1.7687026357044302,
+          "sleep_debt_mood": 0.5937129278766371
+        },
+        "large": {
+          "sleep_debt_sleep": 1.9074810542817722,
+          "sleep_debt_mood": 0.5984282319691593
+        }
+      }
+    },
+    {
+      "episode_id": "AST-017-fluid_loss-1",
+      "astronaut_index": 16,
+      "astronaut_id": "AST-017",
+      "kind": "fluid_loss",
+      "start_day": 142,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.22602561967732904,
+        "fluid_hr": 0.0792697978327529
+      },
+      "peak_day": 145,
+      "end_day": 147,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 13.356153718063974,
+          "fluid_hr": 10.317079191331011
+        },
+        "default": {
+          "fluid_bp_sys": 14.938333055805277,
+          "fluid_hr": 10.951237573993035
+        },
+        "large": {
+          "fluid_bp_sys": 20.356153718063975,
+          "fluid_hr": 18.31707919133101
+        }
+      }
+    },
+    {
+      "episode_id": "AST-010-eva-1",
+      "astronaut_index": 9,
+      "astronaut_id": "AST-010",
+      "kind": "eva",
+      "start_day": 143,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.7399027052262815,
+        "eva_bp_sys": 0.9484445114181521,
+        "eva_bp_dia": 0.735566630515269
+      },
+      "peak_day": 143,
+      "end_day": 143,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 32.39902705226282,
+          "eva_bp_sys": 14.742222557090761,
+          "eva_bp_dia": 7.206699891545807
+        },
+        "default": {
+          "eva_hr": 47.19708115678844,
+          "eva_bp_sys": 24.22666767127228,
+          "eva_bp_dia": 12.35566630515269
+        },
+        "large": {
+          "eva_hr": 52.39902705226282,
+          "eva_bp_sys": 24.742222557090763,
+          "eva_bp_dia": 14.206699891545806
+        }
+      }
+    },
+    {
+      "episode_id": "AST-007-eva-1",
+      "astronaut_index": 6,
+      "astronaut_id": "AST-007",
+      "kind": "eva",
+      "start_day": 144,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.5686891145513944,
+        "eva_bp_sys": 0.17872498922352065,
+        "eva_bp_dia": 0.022859287583543497
+      },
+      "peak_day": 144,
+      "end_day": 144,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 30.686891145513943,
+          "eva_bp_sys": 10.893624946117603,
+          "eva_bp_dia": 5.06857786275063
+        },
+        "default": {
+          "eva_hr": 42.06067343654183,
+          "eva_bp_sys": 12.68087483835281,
+          "eva_bp_dia": 5.228592875835435
+        },
+        "large": {
+          "eva_hr": 50.68689114551394,
+          "eva_bp_sys": 20.893624946117605,
+          "eva_bp_dia": 12.068577862750631
+        }
+      }
+    },
+    {
+      "episode_id": "AST-008-sleep_debt-3",
+      "astronaut_index": 7,
+      "astronaut_id": "AST-008",
+      "kind": "sleep_debt",
+      "start_day": 144,
+      "duration": 7,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.8979210991217754,
+        "sleep_debt_mood": 0.6646520780796211
+      },
+      "peak_day": 147,
+      "end_day": 150,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.35916843964871,
+          "sleep_debt_mood": 0.2664652078079621
+        },
+        "default": {
+          "sleep_debt_sleep": 1.8979210991217754,
+          "sleep_debt_mood": 0.46586083123184846
+        },
+        "large": {
+          "sleep_debt_sleep": 1.9591684396487101,
+          "sleep_debt_mood": 0.5664652078079621
+        }
+      }
+    },
+    {
+      "episode_id": "AST-015-eva-2",
+      "astronaut_index": 14,
+      "astronaut_id": "AST-015",
+      "kind": "eva",
+      "start_day": 144,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.7228035893797988,
+        "eva_bp_sys": 0.4458742690025921,
+        "eva_bp_dia": 0.18749406107490418
+      },
+      "peak_day": 144,
+      "end_day": 144,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 32.22803589379799,
+          "eva_bp_sys": 12.22937134501296,
+          "eva_bp_dia": 5.562482183224713
+        },
+        "default": {
+          "eva_hr": 46.68410768139397,
+          "eva_bp_sys": 16.68811403503888,
+          "eva_bp_dia": 6.874940610749042
+        },
+        "large": {
+          "eva_hr": 52.22803589379799,
+          "eva_bp_sys": 22.22937134501296,
+          "eva_bp_dia": 12.562482183224713
+        }
+      }
+    },
+    {
+      "episode_id": "AST-002-fluid_loss-1",
+      "astronaut_index": 1,
+      "astronaut_id": "AST-002",
+      "kind": "fluid_loss",
+      "start_day": 147,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.16528510862475254,
+        "fluid_hr": 0.2305451733642957
+      },
+      "peak_day": 150,
+      "end_day": 152,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 12.991710651748516,
+          "fluid_hr": 10.922180693457182
+        },
+        "default": {
+          "fluid_bp_sys": 14.148706412121783,
+          "fluid_hr": 12.766542080371549
+        },
+        "large": {
+          "fluid_bp_sys": 19.991710651748516,
+          "fluid_hr": 18.922180693457182
+        }
+      }
+    },
+    {
+      "episode_id": "AST-011-infection-1",
+      "astronaut_index": 10,
+      "astronaut_id": "AST-011",
+      "kind": "infection",
+      "start_day": 147,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.8778847818410359,
+        "infection_sleep": 0.058239530201456446,
+        "infection_mood": 0.6362301275408798,
+        "infection_spo2": 0.8134148902444014
+      },
+      "peak_day": 149,
+      "end_day": 151,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.1511539127364143,
+          "infection_sleep": 0.3116479060402913,
+          "infection_mood": 0.363623012754088,
+          "infection_spo2": 0.7440244670733205
+        },
+        "default": {
+          "infection_temp": 1.853461738209243,
+          "infection_sleep": 0.3291197651007282,
+          "infection_mood": 0.5544920510163519,
+          "infection_spo2": 1.3134148902444014
+        },
+        "large": {
+          "infection_temp": 1.9511539127364144,
+          "infection_sleep": 0.6116479060402913,
+          "infection_mood": 0.663623012754088,
+          "infection_spo2": 1.4440244670733204
+        }
+      }
+    },
+    {
+      "episode_id": "AST-015-eva-3",
+      "astronaut_index": 14,
+      "astronaut_id": "AST-015",
+      "kind": "eva",
+      "start_day": 147,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.18091435786518384,
+        "eva_bp_sys": 0.17777949390930048,
+        "eva_bp_dia": 0.40557386723958644
+      },
+      "peak_day": 147,
+      "end_day": 147,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 26.809143578651838,
+          "eva_bp_sys": 10.888897469546503,
+          "eva_bp_dia": 6.21672160171876
+        },
+        "default": {
+          "eva_hr": 30.427430735955515,
+          "eva_bp_sys": 12.666692408639507,
+          "eva_bp_dia": 9.055738672395865
+        },
+        "large": {
+          "eva_hr": 46.80914357865184,
+          "eva_bp_sys": 20.888897469546503,
+          "eva_bp_dia": 13.21672160171876
+        }
+      }
+    },
+    {
+      "episode_id": "AST-016-eva-1",
+      "astronaut_index": 15,
+      "astronaut_id": "AST-016",
+      "kind": "eva",
+      "start_day": 147,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.7761203958192541,
+        "eva_bp_sys": 0.5352842733194583,
+        "eva_bp_dia": 0.1851357957953782
+      },
+      "peak_day": 147,
+      "end_day": 147,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 32.76120395819254,
+          "eva_bp_sys": 12.676421366597292,
+          "eva_bp_dia": 5.5554073873861345
+        },
+        "default": {
+          "eva_hr": 48.28361187457762,
+          "eva_bp_sys": 18.029264099791874,
+          "eva_bp_dia": 6.851357957953782
+        },
+        "large": {
+          "eva_hr": 52.76120395819254,
+          "eva_bp_sys": 22.676421366597292,
+          "eva_bp_dia": 12.555407387386134
+        }
+      }
+    },
+    {
+      "episode_id": "AST-001-sleep_debt-1",
+      "astronaut_index": 0,
+      "astronaut_id": "AST-001",
+      "kind": "sleep_debt",
+      "start_day": 148,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.18096025206720534,
+        "sleep_debt_mood": 0.9459981453493543
+      },
+      "peak_day": 152,
+      "end_day": 156,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.0723841008268822,
+          "sleep_debt_mood": 0.29459981453493544
+        },
+        "default": {
+          "sleep_debt_sleep": 1.1809602520672053,
+          "sleep_debt_mood": 0.5783992581397417
+        },
+        "large": {
+          "sleep_debt_sleep": 1.6723841008268823,
+          "sleep_debt_mood": 0.5945998145349354
+        }
+      }
+    },
+    {
+      "episode_id": "AST-004-sleep_debt-1",
+      "astronaut_index": 3,
+      "astronaut_id": "AST-004",
+      "kind": "sleep_debt",
+      "start_day": 148,
+      "duration": 10,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.01345622504592825,
+        "sleep_debt_mood": 0.8489703610456341
+      },
+      "peak_day": 153,
+      "end_day": 157,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.0053824900183712,
+          "sleep_debt_mood": 0.2848970361045634
+        },
+        "default": {
+          "sleep_debt_sleep": 1.0134562250459282,
+          "sleep_debt_mood": 0.5395881444182535
+        },
+        "large": {
+          "sleep_debt_sleep": 1.6053824900183713,
+          "sleep_debt_mood": 0.5848970361045633
+        }
+      }
+    },
+    {
+      "episode_id": "AST-009-eva-3",
+      "astronaut_index": 8,
+      "astronaut_id": "AST-009",
+      "kind": "eva",
+      "start_day": 148,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.9787699947372901,
+        "eva_bp_sys": 0.5129675629531795,
+        "eva_bp_dia": 0.8041123190608036
+      },
+      "peak_day": 148,
+      "end_day": 148,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 34.7876999473729,
+          "eva_bp_sys": 12.564837814765898,
+          "eva_bp_dia": 7.412336957182411
+        },
+        "default": {
+          "eva_hr": 54.3630998421187,
+          "eva_bp_sys": 17.69451344429769,
+          "eva_bp_dia": 13.041123190608037
+        },
+        "large": {
+          "eva_hr": 54.7876999473729,
+          "eva_bp_sys": 22.564837814765898,
+          "eva_bp_dia": 14.412336957182411
+        }
+      }
+    },
+    {
+      "episode_id": "AST-013-sleep_debt-2",
+      "astronaut_index": 12,
+      "astronaut_id": "AST-013",
+      "kind": "sleep_debt",
+      "start_day": 150,
+      "duration": 6,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.4087884350726003,
+        "sleep_debt_mood": 0.4746979069088725
+      },
+      "peak_day": 153,
+      "end_day": 155,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.16351537402904,
+          "sleep_debt_mood": 0.24746979069088726
+        },
+        "default": {
+          "sleep_debt_sleep": 1.4087884350726003,
+          "sleep_debt_mood": 0.38987916276354895
+        },
+        "large": {
+          "sleep_debt_sleep": 1.7635153740290401,
+          "sleep_debt_mood": 0.5474697906908872
+        }
+      }
+    },
+    {
+      "episode_id": "AST-014-sleep_debt-1",
+      "astronaut_index": 13,
+      "astronaut_id": "AST-014",
+      "kind": "sleep_debt",
+      "start_day": 150,
+      "duration": 8,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.36066210274546107,
+        "sleep_debt_mood": 0.42798823621407167
+      },
+      "peak_day": 154,
+      "end_day": 157,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.1442648410981844,
+          "sleep_debt_mood": 0.24279882362140717
+        },
+        "default": {
+          "sleep_debt_sleep": 1.360662102745461,
+          "sleep_debt_mood": 0.37119529448562866
+        },
+        "large": {
+          "sleep_debt_sleep": 1.7442648410981845,
+          "sleep_debt_mood": 0.5427988236214072
+        }
+      }
+    },
+    {
+      "episode_id": "AST-016-sleep_debt-2",
+      "astronaut_index": 15,
+      "astronaut_id": "AST-016",
+      "kind": "sleep_debt",
+      "start_day": 150,
+      "duration": 7,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.2038414401982559,
+        "sleep_debt_mood": 0.2191503578711056
+      },
+      "peak_day": 153,
+      "end_day": 156,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.0815365760793023,
+          "sleep_debt_mood": 0.22191503578711055
+        },
+        "default": {
+          "sleep_debt_sleep": 1.2038414401982558,
+          "sleep_debt_mood": 0.28766014314844224
+        },
+        "large": {
+          "sleep_debt_sleep": 1.6815365760793024,
+          "sleep_debt_mood": 0.5219150357871105
+        }
+      }
+    },
+    {
+      "episode_id": "AST-018-eva-2",
+      "astronaut_index": 17,
+      "astronaut_id": "AST-018",
+      "kind": "eva",
+      "start_day": 150,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.8821888839037385,
+        "eva_bp_sys": 0.7815810295289696,
+        "eva_bp_dia": 0.3839735788612112
+      },
+      "peak_day": 150,
+      "end_day": 150,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 33.821888839037385,
+          "eva_bp_sys": 13.907905147644847,
+          "eva_bp_dia": 6.151920736583634
+        },
+        "default": {
+          "eva_hr": 51.465666517112155,
+          "eva_bp_sys": 21.723715442934544,
+          "eva_bp_dia": 8.839735788612112
+        },
+        "large": {
+          "eva_hr": 53.821888839037385,
+          "eva_bp_sys": 23.907905147644847,
+          "eva_bp_dia": 13.151920736583634
+        }
+      }
+    },
+    {
+      "episode_id": "AST-019-infection-2",
+      "astronaut_index": 18,
+      "astronaut_id": "AST-019",
+      "kind": "infection",
+      "start_day": 152,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.9040396655255456,
+        "infection_sleep": 0.15133173590448834,
+        "infection_mood": 0.9297503005322529,
+        "infection_spo2": 0.8353572439665862
+      },
+      "peak_day": 154,
+      "end_day": 156,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.1616158662102183,
+          "infection_sleep": 0.33026634718089765,
+          "infection_mood": 0.3929750300532253,
+          "infection_spo2": 0.7506071731899759
+        },
+        "default": {
+          "infection_temp": 1.8848475986306548,
+          "infection_sleep": 0.37566586795224416,
+          "infection_mood": 0.6719001202129011,
+          "infection_spo2": 1.3353572439665862
+        },
+        "large": {
+          "infection_temp": 1.9616158662102183,
+          "infection_sleep": 0.6302663471808977,
+          "infection_mood": 0.6929750300532252,
+          "infection_spo2": 1.450607173189976
+        }
+      }
+    },
+    {
+      "episode_id": "AST-007-fluid_loss-1",
+      "astronaut_index": 6,
+      "astronaut_id": "AST-007",
+      "kind": "fluid_loss",
+      "start_day": 153,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.41608341294759477,
+        "fluid_hr": 0.40234494712627533
+      },
+      "peak_day": 156,
+      "end_day": 158,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 14.496500477685569,
+          "fluid_hr": 11.609379788505102
+        },
+        "default": {
+          "fluid_bp_sys": 17.40908436831873,
+          "fluid_hr": 14.828139365515304
+        },
+        "large": {
+          "fluid_bp_sys": 21.49650047768557,
+          "fluid_hr": 19.6093797885051
+        }
+      }
+    },
+    {
+      "episode_id": "AST-008-eva-1",
+      "astronaut_index": 7,
+      "astronaut_id": "AST-008",
+      "kind": "eva",
+      "start_day": 155,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.14745881556911922,
+        "eva_bp_sys": 0.2961636768442749,
+        "eva_bp_dia": 0.5463022276719826
+      },
+      "peak_day": 155,
+      "end_day": 155,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 26.474588155691194,
+          "eva_bp_sys": 11.480818384221374,
+          "eva_bp_dia": 6.638906683015948
+        },
+        "default": {
+          "eva_hr": 29.423764467073575,
+          "eva_bp_sys": 14.442455152664124,
+          "eva_bp_dia": 10.463022276719826
+        },
+        "large": {
+          "eva_hr": 46.474588155691194,
+          "eva_bp_sys": 21.480818384221376,
+          "eva_bp_dia": 13.638906683015948
+        }
+      }
+    },
+    {
+      "episode_id": "AST-009-sleep_debt-2",
+      "astronaut_index": 8,
+      "astronaut_id": "AST-009",
+      "kind": "sleep_debt",
+      "start_day": 155,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.26711002370418446,
+        "sleep_debt_mood": 0.6734200919389044
+      },
+      "peak_day": 159,
+      "end_day": 163,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.1068440094816738,
+          "sleep_debt_mood": 0.26734200919389045
+        },
+        "default": {
+          "sleep_debt_sleep": 1.2671100237041846,
+          "sleep_debt_mood": 0.46936803677556177
+        },
+        "large": {
+          "sleep_debt_sleep": 1.706844009481674,
+          "sleep_debt_mood": 0.5673420091938904
+        }
+      }
+    },
+    {
+      "episode_id": "AST-018-sleep_debt-2",
+      "astronaut_index": 17,
+      "astronaut_id": "AST-018",
+      "kind": "sleep_debt",
+      "start_day": 156,
+      "duration": 6,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.5382831525072898,
+        "sleep_debt_mood": 0.366059282006021
+      },
+      "peak_day": 159,
+      "end_day": 161,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.2153132610029158,
+          "sleep_debt_mood": 0.2366059282006021
+        },
+        "default": {
+          "sleep_debt_sleep": 1.5382831525072898,
+          "sleep_debt_mood": 0.3464237128024084
+        },
+        "large": {
+          "sleep_debt_sleep": 1.815313261002916,
+          "sleep_debt_mood": 0.536605928200602
+        }
+      }
+    },
+    {
+      "episode_id": "AST-020-eva-2",
+      "astronaut_index": 19,
+      "astronaut_id": "AST-020",
+      "kind": "eva",
+      "start_day": 156,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.06448133389506261,
+        "eva_bp_sys": 0.8251325606443757,
+        "eva_bp_dia": 0.9093414942592952
+      },
+      "peak_day": 156,
+      "end_day": 156,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 25.644813338950627,
+          "eva_bp_sys": 14.125662803221879,
+          "eva_bp_dia": 7.728024482777886
+        },
+        "default": {
+          "eva_hr": 26.934440016851877,
+          "eva_bp_sys": 22.376988409665636,
+          "eva_bp_dia": 14.093414942592952
+        },
+        "large": {
+          "eva_hr": 45.64481333895063,
+          "eva_bp_sys": 24.12566280322188,
+          "eva_bp_dia": 14.728024482777887
+        }
+      }
+    },
+    {
+      "episode_id": "AST-012-eva-1",
+      "astronaut_index": 11,
+      "astronaut_id": "AST-012",
+      "kind": "eva",
+      "start_day": 157,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.7064159667982393,
+        "eva_bp_sys": 0.4540284639272013,
+        "eva_bp_dia": 0.00881740313770285
+      },
+      "peak_day": 157,
+      "end_day": 157,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 32.064159667982395,
+          "eva_bp_sys": 12.270142319636006,
+          "eva_bp_dia": 5.026452209413108
+        },
+        "default": {
+          "eva_hr": 46.19247900394718,
+          "eva_bp_sys": 16.810426958908018,
+          "eva_bp_dia": 5.0881740313770285
+        },
+        "large": {
+          "eva_hr": 52.064159667982395,
+          "eva_bp_sys": 22.270142319636008,
+          "eva_bp_dia": 12.026452209413108
+        }
+      }
+    },
+    {
+      "episode_id": "AST-015-fluid_loss-1",
+      "astronaut_index": 14,
+      "astronaut_id": "AST-015",
+      "kind": "fluid_loss",
+      "start_day": 157,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.2817400616543224,
+        "fluid_hr": 0.2554174218742765
+      },
+      "peak_day": 160,
+      "end_day": 162,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 13.690440369925934,
+          "fluid_hr": 11.021669687497106
+        },
+        "default": {
+          "fluid_bp_sys": 15.662620801506192,
+          "fluid_hr": 13.065009062491319
+        },
+        "large": {
+          "fluid_bp_sys": 20.690440369925934,
+          "fluid_hr": 19.021669687497106
+        }
+      }
+    },
+    {
+      "episode_id": "AST-006-sleep_debt-2",
+      "astronaut_index": 5,
+      "astronaut_id": "AST-006",
+      "kind": "sleep_debt",
+      "start_day": 158,
+      "duration": 8,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.008753102675661983,
+        "sleep_debt_mood": 0.3273367267932963
+      },
+      "peak_day": 162,
+      "end_day": 165,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.0035012410702648,
+          "sleep_debt_mood": 0.23273367267932962
+        },
+        "default": {
+          "sleep_debt_sleep": 1.008753102675662,
+          "sleep_debt_mood": 0.3309346907173185
+        },
+        "large": {
+          "sleep_debt_sleep": 1.603501241070265,
+          "sleep_debt_mood": 0.5327336726793296
+        }
+      }
+    },
+    {
+      "episode_id": "AST-008-sleep_debt-2",
+      "astronaut_index": 7,
+      "astronaut_id": "AST-008",
+      "kind": "sleep_debt",
+      "start_day": 158,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.5396409177142828,
+        "sleep_debt_mood": 0.3658372361902955
+      },
+      "peak_day": 162,
+      "end_day": 166,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.215856367085713,
+          "sleep_debt_mood": 0.23658372361902955
+        },
+        "default": {
+          "sleep_debt_sleep": 1.5396409177142827,
+          "sleep_debt_mood": 0.3463348944761182
+        },
+        "large": {
+          "sleep_debt_sleep": 1.815856367085713,
+          "sleep_debt_mood": 0.5365837236190295
+        }
+      }
+    },
+    {
+      "episode_id": "AST-011-sleep_debt-3",
+      "astronaut_index": 10,
+      "astronaut_id": "AST-011",
+      "kind": "sleep_debt",
+      "start_day": 158,
+      "duration": 9,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.7715613486901112,
+        "sleep_debt_mood": 0.5675089430009882
+      },
+      "peak_day": 162,
+      "end_day": 166,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.3086245394760443,
+          "sleep_debt_mood": 0.25675089430009884
+        },
+        "default": {
+          "sleep_debt_sleep": 1.7715613486901112,
+          "sleep_debt_mood": 0.4270035772003953
+        },
+        "large": {
+          "sleep_debt_sleep": 1.9086245394760444,
+          "sleep_debt_mood": 0.5567508943000988
+        }
+      }
+    },
+    {
+      "episode_id": "AST-010-eva-2",
+      "astronaut_index": 9,
+      "astronaut_id": "AST-010",
+      "kind": "eva",
+      "start_day": 160,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.3174283771948547,
+        "eva_bp_sys": 0.8760858032652727,
+        "eva_bp_dia": 0.9368383028560641
+      },
+      "peak_day": 160,
+      "end_day": 160,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 28.17428377194855,
+          "eva_bp_sys": 14.380429016326364,
+          "eva_bp_dia": 7.810514908568193
+        },
+        "default": {
+          "eva_hr": 34.52285131584564,
+          "eva_bp_sys": 23.14128704897909,
+          "eva_bp_dia": 14.36838302856064
+        },
+        "large": {
+          "eva_hr": 48.174283771948545,
+          "eva_bp_sys": 24.380429016326364,
+          "eva_bp_dia": 14.810514908568193
+        }
+      }
+    },
+    {
+      "episode_id": "AST-001-fluid_loss-1",
+      "astronaut_index": 0,
+      "astronaut_id": "AST-001",
+      "kind": "fluid_loss",
+      "start_day": 161,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.24433466847455576,
+        "fluid_hr": 0.13607209384434638
+      },
+      "peak_day": 164,
+      "end_day": 166,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 13.466008010847334,
+          "fluid_hr": 10.544288375377386
+        },
+        "default": {
+          "fluid_bp_sys": 15.176350690169226,
+          "fluid_hr": 11.632865126132156
+        },
+        "large": {
+          "fluid_bp_sys": 20.466008010847336,
+          "fluid_hr": 18.544288375377384
+        }
+      }
+    },
+    {
+      "episode_id": "AST-002-eva-2",
+      "astronaut_index": 1,
+      "astronaut_id": "AST-002",
+      "kind": "eva",
+      "start_day": 161,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.19462165919314967,
+        "eva_bp_sys": 0.2525395954815475,
+        "eva_bp_dia": 0.7829749830732565
+      },
+      "peak_day": 161,
+      "end_day": 161,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 26.946216591931496,
+          "eva_bp_sys": 11.262697977407738,
+          "eva_bp_dia": 7.34892494921977
+        },
+        "default": {
+          "eva_hr": 30.83864977579449,
+          "eva_bp_sys": 13.788093932223212,
+          "eva_bp_dia": 12.829749830732565
+        },
+        "large": {
+          "eva_hr": 46.946216591931496,
+          "eva_bp_sys": 21.262697977407736,
+          "eva_bp_dia": 14.34892494921977
+        }
+      }
+    },
+    {
+      "episode_id": "AST-019-eva-3",
+      "astronaut_index": 18,
+      "astronaut_id": "AST-019",
+      "kind": "eva",
+      "start_day": 161,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.7045359283251633,
+        "eva_bp_sys": 0.4833549498902906,
+        "eva_bp_dia": 0.11251372857032982
+      },
+      "peak_day": 161,
+      "end_day": 161,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 32.045359283251635,
+          "eva_bp_sys": 12.416774749451452,
+          "eva_bp_dia": 5.33754118571099
+        },
+        "default": {
+          "eva_hr": 46.1360778497549,
+          "eva_bp_sys": 17.25032424835436,
+          "eva_bp_dia": 6.125137285703298
+        },
+        "large": {
+          "eva_hr": 52.045359283251635,
+          "eva_bp_sys": 22.416774749451452,
+          "eva_bp_dia": 12.33754118571099
+        }
+      }
+    },
+    {
+      "episode_id": "AST-003-fluid_loss-1",
+      "astronaut_index": 2,
+      "astronaut_id": "AST-003",
+      "kind": "fluid_loss",
+      "start_day": 162,
+      "duration": 6,
+      "severity_quantiles": {
+        "fluid_bp_sys": 0.42248512178313924,
+        "fluid_hr": 0.8664200019914938
+      },
+      "peak_day": 165,
+      "end_day": 167,
+      "amplitudes": {
+        "small": {
+          "fluid_bp_sys": 14.534910730698837,
+          "fluid_hr": 13.465680007965975
+        },
+        "default": {
+          "fluid_bp_sys": 17.49230658318081,
+          "fluid_hr": 20.397040023897926
+        },
+        "large": {
+          "fluid_bp_sys": 21.534910730698837,
+          "fluid_hr": 21.465680007965975
+        }
+      }
+    },
+    {
+      "episode_id": "AST-004-eva-2",
+      "astronaut_index": 3,
+      "astronaut_id": "AST-004",
+      "kind": "eva",
+      "start_day": 163,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.5742393340986901,
+        "eva_bp_sys": 0.07786216906485754,
+        "eva_bp_dia": 0.9516864013365025
+      },
+      "peak_day": 163,
+      "end_day": 163,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 30.7423933409869,
+          "eva_bp_sys": 10.389310845324287,
+          "eva_bp_dia": 7.855059204009508
+        },
+        "default": {
+          "eva_hr": 42.2271800229607,
+          "eva_bp_sys": 11.167932535972863,
+          "eva_bp_dia": 14.516864013365025
+        },
+        "large": {
+          "eva_hr": 50.7423933409869,
+          "eva_bp_sys": 20.38931084532429,
+          "eva_bp_dia": 14.855059204009507
+        }
+      }
+    },
+    {
+      "episode_id": "AST-010-infection-2",
+      "astronaut_index": 9,
+      "astronaut_id": "AST-010",
+      "kind": "infection",
+      "start_day": 163,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.6597295950217733,
+        "infection_sleep": 0.3712938532048533,
+        "infection_mood": 0.5856393944379771,
+        "infection_spo2": 0.4901445352760905
+      },
+      "peak_day": 165,
+      "end_day": 167,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 1.0638918380087092,
+          "infection_sleep": 0.3742587706409707,
+          "infection_mood": 0.3585639394437977,
+          "infection_spo2": 0.6470433605828272
+        },
+        "default": {
+          "infection_temp": 1.5916755140261278,
+          "infection_sleep": 0.48564692660242664,
+          "infection_mood": 0.5342557577751907,
+          "infection_spo2": 0.9901445352760905
+        },
+        "large": {
+          "infection_temp": 1.8638918380087093,
+          "infection_sleep": 0.6742587706409706,
+          "infection_mood": 0.6585639394437977,
+          "infection_spo2": 1.3470433605828271
+        }
+      }
+    },
+    {
+      "episode_id": "AST-015-sleep_debt-3",
+      "astronaut_index": 14,
+      "astronaut_id": "AST-015",
+      "kind": "sleep_debt",
+      "start_day": 166,
+      "duration": 8,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.3535976174677954,
+        "sleep_debt_mood": 0.8434217856263259
+      },
+      "peak_day": 170,
+      "end_day": 173,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.141439046987118,
+          "sleep_debt_mood": 0.28434217856263255
+        },
+        "default": {
+          "sleep_debt_sleep": 1.3535976174677953,
+          "sleep_debt_mood": 0.5373687142505303
+        },
+        "large": {
+          "sleep_debt_sleep": 1.7414390469871182,
+          "sleep_debt_mood": 0.5843421785626326
+        }
+      }
+    },
+    {
+      "episode_id": "AST-005-eva-3",
+      "astronaut_index": 4,
+      "astronaut_id": "AST-005",
+      "kind": "eva",
+      "start_day": 167,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.024819049189471643,
+        "eva_bp_sys": 0.8179998394338288,
+        "eva_bp_dia": 0.04027256736237406
+      },
+      "peak_day": 167,
+      "end_day": 167,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 25.248190491894718,
+          "eva_bp_sys": 14.089999197169144,
+          "eva_bp_dia": 5.120817702087122
+        },
+        "default": {
+          "eva_hr": 25.74457147568415,
+          "eva_bp_sys": 22.269997591507433,
+          "eva_bp_dia": 5.40272567362374
+        },
+        "large": {
+          "eva_hr": 45.24819049189472,
+          "eva_bp_sys": 24.089999197169142,
+          "eva_bp_dia": 12.120817702087122
+        }
+      }
+    },
+    {
+      "episode_id": "AST-012-sleep_debt-3",
+      "astronaut_index": 11,
+      "astronaut_id": "AST-012",
+      "kind": "sleep_debt",
+      "start_day": 168,
+      "duration": 5,
+      "severity_quantiles": {
+        "sleep_debt_sleep": 0.60901378899488,
+        "sleep_debt_mood": 0.33048111673858416
+      },
+      "peak_day": 170,
+      "end_day": 172,
+      "amplitudes": {
+        "small": {
+          "sleep_debt_sleep": 1.243605515597952,
+          "sleep_debt_mood": 0.23304811167385842
+        },
+        "default": {
+          "sleep_debt_sleep": 1.6090137889948801,
+          "sleep_debt_mood": 0.3321924466954337
+        },
+        "large": {
+          "sleep_debt_sleep": 1.843605515597952,
+          "sleep_debt_mood": 0.5330481116738585
+        }
+      }
+    },
+    {
+      "episode_id": "AST-002-infection-2",
+      "astronaut_index": 1,
+      "astronaut_id": "AST-002",
+      "kind": "infection",
+      "start_day": 169,
+      "duration": 5,
+      "severity_quantiles": {
+        "infection_temp": 0.04166669349607521,
+        "infection_sleep": 0.22878047868505946,
+        "infection_mood": 0.28116434679500313,
+        "infection_spo2": 0.8604086489313093
+      },
+      "peak_day": 171,
+      "end_day": 173,
+      "amplitudes": {
+        "small": {
+          "infection_temp": 0.8166666773984301,
+          "infection_sleep": 0.3457560957370119,
+          "infection_mood": 0.3281164346795003,
+          "infection_spo2": 0.7581225946793928
+        },
+        "default": {
+          "infection_temp": 0.8500000321952903,
+          "infection_sleep": 0.4143902393425297,
+          "infection_mood": 0.41246573871800124,
+          "infection_spo2": 1.3604086489313092
+        },
+        "large": {
+          "infection_temp": 1.6166666773984302,
+          "infection_sleep": 0.6457560957370119,
+          "infection_mood": 0.6281164346795003,
+          "infection_spo2": 1.4581225946793928
+        }
+      }
+    },
+    {
+      "episode_id": "AST-003-eva-3",
+      "astronaut_index": 2,
+      "astronaut_id": "AST-003",
+      "kind": "eva",
+      "start_day": 170,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.8064742378230396,
+        "eva_bp_sys": 0.3652246762653045,
+        "eva_bp_dia": 0.24279722134578796
+      },
+      "peak_day": 170,
+      "end_day": 170,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 33.06474237823039,
+          "eva_bp_sys": 11.826123381326523,
+          "eva_bp_dia": 5.728391664037364
+        },
+        "default": {
+          "eva_hr": 49.19422713469119,
+          "eva_bp_sys": 15.478370143979568,
+          "eva_bp_dia": 7.427972213457879
+        },
+        "large": {
+          "eva_hr": 53.06474237823039,
+          "eva_bp_sys": 21.82612338132652,
+          "eva_bp_dia": 12.728391664037364
+        }
+      }
+    },
+    {
+      "episode_id": "AST-001-eva-2",
+      "astronaut_index": 0,
+      "astronaut_id": "AST-001",
+      "kind": "eva",
+      "start_day": 171,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.559071084670645,
+        "eva_bp_sys": 0.892304313181015,
+        "eva_bp_dia": 0.7375626580958113
+      },
+      "peak_day": 171,
+      "end_day": 171,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 30.59071084670645,
+          "eva_bp_sys": 14.461521565905075,
+          "eva_bp_dia": 7.212687974287434
+        },
+        "default": {
+          "eva_hr": 41.77213254011935,
+          "eva_bp_sys": 23.384564697715227,
+          "eva_bp_dia": 12.375626580958112
+        },
+        "large": {
+          "eva_hr": 50.59071084670645,
+          "eva_bp_sys": 24.461521565905073,
+          "eva_bp_dia": 14.212687974287434
+        }
+      }
+    },
+    {
+      "episode_id": "AST-017-eva-1",
+      "astronaut_index": 16,
+      "astronaut_id": "AST-017",
+      "kind": "eva",
+      "start_day": 171,
+      "duration": 1,
+      "severity_quantiles": {
+        "eva_hr": 0.7324306675948615,
+        "eva_bp_sys": 0.9084008147662077,
+        "eva_bp_dia": 0.005308535436325368
+      },
+      "peak_day": 171,
+      "end_day": 171,
+      "amplitudes": {
+        "small": {
+          "eva_hr": 32.32430667594861,
+          "eva_bp_sys": 14.542004073831038,
+          "eva_bp_dia": 5.015925606308976
+        },
+        "default": {
+          "eva_hr": 46.972920027845845,
+          "eva_bp_sys": 23.626012221493117,
+          "eva_bp_dia": 5.053085354363254
+        },
+        "large": {
+          "eva_hr": 52.32430667594861,
+          "eva_bp_sys": 24.542004073831038,
+          "eva_bp_dia": 12.015925606308976
+        }
+      }
+    }
+  ]
+}

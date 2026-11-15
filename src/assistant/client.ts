@@ -1,4 +1,4 @@
-// CAPCOM Assistant — browser side. Talks only to our own server (/api/chat), never to Groq.
+// Astro Health AI — browser side. Talks only to our own server (/api/chat), never to Groq.
 import {
   buildFactPack,
   buildModelContext,

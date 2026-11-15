@@ -1,4 +1,4 @@
-// Production server: serves the built app (dist/) and the CAPCOM API.
+// Production server: serves the built Astro Health AI app (dist/) and its assistant API.
 // Run `npm run build` first, then `npm start`. Reads GROQ_API_KEY from the environment only.
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
@@ -47,5 +47,5 @@ async function serveStatic(req, res) {
 createServer((req, res) => {
   api(req, res, () => serveStatic(req, res));
 }).listen(PORT, () => {
-  console.log(`VITALS-ORBIT on http://localhost:${PORT} · CAPCOM key ${process.env.GROQ_API_KEY ? 'configured' : 'missing (built-in guidance only)'}`);
+  console.log(`Astro Health AI on http://localhost:${PORT} · assistant key ${process.env.GROQ_API_KEY ? 'configured' : 'missing (built-in guidance only)'}`);
 });

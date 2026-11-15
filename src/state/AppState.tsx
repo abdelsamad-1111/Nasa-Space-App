@@ -16,6 +16,7 @@ import {
 import type { IndicatorId, MetricId, Status } from '../brain/indicators';
 import { MISSION_LENGTH, missionDayFor } from '../data/demo';
 import { clearState, demoState, emptyState, loadState, saveState, type PersistedState } from '../data/storage';
+import { forecastPresentation, type ForecastPresentation } from '../lib/forecastPresentation';
 
 type Action =
   | { type: 'settings'; settings: Settings }
@@ -50,6 +51,7 @@ export type Screen = 'twin' | 'checkin' | 'exercise' | 'alerts' | 'settings' | '
 
 export interface DayView {
   day: number;
+  forecast: ForecastPresentation | null;
   evals: Partial<Record<IndicatorId, Evaluation>>;
   /** The 8 indicators plus leg exercise (Legs zone). */
   metrics: Partial<Record<MetricId, Evaluation>>;
@@ -82,12 +84,26 @@ interface Ctx {
   openAlerts: Alert[];
   loadDemo: () => void;
   resetAll: () => void;
-  /** CAPCOM Assistant side panel. */
+  /** Astro Health AI assistant side panel. */
   assistantOpen: boolean;
   /** Open the Assistant; `focusInput` moves focus to the question box. */
   openAssistant: (focusInput?: boolean) => void;
   closeAssistant: () => void;
   assistantFocusToken: number;
+  /** Crew Health Report shown as A4 pages (null = closed). */
+  reportDay: number | null;
+  openReport: (day: number) => void;
+  closeReport: () => void;
+}
+
+/** `?report=20` opens the report for mission day 20 on load (handy for printing). */
+function reportDayFromUrl(): number | null {
+  try {
+    const n = Number(new URLSearchParams(window.location.search).get('report'));
+    return Number.isInteger(n) && n >= 1 ? n : null;
+  } catch {
+    return null;
+  }
 }
 
 const AppContext = createContext<Ctx | null>(null);
@@ -130,7 +146,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const today = Math.max(1, missionDayFor(data.missionStart));
   const lastDataDay = data.measurements.reduce((m, x) => Math.max(m, x.missionDay), 0);
   const maxDay = Math.max(MISSION_LENGTH, today, lastDataDay);
-  const [day, setDayRaw] = useState(() => clamp(today, 1, maxDay));
+  const [reportDay, setReportDay] = useState<number | null>(() => {
+    const d = reportDayFromUrl();
+    return d === null ? null : clamp(d, 1, maxDay);
+  });
+  const [day, setDayRaw] = useState(() => clamp(reportDay ?? today, 1, maxDay));
+  const openReport = useCallback((d: number) => setReportDay(d), []);
+  const closeReport = useCallback(() => setReportDay(null), []);
   const setDay = useCallback((d: number) => setDayRaw(clamp(Math.round(d), 1, maxDay)), [maxDay]);
 
   useEffect(() => saveState(data), [data]);
@@ -144,6 +166,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     const assessment = summarizeAssessment(evals, patterns);
     return {
       day,
+      forecast: forecastPresentation(data.measurements, day),
       evals,
       metrics: exercise ? { ...evals, exercise } : evals,
       patterns,
@@ -200,6 +223,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     openAssistant,
     closeAssistant,
     assistantFocusToken,
+    reportDay,
+    openReport,
+    closeReport,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }
