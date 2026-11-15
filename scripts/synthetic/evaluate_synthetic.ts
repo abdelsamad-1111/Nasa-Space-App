@@ -299,12 +299,14 @@ function detection(res: DayResult[]) {
   for (const [name, det] of Object.entries(DETECTORS)) {
     const eps = events.episodes.filter((e) => e.kind === det.kind);
     let caught = 0; let beforePeak = 0; const leads: number[] = []; const misses: unknown[] = [];
+    const perEpisode: { episode: string; peakDay: number; firstAlertDay: number | null }[] = [];
     for (const ep of eps) {
       let first: number | null = null;
       for (let d = ep.start_day; d <= ep.end_day; d++) {
         const r = byDay.get(labelKey(ep.astronaut_id, d));
         if (r && det.fire(r)) { first = d; break; }
       }
+      perEpisode.push({ episode: ep.episode_id, peakDay: ep.peak_day, firstAlertDay: first });
       if (first !== null) {
         caught++;
         if (first < ep.peak_day) beforePeak++;
@@ -336,6 +338,7 @@ function detection(res: DayResult[]) {
       alertDaysInsideEvent: inside,
       alertDayPrecisionPct: pct(inside, fired),
       misses,
+      perEpisode,
     };
   }
   return out;
@@ -354,8 +357,8 @@ const SCENARIOS = [
 const report: Record<string, unknown> = {
   label: LABEL,
   engine: 'src/brain/evaluate.ts (evaluateDay, detectPatterns, evaluateExerciseOnDay)',
-  forecast: 'Not evaluated: the app has no forecast module (src/brain/forecast.ts does not exist).',
-  nextDayLowBp: 'Not evaluated: the app issues no next-day warning, so there is nothing to score.',
+  forecast: 'Evaluated separately: see FORECAST.md (src/brain/forecast.ts, early-warning model trained on a separate synthetic crew).',
+  nextDayLowBp: 'Not evaluated as a separate task: the early-warning model covers fluid loss (see FORECAST.md).',
   warmupDays: WARMUP_DAYS,
   eventFreeDefinition: 'active_events = none, previous_day_sleep_event = none, mission day > 7; days with no morning readings are not counted.',
   mapping: MAPPING,
@@ -430,7 +433,7 @@ for (const [id, s] of Object.entries(S)) for (const [name, d] of Object.entries(
   md.push(`| ${id} | ${name}: ${d.rule} | ${d.caught} of ${d.episodes} | ${d.caughtBeforePeak} | ${d.medianLeadDays ?? '—'} | ${d.alertDays} | ${d.alertDaysInsideEvent} (${d.alertDayPrecisionPct}%) |`);
 }
 md.push('', 'Event sizes are assumptions (C = small, D = large). Read results as "detects events of this size", never as real-world accuracy. Missed episodes with their daily readings are listed in app-evaluation.json.', '');
-md.push('## Not evaluated', '', `- ${report.forecast as string}`, `- ${report.nextDayLowBp as string}`, '');
+md.push('## Other checks', '', `- ${report.forecast as string}`, `- ${report.nextDayLowBp as string}`, '');
 md.push('## Data changes in this version', '', '- `exercise_mean` changed from 100 to 120 min/day (still an ASSUMPTION; see the parameter note). All other columns are byte-identical to the delivered dataset; regenerated with seed 42 and `verify_outputs.py` passes.', '- Temperature data were NOT changed: the readings below 35.0 °C follow the published healthy within-person spread (0.40 °C) and are reported as an app finding.', '');
 md.push('## Reproduce', '', '```bash', 'cd scripts/synthetic && python generate.py && python verify_outputs.py', 'cd ../.. && npx vite-node scripts/synthetic/evaluate_synthetic.ts', '```', '', `**${LABEL}**`, '');
 writeFileSync(join(OUT, 'APP-EVALUATION.md'), md.join('\n'));

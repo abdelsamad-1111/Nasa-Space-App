@@ -1,8 +1,8 @@
 {
   "label": "SYNTHETIC DATA, research-based. Not real astronaut measurements. Not clinical validation.",
   "engine": "src/brain/evaluate.ts (evaluateDay, detectPatterns, evaluateExerciseOnDay)",
-  "forecast": "Not evaluated: the app has no forecast module (src/brain/forecast.ts does not exist).",
-  "nextDayLowBp": "Not evaluated: the app issues no next-day warning, so there is nothing to score.",
+  "forecast": "Evaluated separately: see FORECAST.md (src/brain/forecast.ts, early-warning model trained on a separate synthetic crew).",
+  "nextDayLowBp": "Not evaluated as a separate task: the early-warning model covers fluid loss (see FORECAST.md).",
   "warmupDays": 7,
   "eventFreeDefinition": "active_events = none, previous_day_sleep_event = none, mission day > 7; days with no morning readings are not counted.",
   "mapping": [
@@ -1236,6 +1236,208 @@
                 }
               ]
             }
+          ],
+          "perEpisode": [
+            {
+              "episode": "AST-006-infection-2",
+              "peakDay": 25,
+              "firstAlertDay": 25
+            },
+            {
+              "episode": "AST-007-infection-1",
+              "peakDay": 26,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-008-infection-1",
+              "peakDay": 29,
+              "firstAlertDay": 28
+            },
+            {
+              "episode": "AST-015-infection-1",
+              "peakDay": 35,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-004-infection-2",
+              "peakDay": 36,
+              "firstAlertDay": 36
+            },
+            {
+              "episode": "AST-009-infection-2",
+              "peakDay": 40,
+              "firstAlertDay": 40
+            },
+            {
+              "episode": "AST-013-infection-2",
+              "peakDay": 44,
+              "firstAlertDay": 44
+            },
+            {
+              "episode": "AST-012-infection-1",
+              "peakDay": 53,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-010-infection-1",
+              "peakDay": 55,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-018-infection-1",
+              "peakDay": 57,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-020-infection-2",
+              "peakDay": 61,
+              "firstAlertDay": 61
+            },
+            {
+              "episode": "AST-003-infection-2",
+              "peakDay": 65,
+              "firstAlertDay": 64
+            },
+            {
+              "episode": "AST-018-infection-2",
+              "peakDay": 67,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-007-infection-2",
+              "peakDay": 71,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-013-infection-1",
+              "peakDay": 71,
+              "firstAlertDay": 71
+            },
+            {
+              "episode": "AST-005-infection-2",
+              "peakDay": 72,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-001-infection-1",
+              "peakDay": 73,
+              "firstAlertDay": 73
+            },
+            {
+              "episode": "AST-020-infection-1",
+              "peakDay": 78,
+              "firstAlertDay": 78
+            },
+            {
+              "episode": "AST-011-infection-2",
+              "peakDay": 80,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-009-infection-1",
+              "peakDay": 83,
+              "firstAlertDay": 81
+            },
+            {
+              "episode": "AST-005-infection-1",
+              "peakDay": 84,
+              "firstAlertDay": 83
+            },
+            {
+              "episode": "AST-008-infection-2",
+              "peakDay": 88,
+              "firstAlertDay": 88
+            },
+            {
+              "episode": "AST-015-infection-2",
+              "peakDay": 90,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-004-infection-1",
+              "peakDay": 92,
+              "firstAlertDay": 93
+            },
+            {
+              "episode": "AST-001-infection-2",
+              "peakDay": 93,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-014-infection-2",
+              "peakDay": 99,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-017-infection-2",
+              "peakDay": 100,
+              "firstAlertDay": 101
+            },
+            {
+              "episode": "AST-003-infection-1",
+              "peakDay": 102,
+              "firstAlertDay": 102
+            },
+            {
+              "episode": "AST-014-infection-1",
+              "peakDay": 106,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-002-infection-1",
+              "peakDay": 109,
+              "firstAlertDay": 108
+            },
+            {
+              "episode": "AST-017-infection-1",
+              "peakDay": 116,
+              "firstAlertDay": 116
+            },
+            {
+              "episode": "AST-012-infection-2",
+              "peakDay": 119,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-006-infection-1",
+              "peakDay": 125,
+              "firstAlertDay": 125
+            },
+            {
+              "episode": "AST-016-infection-1",
+              "peakDay": 130,
+              "firstAlertDay": 129
+            },
+            {
+              "episode": "AST-016-infection-2",
+              "peakDay": 138,
+              "firstAlertDay": 138
+            },
+            {
+              "episode": "AST-019-infection-1",
+              "peakDay": 139,
+              "firstAlertDay": 139
+            },
+            {
+              "episode": "AST-011-infection-1",
+              "peakDay": 149,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-019-infection-2",
+              "peakDay": 154,
+              "firstAlertDay": 154
+            },
+            {
+              "episode": "AST-010-infection-2",
+              "peakDay": 165,
+              "firstAlertDay": 165
+            },
+            {
+              "episode": "AST-002-infection-2",
+              "peakDay": 171,
+              "firstAlertDay": null
+            }
           ]
         },
         "fluid_loss": {
@@ -1935,6 +2137,108 @@
                   "mood": 2
                 }
               ]
+            }
+          ],
+          "perEpisode": [
+            {
+              "episode": "AST-014-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": 20
+            },
+            {
+              "episode": "AST-018-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-010-fluid_loss-1",
+              "peakDay": 44,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-011-fluid_loss-1",
+              "peakDay": 56,
+              "firstAlertDay": 53
+            },
+            {
+              "episode": "AST-019-fluid_loss-1",
+              "peakDay": 69,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-008-fluid_loss-1",
+              "peakDay": 78,
+              "firstAlertDay": 77
+            },
+            {
+              "episode": "AST-016-fluid_loss-1",
+              "peakDay": 91,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-009-fluid_loss-1",
+              "peakDay": 97,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-006-fluid_loss-1",
+              "peakDay": 101,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-013-fluid_loss-1",
+              "peakDay": 127,
+              "firstAlertDay": 125
+            },
+            {
+              "episode": "AST-012-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 135
+            },
+            {
+              "episode": "AST-020-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 132
+            },
+            {
+              "episode": "AST-005-fluid_loss-1",
+              "peakDay": 137,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-004-fluid_loss-1",
+              "peakDay": 140,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-017-fluid_loss-1",
+              "peakDay": 145,
+              "firstAlertDay": 143
+            },
+            {
+              "episode": "AST-002-fluid_loss-1",
+              "peakDay": 150,
+              "firstAlertDay": 150
+            },
+            {
+              "episode": "AST-007-fluid_loss-1",
+              "peakDay": 156,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-015-fluid_loss-1",
+              "peakDay": 160,
+              "firstAlertDay": 160
+            },
+            {
+              "episode": "AST-001-fluid_loss-1",
+              "peakDay": 164,
+              "firstAlertDay": 161
+            },
+            {
+              "episode": "AST-003-fluid_loss-1",
+              "peakDay": 165,
+              "firstAlertDay": 165
             }
           ]
         },
@@ -2798,6 +3102,208 @@
                 }
               ]
             }
+          ],
+          "perEpisode": [
+            {
+              "episode": "AST-006-infection-2",
+              "peakDay": 25,
+              "firstAlertDay": 25
+            },
+            {
+              "episode": "AST-007-infection-1",
+              "peakDay": 26,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-008-infection-1",
+              "peakDay": 29,
+              "firstAlertDay": 28
+            },
+            {
+              "episode": "AST-015-infection-1",
+              "peakDay": 35,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-004-infection-2",
+              "peakDay": 36,
+              "firstAlertDay": 36
+            },
+            {
+              "episode": "AST-009-infection-2",
+              "peakDay": 40,
+              "firstAlertDay": 38
+            },
+            {
+              "episode": "AST-013-infection-2",
+              "peakDay": 44,
+              "firstAlertDay": 43
+            },
+            {
+              "episode": "AST-012-infection-1",
+              "peakDay": 53,
+              "firstAlertDay": 52
+            },
+            {
+              "episode": "AST-010-infection-1",
+              "peakDay": 55,
+              "firstAlertDay": 54
+            },
+            {
+              "episode": "AST-018-infection-1",
+              "peakDay": 57,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-020-infection-2",
+              "peakDay": 61,
+              "firstAlertDay": 61
+            },
+            {
+              "episode": "AST-003-infection-2",
+              "peakDay": 65,
+              "firstAlertDay": 64
+            },
+            {
+              "episode": "AST-018-infection-2",
+              "peakDay": 67,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-007-infection-2",
+              "peakDay": 71,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-013-infection-1",
+              "peakDay": 71,
+              "firstAlertDay": 71
+            },
+            {
+              "episode": "AST-005-infection-2",
+              "peakDay": 72,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-001-infection-1",
+              "peakDay": 73,
+              "firstAlertDay": 71
+            },
+            {
+              "episode": "AST-020-infection-1",
+              "peakDay": 78,
+              "firstAlertDay": 78
+            },
+            {
+              "episode": "AST-011-infection-2",
+              "peakDay": 80,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-009-infection-1",
+              "peakDay": 83,
+              "firstAlertDay": 81
+            },
+            {
+              "episode": "AST-005-infection-1",
+              "peakDay": 84,
+              "firstAlertDay": 83
+            },
+            {
+              "episode": "AST-008-infection-2",
+              "peakDay": 88,
+              "firstAlertDay": 88
+            },
+            {
+              "episode": "AST-015-infection-2",
+              "peakDay": 90,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-004-infection-1",
+              "peakDay": 92,
+              "firstAlertDay": 93
+            },
+            {
+              "episode": "AST-001-infection-2",
+              "peakDay": 93,
+              "firstAlertDay": 91
+            },
+            {
+              "episode": "AST-014-infection-2",
+              "peakDay": 99,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-017-infection-2",
+              "peakDay": 100,
+              "firstAlertDay": 98
+            },
+            {
+              "episode": "AST-003-infection-1",
+              "peakDay": 102,
+              "firstAlertDay": 101
+            },
+            {
+              "episode": "AST-014-infection-1",
+              "peakDay": 106,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-002-infection-1",
+              "peakDay": 109,
+              "firstAlertDay": 108
+            },
+            {
+              "episode": "AST-017-infection-1",
+              "peakDay": 116,
+              "firstAlertDay": 115
+            },
+            {
+              "episode": "AST-012-infection-2",
+              "peakDay": 119,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-006-infection-1",
+              "peakDay": 125,
+              "firstAlertDay": 125
+            },
+            {
+              "episode": "AST-016-infection-1",
+              "peakDay": 130,
+              "firstAlertDay": 129
+            },
+            {
+              "episode": "AST-016-infection-2",
+              "peakDay": 138,
+              "firstAlertDay": 138
+            },
+            {
+              "episode": "AST-019-infection-1",
+              "peakDay": 139,
+              "firstAlertDay": 139
+            },
+            {
+              "episode": "AST-011-infection-1",
+              "peakDay": 149,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-019-infection-2",
+              "peakDay": 154,
+              "firstAlertDay": 152
+            },
+            {
+              "episode": "AST-010-infection-2",
+              "peakDay": 165,
+              "firstAlertDay": 165
+            },
+            {
+              "episode": "AST-002-infection-2",
+              "peakDay": 171,
+              "firstAlertDay": null
+            }
           ]
         },
         "fluid_loss_any_alert": {
@@ -2810,7 +3316,109 @@
           "alertDays": 2402,
           "alertDaysInsideEvent": 99,
           "alertDayPrecisionPct": 4.1,
-          "misses": []
+          "misses": [],
+          "perEpisode": [
+            {
+              "episode": "AST-014-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": 18
+            },
+            {
+              "episode": "AST-018-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": 18
+            },
+            {
+              "episode": "AST-010-fluid_loss-1",
+              "peakDay": 44,
+              "firstAlertDay": 41
+            },
+            {
+              "episode": "AST-011-fluid_loss-1",
+              "peakDay": 56,
+              "firstAlertDay": 53
+            },
+            {
+              "episode": "AST-019-fluid_loss-1",
+              "peakDay": 69,
+              "firstAlertDay": 66
+            },
+            {
+              "episode": "AST-008-fluid_loss-1",
+              "peakDay": 78,
+              "firstAlertDay": 76
+            },
+            {
+              "episode": "AST-016-fluid_loss-1",
+              "peakDay": 91,
+              "firstAlertDay": 88
+            },
+            {
+              "episode": "AST-009-fluid_loss-1",
+              "peakDay": 97,
+              "firstAlertDay": 95
+            },
+            {
+              "episode": "AST-006-fluid_loss-1",
+              "peakDay": 101,
+              "firstAlertDay": 98
+            },
+            {
+              "episode": "AST-013-fluid_loss-1",
+              "peakDay": 127,
+              "firstAlertDay": 125
+            },
+            {
+              "episode": "AST-012-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 132
+            },
+            {
+              "episode": "AST-020-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 132
+            },
+            {
+              "episode": "AST-005-fluid_loss-1",
+              "peakDay": 137,
+              "firstAlertDay": 136
+            },
+            {
+              "episode": "AST-004-fluid_loss-1",
+              "peakDay": 140,
+              "firstAlertDay": 137
+            },
+            {
+              "episode": "AST-017-fluid_loss-1",
+              "peakDay": 145,
+              "firstAlertDay": 142
+            },
+            {
+              "episode": "AST-002-fluid_loss-1",
+              "peakDay": 150,
+              "firstAlertDay": 147
+            },
+            {
+              "episode": "AST-007-fluid_loss-1",
+              "peakDay": 156,
+              "firstAlertDay": 153
+            },
+            {
+              "episode": "AST-015-fluid_loss-1",
+              "peakDay": 160,
+              "firstAlertDay": 157
+            },
+            {
+              "episode": "AST-001-fluid_loss-1",
+              "peakDay": 164,
+              "firstAlertDay": 161
+            },
+            {
+              "episode": "AST-003-fluid_loss-1",
+              "peakDay": 165,
+              "firstAlertDay": 162
+            }
+          ]
         }
       }
     },
@@ -3054,6 +3662,208 @@
                   "mood": 3
                 }
               ]
+            }
+          ],
+          "perEpisode": [
+            {
+              "episode": "AST-006-infection-2",
+              "peakDay": 25,
+              "firstAlertDay": 24
+            },
+            {
+              "episode": "AST-007-infection-1",
+              "peakDay": 26,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-008-infection-1",
+              "peakDay": 29,
+              "firstAlertDay": 27
+            },
+            {
+              "episode": "AST-015-infection-1",
+              "peakDay": 35,
+              "firstAlertDay": 35
+            },
+            {
+              "episode": "AST-004-infection-2",
+              "peakDay": 36,
+              "firstAlertDay": 35
+            },
+            {
+              "episode": "AST-009-infection-2",
+              "peakDay": 40,
+              "firstAlertDay": 38
+            },
+            {
+              "episode": "AST-013-infection-2",
+              "peakDay": 44,
+              "firstAlertDay": 42
+            },
+            {
+              "episode": "AST-012-infection-1",
+              "peakDay": 53,
+              "firstAlertDay": 52
+            },
+            {
+              "episode": "AST-010-infection-1",
+              "peakDay": 55,
+              "firstAlertDay": 54
+            },
+            {
+              "episode": "AST-018-infection-1",
+              "peakDay": 57,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-020-infection-2",
+              "peakDay": 61,
+              "firstAlertDay": 60
+            },
+            {
+              "episode": "AST-003-infection-2",
+              "peakDay": 65,
+              "firstAlertDay": 64
+            },
+            {
+              "episode": "AST-018-infection-2",
+              "peakDay": 67,
+              "firstAlertDay": 65
+            },
+            {
+              "episode": "AST-007-infection-2",
+              "peakDay": 71,
+              "firstAlertDay": 70
+            },
+            {
+              "episode": "AST-013-infection-1",
+              "peakDay": 71,
+              "firstAlertDay": 70
+            },
+            {
+              "episode": "AST-005-infection-2",
+              "peakDay": 72,
+              "firstAlertDay": 70
+            },
+            {
+              "episode": "AST-001-infection-1",
+              "peakDay": 73,
+              "firstAlertDay": 71
+            },
+            {
+              "episode": "AST-020-infection-1",
+              "peakDay": 78,
+              "firstAlertDay": 76
+            },
+            {
+              "episode": "AST-011-infection-2",
+              "peakDay": 80,
+              "firstAlertDay": 80
+            },
+            {
+              "episode": "AST-009-infection-1",
+              "peakDay": 83,
+              "firstAlertDay": 81
+            },
+            {
+              "episode": "AST-005-infection-1",
+              "peakDay": 84,
+              "firstAlertDay": 82
+            },
+            {
+              "episode": "AST-008-infection-2",
+              "peakDay": 88,
+              "firstAlertDay": 87
+            },
+            {
+              "episode": "AST-015-infection-2",
+              "peakDay": 90,
+              "firstAlertDay": 89
+            },
+            {
+              "episode": "AST-004-infection-1",
+              "peakDay": 92,
+              "firstAlertDay": 90
+            },
+            {
+              "episode": "AST-001-infection-2",
+              "peakDay": 93,
+              "firstAlertDay": 91
+            },
+            {
+              "episode": "AST-014-infection-2",
+              "peakDay": 99,
+              "firstAlertDay": 97
+            },
+            {
+              "episode": "AST-017-infection-2",
+              "peakDay": 100,
+              "firstAlertDay": 99
+            },
+            {
+              "episode": "AST-003-infection-1",
+              "peakDay": 102,
+              "firstAlertDay": 100
+            },
+            {
+              "episode": "AST-014-infection-1",
+              "peakDay": 106,
+              "firstAlertDay": 106
+            },
+            {
+              "episode": "AST-002-infection-1",
+              "peakDay": 109,
+              "firstAlertDay": 107
+            },
+            {
+              "episode": "AST-017-infection-1",
+              "peakDay": 116,
+              "firstAlertDay": 114
+            },
+            {
+              "episode": "AST-012-infection-2",
+              "peakDay": 119,
+              "firstAlertDay": 118
+            },
+            {
+              "episode": "AST-006-infection-1",
+              "peakDay": 125,
+              "firstAlertDay": 123
+            },
+            {
+              "episode": "AST-016-infection-1",
+              "peakDay": 130,
+              "firstAlertDay": 128
+            },
+            {
+              "episode": "AST-016-infection-2",
+              "peakDay": 138,
+              "firstAlertDay": 136
+            },
+            {
+              "episode": "AST-019-infection-1",
+              "peakDay": 139,
+              "firstAlertDay": 138
+            },
+            {
+              "episode": "AST-011-infection-1",
+              "peakDay": 149,
+              "firstAlertDay": 149
+            },
+            {
+              "episode": "AST-019-infection-2",
+              "peakDay": 154,
+              "firstAlertDay": 154
+            },
+            {
+              "episode": "AST-010-infection-2",
+              "peakDay": 165,
+              "firstAlertDay": 163
+            },
+            {
+              "episode": "AST-002-infection-2",
+              "peakDay": 171,
+              "firstAlertDay": 169
             }
           ]
         },
@@ -3755,6 +4565,108 @@
                 }
               ]
             }
+          ],
+          "perEpisode": [
+            {
+              "episode": "AST-014-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": 20
+            },
+            {
+              "episode": "AST-018-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-010-fluid_loss-1",
+              "peakDay": 44,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-011-fluid_loss-1",
+              "peakDay": 56,
+              "firstAlertDay": 53
+            },
+            {
+              "episode": "AST-019-fluid_loss-1",
+              "peakDay": 69,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-008-fluid_loss-1",
+              "peakDay": 78,
+              "firstAlertDay": 77
+            },
+            {
+              "episode": "AST-016-fluid_loss-1",
+              "peakDay": 91,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-009-fluid_loss-1",
+              "peakDay": 97,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-006-fluid_loss-1",
+              "peakDay": 101,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-013-fluid_loss-1",
+              "peakDay": 127,
+              "firstAlertDay": 125
+            },
+            {
+              "episode": "AST-012-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 135
+            },
+            {
+              "episode": "AST-020-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 132
+            },
+            {
+              "episode": "AST-005-fluid_loss-1",
+              "peakDay": 137,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-004-fluid_loss-1",
+              "peakDay": 140,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-017-fluid_loss-1",
+              "peakDay": 145,
+              "firstAlertDay": 143
+            },
+            {
+              "episode": "AST-002-fluid_loss-1",
+              "peakDay": 150,
+              "firstAlertDay": 150
+            },
+            {
+              "episode": "AST-007-fluid_loss-1",
+              "peakDay": 156,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-015-fluid_loss-1",
+              "peakDay": 160,
+              "firstAlertDay": 160
+            },
+            {
+              "episode": "AST-001-fluid_loss-1",
+              "peakDay": 164,
+              "firstAlertDay": 161
+            },
+            {
+              "episode": "AST-003-fluid_loss-1",
+              "peakDay": 165,
+              "firstAlertDay": 165
+            }
           ]
         },
         "infection_any_alert": {
@@ -3894,6 +4806,208 @@
                 }
               ]
             }
+          ],
+          "perEpisode": [
+            {
+              "episode": "AST-006-infection-2",
+              "peakDay": 25,
+              "firstAlertDay": 24
+            },
+            {
+              "episode": "AST-007-infection-1",
+              "peakDay": 26,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-008-infection-1",
+              "peakDay": 29,
+              "firstAlertDay": 27
+            },
+            {
+              "episode": "AST-015-infection-1",
+              "peakDay": 35,
+              "firstAlertDay": 35
+            },
+            {
+              "episode": "AST-004-infection-2",
+              "peakDay": 36,
+              "firstAlertDay": 35
+            },
+            {
+              "episode": "AST-009-infection-2",
+              "peakDay": 40,
+              "firstAlertDay": 38
+            },
+            {
+              "episode": "AST-013-infection-2",
+              "peakDay": 44,
+              "firstAlertDay": 42
+            },
+            {
+              "episode": "AST-012-infection-1",
+              "peakDay": 53,
+              "firstAlertDay": 52
+            },
+            {
+              "episode": "AST-010-infection-1",
+              "peakDay": 55,
+              "firstAlertDay": 54
+            },
+            {
+              "episode": "AST-018-infection-1",
+              "peakDay": 57,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-020-infection-2",
+              "peakDay": 61,
+              "firstAlertDay": 60
+            },
+            {
+              "episode": "AST-003-infection-2",
+              "peakDay": 65,
+              "firstAlertDay": 63
+            },
+            {
+              "episode": "AST-018-infection-2",
+              "peakDay": 67,
+              "firstAlertDay": 65
+            },
+            {
+              "episode": "AST-007-infection-2",
+              "peakDay": 71,
+              "firstAlertDay": 70
+            },
+            {
+              "episode": "AST-013-infection-1",
+              "peakDay": 71,
+              "firstAlertDay": 70
+            },
+            {
+              "episode": "AST-005-infection-2",
+              "peakDay": 72,
+              "firstAlertDay": 70
+            },
+            {
+              "episode": "AST-001-infection-1",
+              "peakDay": 73,
+              "firstAlertDay": 71
+            },
+            {
+              "episode": "AST-020-infection-1",
+              "peakDay": 78,
+              "firstAlertDay": 76
+            },
+            {
+              "episode": "AST-011-infection-2",
+              "peakDay": 80,
+              "firstAlertDay": 80
+            },
+            {
+              "episode": "AST-009-infection-1",
+              "peakDay": 83,
+              "firstAlertDay": 81
+            },
+            {
+              "episode": "AST-005-infection-1",
+              "peakDay": 84,
+              "firstAlertDay": 82
+            },
+            {
+              "episode": "AST-008-infection-2",
+              "peakDay": 88,
+              "firstAlertDay": 87
+            },
+            {
+              "episode": "AST-015-infection-2",
+              "peakDay": 90,
+              "firstAlertDay": 89
+            },
+            {
+              "episode": "AST-004-infection-1",
+              "peakDay": 92,
+              "firstAlertDay": 90
+            },
+            {
+              "episode": "AST-001-infection-2",
+              "peakDay": 93,
+              "firstAlertDay": 91
+            },
+            {
+              "episode": "AST-014-infection-2",
+              "peakDay": 99,
+              "firstAlertDay": 97
+            },
+            {
+              "episode": "AST-017-infection-2",
+              "peakDay": 100,
+              "firstAlertDay": 99
+            },
+            {
+              "episode": "AST-003-infection-1",
+              "peakDay": 102,
+              "firstAlertDay": 100
+            },
+            {
+              "episode": "AST-014-infection-1",
+              "peakDay": 106,
+              "firstAlertDay": 106
+            },
+            {
+              "episode": "AST-002-infection-1",
+              "peakDay": 109,
+              "firstAlertDay": 107
+            },
+            {
+              "episode": "AST-017-infection-1",
+              "peakDay": 116,
+              "firstAlertDay": 114
+            },
+            {
+              "episode": "AST-012-infection-2",
+              "peakDay": 119,
+              "firstAlertDay": 118
+            },
+            {
+              "episode": "AST-006-infection-1",
+              "peakDay": 125,
+              "firstAlertDay": 123
+            },
+            {
+              "episode": "AST-016-infection-1",
+              "peakDay": 130,
+              "firstAlertDay": 128
+            },
+            {
+              "episode": "AST-016-infection-2",
+              "peakDay": 138,
+              "firstAlertDay": 136
+            },
+            {
+              "episode": "AST-019-infection-1",
+              "peakDay": 139,
+              "firstAlertDay": 138
+            },
+            {
+              "episode": "AST-011-infection-1",
+              "peakDay": 149,
+              "firstAlertDay": 149
+            },
+            {
+              "episode": "AST-019-infection-2",
+              "peakDay": 154,
+              "firstAlertDay": 154
+            },
+            {
+              "episode": "AST-010-infection-2",
+              "peakDay": 165,
+              "firstAlertDay": 163
+            },
+            {
+              "episode": "AST-002-infection-2",
+              "peakDay": 171,
+              "firstAlertDay": 169
+            }
           ]
         },
         "fluid_loss_any_alert": {
@@ -3906,7 +5020,109 @@
           "alertDays": 2402,
           "alertDaysInsideEvent": 99,
           "alertDayPrecisionPct": 4.1,
-          "misses": []
+          "misses": [],
+          "perEpisode": [
+            {
+              "episode": "AST-014-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": 18
+            },
+            {
+              "episode": "AST-018-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": 18
+            },
+            {
+              "episode": "AST-010-fluid_loss-1",
+              "peakDay": 44,
+              "firstAlertDay": 41
+            },
+            {
+              "episode": "AST-011-fluid_loss-1",
+              "peakDay": 56,
+              "firstAlertDay": 53
+            },
+            {
+              "episode": "AST-019-fluid_loss-1",
+              "peakDay": 69,
+              "firstAlertDay": 66
+            },
+            {
+              "episode": "AST-008-fluid_loss-1",
+              "peakDay": 78,
+              "firstAlertDay": 76
+            },
+            {
+              "episode": "AST-016-fluid_loss-1",
+              "peakDay": 91,
+              "firstAlertDay": 88
+            },
+            {
+              "episode": "AST-009-fluid_loss-1",
+              "peakDay": 97,
+              "firstAlertDay": 95
+            },
+            {
+              "episode": "AST-006-fluid_loss-1",
+              "peakDay": 101,
+              "firstAlertDay": 98
+            },
+            {
+              "episode": "AST-013-fluid_loss-1",
+              "peakDay": 127,
+              "firstAlertDay": 125
+            },
+            {
+              "episode": "AST-012-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 132
+            },
+            {
+              "episode": "AST-020-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 132
+            },
+            {
+              "episode": "AST-005-fluid_loss-1",
+              "peakDay": 137,
+              "firstAlertDay": 136
+            },
+            {
+              "episode": "AST-004-fluid_loss-1",
+              "peakDay": 140,
+              "firstAlertDay": 137
+            },
+            {
+              "episode": "AST-017-fluid_loss-1",
+              "peakDay": 145,
+              "firstAlertDay": 142
+            },
+            {
+              "episode": "AST-002-fluid_loss-1",
+              "peakDay": 150,
+              "firstAlertDay": 147
+            },
+            {
+              "episode": "AST-007-fluid_loss-1",
+              "peakDay": 156,
+              "firstAlertDay": 153
+            },
+            {
+              "episode": "AST-015-fluid_loss-1",
+              "peakDay": 160,
+              "firstAlertDay": 157
+            },
+            {
+              "episode": "AST-001-fluid_loss-1",
+              "peakDay": 164,
+              "firstAlertDay": 161
+            },
+            {
+              "episode": "AST-003-fluid_loss-1",
+              "peakDay": 165,
+              "firstAlertDay": 162
+            }
+          ]
         }
       }
     },
@@ -5402,6 +6618,208 @@
                 }
               ]
             }
+          ],
+          "perEpisode": [
+            {
+              "episode": "AST-006-infection-2",
+              "peakDay": 25,
+              "firstAlertDay": 25
+            },
+            {
+              "episode": "AST-007-infection-1",
+              "peakDay": 26,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-008-infection-1",
+              "peakDay": 29,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-015-infection-1",
+              "peakDay": 35,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-004-infection-2",
+              "peakDay": 36,
+              "firstAlertDay": 36
+            },
+            {
+              "episode": "AST-009-infection-2",
+              "peakDay": 40,
+              "firstAlertDay": 40
+            },
+            {
+              "episode": "AST-013-infection-2",
+              "peakDay": 44,
+              "firstAlertDay": 45
+            },
+            {
+              "episode": "AST-012-infection-1",
+              "peakDay": 53,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-010-infection-1",
+              "peakDay": 55,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-018-infection-1",
+              "peakDay": 57,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-020-infection-2",
+              "peakDay": 61,
+              "firstAlertDay": 61
+            },
+            {
+              "episode": "AST-003-infection-2",
+              "peakDay": 65,
+              "firstAlertDay": 66
+            },
+            {
+              "episode": "AST-018-infection-2",
+              "peakDay": 67,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-007-infection-2",
+              "peakDay": 71,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-013-infection-1",
+              "peakDay": 71,
+              "firstAlertDay": 71
+            },
+            {
+              "episode": "AST-005-infection-2",
+              "peakDay": 72,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-001-infection-1",
+              "peakDay": 73,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-020-infection-1",
+              "peakDay": 78,
+              "firstAlertDay": 78
+            },
+            {
+              "episode": "AST-011-infection-2",
+              "peakDay": 80,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-009-infection-1",
+              "peakDay": 83,
+              "firstAlertDay": 81
+            },
+            {
+              "episode": "AST-005-infection-1",
+              "peakDay": 84,
+              "firstAlertDay": 83
+            },
+            {
+              "episode": "AST-008-infection-2",
+              "peakDay": 88,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-015-infection-2",
+              "peakDay": 90,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-004-infection-1",
+              "peakDay": 92,
+              "firstAlertDay": 93
+            },
+            {
+              "episode": "AST-001-infection-2",
+              "peakDay": 93,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-014-infection-2",
+              "peakDay": 99,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-017-infection-2",
+              "peakDay": 100,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-003-infection-1",
+              "peakDay": 102,
+              "firstAlertDay": 102
+            },
+            {
+              "episode": "AST-014-infection-1",
+              "peakDay": 106,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-002-infection-1",
+              "peakDay": 109,
+              "firstAlertDay": 110
+            },
+            {
+              "episode": "AST-017-infection-1",
+              "peakDay": 116,
+              "firstAlertDay": 116
+            },
+            {
+              "episode": "AST-012-infection-2",
+              "peakDay": 119,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-006-infection-1",
+              "peakDay": 125,
+              "firstAlertDay": 125
+            },
+            {
+              "episode": "AST-016-infection-1",
+              "peakDay": 130,
+              "firstAlertDay": 129
+            },
+            {
+              "episode": "AST-016-infection-2",
+              "peakDay": 138,
+              "firstAlertDay": 138
+            },
+            {
+              "episode": "AST-019-infection-1",
+              "peakDay": 139,
+              "firstAlertDay": 139
+            },
+            {
+              "episode": "AST-011-infection-1",
+              "peakDay": 149,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-019-infection-2",
+              "peakDay": 154,
+              "firstAlertDay": 154
+            },
+            {
+              "episode": "AST-010-infection-2",
+              "peakDay": 165,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-002-infection-2",
+              "peakDay": 171,
+              "firstAlertDay": null
+            }
           ]
         },
         "fluid_loss": {
@@ -6257,6 +7675,108 @@
                   "mood": 3
                 }
               ]
+            }
+          ],
+          "perEpisode": [
+            {
+              "episode": "AST-014-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": 22
+            },
+            {
+              "episode": "AST-018-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-010-fluid_loss-1",
+              "peakDay": 44,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-011-fluid_loss-1",
+              "peakDay": 56,
+              "firstAlertDay": 53
+            },
+            {
+              "episode": "AST-019-fluid_loss-1",
+              "peakDay": 69,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-008-fluid_loss-1",
+              "peakDay": 78,
+              "firstAlertDay": 77
+            },
+            {
+              "episode": "AST-016-fluid_loss-1",
+              "peakDay": 91,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-009-fluid_loss-1",
+              "peakDay": 97,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-006-fluid_loss-1",
+              "peakDay": 101,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-013-fluid_loss-1",
+              "peakDay": 127,
+              "firstAlertDay": 125
+            },
+            {
+              "episode": "AST-012-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 135
+            },
+            {
+              "episode": "AST-020-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 132
+            },
+            {
+              "episode": "AST-005-fluid_loss-1",
+              "peakDay": 137,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-004-fluid_loss-1",
+              "peakDay": 140,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-017-fluid_loss-1",
+              "peakDay": 145,
+              "firstAlertDay": 144
+            },
+            {
+              "episode": "AST-002-fluid_loss-1",
+              "peakDay": 150,
+              "firstAlertDay": 150
+            },
+            {
+              "episode": "AST-007-fluid_loss-1",
+              "peakDay": 156,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-015-fluid_loss-1",
+              "peakDay": 160,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-001-fluid_loss-1",
+              "peakDay": 164,
+              "firstAlertDay": 161
+            },
+            {
+              "episode": "AST-003-fluid_loss-1",
+              "peakDay": 165,
+              "firstAlertDay": null
             }
           ]
         },
@@ -7252,6 +8772,208 @@
                 }
               ]
             }
+          ],
+          "perEpisode": [
+            {
+              "episode": "AST-006-infection-2",
+              "peakDay": 25,
+              "firstAlertDay": 25
+            },
+            {
+              "episode": "AST-007-infection-1",
+              "peakDay": 26,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-008-infection-1",
+              "peakDay": 29,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-015-infection-1",
+              "peakDay": 35,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-004-infection-2",
+              "peakDay": 36,
+              "firstAlertDay": 36
+            },
+            {
+              "episode": "AST-009-infection-2",
+              "peakDay": 40,
+              "firstAlertDay": 40
+            },
+            {
+              "episode": "AST-013-infection-2",
+              "peakDay": 44,
+              "firstAlertDay": 43
+            },
+            {
+              "episode": "AST-012-infection-1",
+              "peakDay": 53,
+              "firstAlertDay": 52
+            },
+            {
+              "episode": "AST-010-infection-1",
+              "peakDay": 55,
+              "firstAlertDay": 54
+            },
+            {
+              "episode": "AST-018-infection-1",
+              "peakDay": 57,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-020-infection-2",
+              "peakDay": 61,
+              "firstAlertDay": 61
+            },
+            {
+              "episode": "AST-003-infection-2",
+              "peakDay": 65,
+              "firstAlertDay": 66
+            },
+            {
+              "episode": "AST-018-infection-2",
+              "peakDay": 67,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-007-infection-2",
+              "peakDay": 71,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-013-infection-1",
+              "peakDay": 71,
+              "firstAlertDay": 71
+            },
+            {
+              "episode": "AST-005-infection-2",
+              "peakDay": 72,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-001-infection-1",
+              "peakDay": 73,
+              "firstAlertDay": 71
+            },
+            {
+              "episode": "AST-020-infection-1",
+              "peakDay": 78,
+              "firstAlertDay": 78
+            },
+            {
+              "episode": "AST-011-infection-2",
+              "peakDay": 80,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-009-infection-1",
+              "peakDay": 83,
+              "firstAlertDay": 81
+            },
+            {
+              "episode": "AST-005-infection-1",
+              "peakDay": 84,
+              "firstAlertDay": 83
+            },
+            {
+              "episode": "AST-008-infection-2",
+              "peakDay": 88,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-015-infection-2",
+              "peakDay": 90,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-004-infection-1",
+              "peakDay": 92,
+              "firstAlertDay": 93
+            },
+            {
+              "episode": "AST-001-infection-2",
+              "peakDay": 93,
+              "firstAlertDay": 91
+            },
+            {
+              "episode": "AST-014-infection-2",
+              "peakDay": 99,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-017-infection-2",
+              "peakDay": 100,
+              "firstAlertDay": 98
+            },
+            {
+              "episode": "AST-003-infection-1",
+              "peakDay": 102,
+              "firstAlertDay": 102
+            },
+            {
+              "episode": "AST-014-infection-1",
+              "peakDay": 106,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-002-infection-1",
+              "peakDay": 109,
+              "firstAlertDay": 110
+            },
+            {
+              "episode": "AST-017-infection-1",
+              "peakDay": 116,
+              "firstAlertDay": 115
+            },
+            {
+              "episode": "AST-012-infection-2",
+              "peakDay": 119,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-006-infection-1",
+              "peakDay": 125,
+              "firstAlertDay": 125
+            },
+            {
+              "episode": "AST-016-infection-1",
+              "peakDay": 130,
+              "firstAlertDay": 129
+            },
+            {
+              "episode": "AST-016-infection-2",
+              "peakDay": 138,
+              "firstAlertDay": 138
+            },
+            {
+              "episode": "AST-019-infection-1",
+              "peakDay": 139,
+              "firstAlertDay": 139
+            },
+            {
+              "episode": "AST-011-infection-1",
+              "peakDay": 149,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-019-infection-2",
+              "peakDay": 154,
+              "firstAlertDay": 154
+            },
+            {
+              "episode": "AST-010-infection-2",
+              "peakDay": 165,
+              "firstAlertDay": 165
+            },
+            {
+              "episode": "AST-002-infection-2",
+              "peakDay": 171,
+              "firstAlertDay": null
+            }
           ]
         },
         "fluid_loss_any_alert": {
@@ -7264,7 +8986,109 @@
           "alertDays": 2385,
           "alertDaysInsideEvent": 95,
           "alertDayPrecisionPct": 4,
-          "misses": []
+          "misses": [],
+          "perEpisode": [
+            {
+              "episode": "AST-014-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": 18
+            },
+            {
+              "episode": "AST-018-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": 18
+            },
+            {
+              "episode": "AST-010-fluid_loss-1",
+              "peakDay": 44,
+              "firstAlertDay": 41
+            },
+            {
+              "episode": "AST-011-fluid_loss-1",
+              "peakDay": 56,
+              "firstAlertDay": 53
+            },
+            {
+              "episode": "AST-019-fluid_loss-1",
+              "peakDay": 69,
+              "firstAlertDay": 66
+            },
+            {
+              "episode": "AST-008-fluid_loss-1",
+              "peakDay": 78,
+              "firstAlertDay": 76
+            },
+            {
+              "episode": "AST-016-fluid_loss-1",
+              "peakDay": 91,
+              "firstAlertDay": 88
+            },
+            {
+              "episode": "AST-009-fluid_loss-1",
+              "peakDay": 97,
+              "firstAlertDay": 95
+            },
+            {
+              "episode": "AST-006-fluid_loss-1",
+              "peakDay": 101,
+              "firstAlertDay": 98
+            },
+            {
+              "episode": "AST-013-fluid_loss-1",
+              "peakDay": 127,
+              "firstAlertDay": 125
+            },
+            {
+              "episode": "AST-012-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 132
+            },
+            {
+              "episode": "AST-020-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 132
+            },
+            {
+              "episode": "AST-005-fluid_loss-1",
+              "peakDay": 137,
+              "firstAlertDay": 136
+            },
+            {
+              "episode": "AST-004-fluid_loss-1",
+              "peakDay": 140,
+              "firstAlertDay": 137
+            },
+            {
+              "episode": "AST-017-fluid_loss-1",
+              "peakDay": 145,
+              "firstAlertDay": 142
+            },
+            {
+              "episode": "AST-002-fluid_loss-1",
+              "peakDay": 150,
+              "firstAlertDay": 147
+            },
+            {
+              "episode": "AST-007-fluid_loss-1",
+              "peakDay": 156,
+              "firstAlertDay": 153
+            },
+            {
+              "episode": "AST-015-fluid_loss-1",
+              "peakDay": 160,
+              "firstAlertDay": 157
+            },
+            {
+              "episode": "AST-001-fluid_loss-1",
+              "peakDay": 164,
+              "firstAlertDay": 161
+            },
+            {
+              "episode": "AST-003-fluid_loss-1",
+              "peakDay": 165,
+              "firstAlertDay": 162
+            }
+          ]
         }
       }
     },
@@ -7703,6 +9527,208 @@
                   "mood": 3
                 }
               ]
+            }
+          ],
+          "perEpisode": [
+            {
+              "episode": "AST-006-infection-2",
+              "peakDay": 25,
+              "firstAlertDay": 24
+            },
+            {
+              "episode": "AST-007-infection-1",
+              "peakDay": 26,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-008-infection-1",
+              "peakDay": 29,
+              "firstAlertDay": 28
+            },
+            {
+              "episode": "AST-015-infection-1",
+              "peakDay": 35,
+              "firstAlertDay": 35
+            },
+            {
+              "episode": "AST-004-infection-2",
+              "peakDay": 36,
+              "firstAlertDay": 36
+            },
+            {
+              "episode": "AST-009-infection-2",
+              "peakDay": 40,
+              "firstAlertDay": 40
+            },
+            {
+              "episode": "AST-013-infection-2",
+              "peakDay": 44,
+              "firstAlertDay": 43
+            },
+            {
+              "episode": "AST-012-infection-1",
+              "peakDay": 53,
+              "firstAlertDay": 54
+            },
+            {
+              "episode": "AST-010-infection-1",
+              "peakDay": 55,
+              "firstAlertDay": 54
+            },
+            {
+              "episode": "AST-018-infection-1",
+              "peakDay": 57,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-020-infection-2",
+              "peakDay": 61,
+              "firstAlertDay": 61
+            },
+            {
+              "episode": "AST-003-infection-2",
+              "peakDay": 65,
+              "firstAlertDay": 64
+            },
+            {
+              "episode": "AST-018-infection-2",
+              "peakDay": 67,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-007-infection-2",
+              "peakDay": 71,
+              "firstAlertDay": 71
+            },
+            {
+              "episode": "AST-013-infection-1",
+              "peakDay": 71,
+              "firstAlertDay": 71
+            },
+            {
+              "episode": "AST-005-infection-2",
+              "peakDay": 72,
+              "firstAlertDay": 72
+            },
+            {
+              "episode": "AST-001-infection-1",
+              "peakDay": 73,
+              "firstAlertDay": 73
+            },
+            {
+              "episode": "AST-020-infection-1",
+              "peakDay": 78,
+              "firstAlertDay": 77
+            },
+            {
+              "episode": "AST-011-infection-2",
+              "peakDay": 80,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-009-infection-1",
+              "peakDay": 83,
+              "firstAlertDay": 81
+            },
+            {
+              "episode": "AST-005-infection-1",
+              "peakDay": 84,
+              "firstAlertDay": 83
+            },
+            {
+              "episode": "AST-008-infection-2",
+              "peakDay": 88,
+              "firstAlertDay": 88
+            },
+            {
+              "episode": "AST-015-infection-2",
+              "peakDay": 90,
+              "firstAlertDay": 90
+            },
+            {
+              "episode": "AST-004-infection-1",
+              "peakDay": 92,
+              "firstAlertDay": 91
+            },
+            {
+              "episode": "AST-001-infection-2",
+              "peakDay": 93,
+              "firstAlertDay": 92
+            },
+            {
+              "episode": "AST-014-infection-2",
+              "peakDay": 99,
+              "firstAlertDay": 99
+            },
+            {
+              "episode": "AST-017-infection-2",
+              "peakDay": 100,
+              "firstAlertDay": 100
+            },
+            {
+              "episode": "AST-003-infection-1",
+              "peakDay": 102,
+              "firstAlertDay": 102
+            },
+            {
+              "episode": "AST-014-infection-1",
+              "peakDay": 106,
+              "firstAlertDay": 106
+            },
+            {
+              "episode": "AST-002-infection-1",
+              "peakDay": 109,
+              "firstAlertDay": 108
+            },
+            {
+              "episode": "AST-017-infection-1",
+              "peakDay": 116,
+              "firstAlertDay": 116
+            },
+            {
+              "episode": "AST-012-infection-2",
+              "peakDay": 119,
+              "firstAlertDay": 118
+            },
+            {
+              "episode": "AST-006-infection-1",
+              "peakDay": 125,
+              "firstAlertDay": 125
+            },
+            {
+              "episode": "AST-016-infection-1",
+              "peakDay": 130,
+              "firstAlertDay": 129
+            },
+            {
+              "episode": "AST-016-infection-2",
+              "peakDay": 138,
+              "firstAlertDay": 138
+            },
+            {
+              "episode": "AST-019-infection-1",
+              "peakDay": 139,
+              "firstAlertDay": 139
+            },
+            {
+              "episode": "AST-011-infection-1",
+              "peakDay": 149,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-019-infection-2",
+              "peakDay": 154,
+              "firstAlertDay": 154
+            },
+            {
+              "episode": "AST-010-infection-2",
+              "peakDay": 165,
+              "firstAlertDay": 165
+            },
+            {
+              "episode": "AST-002-infection-2",
+              "peakDay": 171,
+              "firstAlertDay": 172
             }
           ]
         },
@@ -8173,6 +10199,108 @@
                 }
               ]
             }
+          ],
+          "perEpisode": [
+            {
+              "episode": "AST-014-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": 20
+            },
+            {
+              "episode": "AST-018-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-010-fluid_loss-1",
+              "peakDay": 44,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-011-fluid_loss-1",
+              "peakDay": 56,
+              "firstAlertDay": 53
+            },
+            {
+              "episode": "AST-019-fluid_loss-1",
+              "peakDay": 69,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-008-fluid_loss-1",
+              "peakDay": 78,
+              "firstAlertDay": 77
+            },
+            {
+              "episode": "AST-016-fluid_loss-1",
+              "peakDay": 91,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-009-fluid_loss-1",
+              "peakDay": 97,
+              "firstAlertDay": 97
+            },
+            {
+              "episode": "AST-006-fluid_loss-1",
+              "peakDay": 101,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-013-fluid_loss-1",
+              "peakDay": 127,
+              "firstAlertDay": 125
+            },
+            {
+              "episode": "AST-012-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 135
+            },
+            {
+              "episode": "AST-020-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 132
+            },
+            {
+              "episode": "AST-005-fluid_loss-1",
+              "peakDay": 137,
+              "firstAlertDay": 137
+            },
+            {
+              "episode": "AST-004-fluid_loss-1",
+              "peakDay": 140,
+              "firstAlertDay": 141
+            },
+            {
+              "episode": "AST-017-fluid_loss-1",
+              "peakDay": 145,
+              "firstAlertDay": 143
+            },
+            {
+              "episode": "AST-002-fluid_loss-1",
+              "peakDay": 150,
+              "firstAlertDay": 150
+            },
+            {
+              "episode": "AST-007-fluid_loss-1",
+              "peakDay": 156,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-015-fluid_loss-1",
+              "peakDay": 160,
+              "firstAlertDay": 160
+            },
+            {
+              "episode": "AST-001-fluid_loss-1",
+              "peakDay": 164,
+              "firstAlertDay": 161
+            },
+            {
+              "episode": "AST-003-fluid_loss-1",
+              "peakDay": 165,
+              "firstAlertDay": 165
+            }
           ]
         },
         "infection_any_alert": {
@@ -8444,6 +10572,208 @@
                 }
               ]
             }
+          ],
+          "perEpisode": [
+            {
+              "episode": "AST-006-infection-2",
+              "peakDay": 25,
+              "firstAlertDay": 24
+            },
+            {
+              "episode": "AST-007-infection-1",
+              "peakDay": 26,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-008-infection-1",
+              "peakDay": 29,
+              "firstAlertDay": 28
+            },
+            {
+              "episode": "AST-015-infection-1",
+              "peakDay": 35,
+              "firstAlertDay": 35
+            },
+            {
+              "episode": "AST-004-infection-2",
+              "peakDay": 36,
+              "firstAlertDay": 36
+            },
+            {
+              "episode": "AST-009-infection-2",
+              "peakDay": 40,
+              "firstAlertDay": 38
+            },
+            {
+              "episode": "AST-013-infection-2",
+              "peakDay": 44,
+              "firstAlertDay": 43
+            },
+            {
+              "episode": "AST-012-infection-1",
+              "peakDay": 53,
+              "firstAlertDay": 52
+            },
+            {
+              "episode": "AST-010-infection-1",
+              "peakDay": 55,
+              "firstAlertDay": 54
+            },
+            {
+              "episode": "AST-018-infection-1",
+              "peakDay": 57,
+              "firstAlertDay": 56
+            },
+            {
+              "episode": "AST-020-infection-2",
+              "peakDay": 61,
+              "firstAlertDay": 61
+            },
+            {
+              "episode": "AST-003-infection-2",
+              "peakDay": 65,
+              "firstAlertDay": 64
+            },
+            {
+              "episode": "AST-018-infection-2",
+              "peakDay": 67,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-007-infection-2",
+              "peakDay": 71,
+              "firstAlertDay": 71
+            },
+            {
+              "episode": "AST-013-infection-1",
+              "peakDay": 71,
+              "firstAlertDay": 71
+            },
+            {
+              "episode": "AST-005-infection-2",
+              "peakDay": 72,
+              "firstAlertDay": 72
+            },
+            {
+              "episode": "AST-001-infection-1",
+              "peakDay": 73,
+              "firstAlertDay": 71
+            },
+            {
+              "episode": "AST-020-infection-1",
+              "peakDay": 78,
+              "firstAlertDay": 77
+            },
+            {
+              "episode": "AST-011-infection-2",
+              "peakDay": 80,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-009-infection-1",
+              "peakDay": 83,
+              "firstAlertDay": 81
+            },
+            {
+              "episode": "AST-005-infection-1",
+              "peakDay": 84,
+              "firstAlertDay": 83
+            },
+            {
+              "episode": "AST-008-infection-2",
+              "peakDay": 88,
+              "firstAlertDay": 88
+            },
+            {
+              "episode": "AST-015-infection-2",
+              "peakDay": 90,
+              "firstAlertDay": 90
+            },
+            {
+              "episode": "AST-004-infection-1",
+              "peakDay": 92,
+              "firstAlertDay": 91
+            },
+            {
+              "episode": "AST-001-infection-2",
+              "peakDay": 93,
+              "firstAlertDay": 91
+            },
+            {
+              "episode": "AST-014-infection-2",
+              "peakDay": 99,
+              "firstAlertDay": 99
+            },
+            {
+              "episode": "AST-017-infection-2",
+              "peakDay": 100,
+              "firstAlertDay": 100
+            },
+            {
+              "episode": "AST-003-infection-1",
+              "peakDay": 102,
+              "firstAlertDay": 101
+            },
+            {
+              "episode": "AST-014-infection-1",
+              "peakDay": 106,
+              "firstAlertDay": 106
+            },
+            {
+              "episode": "AST-002-infection-1",
+              "peakDay": 109,
+              "firstAlertDay": 108
+            },
+            {
+              "episode": "AST-017-infection-1",
+              "peakDay": 116,
+              "firstAlertDay": 115
+            },
+            {
+              "episode": "AST-012-infection-2",
+              "peakDay": 119,
+              "firstAlertDay": 118
+            },
+            {
+              "episode": "AST-006-infection-1",
+              "peakDay": 125,
+              "firstAlertDay": 125
+            },
+            {
+              "episode": "AST-016-infection-1",
+              "peakDay": 130,
+              "firstAlertDay": 129
+            },
+            {
+              "episode": "AST-016-infection-2",
+              "peakDay": 138,
+              "firstAlertDay": 138
+            },
+            {
+              "episode": "AST-019-infection-1",
+              "peakDay": 139,
+              "firstAlertDay": 139
+            },
+            {
+              "episode": "AST-011-infection-1",
+              "peakDay": 149,
+              "firstAlertDay": null
+            },
+            {
+              "episode": "AST-019-infection-2",
+              "peakDay": 154,
+              "firstAlertDay": 152
+            },
+            {
+              "episode": "AST-010-infection-2",
+              "peakDay": 165,
+              "firstAlertDay": 165
+            },
+            {
+              "episode": "AST-002-infection-2",
+              "peakDay": 171,
+              "firstAlertDay": 172
+            }
           ]
         },
         "fluid_loss_any_alert": {
@@ -8456,7 +10786,109 @@
           "alertDays": 2412,
           "alertDaysInsideEvent": 100,
           "alertDayPrecisionPct": 4.1,
-          "misses": []
+          "misses": [],
+          "perEpisode": [
+            {
+              "episode": "AST-014-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": 18
+            },
+            {
+              "episode": "AST-018-fluid_loss-1",
+              "peakDay": 21,
+              "firstAlertDay": 18
+            },
+            {
+              "episode": "AST-010-fluid_loss-1",
+              "peakDay": 44,
+              "firstAlertDay": 41
+            },
+            {
+              "episode": "AST-011-fluid_loss-1",
+              "peakDay": 56,
+              "firstAlertDay": 53
+            },
+            {
+              "episode": "AST-019-fluid_loss-1",
+              "peakDay": 69,
+              "firstAlertDay": 66
+            },
+            {
+              "episode": "AST-008-fluid_loss-1",
+              "peakDay": 78,
+              "firstAlertDay": 75
+            },
+            {
+              "episode": "AST-016-fluid_loss-1",
+              "peakDay": 91,
+              "firstAlertDay": 89
+            },
+            {
+              "episode": "AST-009-fluid_loss-1",
+              "peakDay": 97,
+              "firstAlertDay": 95
+            },
+            {
+              "episode": "AST-006-fluid_loss-1",
+              "peakDay": 101,
+              "firstAlertDay": 98
+            },
+            {
+              "episode": "AST-013-fluid_loss-1",
+              "peakDay": 127,
+              "firstAlertDay": 125
+            },
+            {
+              "episode": "AST-012-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 132
+            },
+            {
+              "episode": "AST-020-fluid_loss-1",
+              "peakDay": 135,
+              "firstAlertDay": 132
+            },
+            {
+              "episode": "AST-005-fluid_loss-1",
+              "peakDay": 137,
+              "firstAlertDay": 136
+            },
+            {
+              "episode": "AST-004-fluid_loss-1",
+              "peakDay": 140,
+              "firstAlertDay": 137
+            },
+            {
+              "episode": "AST-017-fluid_loss-1",
+              "peakDay": 145,
+              "firstAlertDay": 142
+            },
+            {
+              "episode": "AST-002-fluid_loss-1",
+              "peakDay": 150,
+              "firstAlertDay": 147
+            },
+            {
+              "episode": "AST-007-fluid_loss-1",
+              "peakDay": 156,
+              "firstAlertDay": 153
+            },
+            {
+              "episode": "AST-015-fluid_loss-1",
+              "peakDay": 160,
+              "firstAlertDay": 157
+            },
+            {
+              "episode": "AST-001-fluid_loss-1",
+              "peakDay": 164,
+              "firstAlertDay": 161
+            },
+            {
+              "episode": "AST-003-fluid_loss-1",
+              "peakDay": 165,
+              "firstAlertDay": 162
+            }
+          ]
         }
       }
     }

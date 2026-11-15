@@ -91,10 +91,10 @@ Strict detectors (what a crew member would act on) and lenient detectors (any no
 
 Event sizes are assumptions (C = small, D = large). Read results as "detects events of this size", never as real-world accuracy. Missed episodes with their daily readings are listed in app-evaluation.json.
 
-## Not evaluated
+## Other checks
 
-- Not evaluated: the app has no forecast module (src/brain/forecast.ts does not exist).
-- Not evaluated: the app issues no next-day warning, so there is nothing to score.
+- Evaluated separately: see FORECAST.md (src/brain/forecast.ts, early-warning model trained on a separate synthetic crew).
+- Not evaluated as a separate task: the early-warning model covers fluid loss (see FORECAST.md).
 
 ## Data changes in this version
 

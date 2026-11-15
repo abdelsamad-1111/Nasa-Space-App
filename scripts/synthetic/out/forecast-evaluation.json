@@ -1,0 +1,147 @@
+{
+  "label": "SYNTHETIC DATA, research-based. Not real astronaut measurements. Not clinical validation.",
+  "testCrew": "seed 42, 20 synthetic people (never seen in training)",
+  "threshold": 0.8997113434,
+  "scenarios": {
+    "A": {
+      "title": "Main: default events",
+      "file": "synthetic-astronauts.csv",
+      "tasks": {
+        "infection": {
+          "episodes": 40,
+          "modelWarnedBeforePeak": 32,
+          "modelTypeRightAtFirstWarning": 29,
+          "modelMedianDaysBeforePeak": 1.0,
+          "rulesAlertedBeforePeak": 6,
+          "rulesMedianDaysBeforePeak": 1.0,
+          "episodesOnlyModelWarnedEarly": 26
+        },
+        "fluid_loss": {
+          "episodes": 20,
+          "modelWarnedBeforePeak": 18,
+          "modelTypeRightAtFirstWarning": 14,
+          "modelMedianDaysBeforePeak": 2.0,
+          "rulesAlertedBeforePeak": 7,
+          "rulesMedianDaysBeforePeak": 2.0,
+          "episodesOnlyModelWarnedEarly": 11
+        }
+      },
+      "normalDays": 2370,
+      "normalDayWarnings": 43,
+      "normalDayWarningPct": 1.8,
+      "warningsPerPersonPer30NormalDays": 0.54,
+      "warningDays": 212,
+      "warningDaysBySituation": {
+        "infection": 99,
+        "fluid_loss": 61,
+        "normal day": 43,
+        "sleep_debt": 9
+      }
+    },
+    "B": {
+      "title": "Assumed +1.0 \u00b0C temperature rise in flight",
+      "file": "synthetic-astronauts-tempshift.csv",
+      "tasks": {
+        "infection": {
+          "episodes": 40,
+          "modelWarnedBeforePeak": 32,
+          "modelTypeRightAtFirstWarning": 29,
+          "modelMedianDaysBeforePeak": 1.0,
+          "rulesAlertedBeforePeak": 33,
+          "rulesMedianDaysBeforePeak": 2.0,
+          "episodesOnlyModelWarnedEarly": 4
+        },
+        "fluid_loss": {
+          "episodes": 20,
+          "modelWarnedBeforePeak": 18,
+          "modelTypeRightAtFirstWarning": 14,
+          "modelMedianDaysBeforePeak": 2.0,
+          "rulesAlertedBeforePeak": 7,
+          "rulesMedianDaysBeforePeak": 2.0,
+          "episodesOnlyModelWarnedEarly": 11
+        }
+      },
+      "normalDays": 2370,
+      "normalDayWarnings": 44,
+      "normalDayWarningPct": 1.9,
+      "warningsPerPersonPer30NormalDays": 0.56,
+      "warningDays": 219,
+      "warningDaysBySituation": {
+        "infection": 102,
+        "fluid_loss": 61,
+        "normal day": 44,
+        "sleep_debt": 12
+      }
+    },
+    "C": {
+      "title": "Small events",
+      "file": "synthetic-astronauts-small.csv",
+      "tasks": {
+        "infection": {
+          "episodes": 40,
+          "modelWarnedBeforePeak": 26,
+          "modelTypeRightAtFirstWarning": 23,
+          "modelMedianDaysBeforePeak": 1.0,
+          "rulesAlertedBeforePeak": 3,
+          "rulesMedianDaysBeforePeak": 1.0,
+          "episodesOnlyModelWarnedEarly": 23
+        },
+        "fluid_loss": {
+          "episodes": 20,
+          "modelWarnedBeforePeak": 16,
+          "modelTypeRightAtFirstWarning": 13,
+          "modelMedianDaysBeforePeak": 2.0,
+          "rulesAlertedBeforePeak": 6,
+          "rulesMedianDaysBeforePeak": 2.5,
+          "episodesOnlyModelWarnedEarly": 11
+        }
+      },
+      "normalDays": 2370,
+      "normalDayWarnings": 44,
+      "normalDayWarningPct": 1.9,
+      "warningsPerPersonPer30NormalDays": 0.56,
+      "warningDays": 183,
+      "warningDaysBySituation": {
+        "infection": 78,
+        "fluid_loss": 52,
+        "normal day": 44,
+        "sleep_debt": 9
+      }
+    },
+    "D": {
+      "title": "Large events",
+      "file": "synthetic-astronauts-large.csv",
+      "tasks": {
+        "infection": {
+          "episodes": 40,
+          "modelWarnedBeforePeak": 36,
+          "modelTypeRightAtFirstWarning": 33,
+          "modelMedianDaysBeforePeak": 1.5,
+          "rulesAlertedBeforePeak": 13,
+          "rulesMedianDaysBeforePeak": 1.0,
+          "episodesOnlyModelWarnedEarly": 23
+        },
+        "fluid_loss": {
+          "episodes": 20,
+          "modelWarnedBeforePeak": 20,
+          "modelTypeRightAtFirstWarning": 15,
+          "modelMedianDaysBeforePeak": 2.0,
+          "rulesAlertedBeforePeak": 7,
+          "rulesMedianDaysBeforePeak": 2.0,
+          "episodesOnlyModelWarnedEarly": 13
+        }
+      },
+      "normalDays": 2370,
+      "normalDayWarnings": 42,
+      "normalDayWarningPct": 1.8,
+      "warningsPerPersonPer30NormalDays": 0.53,
+      "warningDays": 249,
+      "warningDaysBySituation": {
+        "infection": 125,
+        "fluid_loss": 71,
+        "normal day": 42,
+        "sleep_debt": 11
+      }
+    }
+  }
+}
